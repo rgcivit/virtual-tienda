@@ -6,7 +6,12 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './index.css';
+import { CartProvider } from './cardContext'; // Importa el provider
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<App />);
+root.render(
+  <CartProvider>
+    <App />
+  </CartProvider>
+);

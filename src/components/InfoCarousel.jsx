@@ -6,6 +6,7 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import iluminacionsolar from '../components/assets/iluminacionsolar.jpg';  // Ajusta la ruta según tu estructura
 import taladroscarrusel from '../components/assets/taladroscarrusel.jpg'
 import utensilloscarrusel from '../components/assets/utensilloscarrusel.jpg'
+import fotocarrusel1 from '../components/assets/fotocarrusel1.png';
 const InfoCarousel = () => {
   const [activeStep, setActiveStep] = useState(0);
   
@@ -13,7 +14,7 @@ const InfoCarousel = () => {
     {
       title: "Ofertas Especiales",
       description: "Descuentos de hasta 50% en electrónicos",
-      imageUrl: iluminacionsolar  // Usa la variable importada
+      imageUrl: fotocarrusel1  // Usa la variable importada
     },
     {
       title: "Nuevos Productos",
