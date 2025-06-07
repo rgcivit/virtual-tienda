@@ -1,4 +1,4 @@
-import React from 'react'; // Debe estar al inicio de cada archivo JSX
+//import React from 'react'; // Debe estar al inicio de cada archivo JSX
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
