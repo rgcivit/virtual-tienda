@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Typography, CircularProgress } from '@mui/material';
+import { Wallet } from '@mercadopago/sdk-react';
 import ensendedorusb from "./assets/ensendedorusb.png";
 import placeholder from "./assets/product-placeholder.png";
 import kitsoldador from "./assets/kitsoldador.jpg";
@@ -204,15 +205,16 @@ const ProductDetailPage = () => {
     );
   }
 
-  return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h4">{product.name}</Typography>
-      <Typography variant="subtitle1" color="text.secondary">
-        {product.price}
-       </Typography>
-       <Box
+  
+return (
+  <Box sx={{ p: 3 }}>
+    <Typography variant="h4">{product.name}</Typography>
+    <Typography variant="subtitle1" color="text.secondary">
+      {product.price}
+    </Typography>
+    <Box
       component="img"
-      src={product.detailImage} 
+      src={product.detailImage}
       alt={product.name}
       sx={{
         maxWidth: '100%',
@@ -224,10 +226,17 @@ const ProductDetailPage = () => {
         maxHeight: 400
       }}
     />
-    
+
     <Typography variant="body1" paragraph>
       {product.longDescription || product.description}
     </Typography>
+     {/* BOTÓN DE MERCADO PAGO */}
+    <Box sx={{ mt: 3 }}>
+      <Wallet
+        initialization={{ preferenceId: "TU_PREFERENCE_ID" }} // Reemplaza por tu preferenceId real
+        customization={{ texts: { valueProp: 'smart_option' } }}
+      />
+    </Box>
     </Box>
   )
 };
