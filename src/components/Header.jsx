@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {  useNavigate } from 'react-router-dom'; 
+import {  useNavigate } from 'react-router-dom';
+ import { useCart } from '../context/CartContext';
 // En Header.jsx
 import { Link } from 'react-router-dom';
 import ensendedorusb from "./assets/ensendedorusb.png";
@@ -238,6 +239,7 @@ const Logo = ({ onClick }) => {
 
 const Header = () => {
   const theme = useTheme();
+   const { cart } = useCart();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [elevated, setElevated] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -245,6 +247,7 @@ const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const searchRef = useRef(null);
   const navigate = useNavigate(); // Añadimos el hook de navegación
+  
   
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
@@ -553,7 +556,7 @@ const Header = () => {
                 transition: 'all 0.3s ease'
               }}
             >
-              <Badge badgeContent={3} color="error">
+              <Badge badgeContent={cart.length} color="error">
                 <ShoppingCart />
               </Badge>
             </IconButton>
@@ -586,5 +589,5 @@ const Header = () => {
     </ClickAwayListener>
   );
 };
-
+export { mockProducts };
 export default Header;

@@ -1,37 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importar Link
-import { Card, CardMedia, CardContent, Typography, Button, CardActions, Chip } from '@mui/material';
-import ensendedorusb from "./assets/ensendedorusb.png";
+import { useCart } from '../context/CartContext';
+import { Link } from 'react-router-dom';
+import { Card, CardMedia, CardContent, Typography, Button, CardActions } from '@mui/material';
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
   return (
-    <Card 
-      component={Link} // Convertir toda la Card en un enlace
-      to={`/products/${product.id}`} // Ruta dinámica con ID del producto
-      sx={{ 
-        height: '100%', 
-        display: 'flex', 
+    <Card
+      component={Link}
+      to={`/products/${product.id}`}
+      sx={{
+        height: '100%',
+        display: 'flex',
         flexDirection: 'column',
         transition: 'transform 0.3s',
-        textDecoration: 'none', // Eliminar subrayado de enlace
+        textDecoration: 'none',
         '&:hover': {
           transform: 'scale(1.03)',
           boxShadow: 6
         }
       }}
     >
-      {/* ... (el resto del contenido permanece igual) ... */}
+      {/* ...otros elementos... */}
       <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
         <Typography variant="h6" color="primary">
-          ${product.price.toFixed(2)}
+          {product.price}
         </Typography>
-        <Button 
-          size="small" 
-          variant="contained" 
+        <Button
+          size="small"
+          variant="contained"
           color="primary"
-          onClick={(e) => e.stopPropagation()} // Evitar que el clic en el botón active el enlace de la tarjeta
+          onClick={e => {
+            e.preventDefault(); // Evita la navegación al detalle
+            e.stopPropagation();
+            console.log('Añadiendo:', product);
+            addToCart(product); // Agrega el producto al carrito
+          }}
         >
-          Añadir
         </Button>
       </CardActions>
     </Card>
