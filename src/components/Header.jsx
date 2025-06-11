@@ -34,9 +34,9 @@ import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetall
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 import { auth, provider, signInWithPopup } from '../firebase'; // Ajusta la ruta si es necesario
+import { onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 
-
-// Cambia todos los <a href="..."> por <Link to="...">
 import { 
   AppBar, 
   Toolbar, 
@@ -70,18 +70,15 @@ import { useTheme } from '@mui/material/styles';
 
 // Importa tu logo
 import logotiendavirtual from './assets/logotiendavirtual.png';
-const handleGoogleRegister = async () => {
+
+const handleLogout = async () => {
   try {
-    const result = await signInWithPopup(auth, provider);
-    // Aquí tienes acceso a los datos del usuario:
-    const user = result.user;
-    console.log("Usuario registrado:", user);
-    // Puedes guardar el usuario en tu estado global/contexto si lo deseas
+    await signOut(auth);
+    setUser(null);
   } catch (error) {
-    console.error("Error en el registro con Google:", error);
+    console.error("Error al cerrar sesión:", error);
   }
 };
-
 // Mock de productos para la búsqueda (deberías importar tus productos reales)
 const mockProducts = [
  {
@@ -277,7 +274,7 @@ const Logo = ({ onClick }) => {
 
 const Header = () => {
   const theme = useTheme();
-   const { cart } = useCart();
+  const { cart } = useCart();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [elevated, setElevated] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -285,11 +282,21 @@ const Header = () => {
   const [searchResults, setSearchResults] = useState([]);
   const searchRef = useRef(null);
   const navigate = useNavigate(); // Añadimos el hook de navegación
-  
-  
+  const [user, setUser] = useState(null);
+
+  const handleGoogleRegister = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user); // Guarda el usuario autenticado
+      console.log("Usuario registrado:", result.user);
+    } catch (error) {
+      console.error("Error en el registro con Google:", error);
+    }
+  };
+
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
-      navigate('/');
+    navigate('/');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -326,6 +333,12 @@ const Header = () => {
       setSearchResults([]);
     }
   };
+  useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    setUser(user);
+  });
+  return () => unsubscribe();
+}, []);
 
   // Filtrar productos según el término de búsqueda
   useEffect(() => {
@@ -333,15 +346,15 @@ const Header = () => {
       setSearchResults([]);
       return;
     }
-    
+
     const term = searchTerm.toLowerCase();
-    const results = mockProducts.filter(product => 
-      product.name.toLowerCase().includes(term) || 
+    const results = mockProducts.filter(product =>
+      product.name.toLowerCase().includes(term) ||
       (product.tags && product.tags.some(tag => tag.toLowerCase().includes(term)))
-        // Lógica para hacer una búsqueda en el backend o en un array
-  
+      // Lógica para hacer una búsqueda en el backend o en un array
+
     );
-    
+
     setSearchResults(results.slice());
   }, [searchTerm]);
 
@@ -357,11 +370,11 @@ const Header = () => {
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <AppBar 
+      <AppBar
         position="sticky"
-        sx={{ 
-          width: '100%', 
-          bgcolor: 'background.paper', 
+        sx={{
+          width: '100%',
+          bgcolor: 'background.paper',
           boxShadow: elevated ? theme.shadows[3] : 'none',
           borderBottom: elevated ? 'none' : '1px solid rgba(0, 0, 0, 0.12)',
           py: 1,
@@ -370,8 +383,8 @@ const Header = () => {
           zIndex: theme.zIndex.appBar + 100
         }}
       >
-        <Toolbar sx={{ 
-          display: 'flex', 
+        <Toolbar sx={{
+          display: 'flex',
           justifyContent: 'space-between',
           maxWidth: 1200,
           margin: '0 auto',
@@ -380,22 +393,22 @@ const Header = () => {
           flexDirection: isMobile && searchOpen ? 'column' : 'row'
         }}>
           {/* Logo con función para scroll suave */}
-          <Box sx={{ 
-            display: 'flex', 
+          <Box sx={{
+            display: 'flex',
             alignItems: 'center',
             mb: isMobile && searchOpen ? 2 : 0
           }}>
             <Logo onClick={scrollToTop} />
-            
+
             {/* En móviles: Botón de búsqueda cuando no está abierto */}
             {isMobile && !searchOpen && (
-              <IconButton 
+              <IconButton
                 onClick={toggleSearch}
-                sx={{ 
+                sx={{
                   ml: 1,
                   color: 'text.secondary',
-                  '&:hover': { 
-                    color: 'primary.main', 
+                  '&:hover': {
+                    color: 'primary.main',
                     backgroundColor: 'rgba(63, 81, 181, 0.1)',
                   }
                 }}
@@ -404,9 +417,9 @@ const Header = () => {
               </IconButton>
             )}
           </Box>
-          
+
           {/* Buscador */}
-          <Box sx={{ 
+          <Box sx={{
             position: 'relative',
             width: isMobile ? '100%' : '40%',
             maxWidth: 600,
@@ -446,7 +459,7 @@ const Header = () => {
                 }
               }}
             />
-            
+
             {/* Resultados de búsqueda */}
             {searchResults.length > 0 && (
               <Fade in={searchResults.length > 0}>
@@ -463,69 +476,68 @@ const Header = () => {
                 }}>
                   <List>
                     {searchResults.map(product => (
-                     // En la sección de resultados de búsqueda, cambiamos el ListItem por:
-<ListItem 
-  key={product.id}
-  
-  component={Link} // Convertimos el ListItem en un enlace
-  to={`/products/${product.id}`} // Ruta a la que dirige
-  onClick={() => {
-    setSearchOpen(false); // Cerramos el panel de búsqueda
-    setSearchTerm(''); // Limpiamos el término de búsqueda
-    setSearchResults([]); // Limpiamos los resultados
-  }}
-  sx={{
-    '&:hover': {
-      backgroundColor: 'action.hover'
-    }
-  }}
->
-  <ListItemAvatar>
-    <Avatar 
-      alt={product.name} 
-      src={product.image} 
-      variant="rounded"
-    />
-  </ListItemAvatar>
-  <ListItemText
-    primary={product.name}
-    secondary={
-      <React.Fragment>
-        <Typography
-          sx={{ display: 'inline' }}
-          component="span"
-          variant="body2"
-          color="text.primary"
-        >
-          {product.price}
-        </Typography>
-        {` — ${product.description}`}
-      </React.Fragment>
-    }
-  />
-</ListItem>
+                      // En la sección de resultados de búsqueda, cambiamos el ListItem por:
+                      <ListItem
+                        key={product.id}
+                        component={Link} // Convertimos el ListItem en un enlace
+                        to={`/products/${product.id}`} // Ruta a la que dirige
+                        onClick={() => {
+                          setSearchOpen(false); // Cerramos el panel de búsqueda
+                          setSearchTerm(''); // Limpiamos el término de búsqueda
+                          setSearchResults([]); // Limpiamos los resultados
+                        }}
+                        sx={{
+                          '&:hover': {
+                            backgroundColor: 'action.hover'
+                          }
+                        }}
+                      >
+                        <ListItemAvatar>
+                          <Avatar
+                            alt={product.name}
+                            src={product.image}
+                            variant="rounded"
+                          />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={product.name}
+                          secondary={
+                            <React.Fragment>
+                              <Typography
+                                sx={{ display: 'inline' }}
+                                component="span"
+                                variant="body2"
+                                color="text.primary"
+                              >
+                                {product.price}
+                              </Typography>
+                              {` — ${product.description}`}
+                            </React.Fragment>
+                          }
+                        />
+                      </ListItem>
                     ))}
                   </List>
                 </Paper>
               </Fade>
             )}
           </Box>
-          
+
           {/* Botones de redes sociales y acciones */}
-          <Box sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
+          <Box sx={{
+            display: 'flex',
+            alignItems: 'center',
             gap: { xs: 0.5, sm: 1 },
             ml: isMobile ? 0 : 1
           }}>
             {/* En escritorio: Botón de búsqueda */}
             {!isMobile && (
-              <IconButton 
+              <IconButton
                 onClick={toggleSearch}
-                sx={{ 
+                sx={{
                   color: 'text.secondary',
-                  '&:hover': { 
-                    color: 'primary.main', 
+                  '&:hover': {
+                    color: 'primary.main',
                     backgroundColor: 'rgba(63, 81, 181, 0.1)',
                   }
                 }}
@@ -533,16 +545,16 @@ const Header = () => {
                 <Search />
               </IconButton>
             )}
-            
+
             {/* Botones de redes sociales */}
             <Box sx={{ display: 'flex', mr: { xs: 0.5, sm: 2 } }}>
-              <IconButton 
+              <IconButton
                 onClick={openWhatsApp}
-                aria-label="Contactar por WhatsApp" 
-                sx={{ 
+                aria-label="Contactar por WhatsApp"
+                sx={{
                   color: 'text.secondary',
-                  '&:hover': { 
-                    color: '#25D366', 
+                  '&:hover': {
+                    color: '#25D366',
                     backgroundColor: 'rgba(37, 211, 102, 0.1)',
                     transform: 'scale(1.1)'
                   },
@@ -551,12 +563,12 @@ const Header = () => {
               >
                 <WhatsApp />
               </IconButton>
-              <IconButton 
+              <IconButton
                 aria-label="Visitar Instagram"
-                sx={{ 
+                sx={{
                   color: 'text.secondary',
-                  '&:hover': { 
-                    color: '#E1306C', 
+                  '&:hover': {
+                    color: '#E1306C',
                     backgroundColor: 'rgba(225, 48, 108, 0.1)',
                     transform: 'scale(1.1)'
                   },
@@ -565,12 +577,12 @@ const Header = () => {
               >
                 <Instagram />
               </IconButton>
-              <IconButton 
+              <IconButton
                 aria-label="Visitar Facebook"
-                sx={{ 
+                sx={{
                   color: 'text.secondary',
-                  '&:hover': { 
-                    color: '#1877F2', 
+                  '&:hover': {
+                    color: '#1877F2',
                     backgroundColor: 'rgba(24, 119, 242, 0.1)',
                     transform: 'scale(1.1)'
                   },
@@ -580,14 +592,14 @@ const Header = () => {
                 <Facebook />
               </IconButton>
             </Box>
-            
+
             {/* Botón de carrito */}
-            <IconButton 
+            <IconButton
               aria-label="Ver carrito de compras"
-              sx={{ 
+              sx={{
                 color: 'text.secondary',
-                '&:hover': { 
-                  color: 'primary.main', 
+                '&:hover': {
+                  color: 'primary.main',
                   backgroundColor: 'rgba(63, 81, 181, 0.1)',
                   transform: 'scale(1.1)'
                 },
@@ -598,35 +610,55 @@ const Header = () => {
                 <ShoppingCart />
               </Badge>
             </IconButton>
-            
-            {/* Botón de registro */}
-            {!isMobile && (
-              <Button 
-  variant="outlined" 
-  startIcon={<Person />}
-  onClick={handleGoogleRegister}
-  sx={{
-    ml: 1,
-    color: 'primary.main',
-    borderColor: 'primary.main',
-    '&:hover': {
-      backgroundColor: 'rgba(63, 81, 181, 0.1)',
-      borderColor: 'primary.dark',
-      transform: 'translateY(-2px)',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-    },
-    transition: 'all 0.3s ease',
-    fontSize: { xs: '0.7rem', sm: '0.875rem' }
-  }}
->
-  Registro
-</Button>
-            )}
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </ClickAwayListener>
+
+  {/* Botón de registro */}
+  {!user ? (
+      <Button
+        variant="outlined"
+        startIcon={<Person />}
+        onClick={handleGoogleRegister}
+        sx={{
+          ml: 1,
+          color: 'primary.main',
+          borderColor: 'primary.main',
+          '&:hover': {
+            backgroundColor: 'rgba(63, 81, 181, 0.1)',
+            borderColor: 'primary.dark',
+            transform: 'translateY(-2px)',
+            boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+          },
+          transition: 'all 0.3s ease',
+          fontSize: { xs: '0.7rem', sm: '0.875rem' }
+        }}
+      >
+        Registro
+      </Button>
+    ) : (
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, ml: 2 }}>
+        <Avatar src={user.photoURL} alt={user.displayName} sx={{ width: 32, height: 32 }} />
+        <Typography variant="body2" sx={{ fontWeight: 600 }}>
+          {user.displayName}
+        </Typography>
+        <Button
+          variant="text"
+          color="secondary"
+          onClick={handleLogout}
+          sx={{
+            ml: 1,
+            fontSize: { xs: '0.7rem', sm: '0.875rem' }
+          }}
+        >
+          Cerrar sesión
+        </Button>
+      </Box>
+    )
+  }
+        </Box>
+      </Toolbar>
+    </AppBar>
+  </ClickAwayListener>
   );
 };
+
 export { mockProducts };
 export default Header;
