@@ -611,91 +611,91 @@ const Header = () => {
                 <ShoppingCart />
               </Badge>
             </IconButton>
+          </Box>
 
-            {/* Botón de registro / usuario */}
+        {/* Botón de registro / usuario */}
+        <Box
+          sx={{
+            display: isMobile ? 'block' : 'flex',
+            alignItems: 'center',
+            gap: 1,
+            ml: isMobile ? 0 : 2,
+            mt: isMobile ? 1 : 0,
+            width: isMobile ? '100%' : 'auto',
+            textAlign: isMobile ? 'center' : 'left'
+          }}
+        >
+          {!user ? (
+            <Button
+              variant="outlined"
+              startIcon={<Person />}
+              onClick={handleGoogleRegister}
+              fullWidth={isMobile}
+              sx={{
+                color: 'primary.main',
+                borderColor: 'primary.main',
+                width: isMobile ? '100%' : 'auto',
+                justifyContent: isMobile ? 'center' : 'flex-start',
+                fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                mt: isMobile ? 1 : 0,
+                mb: isMobile ? 1 : 0,
+                '&:hover': {
+                  backgroundColor: 'rgba(63, 81, 181, 0.1)',
+                  borderColor: 'primary.dark',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+                },
+                transition: 'all 0.3s ease'
+              }}
+            >
+              Registro
+            </Button>
+          ) : (
             <Box
               sx={{
                 display: isMobile ? 'block' : 'flex',
                 alignItems: 'center',
                 gap: 1,
-                ml: isMobile ? 0 : 2,
-                mt: isMobile ? 1 : 0,
                 width: isMobile ? '100%' : 'auto',
                 textAlign: isMobile ? 'center' : 'left'
               }}
             >
-              {!user ? (
-                <Button
-                  variant="outlined"
-                  startIcon={<Person />}
-                  onClick={handleGoogleRegister}
-                  fullWidth={isMobile}
-                  sx={{
-                    color: 'primary.main',
-                    borderColor: 'primary.main',
-                    width: isMobile ? '100%' : 'auto',
-                    justifyContent: isMobile ? 'center' : 'flex-start',
-                    fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                    mt: isMobile ? 1 : 0,
-                    mb: isMobile ? 1 : 0,
-                    '&:hover': {
-                      backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                      borderColor: 'primary.dark',
-                      transform: 'translateY(-2px)',
-                      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-                    },
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  Registro
-                </Button>
-              ) : (
-                <Box
-                  sx={{
-                    display: isMobile ? 'block' : 'flex',
-                    alignItems: 'center',
-                    gap: 1,
-                    width: isMobile ? '100%' : 'auto',
-                    textAlign: isMobile ? 'center' : 'left'
-                  }}
-                >
-                  <Avatar
-                    src={user.photoURL}
-                    alt={user.displayName}
-                    sx={{ width: 32, height: 32, mx: isMobile ? 'auto' : 0, mb: isMobile ? 1 : 0 }}
-                  />
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontWeight: 600,
-                      display: 'block',
-                      mb: isMobile ? 1 : 0
-                    }}
-                  >
-                    {user.displayName}
-                  </Typography>
-                  <Button
-                    variant="text"
-                    color="secondary"
-                    onClick={handleLogout}
-                    fullWidth={isMobile}
-                    sx={{
-                      fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                      width: isMobile ? '100%' : 'auto',
-                      justifyContent: isMobile ? 'center' : 'flex-start'
-                    }}
-                  >
-                    Cerrar sesión
-                  </Button>
-                </Box>
-              )}
+              <Avatar
+                src={user.photoURL}
+                alt={user.displayName}
+                sx={{ width: 32, height: 32, mx: isMobile ? 'auto' : 0, mb: isMobile ? 1 : 0 }}
+              />
+              <Typography
+                variant="body2"
+                sx={{
+                  fontWeight: 600,
+                  display: 'block',
+                  mb: isMobile ? 1 : 0
+                }}
+              >
+                {user.displayName}
+              </Typography>
+              <Button
+                variant="text"
+                color="secondary"
+                onClick={handleLogout}
+                fullWidth={isMobile}
+                sx={{
+                  fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                  width: isMobile ? '100%' : 'auto',
+                  justifyContent: isMobile ? 'center' : 'flex-start'
+                }}
+              >
+                Cerrar sesión
+              </Button>
             </Box>
-          </Box>
+          )}
+        </Box>
       </Toolbar>
-      </AppBar>
-      </>
-      </ClickAwayListener>
-    );
+    </AppBar>
+  </>
+  </ClickAwayListener>
+);
 };
 
 export { mockProducts };
