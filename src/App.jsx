@@ -6,7 +6,7 @@ import InfoCarousel from './components/InfoCarousel';
 import ProductGrid from './components/ProductGrid';
 import ProductDetailPage from './components/ProductDetailPage';
 import { Box, Typography } from '@mui/material';
-import { CartProvider } from './context/CartContext';
+import { CartProvider } from './context/cartContext';
 
 const App = () => {
   return (

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {  useNavigate } from 'react-router-dom';
- import { useCart } from '../context/CartContext';
-// En Header.jsx
+import { useCart } from '../context/cartContext';
 import { Link } from 'react-router-dom';
 import ensendedorusb from "./assets/ensendedorusb.png";
 import placeholder from "./assets/product-placeholder.png";
@@ -23,6 +22,8 @@ import inversordecorriente from "./assets/inversordecorriente.jpg";
 import inversordecorrientedetalle from "./assets/inversordecorrientedetalle.jpg";
 import intercomunicadorcasco from "./assets/intercomunicadorcasco.jpg";
 import intercomunicadorcascodetalle from "./assets/intercomunicadorcascodetalle.jpg";
+import nerdminer1 from "./assets/nerdminer1.webp";
+import nerdminer3detalle from "./assets/nerdminer3detalle.webp";
 
 // Cambia todos los <a href="..."> por <Link to="...">
 import { 
@@ -160,14 +161,15 @@ const mockProducts = [
             tags: ["Inalámbrica", "18V", "Sin escobillas", "Luz LED", "Precisión"]
           },
           {
-            id: 11,
-            name: "Pistola de Calor 2000W Profesional",
-            description: "Pistola de calor con temperatura ajustable de 50°C a 600°C.",
-            longDescription: "Ideal para decapar pintura, soldar plástico, secar superficies y más. Dos velocidades de aire y dos salidas de calor. Sistema de enfriamiento rápido. Empuñadura fría y soporte de mesa integrado. Incluye boquillas intercambiables.",
-            price: "$45.990",
-            image: placeholder,
-            tags: ["2000W", "Temperatura ajustable", "2 velocidades", "Enfriamiento rápido", "Boquillas"]
-          },
+               id: 11,
+               name: "Nerdminer 2 Miner Btc Solo Lotter 55-60 Kh/s",
+               description: "Diseño exclusivo: la máquina de lotería BTC adopta la última tecnología y adopta un modo Solo único, lo que te brinda la oportunidad de obtener todo en un área.",
+               longDescription: "puedes disfrutarlo exclusivamente (actualmente 3.125) sin compartirlo con otros! Alta eficiencia: el bajo consumo reduce considerablemente sus costos, ¡así que no tiene que preocuparse por las facturas de electricidad! Debido a los diferentes lotes, puede haber diferencias en la apariencia, el color y el texto impreso del producto, lo que no afectará al uso.Color: color aleatorio (el color es aleatorio, no se aceptan especificaciones)Material: PCB.",
+               price: "$69.990",
+               image: nerdminer1,
+               detailImage: nerdminer3detalle,
+               tags: ["Minería BTC ", "Solo Mining ", "Bajo consumo", "Pantalla integrada ", "Modo lotería"]
+             },
           {
             id: 12,
             name: "Compresor de Aire Portátil 24L",
@@ -304,7 +306,7 @@ const Header = () => {
   
     );
     
-    setSearchResults(results.slice(0, 15));
+    setSearchResults(results.slice());
   }, [searchTerm]);
 
   // Efecto para detectar el scroll
