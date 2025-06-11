@@ -33,7 +33,7 @@ import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
-
+import { auth, provider, signInWithPopup } from '../firebase'; // Ajusta la ruta si es necesario
 
 
 // Cambia todos los <a href="..."> por <Link to="...">
@@ -70,6 +70,17 @@ import { useTheme } from '@mui/material/styles';
 
 // Importa tu logo
 import logotiendavirtual from './assets/logotiendavirtual.png';
+const handleGoogleRegister = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    // Aquí tienes acceso a los datos del usuario:
+    const user = result.user;
+    console.log("Usuario registrado:", user);
+    // Puedes guardar el usuario en tu estado global/contexto si lo deseas
+  } catch (error) {
+    console.error("Error en el registro con Google:", error);
+  }
+};
 
 // Mock de productos para la búsqueda (deberías importar tus productos reales)
 const mockProducts = [
@@ -488,7 +499,7 @@ const Header = () => {
         >
           {product.price}
         </Typography>
-        {` — ${product.category}`}
+        {` — ${product.description}`}
       </React.Fragment>
     }
   />
@@ -591,24 +602,25 @@ const Header = () => {
             {/* Botón de registro */}
             {!isMobile && (
               <Button 
-                variant="outlined" 
-                startIcon={<Person />}
-                sx={{
-                  ml: 1,
-                  color: 'primary.main',
-                  borderColor: 'primary.main',
-                  '&:hover': {
-                    backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                    borderColor: 'primary.dark',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-                  },
-                  transition: 'all 0.3s ease',
-                  fontSize: { xs: '0.7rem', sm: '0.875rem' }
-                }}
-              >
-                Registro
-              </Button>
+  variant="outlined" 
+  startIcon={<Person />}
+  onClick={handleGoogleRegister}
+  sx={{
+    ml: 1,
+    color: 'primary.main',
+    borderColor: 'primary.main',
+    '&:hover': {
+      backgroundColor: 'rgba(63, 81, 181, 0.1)',
+      borderColor: 'primary.dark',
+      transform: 'translateY(-2px)',
+      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+    },
+    transition: 'all 0.3s ease',
+    fontSize: { xs: '0.7rem', sm: '0.875rem' }
+  }}
+>
+  Registro
+</Button>
             )}
           </Box>
         </Toolbar>
