@@ -14,7 +14,7 @@ const InfoCarousel = () => {
   const slides = [
     {
       title: "Ofertas Especiales",
-      description: "Descuentos de hasta 50% en electrónicos",
+      description: "En productos electrónicos",
       imageUrl: fotocarrusel1
     },
     {

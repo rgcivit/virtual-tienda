@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom'
 
 // Importa tus imágenes estáticamente
 import ensendedorusb from "./assets/ensendedorusb.png";
-import placeholder from "./assets/product-placeholder.png";
+import compresor from "./assets/compresor.png";
 import kitsoldador from "./assets/kitsoldador.jpg";
 import ensendedordetalle from "./assets/ensendedordetalle.png"; 
 import kitsoldadordetalle from "./assets/kitsoldadordetalle.jpg"; 
@@ -42,6 +42,13 @@ import intercomunicadorcasco from "./assets/intercomunicadorcasco.jpg";
 import intercomunicadorcascodetalle from "./assets/intercomunicadorcascodetalle.jpg";
 import nerdminer1 from "./assets/nerdminer1.webp";
 import nerdminer3detalle from "./assets/nerdminer3detalle.webp";
+import compresordetalle from "./assets/compresordetalle.png";
+import lamparadeemergencia from "./assets/lamparadeemergencia.webp";
+import lamparadeemergenciadetalle from "./assets/lamparadeemergenciadetalle.webp";
+import powerbanksolar from "./assets/powerbanksolar.png";
+import powerbanksolardetalle from "./assets/powerbanksolardetalle.jpg";
+import linternamultifuncional from "./assets/linternamultifuncional.jpg";
+import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 
 // Componente ProductCard modificado
 const ProductCard = ({ product, onQuickView }) => {
@@ -495,11 +502,11 @@ const QuickViewModal = ({ product, open, onClose }) => {
                 </Typography>
                 
                 <ul style={{ paddingLeft: 20, marginBottom: 20 }}>
-                  <li><Typography variant="body1">Haz láser de 360° en horizontal</Typography></li>
-                  <li><Typography variant="body1">Precisión: ±1mm a 5m</Typography></li>
-                  <li><Typography variant="body1">Autonivelante en ±4°</Typography></li>
-                  <li><Typography variant="body1">Funciona con baterías AA</Typography></li>
-                  <li><Typography variant="body1">Resistente al agua y polvo (IP54)</Typography></li>
+                  <li><Typography variant="body1">Tipo de bateríaLi-ion</Typography></li>
+                  <li><Typography variant="body1">Tipo de alimentaciónSolar</Typography></li>
+                  <li><Typography variant="body1">Tipo de bateríaLi-ion</Typography></li>
+                  <li><Typography variant="body1">Potencia100 lm</Typography></li>
+                  <li><Typography variant="body1">Duración máxima12 h</Typography></li>
                 </ul>
               </>
             )}
@@ -631,39 +638,43 @@ const ProductGrid = () => {
       tags: ["Minería BTC ", "Solo Mining ", "Bajo consumo", "Pantalla integrada ", "Modo lotería"]
     },
     {
-      id: 12,
-      name: "Compresor de Aire Portátil 24L",
-      description: "Compresor de aire silencioso con depósito de 24 litros.",
-      longDescription: "Potencia de 2HP con presión máxima de 8 bar. Nivel de ruido reducido (72 dB). Ruedas y asa para fácil transporte. Ideal para inflar neumáticos, uso con herramientas neumáticas y trabajos de pintura. Incluye kit de accesorios básicos.",
-      price: "$159.990",
-      image: placeholder,
-      tags: ["24L", "Silencioso", "Portátil", "8 bar", "Accesorios"]
-    },
+               id: 12,
+               name: "Compresor de Aire Portátil 12v",
+               description: "El Compresor De Aire Calgary 150 Psi Para Vehículos 12v.",
+               longDescription: "Potencia de 2HP con presión máxima de 8 bar. Nivel de ruido reducido (72 dB). Ruedas y asa para fácil transporte. Ideal para inflar neumáticos, uso con herramientas neumáticas y trabajos de pintura. Incluye kit de accesorios básicos.El Compresor De Aire Calgary 150 Psi Para Vehículos 12v/ 215144 Color Plateado – 271017 Frecuencia 150psi-213001 C44 es un dispositivo pequeño, ligero y versátil. Este mini compresor de aire portátil de 12v infla rápidamente neumáticos, pelotas, colchones de aire deportivos y juguetes inflables. Su motor de alta calidad comprime el aire en su tanque. Cuenta con un medidor de presión incorporado que permite comprobar la presión de los neumáticos en cualquier momento. Se conecta a un sistema de coche 12v para las reparaciones o la inflación on-the-go.",
+               price: "$40.000",
+               image: compresor,
+               detailImage: compresordetalle,
+               tags: ["24L", "Silencioso", "Portátil", "8 bar", "Accesorios"]
+             },
     {
       id: 13,
-      name: "Destornillador Eléctrico Recargable",
-      description: "Destornillador inalámbrico con par ajustable y luz LED.",
-      longDescription: "Tamaño compacto ideal para trabajos en espacios reducidos. Par ajustable en 10 posiciones. Batería de litio con indicador de carga. Luz LED para iluminar la zona de trabajo. Incluye 15 puntas intercambiables y cargador USB.",
-      price: "$29.990",
-      image: placeholder,
-      tags: ["Recargable", "Par ajustable", "Luz LED", "15 puntas", "Compacto"]
+      name: "Luz De Emergencia Led Solar 5 Faros 2029",
+      description: "Ilumina tus espacios de una manera eficiente y ecológica con la Ampolleta Solar Led Recargable de 5 Caras.",
+      longDescription: "Este innovador modelo proporciona una iluminación cálida y acogedora, ideal para patios, jardines o ambientes interiores que requieren un toque especial. Su forma de bulbo 5 caras maximiza la emisión de luz, brindando una cobertura óptima en cualquier área.Con tecnología LED, esta ampolleta no solo es amigable con el medio ambiente, sino que también ofrece una duración prolongada, permitiéndote disfrutar de sus beneficios sin preocupaciones. Funciona con un sistema de recarga solar, lo que la hace perfecta para ubicaciones donde la electricidad puede ser limitada o para aquellos que buscan reducir su huella de carbono.El foco Solar Led Recargable es fácil de instalar en cualquier lugar, gracias a su diseño con rosca colgante. No requiere conexión a Wi-Fi ni compatibles con asistentes virtuales, lo que simplifica su uso y mantenimiento. Con este producto, obtienes una iluminación funcional y decorativa que se adapta a diversas necesidades y estilos, ayudándote a crear ambientes únicos y confortables..",
+      price: "$10.990",
+      image: lamparadeemergencia,
+      detailImage: lamparadeemergenciadetalle,
+      tags: ["Recargable", "Material: plástico ABS", "Luz LED", "Ángulo de luz: 360 grados", "Lúmenes: 400"]
     },
     {
-      id: 14,
-      name: "Set de Brocas para Metal y Hormigón",
-      description: "Juego de 25 brocas profesionales para diferentes materiales.",
-      longDescription: "Incluye brocas para metal, hormigón, madera y vidrio. Punta de carburo de tungsteno para máxima durabilidad. Diseño de 3 cortes para perforación rápida y precisa. Estuche de plástico resistente para organización.",
-      price: "$24.990",
-      image: placeholder,
-      tags: ["25 brocas", "Metal/Hormigón", "Carburo tungsteno", "3 cortes", "Estuche"]
-    },
+                   id: 14,
+                   name: "Power Bank Solar y Corriente con 4 Cables de 20.000Mah",
+                   description: "La Batería Genérica Power Bank Solar de 20,000mAh.",
+                   longDescription: "Es la solución ideal para quienes buscan energía portátil y confiable en cualquier momento y lugar. Con su capacidad de 20,000mAh, podrás cargar tus dispositivos múltiples veces, asegurando que nunca te quedes sin batería, ya sea en un viaje, en el campo o en la ciudad. Power bank con linterna.Este modelo es compatible con todas las marcas y modelos de celulares, lo que la convierte en una opción versátil para cualquier usuario. Además, incluye cuatro cables, lo que facilita la carga de diferentes dispositivos sin necesidad de llevar accesorios adicionales.Su diseño solar permite recargar la batería utilizando la energía del sol, lo que la hace perfecta para actividades al aire libre. Con esta batería, no solo estarás cuidando tus dispositivos, sino también el medio ambiente al optar por una fuente de energía renovable.La Batería Genérica Power Bank Solar es compacta y ligera, lo que la hace fácil de transportar. No importa si eres un aventurero, un estudiante o un profesional en movimiento, esta batería se adaptará a tus necesidades y te brindará la tranquilidad de tener energía siempre a tu alcance.Color:  Negro y Blanco.",
+                   price: "$26.990",
+                   image: powerbanksolar,
+                   detailImage: powerbanksolardetalle,
+                   tags: ["Capacidad: 20000 mAh", "Carga solar incluida", "Puertos: 2 USB, 1 MicroUSB, 1 Tipo C", "Compatible con Android, iPhone y más", "Protección contra sobrecarga y cortocircuito"]
+                 },
     {
       id: 15,
-      name: "Nivel Láser Autonivelante 360°",
-      description: "Nivel láser profesional con haz de 360° en horizontal.",
-      longDescription: "Precisión de ±1mm a 5m. Autonivelante en ±4°. Funcionamiento con baterías AA. Modo pulsado para mayor visibilidad. Resistente al agua y polvo (IP54). Incluye trípode ajustable y estuche de transporte.",
-      price: "$79.990",
-      image: placeholder,
+      name: "Linterna Foco Multifuncional Solar o Recargable USB°",
+      description: "Linterna foco solar o recargable multifuncionall.",
+      longDescription: "es la solución ideal para quienes buscan versatilidad y eficiencia en iluminación. Diseñada para uso doméstico, esta linterna es perfecta tanto para interiores como exteriores, adaptándose a diversas necesidades. Su alimentación solar y recargable garantiza un uso prolongado, permitiendo disfrutar de hasta 5 horas de luz continua.Equipado con tecnología LED, este modelo ofrece tres modos de cambio de luz, lo que permite ajustar la intensidad según la situación. Con un diseño compacto de 16 cm de largo, es fácil de transportar y almacenar. Además, su resistencia al polvo asegura un rendimiento óptimo en diferentes entornos.La carga USB facilita la recarga, brindando comodidad y rapidez. Ideal para actividades al aire libre, emergencias o simplemente para iluminar espacios en el hogar, esta linterna es una herramienta indispensable. Su funcionalidad y diseño práctico la convierten en una opción atractiva para quienes valoran la calidad y la eficiencia en sus productos de iluminación.**TAMBIEN SIRVE COMO POWERBANK SOLO PARA CARGA DE EMERGENCIA**.",
+      price: "$35.990",
+      image: linternamultifuncional,
+      detailImage: linternamultifuncionaldetalle,
       tags: ["360°", "Autonivelante", "Preciso", "Resistente", "Trípode"]
     }
   ];
