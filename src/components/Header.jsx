@@ -31,6 +31,8 @@ import powerbanksolar from "./assets/powerbanksolar.png";
 import powerbanksolardetalle from "./assets/powerbanksolardetalle.jpg";
 import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
+import cocinacamping from "./assets/cocinacamping.png";
+import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 
 
 
@@ -217,6 +219,16 @@ const mockProducts = [
                price: "$35.990",
                image: linternamultifuncional,
                detailImage: linternamultifuncionaldetalle,
+               tags: ["360°", "Autonivelante", "Preciso", "Resistente", "Trípode"]
+             },
+              {
+               id: 16,
+               name: "Cocina de Camping Portátil a Gas con Maleta Sobremesa",
+               description: "Mini cocina de gas de un solo quemador con encendido automático.",
+               longDescription: "está diseñada para cocinar y hervir agua, tanto en el hogar como en la naturaleza.Adecuado como opción de respaldo para cocinar en hogares con estufas eléctricas en caso de corte de energía. No te quedarás sin comida caliente, té o café. Una opción de viaje elegante.A pesar de su reducido tamaño, este quemador permite cocinar alimentos en recipientes de hasta 22 cm de diámetro, un litro de agua hierve en cinco minutos.La estufa viene en una maleta de plástico con asa, en la que será conveniente no solo almacenarla sino también transportarla, no ocupa mucho espacio y puede caber fácilmente en el maletero del auto o llevar en la mano.Cuenta con una  construcción sólida, una fijación confiable para las ollas, por lo que el proceso de calentamiento de los alimentos se realiza fácilmente y sin molestias.Está equipado con un sistema de fuga de gas, encendido chispero incorporado, encendido automático de fuego y un quemador de una pieza.A pesar de su tamaño, es muy económico en consumo de gas, un cilindro de boquilla es suficiente para unas tres horas con un modo de combustión medio.Tamaño: aproximadamente 34x27x12 cm.Gas butano.Peso: aproximadamente 1500g.",
+               price: "$35.990",
+               image: cocinacamping,
+               detailImage: cocinacampingdetalle,
                tags: ["360°", "Autonivelante", "Preciso", "Resistente", "Trípode"]
              }
 ];
