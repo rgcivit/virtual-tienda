@@ -532,97 +532,85 @@ const Header = () => {
               </IconButton>
             )}
 
-            {/* Botones de redes sociales */}
-            <Box sx={{ display: 'flex', mr: { xs: 0.5, sm: 2 } }}>
-              <IconButton
-                onClick={openWhatsApp}
-                aria-label="Contactar por WhatsApp"
-                sx={{
-                  color: 'text.secondary',
-                  '&:hover': {
-                    color: '#25D366',
-                    backgroundColor: 'rgba(37, 211, 102, 0.1)',
-                    transform: 'scale(1.1)'
-                  },
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <WhatsApp />
-              </IconButton>
-              <IconButton
-                aria-label="Visitar Instagram"
-                sx={{
-                  color: 'text.secondary',
-                  '&:hover': {
-                    color: '#E1306C',
-                    backgroundColor: 'rgba(225, 48, 108, 0.1)',
-                    transform: 'scale(1.1)'
-                  },
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <Instagram />
-              </IconButton>
-              <IconButton
-                aria-label="Visitar Facebook"
-                sx={{
-                  color: 'text.secondary',
-                  '&:hover': {
-                    color: '#1877F2',
-                    backgroundColor: 'rgba(24, 119, 242, 0.1)',
-                    transform: 'scale(1.1)'
-                  },
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <Facebook />
-              </IconButton>
-            </Box>
+     
+{/* Contenedor general de las dos filas */}
+<Box
+  sx={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: { xs: 'center', sm: 'flex-start' },
+    gap: 1
+  }}
+>
+  {/* Fila de íconos de redes sociales */}
+  <Box
+    sx={{
+      display: 'flex',
+      gap: { xs: 1, sm: 2 },
+      justifyContent: { xs: 'center', sm: 'flex-start' },
+      flexWrap: 'wrap'
+    }}
+  >
+    {/* Íconos sociales */}
+    <IconButton onClick={openWhatsApp} aria-label="WhatsApp" sx={{ color: 'text.secondary' }}>
+      <WhatsApp sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }} />
+    </IconButton>
+    <IconButton aria-label="Instagram" sx={{ color: 'text.secondary' }}>
+      <Instagram sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }} />
+    </IconButton>
+    <IconButton aria-label="Facebook" sx={{ color: 'text.secondary' }}>
+      <Facebook sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }} />
+    </IconButton>
+  </Box>
 
-            {/* Botón de carrito */}
-            <Link to="/CheckoutPage">
-              <IconButton
-                aria-label="Ver carrito de compras"
-                sx={{
-                  color: 'text.secondary',
-                  '&:hover': {
-                    color: 'primary.main',
-                    backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                    transform: 'scale(1.1)'
-                  },
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                <Badge badgeContent={cart.length} color="error">
-                  <ShoppingCart />
-                </Badge>
-              </IconButton>
-            </Link>
+  {/* Fila de carrito, registro y buscador (si tenés uno) */}
+  <Box
+    sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: { xs: 1, sm: 2 },
+      justifyContent: { xs: 'center', sm: 'flex-start' },
+      alignItems: 'center'
+    }}
+  >
+    {/* Buscador (si tenés un input o componente SearchBar, colocarlo acá) */}
+    {/* <SearchBar /> */}
 
-            {/* Botón de registro */}
-            {!isMobile && (
-              <Button xs= {12} sm={6} md={4} 
-                variant="outlined"
-                startIcon={<Person />}
-                onClick={handleGoogleRegister}
-                sx={{
-                  ml: 1,
-                  color: 'primary.main',
-                  borderColor: 'primary.main',
-                  '&:hover': {
-                    backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                    borderColor: 'primary.dark',
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-                  },
-                  transition: 'all 0.3s ease',
-                  fontSize: { xs: '0.7rem', sm: '0.875rem' }
-                }}
-              >
-                Registro
-              </Button>
-            )}
-          </Box>
+    {/* Botón del carrito */}
+    <Link to="/CheckoutPage">
+      <IconButton aria-label="Carrito" sx={{ color: 'text.secondary' }}>
+        <Badge badgeContent={cart.length} color="error">
+          <ShoppingCart sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }} />
+        </Badge>
+      </IconButton>
+    </Link>
+
+    {/* Registro solo si no es móvil */}
+   {isMobile ? (
+  <IconButton onClick={handleGoogleRegister} aria-label="Registro">
+    <Person />
+  </IconButton>
+) : (
+  <Button
+    variant="outlined"
+    startIcon={<Person />}
+    onClick={handleGoogleRegister}
+    sx={{
+      color: 'text.secondary',
+      borderColor: 'text.secondary',
+      '&:hover': {
+        borderColor: 'primary.main',
+        color: 'primary.main',
+        backgroundColor: 'rgba(63, 81, 181, 0.04)',
+      }
+    }}
+  >
+    Registro
+  </Button>
+)}
+  </Box>
+</Box>
+</Box>
         </Toolbar>
       </AppBar>
     </ClickAwayListener>
