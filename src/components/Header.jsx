@@ -422,7 +422,7 @@ const Header = () => {
           {/* Buscador */}
           <Box sx={{
             position: 'relative',
-            width: isMobile ? '100%' : '20%',
+            width: isMobile ? '100%' : '40%',
             maxWidth: 600,
             mb: isMobile && searchOpen ? 2 : 0,
             display: searchOpen || !isMobile ? 'block' : 'none'
