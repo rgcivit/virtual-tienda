@@ -33,7 +33,7 @@ import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
-import { auth, provider, signInWithPopup } from '../firebase'; // Ajusta la ruta si es necesario
+import { auth, provider, signInWithRedirect} from '../firebase'; // Ajusta la ruta si es necesario
 
 
 import { 
