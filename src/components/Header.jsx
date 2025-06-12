@@ -34,9 +34,6 @@ import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetall
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 import { auth, provider, signInWithPopup } from '../firebase'; // Ajusta la ruta si es necesario
-import { onAuthStateChanged } from "firebase/auth";
-import { signOut } from "firebase/auth";
-
 import { 
   AppBar, 
   Toolbar, 
@@ -71,14 +68,7 @@ import { useTheme } from '@mui/material/styles';
 // Importa tu logo
 import logotiendavirtual from './assets/logotiendavirtual.png';
 
-const handleLogout = async () => {
-  try {
-    await signOut(auth);
-    setUser(null);
-  } catch (error) {
-    console.error("Error al cerrar sesión:", error);
-  }
-};
+
 // Mock de productos para la búsqueda (deberías importar tus productos reales)
 const mockProducts = [
  {
@@ -333,12 +323,6 @@ const Header = () => {
       setSearchResults([]);
     }
   };
-  useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
-    setUser(user);
-  });
-  return () => unsubscribe();
-}, []);
 
   // Filtrar productos según el término de búsqueda
   useEffect(() => {
@@ -370,7 +354,6 @@ const Header = () => {
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <>
       <AppBar
         position="sticky"
         sx={{
@@ -612,91 +595,34 @@ const Header = () => {
               </Badge>
             </IconButton>
 
-            {/* Botón de registro / usuario */}
-           <Box
-    sx={{
-      display: isMobile ? 'block' : 'flex',
-      alignItems: 'center',
-      gap: 1,
-      ml: 0,
-      mt: isMobile ? 1 : 0,
-      width: isMobile ? '100%' : 'auto',
-      textAlign: isMobile ? 'center' : 'left'
-    }}
-  >
-    {!user ? (
-      <Button
-        variant="outlined"
-        startIcon={<Person />}
-        onClick={handleGoogleRegister}
-        fullWidth={isMobile}
-        sx={{
-          color: 'primary.main',
-          borderColor: 'primary.main',
-          width: isMobile ? '100%' : 'auto',
-          justifyContent: isMobile ? 'center' : 'flex-start',
-          fontSize: { xs: '0.8rem', sm: '0.875rem' },
-          mt: isMobile ? 1 : 0,
-          mb: isMobile ? 1 : 0,
-          '&:hover': {
-            backgroundColor: 'rgba(63, 81, 181, 0.1)',
-            borderColor: 'primary.dark',
-            transform: 'translateY(-2px)',
-            boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-          },
-          transition: 'all 0.3s ease'
-        }}
-      >
-        Registro
-      </Button>
-    ) : (
-      <Box
-        sx={{
-          display: isMobile ? 'block' : 'flex',
-          alignItems: 'center',
-          gap: 1,
-          width: isMobile ? '100%' : 'auto',
-          textAlign: isMobile ? 'center' : 'left'
-        }}
-      >
-        <Avatar
-          src={user.photoURL}
-          alt={user.displayName}
-          sx={{ width: 32, height: 32, mx: isMobile ? 'auto' : 0, mb: isMobile ? 1 : 0 }}
-        />
-        <Typography
-          variant="body2"
-          sx={{
-            fontWeight: 600,
-            display: 'block',
-            mb: isMobile ? 1 : 0
-          }}
-        >
-          {user.displayName}
-        </Typography>
-        <Button
-          variant="text"
-          color="secondary"
-          onClick={handleLogout}
-          fullWidth={isMobile}
-          sx={{
-            fontSize: { xs: '0.8rem', sm: '0.875rem' },
-            width: isMobile ? '100%' : 'auto',
-            justifyContent: isMobile ? 'center' : 'flex-start'
-          }}
-        >
-          Cerrar sesión
-        </Button>
-      </Box>
-    )}
-  </Box>
+            {/* Botón de registro */}
+            {!isMobile && (
+              <Button
+                variant="outlined"
+                startIcon={<Person />}
+                onClick={handleGoogleRegister}
+                sx={{
+                  ml: 1,
+                  color: 'primary.main',
+                  borderColor: 'primary.main',
+                  '&:hover': {
+                    backgroundColor: 'rgba(63, 81, 181, 0.1)',
+                    borderColor: 'primary.dark',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+                  },
+                  transition: 'all 0.3s ease',
+                  fontSize: { xs: '0.7rem', sm: '0.875rem' }
+                }}
+              >
+                Registro
+              </Button>
+            )}
           </Box>
-      </Toolbar>
+        </Toolbar>
       </AppBar>
-      </>
-      </ClickAwayListener>
-    );
+    </ClickAwayListener>
+  );
 };
-
 export { mockProducts };
 export default Header;
