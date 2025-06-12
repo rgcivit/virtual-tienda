@@ -1,18 +1,38 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
+// Configuración de Firebase
 const firebaseConfig = {
- apiKey: "AIzaSyCEhpWqaZvHo_lYij0tO0VrG4i6K1sECXM",
-  authDomain: "virtual-tienda.firebaseapp.com",
-  projectId: "virtual-tienda",
-  storageBucket: "virtual-tienda.firebasestorage.app",
-  messagingSenderId: "40999138640",
-  appId: "1:40999138640:web:ec021507e1582aa79f2855",
-  measurementId: "G-GKRGTCCYV3"
+  apiKey: "TU_API_KEY",
+  authDomain: "TU_AUTH_DOMAIN",
+  projectId: "TU_PROJECT_ID",
+  storageBucket: "TU_STORAGE_BUCKET",
+  messagingSenderId: "TU_MESSAGING_SENDER_ID",
+  appId: "TU_APP_ID"
 };
 
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-export { auth, provider, signInWithPopup };
+// Función mejorada para iniciar sesión con Google
+const handleGoogleRegister = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    console.log("Usuario autenticado:", user);
+
+    // Aquí podrías guardar los datos del usuario en tu estado o en una base de datos
+
+  } catch (error) {
+    console.error("Error en autenticación:", error);
+    
+    // Manejo de errores específicos
+    if (error.code === "auth/popup-blocked") {
+      alert("El navegador bloqueó el inicio de sesión. Intenta permitir ventanas emergentes.");
+    } else if (error.code === "auth/cancelled-popup-request") {
+      alert("Parece que otra ventana emergente de autenticación se abrió y se cerró.");
+    }
+  }
+};
