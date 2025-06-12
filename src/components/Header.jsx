@@ -278,7 +278,7 @@ const Header = () => {
 
   const handleGoogleRegister = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithRedirect(auth, provider);
       setUser(result.user); // Guarda el usuario autenticado
       console.log("Usuario registrado:", result.user);
     } catch (error) {
