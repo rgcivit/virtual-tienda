@@ -34,6 +34,8 @@ import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetall
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 import { auth, provider, signInWithPopup } from '../firebase'; // Ajusta la ruta si es necesario
+
+
 import { 
   AppBar, 
   Toolbar, 
@@ -578,26 +580,28 @@ const Header = () => {
             </Box>
 
             {/* Botón de carrito */}
-            <IconButton
-              aria-label="Ver carrito de compras"
-              sx={{
-                color: 'text.secondary',
-                '&:hover': {
-                  color: 'primary.main',
-                  backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                  transform: 'scale(1.1)'
-                },
-                transition: 'all 0.3s ease'
-              }}
-            >
-              <Badge badgeContent={cart.length} color="error">
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
+            <Link to="/CheckoutPage">
+              <IconButton
+                aria-label="Ver carrito de compras"
+                sx={{
+                  color: 'text.secondary',
+                  '&:hover': {
+                    color: 'primary.main',
+                    backgroundColor: 'rgba(63, 81, 181, 0.1)',
+                    transform: 'scale(1.1)'
+                  },
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <Badge badgeContent={cart.length} color="error">
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </Link>
 
             {/* Botón de registro */}
             {!isMobile && (
-              <Button
+              <Button xs= {12} sm={6} md={4} 
                 variant="outlined"
                 startIcon={<Person />}
                 onClick={handleGoogleRegister}
