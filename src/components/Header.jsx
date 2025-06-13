@@ -281,10 +281,8 @@ const Header = () => {
   const handleGoogleRegister = async () => {
     try {
      const result = await signInWithPopup(auth, provider);
-       if (isMobile) {
-      await signInWithRedirect(auth, provider);
-      setUser(result.user)
-    } else {
+       
+     {
       
       setUser(result.user);
     }
@@ -292,6 +290,9 @@ const Header = () => {
       console.error("Error en el registro con Google:", error);
     }
   };
+  try { (isMobile) ? signInWithRedirect(auth, provider) : signInWithPopup(auth, provider); 
+    
+  } catch (error) { console.error("Error en el registro con Google:", error); }
 
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
