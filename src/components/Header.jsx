@@ -280,9 +280,7 @@ const Header = () => {
 
   const handleGoogleRegister = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
-      setUser(result.user); // Guarda el usuario autenticado
-      console.log("Usuario registrado:", result.user);
+     
        if (isMobile) {
       await signInWithRedirect(auth, provider);
     } else {
