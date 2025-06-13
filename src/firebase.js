@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, 
-  getRedirectResult  } from "firebase/auth";
+  getRedirectResult, setPersistence, 
+  browserLocalPersistence  } from "firebase/auth";
 
 
 
@@ -18,4 +19,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-export { auth, provider, signInWithPopup,signInWithRedirect, getRedirectResult };
+// Configurar persistencia de autenticación
+setPersistence(auth, browserLocalPersistence)
+  .catch((error) => {
+    console.error("Error setting persistence:", error);
+  });
+
+export { auth, provider, signInWithPopup, signInWithRedirect, getRedirectResult };
