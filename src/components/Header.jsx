@@ -33,7 +33,7 @@ import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
-import { auth, provider, signInWithPopup } from '../firebase'; // Ajusta la ruta si es necesario
+import { auth, provider, signInWithPopup,signInWithRedirect, getRedirectResult } from '../firebase'; // Ajusta la ruta si es necesario
 import { signOut } from 'firebase/auth';
 
 
@@ -283,6 +283,12 @@ const Header = () => {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user); // Guarda el usuario autenticado
       console.log("Usuario registrado:", result.user);
+       if (isMobile) {
+      await signInWithRedirect(auth, provider);
+    } else {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+    }
     } catch (error) {
       console.error("Error en el registro con Google:", error);
     }
