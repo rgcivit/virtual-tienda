@@ -33,7 +33,7 @@ import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
-import { auth, provider, signInWithPopup,signInWithRedirect, getRedirectResult } from '../firebase'; // Ajusta la ruta si es necesario
+import {auth, provider, signInWithPopup} from '../firebase'; // Ajusta la ruta si es necesario
 import { signOut } from 'firebase/auth';
 
 
@@ -278,19 +278,15 @@ const Header = () => {
   const navigate = useNavigate(); // Añadimos el hook de navegación
   const [user, setUser] = useState(null);
 
-  const handleGoogleRegister = async () => {
-    try {
-     
-       if (isMobile) {
-      await signInWithRedirect(auth, provider);
-    } else {
-      const result = await signInWithPopup(auth, provider);
-      setUser(result.user);
-    }
-    } catch (error) {
-      console.error("Error en el registro con Google:", error);
-    }
-  };
+ const handleGoogleRegister = async () => {
+  try {
+    // Usar signInWithPopup en todos los dispositivos
+    const result = await signInWithPopup(auth, provider);
+    setUser(result.user);
+  } catch (error) {
+    console.error("Error en el registro:", error);
+  }
+};
 
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
@@ -332,6 +328,22 @@ const Header = () => {
     }
   };
 
+   // 1. Efecto para manejar el resultado de la redirección
+  useEffect(() => {
+    const handleRedirectResult = async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result) {
+          setUser(result.user);
+        }
+      } catch (error) {
+        console.error("Error al manejar redirección:", error);
+      }
+    };
+    
+    handleRedirectResult();
+  }, []);
+
   // Filtrar productos según el término de búsqueda
   useEffect(() => {
     if (searchTerm.trim() === '') {
@@ -362,6 +374,25 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+   // 2. Manejador global de errores para evitar mensajes en consola
+  useEffect(() => {
+    const handleUnhandledRejection = (event) => {
+      // Suprimimos errores específicos de Firebase relacionados con ventanas cerradas
+      if (event.reason?.message?.includes('window.closed') || 
+          event.reason?.code === 'auth/popup-closed-by-user') {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+    
+    // Limpieza al desmontar el componente
+    return () => {
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, []);
+    
+  
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <AppBar
