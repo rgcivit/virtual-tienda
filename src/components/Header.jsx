@@ -280,11 +280,11 @@ const Header = () => {
 
   const handleGoogleRegister = async () => {
     try {
-     
+     const result = await signInWithPopup(auth, provider);
        if (isMobile) {
       await signInWithRedirect(auth, provider);
     } else {
-      const result = await signInWithPopup(auth, provider);
+      
       setUser(result.user);
     }
     } catch (error) {
