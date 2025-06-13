@@ -293,10 +293,7 @@ const Header = () => {
     }
   };
       
-     
-  
- 
-
+    
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
     navigate('/');
