@@ -280,20 +280,18 @@ const Header = () => {
 
   const handleGoogleRegister = async () => {
     try {
-     const result = await signInWithPopup(auth, provider);
-      if (isMobile) {
-      signInWithRedirect(auth, provider);
+     
+       if (isMobile) {
+      await signInWithRedirect(auth, provider);
+    } else {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
     }
-        setUser(result.user);
-      console.log("Usuario registrado con Google:", result.user);
-      // Aquí puedes redirigir al usuario a otra página o realizar alguna acción adicional
-      navigate('/'); // Redirige al inicio después del registro
     } catch (error) {
       console.error("Error en el registro con Google:", error);
     }
   };
-      
-    
+
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
     navigate('/');
@@ -341,21 +339,7 @@ const Header = () => {
       return;
     }
 
-    useEffect(() => {
-  if (isMobile) {
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result && result.user) {
-          setUser(result.user);
-        }
-      })
-      .catch((error) => {
-        if (error && error.code !== "auth/no-auth-event") {
-          console.error("Error en el login con redirect:", error);
-        }
-      });
-  }
-}, [isMobile]);
+    
 
     const term = searchTerm.toLowerCase();
     const results = mockProducts.filter(product =>
