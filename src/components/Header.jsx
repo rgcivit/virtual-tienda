@@ -278,15 +278,23 @@ const Header = () => {
   const navigate = useNavigate(); // Añadimos el hook de navegación
   const [user, setUser] = useState(null);
 
- const handleGoogleRegister = async () => {
+
+// Detectar si es un dispositivo móvil
+const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+const handleGoogleRegister = async () => {
   try {
-    // Usar signInWithPopup en todos los dispositivos
-    const result = await signInWithPopup(auth, provider);
-    setUser(result.user);
+    if (isMobileDevice) {
+      await signInWithRedirect(auth, provider);
+    } else {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+    }
   } catch (error) {
     console.error("Error en el registro:", error);
   }
 };
+
 
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
