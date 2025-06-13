@@ -34,6 +34,8 @@ import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetall
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 import { auth, provider, signInWithPopup } from '../firebase'; // Ajusta la ruta si es necesario
+import { signOut } from 'firebase/auth';
+
 
 
 import { 
