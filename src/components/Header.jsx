@@ -283,6 +283,7 @@ const Header = () => {
      const result = await signInWithPopup(auth, provider);
        if (isMobile) {
       await signInWithRedirect(auth, provider);
+      setUser(result.user)
     } else {
       
       setUser(result.user);
