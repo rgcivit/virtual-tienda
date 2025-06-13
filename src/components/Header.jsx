@@ -563,7 +563,7 @@ const Header = () => {
     </IconButton>
   </Box>
 
-  {/* Fila de carrito, registro y buscador (si tenés uno) */}
+  {/* Fila de carrito, registro y buscador*/}
   <Box
     sx={{
       display: 'flex',
@@ -586,31 +586,57 @@ const Header = () => {
     </Link>
 
     {/* Registro solo si no es móvil */}
-   {isMobile ? (
-  <IconButton onClick={handleGoogleRegister} aria-label="Registro">
-    <Person />
-  </IconButton>
-) : (
-  <Button
-    variant="outlined"
-    startIcon={<Person />}
-    onClick={handleGoogleRegister}
-    sx={{
-      color: 'text.secondary',
-      borderColor: 'text.secondary',
-      '&:hover': {
-        borderColor: 'primary.main',
-        color: 'primary.main',
-        backgroundColor: 'rgba(63, 81, 181, 0.04)',
-      }
-    }}
-  >
-    Registro
-  </Button>
-)}
+     {!user ? (
+    <IconButton
+      onClick={handleGoogleRegister}
+      aria-label="Registro"
+      sx={{
+        color: 'text.secondary',
+        p: 0.5,
+        ml: 1
+      }}
+    >
+      <Person sx={{ fontSize: { xs: '1.7rem', sm: '1.8rem' } }} />
+    </IconButton>
+  ) : (
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      <Avatar
+        src={user.photoURL}
+        alt={user.displayName}
+        sx={{
+          width: 32,
+          height: 32,
+          border: '2px solid #1976d2',
+          ml: 1
+        }}
+      />
+      {/* Solo muestra el nombre en escritorio */}
+      {!isMobile && (
+        <Typography variant="body2" sx={{ fontWeight: 600 }}>
+          {user.displayName}
+        </Typography>
+      )}
+      <Button
+        variant="text"
+        color="secondary"
+        onClick={async () => {
+          await signOut(auth);
+          setUser(null);
+        }}
+        sx={{
+          ml: 1,
+          fontSize: { xs: '0.8rem', sm: '0.875rem' },
+          minWidth: 0,
+          px: 1
+        }}
+      >
+        Logout
+      </Button>
+    </Box>
+  )}
   </Box>
 </Box>
-</Box>
+          </Box>
         </Toolbar>
       </AppBar>
     </ClickAwayListener>
