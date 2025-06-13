@@ -339,6 +339,22 @@ const Header = () => {
       return;
     }
 
+    useEffect(() => {
+  if (isMobile) {
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result && result.user) {
+          setUser(result.user);
+        }
+      })
+      .catch((error) => {
+        if (error && error.code !== "auth/no-auth-event") {
+          console.error("Error en el login con redirect:", error);
+        }
+      });
+  }
+}, [isMobile]);
+
     const term = searchTerm.toLowerCase();
     const results = mockProducts.filter(product =>
       product.name.toLowerCase().includes(term) ||
