@@ -36,6 +36,7 @@ import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 import {auth, provider, signInWithPopup,signInWithRedirect } from '../firebase'; // Ajusta la ruta si es necesario
 import { signOut } from 'firebase/auth';
 import { getRedirectResult } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 
 
 
@@ -300,6 +301,13 @@ const handleGoogleRegister = async () => {
     console.error("Error en el registro:", error);
   }
 };
+
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    setUser(firebaseUser);
+  });
+  return () => unsubscribe();
+}, []);
 
 
   // Función para hacer scroll suave al inicio
