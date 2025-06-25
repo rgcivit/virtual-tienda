@@ -6,8 +6,7 @@ import { useCart } from './context/cartContext'; // Asegúrate de tener el conte
 
 initMercadoPago('APP_USR-ccb10d4f-ffb0-4a4c-8404-26e8de87dad6', { locale: 'es-AR' }); // Reemplaza con tu public key
 
-const PaymentButton = () => {
-  const { cartItems } = useCart();
+const PaymentButton = ({ cartItems }) => {
   const [preferenceId, setPreferenceId] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -15,6 +14,7 @@ const PaymentButton = () => {
   const handlePayment = async () => {
     setLoading(true);
     setError(null);
+    console.log(cartItems); // <-- Ahora sí debería mostrar el array
     try {
       const response = await axios.post('http://localhost:3001/create_preference', {
         items: cartItems

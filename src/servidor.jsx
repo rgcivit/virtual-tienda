@@ -8,27 +8,31 @@ app.use(express.json());
 
 // Configura Mercado Pago con tu Access Token
 mercadopago.configure({
-  access_token: 'TU_ACCESS_TOKEN_DE_PRODUCCION', // Reemplaza con tu token real
-  sandbox: true // Cambiar a false en producción
+  access_token: 'APP_USR-5595002757319588-050513-92015738b962c0e6b0a280a5c9b6ebdc-205863933', // Tu token real
+  sandbox: true // Cambia a false si usas credenciales de producción
 });
 
 // Endpoint para crear preferencias de pago
 app.post('/create_preference', async (req, res) => {
   try {
     const { items } = req.body;
+      if (!items || !Array.isArray(items)) {
+      console.error('No se recibieron items válidos:', req.body);
+      return res.status(400).json({ error: 'No se recibieron items válidos' });
+    }
     
     const preference = {
       items: items.map(item => ({
-        title: item.title,           // <-- Cambiado
-        unit_price: item.unit_price, // <-- Cambiado
+        title: item.title,
+        unit_price: item.unit_price,
         quantity: item.quantity,
         currency_id: 'ARS'
       })),
-      back_urls: {
-        success: 'http://localhost:3000/payment/success',
-        failure: 'http://localhost:3000/payment/failure',
-        pending: 'http://localhost:3000/payment/pending'
-      },
+     back_urls: {
+  success: 'http://localhost:5173/payment/success',
+  failure: 'http://localhost:5173/payment/failure',
+  pending: 'http://localhost:5173/payment/pending'
+},
       auto_return: 'approved',
       binary_mode: true
     };
@@ -41,5 +45,5 @@ app.post('/create_preference', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; // <-- Cambiado aquí
 app.listen(PORT, () => console.log(`Servidor backend en puerto ${PORT}`));
