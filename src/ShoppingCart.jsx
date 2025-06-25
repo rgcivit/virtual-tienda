@@ -5,7 +5,8 @@ import PaymentButton from './PaymentButton';
 import { useCart } from './context/cartContext'; // Ajusta la ruta según tu estructura
 
 // Agrega esta función aquí:
-const parsePrice = (priceStr) => Number(priceStr.replace(/[^0-9.-]+/g,""));
+const parsePrice = (priceStr) =>
+  Number(priceStr.replace(/\./g, '').replace(/[^0-9]/g, ''));
 
 const ShoppingCart = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
