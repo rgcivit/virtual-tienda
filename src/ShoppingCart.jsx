@@ -90,7 +90,7 @@ const ShoppingCart = () => {
               <PaymentButton cartItems={cart.map(item => ({
   id: item.id,
   title: item.name, // ✅ Usar 'title'
-  unit_price: parsePrice(item.price),
+  unit_price: Number(item.price.replace('$', '').replace('.', '')),
   quantity: item.quantity
 }))} />
             )}
