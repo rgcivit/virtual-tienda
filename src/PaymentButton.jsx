@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Button, CircularProgress, Box, Typography } from '@mui/material';
 import { useCart } from './context/cartContext'; // Asegúrate de tener el contexto de carrito configurado
 
-initMercadoPago('TU_PUBLIC_KEY', { locale: 'es-AR' }); // Reemplaza con tu public key
+initMercadoPago('APP_USR-ccb10d4f-ffb0-4a4c-8404-26e8de87dad6', { locale: 'es-AR' }); // Reemplaza con tu public key
 
 const PaymentButton = () => {
   const { cartItems } = useCart();

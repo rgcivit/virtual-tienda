@@ -88,11 +88,11 @@ const ShoppingCart = () => {
             </Box>
             {cart.length > 0 && (
               <PaymentButton cartItems={cart.map(item => ({
-                id: item.id,
-                name: item.name,
-                price: parsePrice(item.price),
-                quantity: item.quantity
-              }))} />
+  id: item.id,
+  title: item.name, // ✅ Usar 'title'
+  unit_price: parsePrice(item.price),
+  quantity: item.quantity
+}))} />
             )}
           </Paper>
         </Grid>
