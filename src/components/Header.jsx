@@ -309,7 +309,28 @@ useEffect(() => {
   return () => unsubscribe();
 }, []);
 
+useEffect(() => {
+  // Primero: manejar el resultado de la redirección
+  const handleRedirectResult = async () => {
+    try {
+      const result = await getRedirectResult(auth);
+      if (result && result.user) {
+        setUser(result.user);
+      }
+    } catch (error) {
+      // Silenciar error si no hay resultado
+    }
+  };
+  handleRedirectResult();
+}, []);
 
+useEffect(() => {
+  // Segundo: mantener el usuario actualizado
+  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    setUser(firebaseUser);
+  });
+  return () => unsubscribe();
+}, []);
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
     navigate('/');
@@ -662,8 +683,8 @@ useEffect(() => {
   ) : (
     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
       <Avatar
-        src={user.photoURL}
-        alt={user.displayName}
+         src={user.photoURL || ''}
+      alt={user.displayName || ''}
         sx={{
           width: 32,
           height: 32,
