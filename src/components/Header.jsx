@@ -75,18 +75,7 @@ import logotiendavirtual from './assets/logotiendavirtual.png';
 
 const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-const handleGoogleRegister = async () => {
-  try {
-    if (isMobileDevice) {
-      await signInWithRedirect(auth, provider);
-    } else {
-      const result = await signInWithPopup(auth, provider);
-      setUser(result.user);
-    }
-  } catch (error) {
-    console.error("Error en el registro:", error);
-  }
-};
+
 // Mock de productos para la búsqueda (deberías importar tus productos reales)
 const mockProducts = [
  {
@@ -296,13 +285,16 @@ const Header = () => {
 // Detectar si es un dispositivo móvil
 const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+// ...dentro de Header.jsx, dentro del componente Header...
 const handleGoogleRegister = async () => {
   try {
     if (isMobileDevice) {
       await signInWithRedirect(auth, provider);
     } else {
       const result = await signInWithPopup(auth, provider);
-      setUser(result.user);
+      if (result && result.user) {
+        setUser(result.user);
+      }
     }
   } catch (error) {
     console.error("Error en el registro:", error);
