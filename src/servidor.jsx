@@ -21,21 +21,21 @@ app.post('/create_preference', async (req, res) => {
       return res.status(400).json({ error: 'No se recibieron items válidos' });
     }
     
-    const preference = {
-      items: items.map(item => ({
-        title: item.title,
-        unit_price: item.unit_price,
-        quantity: item.quantity,
-        currency_id: 'ARS'
-      })),
-     back_urls: {
-  success: 'http://localhost:5173/payment/success',
-  failure: 'http://localhost:5173/payment/failure',
-  pending: 'http://localhost:5173/payment/pending'
-},
-      auto_return: 'approved',
-      binary_mode: true
-    };
+   const preference = {
+  items: items.map(item => ({
+    title: item.title,
+    unit_price: item.unit_price,
+    quantity: item.quantity,
+    currency_id: 'ARS'
+  })),
+  back_urls: {
+    success: 'https://virtual-tienda.vercel.app/payment/success',
+    failure: 'https://virtual-tienda.vercel.app/payment/failure',
+    pending: 'https://virtual-tienda.vercel.app/payment/pending'
+  },
+  auto_return: 'approved',
+  binary_mode: true
+};
 
     const response = await mercadopago.preferences.create(preference);
     res.json({ id: response.body.id });
