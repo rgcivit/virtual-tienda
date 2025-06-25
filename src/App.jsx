@@ -7,6 +7,9 @@ import ProductGrid from './components/ProductGrid';
 import ProductDetailPage from './components/ProductDetailPage';
 import { Box, Typography } from '@mui/material';
 import ShoppingCart from './ShoppingCart';
+import PaymentSuccess from './PaymentSuccess';
+
+
 
 const App = () => {
   return (
@@ -19,11 +22,14 @@ const App = () => {
               <>
                 <InfoCarousel />
                 <ProductGrid />
+                
+ 
               </>
             } />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/payment/success" element={<PaymentSuccess />} />
           </Routes>
         </Box>
         <Box component="footer" sx={{ py: 3, bgcolor: 'background.paper', textAlign: 'center' }}>
