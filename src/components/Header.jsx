@@ -33,7 +33,7 @@ import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
-import {auth, provider, signInWithPopup} from '../firebase'; // Ajusta la ruta si es necesario
+import {auth, provider, signInWithPopup,signInWithRedirect } from '../firebase'; // Ajusta la ruta si es necesario
 import { signOut } from 'firebase/auth';
 import { getRedirectResult } from "firebase/auth";
 
@@ -73,12 +73,24 @@ import { useTheme } from '@mui/material/styles';
 // Importa tu logo
 import logotiendavirtual from './assets/logotiendavirtual.png';
 
+const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+const handleGoogleRegister = async () => {
+  try {
+    if (isMobileDevice) {
+      await signInWithRedirect(auth, provider);
+    } else {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+    }
+  } catch (error) {
+    console.error("Error en el registro:", error);
+  }
+};
 // Mock de productos para la búsqueda (deberías importar tus productos reales)
 const mockProducts = [
  {
-      
-            id: 1,
+      id: 1,
             name: "Encendedor Recargable USB con Linterna Negro",
             description: "El encendedor multipropósito es una innovación de vanguardia que hará que tus momentos sean más prácticos y emocionantes que nunca! Este versátil dispositivo es mucho más que un simple encendedor; es una herramienta multifuncional que combina elegancia y practicidad.",
             longDescription: "Este encendedor USB es recargable y tiene un diseño moderno y compacto. Perfecto para llevar contigo a todas partes. Con carga rápida USB-C y luz indicadora. Disponible en varios colores. Además, incluye una potente linterna LED que lo hace ideal para acampadas, emergencias o uso diario.",
