@@ -269,6 +269,7 @@ const Logo = ({ onClick }) => {
 const Header = () => {
   const theme = useTheme();
   const { cart } = useCart();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [elevated, setElevated] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -624,12 +625,12 @@ const handleGoogleRegister = async () => {
     {/* <SearchBar /> */}
 
     {/* Botón del carrito */}
-    <Link to="/CheckoutPage">
-      <IconButton aria-label="Carrito" sx={{ color: 'text.secondary' }}>
-        <Badge badgeContent={cart.length} color="error">
-          <ShoppingCart sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }} />
-        </Badge>
-      </IconButton>
+    <Link to="/cart">
+  <IconButton aria-label="Carrito" sx={{ color: 'text.secondary' }}>
+    <Badge badgeContent={totalItems} color="error">
+      <ShoppingCart sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }} />
+    </Badge>
+  </IconButton>
     </Link>
 
     {/* Registro solo si no es móvil */}

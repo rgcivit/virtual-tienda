@@ -27,21 +27,22 @@ const ProductCard = ({ product }) => {
         <Typography variant="h6" color="primary">
           {product.price}
         </Typography>
-        <Button
-          size="small"
-          variant="contained"
-          color="primary"
-          onClick={e => {
-            e.preventDefault(); // Evita la navegación al detalle
-            e.stopPropagation();
-            console.log('Añadiendo:', product);
-            addToCart(product); // Agrega el producto al carrito
-          }}
-        >
-        </Button>
-      </CardActions>
-    </Card>
-  );
+      <Button
+        size="small"
+        variant="contained"
+        color="primary"
+        onClick={e => {
+          e.preventDefault(); // Evita la navegación al detalle
+          e.stopPropagation();
+        
+          addToCart(product); // Agrega el producto al carrito
+        }}
+      >
+        Agregar al carrito
+      </Button>
+    </CardActions>
+  </Card>
+);
 };
 
 export default ProductCard;

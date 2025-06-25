@@ -11,7 +11,9 @@ import { CartProvider } from './context/cartContext'; // Importa el provider
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-  <CartProvider>
-    <App />
-  </CartProvider>
+   <React.StrictMode>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </React.StrictMode>
 );

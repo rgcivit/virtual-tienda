@@ -51,12 +51,14 @@ import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
-
+//import ProductCard from "./ProductCard";
+import { useCart } from "../context/cartContext";
 
 // Componente ProductCard modificado
-const ProductCard = ({ product, onQuickView }) => {
+const ProductCard = ({ product, onQuickView, onAddToCart }) => {
   const theme = useTheme();
-  
+  const { addToCart } = useCart();
+
   return (
     <Card sx={{
       height: '100%',
@@ -143,17 +145,15 @@ const ProductCard = ({ product, onQuickView }) => {
           {product.price}
         </Typography>
       </CardContent>
-      <Button 
-        variant="contained" 
-        color="primary" 
+      <Button
+        variant="contained"
+        color="primary"
         fullWidth
-        sx={{ 
-          mt: 'auto',
-          borderRadius: 0,
-          py: 1.5,
-          fontWeight: 'bold',
-          letterSpacing: '1px',
-          fontSize: '1rem'
+        sx={{ mt: 'auto', borderRadius: 0, py: 1.5, fontWeight: 'bold', letterSpacing: '1px', fontSize: '1rem' }}
+        onClick={ e => {
+          e.preventDefault();
+          e.stopPropagation();
+          onAddToCart(product);
         }}
       >
         Añadir al carrito
@@ -229,9 +229,13 @@ const QuickViewModal = ({ product, open, onClose }) => {
             </Box>
             
             <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
-              <Button 
-                variant="contained" 
-                color="primary" 
+              <Button onClick={e => {
+                e.preventDefault();
+                e.stopPropagation();
+                addToCart(product);
+              }}
+                variant="contained"
+                color="primary"
                 size="large"
                 startIcon={<AddShoppingCartIcon />}
                 sx={{
@@ -241,6 +245,7 @@ const QuickViewModal = ({ product, open, onClose }) => {
                   letterSpacing: '1px',
                   borderRadius: 1,
                   width: '100%'
+                  
                 }}
               >
                 Añadir al carrito
@@ -547,6 +552,7 @@ const QuickViewModal = ({ product, open, onClose }) => {
 
 const ProductGrid = () => {
   // Ejemplo de productos con imágenes importadas
+    const { cart, addToCart } = useCart();
   const products = [
     {
       id: 1,
@@ -710,6 +716,10 @@ const ProductGrid = () => {
   // Estados para controlar el modal de vista rápida
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+ 
+
+ 
+
 
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
@@ -721,6 +731,7 @@ const ProductGrid = () => {
   };
 
   return (
+    
     <Container maxWidth="xl" sx={{ py: 4, backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
       <Typography variant="h4" component="h1" sx={{ 
         textAlign: 'center', 
@@ -732,7 +743,16 @@ const ProductGrid = () => {
       }}>
         Productos Destacados
       </Typography>
-      
+      {cart.length > 0 && (
+  <Box sx={{ mb: 2 }}>
+    <Typography variant="subtitle1" fontWeight="bold">Productos en el carrito:</Typography>
+    <ul>
+      {cart.map((item, idx) => (
+        <li key={idx}>{item.name} - {item.price}</li>
+      ))}
+    </ul>
+  </Box>
+)}
       <Grid container spacing={4} justifyContent="center">
         {products.map(product => (
           <Grid 
@@ -751,6 +771,7 @@ const ProductGrid = () => {
             <ProductCard 
               product={product} 
               onQuickView={handleOpenModal} 
+              onAddToCart={addToCart}
             />
           </Grid>
         ))}
@@ -761,6 +782,7 @@ const ProductGrid = () => {
         product={selectedProduct} 
         open={modalOpen} 
         onClose={handleCloseModal} 
+        onAddToCart={addToCart}
       />
     </Container>
   );
