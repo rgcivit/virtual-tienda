@@ -19,8 +19,8 @@ app.post('/create_preference', async (req, res) => {
     
     const preference = {
       items: items.map(item => ({
-        title: item.name,
-        unit_price: item.price,
+        title: item.title,           // <-- Cambiado
+        unit_price: item.unit_price, // <-- Cambiado
         quantity: item.quantity,
         currency_id: 'ARS'
       })),
