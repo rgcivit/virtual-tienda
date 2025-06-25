@@ -9,7 +9,7 @@ app.use(express.json());
 // Configura Mercado Pago con tu Access Token
 mercadopago.configure({
   access_token: 'APP_USR-5595002757319588-050513-92015738b962c0e6b0a280a5c9b6ebdc-205863933', // Tu token real
-  sandbox: true // Cambia a false si usas credenciales de producción
+  sandbox: false// Cambia a false si usas credenciales de producción
 });
 
 // Endpoint para crear preferencias de pago
