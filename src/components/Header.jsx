@@ -324,13 +324,7 @@ useEffect(() => {
   handleRedirectResult();
 }, []);
 
-useEffect(() => {
-  // Segundo: mantener el usuario actualizado
-  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-    setUser(firebaseUser);
-  });
-  return () => unsubscribe();
-}, []);
+
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
     navigate('/');
@@ -371,21 +365,7 @@ useEffect(() => {
     }
   };
 
-   // 1. Efecto para manejar el resultado de la redirección
-  useEffect(() => {
-    const handleRedirectResult = async () => {
-      try {
-        const result = await getRedirectResult(auth);
-        if (result) {
-          setUser(result.user);
-        }
-      } catch (error) {
-        console.error("Error al manejar redirección:", error);
-      }
-    };
-    
-    handleRedirectResult();
-  }, []);
+ 
 
   // Filtrar productos según el término de búsqueda
   useEffect(() => {
