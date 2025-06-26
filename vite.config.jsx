@@ -1,12 +1,15 @@
 //import React from 'react'; // Debe estar al inicio de cada archivo JSX
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import vercel from '@vercel/vite-plugin'
 
 export default defineConfig({
   plugins: [
+    vercel(),
     react({
       // Habilita JSX en archivos .js y .jsx
       include: /\.(js|jsx)$/,
+   
     })
   ],
   esbuild: {
