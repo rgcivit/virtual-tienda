@@ -301,12 +301,7 @@ const handleGoogleRegister = async () => {
   }
 };
 
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-    setUser(firebaseUser);
-  });
-  return () => unsubscribe();
-}, []);
+
 
 
 
@@ -317,6 +312,7 @@ useEffect(() => {
   });
   return () => unsubscribe();
 }, []);
+  console.log("Usuario logueado:", user);
   // Función para hacer scroll suave al inicio
   const scrollToTop = () => {
     navigate('/');
@@ -410,6 +406,13 @@ useEffect(() => {
     
   
   return (
+    <>
+      
+      
+      
+    <pre style={{ background: "#eee", fontSize: 12, padding: 8, margin: 0 }}>
+        {JSON.stringify(user, null, 2)}
+      </pre>
     <ClickAwayListener onClickAway={handleClickAway}>
       <AppBar
         position="sticky"
@@ -695,6 +698,7 @@ useEffect(() => {
         </Toolbar>
       </AppBar>
     </ClickAwayListener>
+    </>
   );
 };
 export { mockProducts };
