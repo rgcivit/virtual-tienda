@@ -291,23 +291,16 @@ const handleGoogleRegister = async () => {
     if (isMobileDevice) {
       await signInWithRedirect(auth, provider);
     } else {
-      const result = await signInWithPopup(auth, provider);
-      if (result && result.user) {
-        setUser(result.user);
-      }
+      await signInWithPopup(auth, provider);
     }
   } catch (error) {
     console.error("Error en el registro:", error);
   }
 };
 
-
-
-
-
 useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-    setTimeout(() => setUser(firebaseUser), 200); // pequeño delay
+    setUser(firebaseUser);
   });
   return () => unsubscribe();
 }, []);
@@ -405,10 +398,6 @@ useEffect(() => {
     
   
   return (
-    
-      
-      
-   
     <ClickAwayListener onClickAway={handleClickAway}>
       <AppBar
         position="sticky"
@@ -694,7 +683,6 @@ useEffect(() => {
         </Toolbar>
       </AppBar>
     </ClickAwayListener>
-   
   );
 };
 export { mockProducts };
