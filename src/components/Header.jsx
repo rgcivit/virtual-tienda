@@ -306,9 +306,8 @@ const handleGoogleRegister = async () => {
 
 
 useEffect(() => {
-  // Segundo: mantener el usuario actualizado
   const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-    setUser(firebaseUser);
+    setTimeout(() => setUser(firebaseUser), 200); // pequeño delay
   });
   return () => unsubscribe();
 }, []);
