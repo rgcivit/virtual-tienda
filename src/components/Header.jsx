@@ -33,11 +33,10 @@ import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
-import {auth, provider, signInWithPopup,signInWithRedirect } from '../firebase'; // Ajusta la ruta si es necesario
+import { signInWithPopup,signInWithRedirect } from "firebase/auth"; // Ajusta la ruta si es necesario
 import { signOut } from 'firebase/auth';
-import { getRedirectResult } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
-
+import { auth, provider } from '../firebase';
 
 
 import { 
@@ -359,20 +358,7 @@ useEffect(() => {
   };
 
    // 1. Efecto para manejar el resultado de la redirección
-  useEffect(() => {
-    const handleRedirectResult = async () => {
-      try {
-        const result = await getRedirectResult(auth);
-        if (result) {
-          setUser(result.user);
-        }
-      } catch (error) {
-        console.error("Error al manejar redirección:", error);
-      }
-    };
-    
-    handleRedirectResult();
-  }, []);
+
 
   // Filtrar productos según el término de búsqueda
   useEffect(() => {
