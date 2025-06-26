@@ -12,18 +12,7 @@ function LoginButton() {
     }
   };
 
-  useEffect(() => {
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result && result.user) {
-          // Usuario logueado correctamente
-          // Aquí puedes guardar el usuario en tu estado global/contexto
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+
 
   return (
     <button onClick={handleLogin}>
