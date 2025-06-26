@@ -1,9 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, setPersistence, browserLocalPersistence } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, 
+  getRedirectResult, setPersistence, 
+  browserLocalPersistence  } from "firebase/auth";
+
+
 
 const firebaseConfig = {
-  // ...tus credenciales...
-  apiKey: "AIzaSyCEhpWqaZvHo_lYij0tO0VrG4i6K1sECXM",
+ apiKey: "AIzaSyCEhpWqaZvHo_lYij0tO0VrG4i6K1sECXM",
   authDomain: "virtual-tienda.firebaseapp.com",
   projectId: "virtual-tienda",
   storageBucket: "virtual-tienda.appspot.com",
@@ -16,6 +19,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-setPersistence(auth, browserLocalPersistence).catch(console.error);
+// Configurar persistencia de autenticación
+setPersistence(auth, browserLocalPersistence)
+  .catch((error) => {
+    console.error("Error setting persistence:", error);
+  });
 
 export { auth, provider };
