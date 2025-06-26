@@ -405,13 +405,10 @@ useEffect(() => {
     
   
   return (
-    <>
+    
       
       
-      
-    <pre style={{ background: "#eee", fontSize: 12, padding: 8, margin: 0 }}>
-        {JSON.stringify(user, null, 2)}
-      </pre>
+   
     <ClickAwayListener onClickAway={handleClickAway}>
       <AppBar
         position="sticky"
@@ -697,7 +694,7 @@ useEffect(() => {
         </Toolbar>
       </AppBar>
     </ClickAwayListener>
-    </>
+   
   );
 };
 export { mockProducts };
