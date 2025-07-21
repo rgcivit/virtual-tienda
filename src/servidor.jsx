@@ -8,7 +8,8 @@ const app = express();
 const allowedOrigins = [
   'https://virtual-tienda.vercel.app',
   'https://virtual-tienda-git-main-rodrigo-guevara-civits-projects.vercel.app',
-  'http://localhost:3001'
+  'http://localhost:3001',
+   'http://localhost:5173'
 ];
 
 app.use(cors({
