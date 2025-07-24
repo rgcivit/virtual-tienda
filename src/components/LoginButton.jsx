@@ -12,7 +12,20 @@ function LoginButton() {
     }
   };
 
-
+  // Manejar el resultado del redirect al volver del login en móvil
+  useEffect(() => {
+    if (isMobile) {
+      getRedirectResult(auth)
+        .then((result) => {
+          // Aquí puedes guardar el usuario o redirigir si lo necesitas
+          // Por ejemplo: if (result?.user) setUser(result.user);
+        })
+        .catch((error) => {
+          // Manejo de errores
+          console.error("Error en getRedirectResult:", error);
+        });
+    }
+  }, []);
 
   return (
     <button onClick={handleLogin}>
