@@ -39,19 +39,18 @@ const ProductDetailPage = () => {
   const { id } = useParams(); // Obtiene el ID de la URL
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [preferenceId, setPreferenceId] = useState(null);
 
   useEffect(() => {
     const fetchProduct = () => {
       try {
-       
+        // Esta es una simulación - en la práctica deberías tener una API real
         const mockProducts = [
            {
                 id: 1,
                 name: "Encendedor Recargable USB con Linterna Negro",
                 description: "El encendedor multipropósito es una innovación de vanguardia que hará que tus momentos sean más prácticos y emocionantes que nunca! Este versátil dispositivo es mucho más que un simple encendedor; es una herramienta multifuncional que combina elegancia y practicidad.",
                 longDescription: "Este encendedor USB es recargable y tiene un diseño moderno y compacto. Perfecto para llevar contigo a todas partes. Con carga rápida USB-C y luz indicadora. Disponible en varios colores. Además, incluye una potente linterna LED que lo hace ideal para acampadas, emergencias o uso diario.",
-                price: "$1000",
+                price: "$11.990",
                 image: ensendedorusb,
                 detailImage: ensendedordetalle,
                 tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente"]
@@ -202,36 +201,19 @@ const ProductDetailPage = () => {
                                image: cocinacamping,
                                detailImage: cocinacampingdetalle,
                                tags: ["360°", "Autonivelante", "Preciso", "Resistente", "Trípode"]
-                           }
-      ]; // Tu lista completa de productos
-     const foundProduct = mockProducts.find(p => p.id === parseInt(id));
-      setProduct(foundProduct);
-    } catch (error) {
-      console.error("Error fetching product:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+                             }
+        ]; // Tu lista completa de productos
+       const foundProduct = mockProducts.find(p => p.id === parseInt(id));
+        setProduct(foundProduct);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  useEffect(() => {
-    // Cuando el producto esté cargado, pide el preferenceId
-    if (product) {
-      fetch('/api/create_preference', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: product.name,
-          price: Number(product.price.replace('$', '').replace('.', '').replace(',', '.')), // Ajusta según tu formato
-        }),
-      })
-        .then(res => res.json())
-        .then(data => setPreferenceId(data.id))
-        .catch(err => console.error('Error creando preferencia:', err));
-    }
-  }, [product]);
-
-  fetchProduct();
-}, [id]);
+    fetchProduct();
+  }, [id]);
 
   if (loading) {
     return (
@@ -277,7 +259,7 @@ return (
      {/* BOTÓN DE MERCADO PAGO */}
     <Box sx={{ mt: 3 }}>
       <Wallet
-        initialization={{ preferenceId }} // Reemplaza por tu preferenceId real
+        initialization={{ preferenceId: "TU_PREFERENCE_ID" }} // Reemplaza por tu preferenceId real
         customization={{ texts: { valueProp: 'smart_option' } }}
       />
     </Box>
