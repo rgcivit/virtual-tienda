@@ -13,12 +13,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Si usas Vercel, puede que el body llegue como string, intenta parsear si es necesario
-    let items = req.body.items;
-    if (!items && typeof req.body === 'string') {
-      const body = JSON.parse(req.body);
-      items = body.items;
-    }
+    const { items } = req.body;
 
     // Validación básica
     if (!items || !Array.isArray(items) || items.length === 0) {
