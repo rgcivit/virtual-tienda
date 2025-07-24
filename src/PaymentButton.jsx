@@ -27,18 +27,14 @@ const PaymentButton = ({ cartItems }) => {
     setLoading(true);
     setError(null);
 
-    // Formatea y valida los items antes de enviar
     const formattedItems = formatCartItems(cartItems);
     console.log("Items enviados a Mercado Pago:", formattedItems);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-      console.log("Intentando conectar a:", API_URL);
-
-      const response = await axios.post(`${API_URL}/create_preference`, {
+      const response = await axios.post('/api/create_preference', {
         items: formattedItems
       }, {
-        timeout: 10000 // 10 segundos de timeout
+        timeout: 10000
       });
 
       setPreferenceData(response.data);
