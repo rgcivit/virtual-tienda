@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, IconButton } from '@mui/material';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom'; // <-- Importa el hook
+import { useNavigate } from 'react-router-dom';
 
 import fotocarrusel1 from '../components/assets/fotocarrusel1.png';
 import fotocarrusel2 from '../components/assets/fotocarrusel2.jpg';
@@ -9,7 +9,7 @@ import fotocarrusel3 from '../components/assets/fotocarrusel3.jpg';
 
 const InfoCarousel = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const navigate = useNavigate(); // <-- Inicializa el hook
+  const navigate = useNavigate();
 
   const slides = [
     {
@@ -51,9 +51,8 @@ const InfoCarousel = () => {
     setActiveStep(step);
   };
 
-  // Función para ir a la pantalla principal
   const handleVerMas = () => {
-    navigate('/products'); // Redirige a la ruta de productos
+    navigate('/products');
   };
 
   return (
@@ -66,7 +65,7 @@ const InfoCarousel = () => {
       borderRadius: '4px',
       boxShadow: 3
     }}>
-      {/* ...código existente... */}
+      {/* Imagen de fondo */}
       <Box
         sx={{
           position: 'absolute',
@@ -81,6 +80,7 @@ const InfoCarousel = () => {
           transition: 'transform 0.5s ease-in-out',
         }}
       />
+      {/* Capa oscura */}
       <Box
         sx={{
           position: 'absolute',
@@ -92,6 +92,7 @@ const InfoCarousel = () => {
           zIndex: 1
         }}
       />
+      {/* Contenido */}
       <Box
         sx={{
           position: 'relative',
@@ -137,12 +138,72 @@ const InfoCarousel = () => {
               boxShadow: 5
             }
           }}
-          onClick={handleVerMas} // <-- Aquí agregas el evento
+          onClick={handleVerMas}
         >
           Ver Más
         </Button>
       </Box>
-      {/* ...resto del código... */}
+      {/* Flechas de navegación */}
+      <IconButton
+        onClick={handleBack}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: 8,
+          transform: 'translateY(-50%)',
+          color: 'white',
+          zIndex: 3,
+          bgcolor: 'rgba(0,0,0,0.3)',
+          '&:hover': { bgcolor: 'rgba(0,0,0,0.5)' }
+        }}
+        aria-label="Anterior"
+      >
+        <KeyboardArrowLeft fontSize="large" />
+      </IconButton>
+      <IconButton
+        onClick={handleNext}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          right: 8,
+          transform: 'translateY(-50%)',
+          color: 'white',
+          zIndex: 3,
+          bgcolor: 'rgba(0,0,0,0.3)',
+          '&:hover': { bgcolor: 'rgba(0,0,0,0.5)' }
+        }}
+        aria-label="Siguiente"
+      >
+        <KeyboardArrowRight fontSize="large" />
+      </IconButton>
+      {/* Dots de navegación */}
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 16,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: 1,
+          zIndex: 3
+        }}
+      >
+        {slides.map((_, idx) => (
+          <Box
+            key={idx}
+            onClick={() => handleStepClick(idx)}
+            sx={{
+              width: 12,
+              height: 12,
+              borderRadius: '50%',
+              backgroundColor: idx === activeStep ? 'white' : 'rgba(255,255,255,0.5)',
+              border: idx === activeStep ? '2px solid #1976d2' : '2px solid transparent',
+              cursor: 'pointer',
+              transition: 'all 0.2s'
+            }}
+          />
+        ))}
+      </Box>
     </Box>
   );
 };
