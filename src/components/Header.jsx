@@ -34,7 +34,7 @@ import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetall
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 import { signInWithPopup,signInWithRedirect } from "firebase/auth"; // Ajusta la ruta si es necesario
-import { signOut } from 'firebase/auth';
+import { signOut, getRedirectResult } from 'firebase/auth';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, provider } from '../firebase';
 
@@ -313,6 +313,20 @@ useEffect(() => {
       behavior: 'smooth'
     });
   };
+
+   useEffect(() => {
+    if (isMobileDevice) {
+      getRedirectResult(auth)
+        .then((result) => {
+          if (result?.user) {
+            setUser(result.user);
+          }
+        })
+        .catch((error) => {
+          console.error("Error en getRedirectResult (Header):", error);
+        });
+    }
+  }, []);
 
   // Función para abrir chat de WhatsApp
   const openWhatsApp = () => {
