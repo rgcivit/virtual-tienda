@@ -39,6 +39,7 @@ const ProductDetailPage = () => {
   const { id } = useParams(); // Obtiene el ID de la URL
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { Wallet } = require('@mercadopago/sdk-react'); // Asegúrate de tener instalado el SDK de Mercado Pago
 
   useEffect(() => {
     const fetchProduct = () => {
