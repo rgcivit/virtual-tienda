@@ -39,7 +39,28 @@ const ProductDetailPage = () => {
   const { id } = useParams(); // Obtiene el ID de la URL
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { Wallet } = require('@mercadopago/sdk-react'); // Asegúrate de tener instalado el SDK de Mercado Pago
+  const [preferenceId, setPreferenceId] = useState(null);
+
+   useEffect(() => {
+    if (product) {
+      fetch('/api/create_preference', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: [
+            {
+              title: product.name,
+              unit_price: Number(product.price.replace('$', '').replace('.', '').replace(',', '.')),
+              quantity: 1
+            }
+          ]
+        })
+      })
+        .then(res => res.json())
+        .then(data => setPreferenceId(data.id))
+        .catch(err => console.error('Error creando preferencia:', err));
+    }
+  }, [product]);
 
   useEffect(() => {
     const fetchProduct = () => {
@@ -257,12 +278,15 @@ return (
     <Typography variant="body1" paragraph>
       {product.longDescription || product.description}
     </Typography>
+    
      {/* BOTÓN DE MERCADO PAGO */}
     <Box sx={{ mt: 3 }}>
+       {preferenceId && (
       <Wallet
-        initialization={{ preferenceId: "TU_PREFERENCE_ID" }} // Reemplaza por tu preferenceId real
+        initialization={{ preferenceId}} // Reemplaza por tu preferenceId real
         customization={{ texts: { valueProp: 'smart_option' } }}
       />
+     )} 
     </Box>
     </Box>
   )
