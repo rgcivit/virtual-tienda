@@ -691,6 +691,54 @@ useEffect(() => {
       </Button>
     </Box>
   )}
+
+  {isMobile && (
+  <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>
+    {!user ? (
+      <IconButton
+        onClick={handleGoogleRegister}
+        aria-label="Registro"
+        sx={{
+          color: 'primary.main',
+          p: 2,
+          fontSize: '2rem'
+        }}
+      >
+        <Person sx={{ fontSize: '2.2rem' }} />
+      </IconButton>
+    ) : (
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Avatar
+          src={user.photoURL || ''}
+          alt={user.displayName || ''}
+          sx={{
+            width: 40,
+            height: 40,
+            border: '2px solid #1976d2'
+          }}
+        />
+        <Typography variant="body2" sx={{ fontWeight: 600 }}>
+          {user.displayName}
+        </Typography>
+        <Button
+          variant="text"
+          color="secondary"
+          onClick={async () => {
+            await signOut(auth);
+            setUser(null);
+          }}
+          sx={{
+            fontSize: '1rem',
+            minWidth: 0,
+            px: 2
+          }}
+        >
+          Logout
+        </Button>
+      </Box>
+    )}
+  </Box>
+)}
   </Box>
 </Box>
           </Box>
