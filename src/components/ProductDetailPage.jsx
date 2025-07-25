@@ -285,9 +285,9 @@ return (
       <Wallet
         initialization={{ preferenceId}} // Reemplaza por tu preferenceId real
         customization={{ texts: { valueProp: 'smart_option' } }}
-      />
-     )} 
-    </Box>
+        />
+      )} 
+      </Box>
     </Box>
   )
 };
