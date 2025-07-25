@@ -629,6 +629,7 @@ useEffect(() => {
     </Link>
 
     {/* Registro solo si no es móvil */}
+    
      {!user ? (
     <IconButton
       onClick={handleGoogleRegister}
@@ -659,6 +660,19 @@ useEffect(() => {
           {user.displayName}
         </Typography>
       )}
+      {isMobile && (
+        <IconButton
+          onClick={handleGoogleRegister}
+          aria-label="Perfil"
+          sx={{
+            color: 'text.secondary',
+            p: 0.5,
+            ml: 1
+          }}
+        >
+          <Person sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }} />
+        </IconButton>
+      )}
       <Button
         variant="text"
         color="secondary"
@@ -676,10 +690,15 @@ useEffect(() => {
         Logout
       </Button>
     </Box>
+    
   )}
+
   </Box>
+  
 </Box>
+
           </Box>
+          
         </Toolbar>
       </AppBar>
     </ClickAwayListener>
