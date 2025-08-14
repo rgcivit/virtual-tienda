@@ -22,7 +22,9 @@ const App = () => {
               <>
                 <InfoCarousel />
                 <ProductGrid />
-                
+                 <AuthProvider>
+                <App />
+                </AuthProvider>,document.getElementById('root')
  
               </>
             } />
