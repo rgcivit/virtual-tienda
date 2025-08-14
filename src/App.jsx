@@ -9,8 +9,6 @@ import { Box, Typography } from '@mui/material';
 import ShoppingCart from './ShoppingCart';
 import PaymentSuccess from './PaymentSuccess';
 
-
-
 const App = () => {
   return (
     <Router>
@@ -22,10 +20,6 @@ const App = () => {
               <>
                 <InfoCarousel />
                 <ProductGrid />
-                 <AuthProvider>
-                <App />
-                </AuthProvider>,document.getElementById('root')
- 
               </>
             } />
             <Route path="/products" element={<ProductsPage />} />
