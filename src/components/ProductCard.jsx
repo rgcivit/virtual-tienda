@@ -40,6 +40,16 @@ const ProductCard = ({ product }) => {
       >
         Agregar al carrito
       </Button>
+      <Button
+  component={Link}
+  to={`/products/${product.id}`} // <-- cambiar aquí a /products/:id
+  variant="outlined"
+  color="primary"
+  fullWidth
+  sx={{ textTransform: 'none', fontWeight: 600 }}
+>
+  Detalle
+</Button>
     </CardActions>
   </Card>
 );

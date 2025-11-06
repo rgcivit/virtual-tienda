@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import ensendedorusb from "./assets/ensendedorusb.png";
 import compresor from "./assets/compresor.png";
 import compresordetalle from "./assets/compresordetalle.png";
-import kitsoldador from "./assets/kitsoldador.jpg";
+import filtrodeagua from "./assets/filtrodeagua4.jpg";
 import ensendedordetalle from "./assets/ensendedordetalle.png"; 
-import kitsoldadordetalle from "./assets/kitsoldadordetalle.jpg"; 
+import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg"; 
 import kitemergencia from './assets/kitemergencia.jpg'
 import taladroinalambrico98v from './assets/taladroinalambrico98v.png'
 import taladroinalambrico98vdetallado from './assets/taladroinalambrico98vdetallado.png'
-import taladropequeñotasbel from "./assets/taladropequeñotasbel.jpg"; 
-import taladropequeñotasbeldetalle from "./assets/taladropequeñotasbeldetalle.jpg"; 
+import taladropequenotasbel from "./assets/taladropequenotasbel.jpg"; 
+import taladropequenotasbeldetalle from "./assets/taladropequenotasbeldetalle.jpg"; 
 import PowerBank from "./assets/PowerBank.jpg"
 import PowerBankdetalle from "./assets/PowerBankdetalle.jpg"
 import bolsobanano from "./assets/bolsobanano.png"; 
@@ -88,16 +88,17 @@ const mockProducts = [
             detailImage: ensendedordetalle,
             tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente"]
           },
-          {
-            id: 2,
-            name: "Kit de Soldador Eléctrico con Herramientas, Puntas y Multímetro",
-            description: "Descubre la solución perfecta para tus proyectos de soldadura con el soldador eléctrico de 60 W, diseñado específicamente para ofrecer un rendimiento excepcional y una experiencia cómoda. Su diseño tipo lápiz facilita su manejo, permitiendo un acceso sencillo a las áreas más difíciles, mientras que su punta de acero inoxidable de 4 mm asegura una durabilidad y resistencia excepcionales.",
-            longDescription: "Este kit profesional incluye todo lo que necesitas para tus proyectos de electrónica y soldadura. El soldador de 60W tiene un calentamiento rápido (30 segundos) y control de temperatura ajustable. El multímetro digital mide voltaje, corriente, resistencia y continuidad. Además, el kit incluye 5 puntas intercambiables para diferentes tipos de trabajos y un práctico soporte con esponja limpiadora.",
-            price: "$39.900",
-            image: kitsoldador,
-            detailImage: kitsoldadordetalle,
-            tags: ["Kit profesional", "60W", "Multímetro", "5 puntas", "Herramientas"]
-          },
+         {
+      id: 2,
+      name: "Grifo con Filtro de Agua ",
+      description: "Grifo con Filtro de Agua – Ahorro, limpieza y flexibilidad en tu cocina o baño.",
+      longDescription: "Este grifo cuenta con un filtro de agua integrado que garantiza agua limpia y purificada para tu hogar. Su diseño moderno se adapta a cualquier estilo de cocina o baño, y su instalación es rápida y sencilla.",
+      price: "$12.990",
+      image: filtrodeagua,
+      detailImage: filtrodeaguadetalle,
+      tags: ["Grifo", "Filtro de agua", "Cocina", "Baño", "Ahorro"],
+      
+    },
           {
             id: 3,
             name: "Taladro Portátil Recargable Inalámbrico 98V 2 Baterías y Herramientas",
@@ -112,8 +113,8 @@ const mockProducts = [
             name: "Taladro Pequeño Tasbel con 2 Baterías de 48V.",
             description: "Taladro Inalámbrico Tasbel 48V con 2 Baterías – Compacto y PotenteEste taladro pequeño de la marca Tasbel es la herramienta ideal para trabajos domésticos y proyectos de bricolaje. A pesar de su tamaño compacto, ofrece un rendimiento potente gracias a sus dos baterías recargables de 48V, que garantizan una larga duración y libertad de movimiento sin cables.Características destacadas:Motor potente de 48V, ideal para perforar madera, metal, plástico y tareas de atornillado.Diseño ergonómico y liviano, fácil de manejar incluso en espacios reducidos.2 baterías de litio recargables, para trabajar sin interrupciones.Velocidad variable y control de torque ajustable para mayor precisión.Portabrocas de cambio rápido sin necesidad de herramientas.Perfecto tanto para aficionados como para profesionales que buscan una herramienta práctica, duradera y eficiente..",
             price: "$39.990",
-            image: taladropequeñotasbel,
-            detailImage: taladropequeñotasbeldetalle,
+            image: taladropequenotasbel,
+            detailImage: taladropequenotasbeldetalle,
             tags: ["48V", "Compacto", "2 baterías", "Velocidad variable", "Tasbel"]
           },
           {
