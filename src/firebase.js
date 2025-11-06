@@ -1,5 +1,13 @@
+// ...existing code...
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, setPersistence, browserLocalPersistence,signInWithRedirect } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  setPersistence,
+  browserLocalPersistence,
+  signInWithPopup,
+  signInWithRedirect
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCEhpWqaZvHo_lYij0tO0VrG4i6K1sECXM",
@@ -14,22 +22,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-async function loginGoogle() {
+
+// intenta popup y si falla usa redirect (útil en móviles)
+const loginGoogle = async () => {
   try {
     await signInWithPopup(auth, provider);
   } catch (err) {
     console.warn('Popup falló, usando redirect:', err);
-    signInWithRedirect(auth, provider);
+    try {
+      await signInWithRedirect(auth, provider);
+    } catch (redirectErr) {
+      console.error('Error signInWithRedirect:', redirectErr);
+    }
   }
-}
+};
 
 setPersistence(auth, browserLocalPersistence).catch((error) => {
   console.error("Error setting persistence:", error);
 });
-// en el handler de login (móvil)
-const loginWithGoogle = () => {
-  signInWithRedirect(auth, provider)
-    .catch(err => console.error('Error signInWithRedirect:', err));
-};
 
-export { auth, provider };
+export { auth, provider, loginGoogle };
+// ...existing code...
