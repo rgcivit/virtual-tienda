@@ -1,5 +1,4 @@
 // ...existing code...
-// ...existing code...
 import React, { useState } from "react";
 import {
   Card,
@@ -19,7 +18,7 @@ import {
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import CloseIcon from '@mui/icons-material/Close';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cartContext";
 
 // Imágenes
@@ -29,10 +28,10 @@ import filtrodeagua from "./assets/filtrodeagua4.jpg";
 import ensendedordetalle from "./assets/ensendedordetalle.png";
 import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg";
 import kitemergencia from './assets/kitemergencia.jpg';
-import taladroinalambrico98v from './assets/taladroinalambrico98v.png';
-import taladroinalambrico98vdetallado from './assets/taladroinalambrico98vdetallado.png';
-import taladropequenotasbel from "./assets/taladropequenotasbel.jpg";
-import taladropequenotasbeldetalle from "./assets/taladropequenotasbeldetalle.jpg";
+import portavaso from './assets/portavaso (1).jpg'
+import portavasodetalle from './assets/portavasodetalle.jpg';
+import infladorportatil from "./assets/infladorportatil.jpg";
+import infladorportatildetalle from "./assets/infladorportatildetalle.jpg";
 import PowerBank from "./assets/PowerBank.jpg";
 import PowerBankdetalle from "./assets/PowerBankdetalle.jpg";
 import bolsobanano from "./assets/bolsobanano.png";
@@ -57,6 +56,7 @@ import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 
 const ProductCard = ({ product, onQuickView, onAddToCart }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <Card sx={{
@@ -149,12 +149,15 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
 
         <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
           <Button
-            component={Link}
-            to={`/products/${product.id}`}
             variant="outlined"
             color="primary"
             fullWidth
             sx={{ textTransform: 'none', fontWeight: 600 }}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation(); // evitar que otros handlers del card se ejecuten
+              navigate(`/products/${product.id}`);
+            }}
           >
             Detalle
           </Button>
@@ -176,7 +179,19 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
 };
 
 const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
+  const navigate = useNavigate();
+
   if (!product) return null;
+
+  // Maneja el clic en "Añadir al carrito" desde el modal:
+  const handleAddFromModal = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('QuickView: añadiendo producto al carrito ->', product?.id);
+    onAddToCart(product);
+    // cierra el modal para feedback inmediato
+    onClose();
+  };
 
   return (
     <Modal
@@ -239,7 +254,8 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
             </Box>
 
             <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
-              <Button onClick={e => { e.preventDefault(); e.stopPropagation(); onAddToCart(product); }}
+              <Button
+                onClick={handleAddFromModal}
                 variant="contained"
                 color="primary"
                 size="large"
@@ -288,7 +304,16 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
             </Typography>
 
             <Box sx={{ mt: 2 }}>
-              <Button component={Link} to={`/products/${product.id}`} variant="outlined" color="primary" fullWidth>
+              <Button
+                variant="outlined"
+                color="primary"
+                fullWidth
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigate(`/products/${product.id}`);
+                }}
+              >
                 Ver detalle
               </Button>
             </Box>
@@ -328,25 +353,45 @@ const ProductGrid = () => {
     },
     {
       id: 3,
-      name: "Taladro Portátil Recargable Inalámbrico 98V 2 Baterías y Herramientas",
-      description: "El Taladro Azul Doble Batería de 98V Con Herramientas Tasbel es una herramienta profesional de la marca Tasbel.",
-      longDescription: "Con una velocidad de 0-500/min y 0-1400/min, ofrece un torque de 40 N.m y cuenta con una potencia de 98v. Viene con un cargador y dos baterías, además de incluir herramientas adicionales para un uso versátil y eficiente.",
-      price: "$89.990",
-      image: taladroinalambrico98v,
-      detailImage: taladroinalambrico98vdetallado,
-      tags: ["98V", "Doble batería", "40 N.m", "Herramientas", "Tasbel"],
-      stock: 2
+      name: "Soporte Universal para Botella y Celular ",
+      description: "¡La solución práctica y resistente para tus salidas en bici, moto o cochecito!.",
+      longDescription: `"🚲 Ideal para bici, moto, cochecito o scooter  
+🔒 Fijación giratoria con sistema de bloqueo 360°  
+📱 Compartimento seguro para tu celular  
+🧴 Espacio firme para botella térmica o de plástico  
+🧱 Material plástico resistente y liviano (180g)  
+📐 Medidas: 20 x 10 x 11 cm  
+🎨 Colores disponibles: Azul, Verde y Negro  
+🔧 Fácil de instalar y ajustar."`,
+      price: "$29.900",
+      image: portavaso,
+      detailImage: portavasodetalle,
+      tags: ["Soporte", "Universal", "Botella", "Celular", "Bici"],
+      stock: 3
     },
     {
       id: 4,
-      name: "Taladro Pequeño Tasbel con 2 Baterías de 48V.",
-      description: "Taladro Inalámbrico Tasbel 48V con 2 Baterías – Compacto y Potente.",
-      longDescription: "Diseño ergonómico y liviano, 2 baterías recargables, velocidad variable y control de torque ajustable.",
-      price: "$39.990",
-      image: taladropequenotasbel,
-      detailImage: taladropequenotasbeldetalle,
-      tags: ["48V", "Compacto", "2 baterías", "Velocidad variable", "Tasbel"],
-      stock: 0
+      name: "Inflador Digital Portátil .",
+      description: "Tu compañero ideal para la aventura ¡Compacto, potente y listo para cualquier terreno!.",
+      longDescription: `"🏕️ Perfecto para salidas de camping, travesías en bici o senderismo  
+🔋 Batería de larga duración (4000mAh) para inflar sin depender de enchufes  
+📈 Presión máxima de 150 PSI – ideal para bicicletas, motos, pelotas y más  
+🎯 Pantalla digital con lectura precisa y apagado automático  
+🔇 Funcionamiento silencioso (menos de 78dB)  
+👜 Diseño compacto, fácil de guardar en mochila o alforja
+
+✅ Preset de presión para distintos tipos de ruedas  
+✅ Compatible con válvulas comunes (Presta, Schrader, etc.)  
+✅ Carga por USB – ¡siempre listo!
+
+💥 Precio especial: $55.000
+
+🌄 ¡No te quedes varado en medio del camino! Este inflador es tu seguro de movilidad en cualquier aventura 🚵‍♀️"`,
+      price: "$55.000",
+      image: infladorportatil,
+      detailImage: infladorportatildetalle,
+      tags: ["Inflador", "Portátil", "Batería de larga duración", "Variable", "Digital"],
+      stock: 3
     },
     {
       id: 5,
@@ -496,8 +541,12 @@ const ProductGrid = () => {
 
   // Comprueba stock antes de añadir y decrementa stock localmente
   const handleAddToCart = (product) => {
+    console.log('handleAddToCart llamado con:', product?.id);
     const idx = products.findIndex(p => p.id === product.id);
-    if (idx === -1) return;
+    if (idx === -1) {
+      console.warn('Producto no encontrado en lista local', product);
+      return;
+    }
 
     const currentStock = products[idx].stock ?? Infinity;
     if (currentStock <= 0) {

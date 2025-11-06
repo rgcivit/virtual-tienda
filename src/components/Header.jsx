@@ -9,10 +9,10 @@ import filtrodeagua from "./assets/filtrodeagua4.jpg";
 import ensendedordetalle from "./assets/ensendedordetalle.png"; 
 import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg"; 
 import kitemergencia from './assets/kitemergencia.jpg'
-import taladroinalambrico98v from './assets/taladroinalambrico98v.png'
-import taladroinalambrico98vdetallado from './assets/taladroinalambrico98vdetallado.png'
-import taladropequenotasbel from "./assets/taladropequenotasbel.jpg"; 
-import taladropequenotasbeldetalle from "./assets/taladropequenotasbeldetalle.jpg"; 
+import portavaso from './assets/portavaso (1).jpg'
+import portavasodetalle from './assets/portavasodetalle.jpg'
+import infladorportatil from "./assets/infladorportatil.jpg"; 
+import infladorportatildetalle from "./assets/infladorportatildetalle.jpg"; 
 import PowerBank from "./assets/PowerBank.jpg"
 import PowerBankdetalle from "./assets/PowerBankdetalle.jpg"
 import bolsobanano from "./assets/bolsobanano.png"; 
@@ -101,11 +101,11 @@ const mockProducts = [
     },
           {
             id: 3,
-            name: "Taladro Portátil Recargable Inalámbrico 98V 2 Baterías y Herramientas",
-            description: "El Taladro Azul Doble Batería de 98V Con Herramientas Tasbel es una herramienta profesional de la marca Tasbel. Con una velocidad de 0-500/min y 0-1400/min, ofrece un torque de 40 N.m y cuenta con una potencia de 98v. Viene con un cargador y dos baterías, además de incluir herramientas adicionales para un uso versátil y eficiente, y una hermosa bolsa de transporte de la marca TASBEL.Es una herramienta versátil y muy útil en cada tarea, desde cosas simples como trabajos en casa, hasta trabajos de largas jornadas en tus proyectos de construcción.Atornilla y desatornilla con facilidad. Sin esfuerzo y tiempo record.Sabemos lo difícil y cansado que es atornillar o destornillar, y más cuando lo  haces por mucho tiempo, por ello este taladro inalámbrico te encantara, será tu amigo en cada tarea de esta forma podrás terminar tus trabajos rápidamente.",
-            price: "$89.990",
-            image: taladroinalambrico98v,
-            detailImage: taladroinalambrico98vdetallado,
+            name: "Soporte Universal para Botella y Celular",
+            description: "¡La solución práctica y resistente para tus salidas en bici, moto o cochecito!.",
+            price: "$55.000",
+            image: portavaso,
+            detailImage: portavasodetalle,
             tags: ["98V", "Doble batería", "40 N.m", "Herramientas", "Tasbel"]
           },
           {
@@ -113,8 +113,8 @@ const mockProducts = [
             name: "Taladro Pequeño Tasbel con 2 Baterías de 48V.",
             description: "Taladro Inalámbrico Tasbel 48V con 2 Baterías – Compacto y PotenteEste taladro pequeño de la marca Tasbel es la herramienta ideal para trabajos domésticos y proyectos de bricolaje. A pesar de su tamaño compacto, ofrece un rendimiento potente gracias a sus dos baterías recargables de 48V, que garantizan una larga duración y libertad de movimiento sin cables.Características destacadas:Motor potente de 48V, ideal para perforar madera, metal, plástico y tareas de atornillado.Diseño ergonómico y liviano, fácil de manejar incluso en espacios reducidos.2 baterías de litio recargables, para trabajar sin interrupciones.Velocidad variable y control de torque ajustable para mayor precisión.Portabrocas de cambio rápido sin necesidad de herramientas.Perfecto tanto para aficionados como para profesionales que buscan una herramienta práctica, duradera y eficiente..",
             price: "$39.990",
-            image: taladropequenotasbel,
-            detailImage: taladropequenotasbeldetalle,
+            image: infladorportatil,
+            detailImage: infladorportatildetalle,
             tags: ["48V", "Compacto", "2 baterías", "Velocidad variable", "Tasbel"]
           },
           {
