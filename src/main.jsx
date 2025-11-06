@@ -7,13 +7,17 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './index.css';
 import { CartProvider } from './context/cartContext'; // Importa el provider
+import { AuthProvider } from './context/AuthContext';
+
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-   <React.StrictMode>
-    <CartProvider>
-      <App />
-    </CartProvider>
+  <React.StrictMode>
+    <AuthProvider>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
