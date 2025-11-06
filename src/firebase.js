@@ -14,6 +14,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+async function loginGoogle() {
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (err) {
+    console.warn('Popup falló, usando redirect:', err);
+    signInWithRedirect(auth, provider);
+  }
+}
 
 setPersistence(auth, browserLocalPersistence).catch((error) => {
   console.error("Error setting persistence:", error);
