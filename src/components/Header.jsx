@@ -848,14 +848,13 @@ useEffect(() => {
         </Toolbar>
       </AppBar>
 
-                {/* WhatsApp flotante en mitad de la pantalla derecha, solo en inicio */}
+                  {/* WhatsApp flotante cerca del footer, solo en inicio */}
       {location.pathname === '/' && (
         <Box
           sx={{
             position: 'fixed',
-            top: '50%',
+            bottom: 40, // 👈 bajado casi al footer
             right: 24,
-            transform: 'translateY(-50%)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -883,22 +882,23 @@ useEffect(() => {
           <Typography
             variant="caption"
             sx={{
-              color: 'tomato',              // 🔴 letras color tomate
-              bgcolor: '#ffffff',           // 🤍 fondo blanco
+              color: 'tomato',        // 🔴 letras color tomate
+              bgcolor: '#ffffff',     // 🤍 fondo blanco
               px: 1.5,
               py: 0.4,
               borderRadius: 999,
               fontWeight: 600,
               textAlign: 'center',
               maxWidth: 140,
-              boxShadow: 2,                 // un poquito de sombra para que se destaque
-              border: '1px solid #ffe0d5',  // borde suave opcional
+              boxShadow: 2,
+              border: '1px solid #ffe0d5',
             }}
           >
             ¿Consultas? ¿Dudas?
           </Typography>
         </Box>
       )}
+
 
 
       </>
