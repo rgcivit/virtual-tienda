@@ -27,19 +27,20 @@ import compresor from "./assets/compresor.png";
 import filtrodeagua from "./assets/filtrodeagua4.jpg";
 import ensendedordetalle from "./assets/ensendedordetalle.png";
 import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg";
-import kitemergencia from './assets/kitemergencia.jpg';
+import restauradorfaros from './assets/restauradorfaros.jpg'
+import restauradorfarosdetalle from './assets/restauradorfarosdetalle.jpg'
 import portavaso from './assets/portavaso (1).jpg'
 import portavasodetalle from './assets/portavasodetalle.jpg';
 import infladorportatil from "./assets/infladorportatil.jpg";
 import infladorportatildetalle from "./assets/infladorportatildetalle.jpg";
-import PowerBank from "./assets/PowerBank.jpg";
-import PowerBankdetalle from "./assets/PowerBankdetalle.jpg";
-import bolsobanano from "./assets/bolsobanano.png";
-import bolsobananodetalle from "./assets/bolsobananodetalle.png";
-import linternaconluzlateral from "./assets/linternaconluzlateral.jpg";
-import linternaconluzlateraldetalle from "./assets/linternaconluzlateraldetalle.jpg";
-import inversordecorriente from "./assets/inversordecorriente.jpg";
-import inversordecorrientedetalle from "./assets/inversordecorrientedetalle.jpg";
+import gafasinteligentes from "./assets/gafasinteligentes.jpg";
+import gafasinteligentesdetalle from "./assets/gafasinteligentesdetalle.jpg";
+import multimedia from "./assets/multimedia.jpg";
+import multimediadetalle from "./assets/multimediadetalle.jpg";
+import motosierra from "./assets/motosierra.jpg";
+import motosierradetalle from "./assets/motosierradetalle.jpg";
+import guantesled from "./assets/guantesled.jpg";
+import guantesleddetalle from "./assets/guantesleddetalle.jpg";
 import intercomunicadorcasco from "./assets/intercomunicadorcasco.jpg";
 import intercomunicadorcascodetalle from "./assets/intercomunicadorcascodetalle.jpg";
 import nerdminer1 from "./assets/nerdminer1.webp";
@@ -394,58 +395,151 @@ const ProductGrid = () => {
       stock: 3
     },
     {
-      id: 5,
-      name: "Kit de emergencia con linterna 50w",
-      description: "Fácil de trasladar y guardar y podes cargar tu celular!",
-      longDescription: "La linterna doméstica con kit de emergencia es la solución ideal para quienes buscan una fuente de luz confiable tanto en interiores como en exteriores.",
-      price: "$30.000",
-      image: kitemergencia,
-      tags: ["Emergencia", "Linterna 50W", "Powerbank", "Solar", "USB"],
-      stock: 5
+       id: 5,
+            name: "KIT RESTAURADOR DE FAROS ",
+            description: " ¡Volvé a ver con claridad! ¿Tus faros están opacos, amarillentos o rayados? Este kit es la solución rápida, económica y efectiva 💡",
+            longDescription: `🔧 Incluye todo lo necesario:  
+- Lijas de distintos granos 🪵  
+- Pasta pulidora profesional 🧴  
+- Aplicador de espuma 🧽  
+- Cinta de enmascarar para proteger la carrocería 🚗  
+- Protector UV para acabado duradero ☀️
+
+✅ Beneficios clave:  
+- Mejora la estética del vehículo ✨  
+- Aumenta la visibilidad y seguridad al manejar 🌙  
+- Fácil de usar, ¡sin necesidad de herramientas especiales! 🛠️  
+- Compatible con cualquier tipo de faro 🚘  
+- Resultados visibles desde la primera aplicación 👀
+
+📦 Rinde para restaurar 2 faros o más  
+💥 Precio promocional: $14.990
+
+📸 Mirá el “ANTES y DESPUÉS”… ¡La diferencia es impresionante!`,
+            price: "$14.990",
+            image: restauradorfaros,
+            detailImage: restauradorfarosdetalle,
+             tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo"],
+            stock: 5
     },
     {
       id: 6,
-      name: "Power Bank 20.000 Mah 3 Entradas con Linterna",
-      description: "Power Bank 20.000 Mah 3 Entradas con Linterna.",
-      longDescription: "El Power Bank 20.000 Mah con 3 Entradas y Linterna es la solución ideal para mantener tus dispositivos móviles siempre cargados.",
-      price: "$27.990",
-      image: PowerBank,
-      detailImage: PowerBankdetalle,
-      tags: ["20.000 mAh", "3 entradas", "Linterna", "Portátil", "USB"],
-      stock: 7
+            name: "Lentes Inteligentes con Bluetooth  y Audio Integrado",
+            description: "¡Comodidad, estilo y tecnología en un solo accesorio!",
+            longDescription: `Disfruta de la música y las llamadas manos libres con estilo. Estos lentes cuentan con tecnología avanzada de audio y un diseño moderno, 🔊 Escuchá música o atendé llamadas sin auriculares  
+👆 Control táctil en las patillas  
+📱 Compatible con Android & iOS  
+🔋 Batería recargable – hasta 6 horas de uso  
+🌞 Lentes HD polarizados con protección UV400  
+🎧 Audio estéreo abierto, sin tapar tus oídos  
+📡 Bluetooth 5.3 / 5.4 de conexión estable
+
+✨ Diseño moderno, liviano y sin género  
+📏 Medidas estándar: cómodos para todos.`,
+            price: "$29.900",
+            image: gafasinteligentes,
+            detailImage: gafasinteligentesdetalle,
+            tags: ["Bluetooth", "Audio", "Estilo", "Tecnología", "Accesorios"],
+            stock: 3
     },
     {
       id: 7,
-      name: "Bolso Mochila Bandolera Cruzada Antirrobo en 4 Colores",
-      description: "Bloqueo antirrobo: con función antirrobo, es práctico y conveniente.",
-      longDescription: "Cierre antirrobo, bolsillo oculto, puerto de carga USB, material Oxford resistente al desgaste.",
-      price: "$59.990",
-      image: bolsobanano,
-      detailImage: bolsobananodetalle,
-      tags: ["Antirrobo", "USB", "Impermeable", "4 colores", "Organización"],
-      stock: 4
+      name: "Reproductor Universal para Autos ",
+      description: "¡Transformá tu viaje en una experiencia multimedia! 🚗✨",
+      longDescription: `"📺 Pantalla táctil TFT de 7" (formato 16:9)  
+Disfrutá de una interfaz moderna y fácil de usar, perfecta para visualizar tus contenidos con claridad.
+
+🎶 Reproduce múltiples formatos: MP5 / MP4 / MP3 / WMA  
+¡Llevá tu música y videos favoritos a donde vayas!
+
+🔌 Entradas versátiles: USB / SD / MMC / AUX  
+Conectá tus dispositivos sin complicaciones y accedé a tus archivos al instante.
+
+📱 Bluetooth integrado  
+Manos libres para llamadas 📞 + transmisión de música 🎧 sin cables.
+
+📻 Radio FM con sintonizador digital  
+Hasta 18 estaciones presintonizadas para que nunca te falte ritmo.
+
+🕹️ Control remoto infrarrojo  
+Manejá todas las funciones cómodamente desde cualquier lugar del vehículo.
+
+⏰ Reloj en tiempo real  
+Siempre puntual, siempre elegante.
+
+🎚️ Ecualizador electrónico  
+Ajustá el sonido a tu estilo: Pop 🎤, Rock 🎸 o Clásico 🎼.
+
+🛡️ ESP (antishock electrónico)  
+Reproducción estable incluso en caminos irregulares.
+
+🔊 Salidas RCA de línea (baja impedancia)  
+Ideal para conectar amplificadores y mejorar la calidad de audio.
+
+⚡ Potencia de salida: 45W × 4  
+Sonido potente y envolvente para todos los pasajeros."`,
+      price: "$89.990",
+      image: multimedia,
+      detailImage: multimediadetalle,
+      tags: ["Multimedia", "Bluetooth", "Audio", "Tecnología", "Auto"],
+      stock: 2
     },
     {
-      id: 8,
-      name: "Linterna con Luz Frontal Blanca y Lateral Roja Solar y Recargable",
-      description: "Esta linterna multifuncional es ideal para emergencias, camping o uso diario en el hogar.",
-      longDescription: "Cuenta con luz frontal blanca y lateral roja, alimentación solar y recargable, y carga USB.",
-      price: "$39.990",
-      image: linternaconluzlateral,
-      detailImage: linternaconluzlateraldetalle,
-      tags: ["Linterna", "Recargable", "Camping", "Senderismo", "Emergencia"],
-      stock: 6
+       id: 8,
+            name: "🪚🔋 Mini Motosierra Eléctrica BEKR 24V ",
+            description: " ¡Potencia portátil para tus tareas de corte! 🌳💪",
+            longDescription: `⚡ Batería de 24V integrada  
+No necesitás retirarla para cargarla 🔌. ¡Más práctico, más eficiente!
+
+🧤 Operación manual  
+Diseñada para un uso cómodo y seguro, ideal para usuarios de todos los niveles.
+
+🎒 Ligera y portátil  
+Llevála a cualquier parte sin esfuerzo. Perfecta para trabajos en el jardín o en el campo.
+
+🔧 Instalación rápida y sencilla  
+En solo 3 pasos estás listo para cortar:
+1️⃣ Colocá la guía y la cadena en la rueda dentada  
+2️⃣ Cerrá la tapa y ajustá la tuerca  
+3️⃣ Ajustá el tornillo con la llave incluida
+
+🌲 Ideal para múltiples tareas  
+- Corte de troncos 🪵  
+- Jardinería 🌿  
+- Poda de árboles 🌳
+
+⛓️ Cadena de alta calidad  
+Cortes precisos y duraderos, incluso en madera dura.
+
+🛠️ Construcción robusta y confiable  
+Diseñada para resistir el uso intensivo sin perder rendimiento.`,
+            price: "$59.990",
+            image: motosierra,
+            detailImage: motosierradetalle,
+            tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil"],
+            stock: 2
     },
     {
       id: 9,
-      name: "Inversor Convertidor de Corriente 200W para Auto 12V 220V",
-      description: "El inversor convertidor de corriente YQ-2000WD de 200W transforma la corriente de 12V a 220V.",
-      longDescription: "Ideal para camping y viajes por carretera, con salida USB integrada.",
-      price: "$129.990",
-      image: inversordecorriente,
-      detailImage: inversordecorrientedetalle,
-      tags: ["220v", "Inversor", "Power Bank", "Camping"],
-      stock: 2
+            name: "🧤🔦 Guantes con Linterna LED Luz Blanca",
+            description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda. Con un diseño innovador, son ideales para 🌌 actividades al aire libre, 🛠️ bricolaje o cualquier situación que requiera buena iluminación.",
+            longDescription: `
+✨ Iluminación Eficiente  
+Equipados con una linterna LED de luz blanca fría, estos guantes ofrecen una iluminación potente 💡 que te permite ver en la oscuridad sin complicaciones. Con un modo de luz simple, iluminás cualquier espacio fácilmente, haciendo tus tareas nocturnas más seguras y prácticas 🌙✅.
+
+🧵 Material de Calidad  
+Fabricados en algodón con lycra, son suaves y flexibles, garantizando un ajuste cómodo 🤲 y excelente rango de movimiento. La combinación de materiales permite usarlos durante largos períodos sin molestias ⏳👌.
+
+🔧 Versatilidad y Prácticidad  
+Ya sea que estés trabajando en proyectos DIY 🧰, disfrutando de una caminata nocturna 🚶‍♂️🌃 o necesites iluminar un área específica, estos guantes se adaptan a todas tus necesidades. Su diseño práctico te permite usar ambas manos mientras mantenés la luz justo donde la necesitás 🙌🔦.
+
+🚫🌑 Conclusión  
+No dejes que la oscuridad te detenga. Adquirí tus Guantes con Linterna LED Luz Blanca y experimentá la comodidad de tener luz al alcance de tu mano. ¡Perfectos para cualquier ocasión! 💪✨`,
+            price: "$14.990",
+            image: guantesled,
+            detailImage: guantesleddetalle,
+            tags: ["Guantes", "LED", "Iluminación", "DIY"],
+            stock: 4
     },
     {
       id: 10,
