@@ -157,7 +157,8 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation(); // evitar que otros handlers del card se ejecuten
-              navigate(`/products/${product.id}`);
+              // enviar el producto como state al navegar para que ProductDetail lo reciba
+              navigate(`/products/${product.id}`, { state: { product } });
             }}
           >
             Detalle
@@ -290,7 +291,8 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
               {product.price}
             </Typography>
 
-            <Typography variant="body1" paragraph>
+            {/* Mostrar longDescription respetando saltos de línea */}
+            <Typography variant="body1" paragraph sx={{ whiteSpace: 'pre-line' }}>
               {product.longDescription || product.description}
             </Typography>
 
@@ -312,7 +314,8 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  navigate(`/products/${product.id}`);
+                  // pasar el producto al navegar para que la página de detalle lo reciba en location.state
+                  navigate(`/products/${product.id}`, { state: { product } });
                 }}
               >
                 Ver detalle
@@ -551,38 +554,9 @@ Imaginá esto: estás en plena reparación, con la herramienta en una mano y… 
 
 💪 Imanes potentes integrados  
 Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pegados firmemente a tu muñeca 🛠️👋  
-¡Nada se te escapa!
+¡Nada se te escapa!...
 
-👐 ¿Siempre te falta una mano cuando más la necesitás?  
-Trabajar solo puede ser complicado 😓  
-Pero esta pulsera actúa como una tercera mano invisible 🪄  
-Mientras usás el taladro o el destornillador, ella sostiene todo lo que necesitás.  
-¡Más práctico, imposible! 🙌
-
-🧗‍♂️ ¿Trabajás en espacios difíciles, escaleras o bajo el auto?  
-En esos lugares donde moverse es un desafío, esta pulsera marca la diferencia 🚗🔧  
-Liviana, ajustable y cómoda, se adapta perfectamente sin estorbar.  
-Cada pieza metálica que necesitás estará justo donde la querés: pegada a vos 🧲💥
-
-⏱️ ¿Querés ahorrar tiempo en cada trabajo?  
-Con esta pulsera no perdés más minutos buscando tornillos caídos ni yendo a la caja de herramientas 🧰  
-Cada detalle fue pensado para que seas más eficiente, rápido y organizado ⚡  
-Ideal para electricistas, carpinteros, mecánicos, técnicos… o cualquier amante del "hacelo vos mismo" 🧑‍🔧✨
-
-🎁 ¿Buscás un regalo original y útil?  
-¡La encontraste!  
-Esta pulsera magnética no solo es funcional, sino que se convierte en el regalo perfecto para quien ama reparar, construir o crear con sus manos 🎨🛠️
-
-📌 En resumen:  
-- Cómoda, liviana y resistente 💪  
-- Súper práctica: tus piezas pequeñas siempre a mano 🔩  
-- Ahorra tiempo y frustraciones ⏳  
-- Ideal para todo tipo de tareas y profesiones 👷‍♂️👨‍🔧
-
-🔄 Transformá la forma en que trabajás  
-Una vez que la usás, no vas a querer sacártela nunca más 😍
-
-🛒 ¡Llevate la tuya ahora y dale poder magnético a tus manos! 🧲🔥"`,
+`,
             price: "$14.990",
             image: pulceramagnetica,
             detailImage: pulceramagneticadetalle,
