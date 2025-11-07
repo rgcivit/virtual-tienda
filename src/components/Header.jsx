@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../context/cartContext';
 import { Link } from 'react-router-dom';
 import ensendedorusb from "./assets/ensendedorusb.png";
@@ -414,6 +414,7 @@ const Logo = ({ onClick }) => {
 
 const Header = () => {
   const theme = useTheme();
+  const location = useLocation();          // 👈 para saber en qué ruta estamos
   const { cart } = useCart();
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -543,6 +544,7 @@ useEffect(() => {
   
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
+      <>
       <AppBar
         position="sticky"
         sx={{
@@ -845,6 +847,61 @@ useEffect(() => {
           
         </Toolbar>
       </AppBar>
+
+                {/* WhatsApp flotante en mitad de la pantalla derecha, solo en inicio */}
+      {location.pathname === '/' && (
+        <Box
+          sx={{
+            position: 'fixed',
+            top: '50%',
+            right: 24,
+            transform: 'translateY(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 1,
+            zIndex: 1300,
+          }}
+        >
+          <IconButton
+            onClick={openWhatsApp}
+            aria-label="WhatsApp flotante"
+            sx={{
+              bgcolor: '#25D366',
+              color: '#fff',
+              boxShadow: 4,
+              '&:hover': {
+                bgcolor: '#1ebe5d',
+              },
+              width: 64,
+              height: 64,
+            }}
+          >
+            <WhatsApp sx={{ fontSize: 38 }} />
+          </IconButton>
+
+          <Typography
+            variant="caption"
+            sx={{
+              color: 'tomato',              // 🔴 letras color tomate
+              bgcolor: '#ffffff',           // 🤍 fondo blanco
+              px: 1.5,
+              py: 0.4,
+              borderRadius: 999,
+              fontWeight: 600,
+              textAlign: 'center',
+              maxWidth: 140,
+              boxShadow: 2,                 // un poquito de sombra para que se destaque
+              border: '1px solid #ffe0d5',  // borde suave opcional
+            }}
+          >
+            ¿Consultas? ¿Dudas?
+          </Typography>
+        </Box>
+      )}
+
+
+      </>
     </ClickAwayListener>
   );
 };
