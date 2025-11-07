@@ -22,8 +22,8 @@ import motosierra from "./assets/motosierra.jpg";
 import motosierradetalle from "./assets/motosierradetalle.jpg";
 import guantesled from "./assets/guantesled.jpg";
 import guantesleddetalle from "./assets/guantesleddetalle.jpg";
-import intercomunicadorcasco from "./assets/intercomunicadorcasco.jpg";
-import intercomunicadorcascodetalle from "./assets/intercomunicadorcascodetalle.jpg";
+import pulceramagnetica from "./assets/pulceramagnetica.jpg";
+import pulceramagneticadetalle from "./assets/pulceramagneticadetalle.jpg";
 import nerdminer1 from "./assets/nerdminer1.webp";
 import nerdminer3detalle from "./assets/nerdminer3detalle.webp";
 import lamparadeemergencia from "./assets/lamparadeemergencia.webp";
@@ -256,9 +256,7 @@ Diseñada para resistir el uso intensivo sin perder rendimiento.`,
             id: 9,
             name: "🧤🔦 Guantes con Linterna LED Luz Blanca",
             description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda. Con un diseño innovador, son ideales para 🌌 actividades al aire libre, 🛠️ bricolaje o cualquier situación que requiera buena iluminación.",
-            longDescription: `
-✨ Iluminación Eficiente  
-Equipados con una linterna LED de luz blanca fría, estos guantes ofrecen una iluminación potente 💡 que te permite ver en la oscuridad sin complicaciones. Con un modo de luz simple, iluminás cualquier espacio fácilmente, haciendo tus tareas nocturnas más seguras y prácticas 🌙✅.
+            longDescription: `✨ Iluminación Eficiente Equipados con una linterna LED de luz blanca fría, estos guantes ofrecen una iluminación potente 💡 que te permite ver en la oscuridad sin complicaciones. Con un modo de luz simple, iluminás cualquier espacio fácilmente, haciendo tus tareas nocturnas más seguras y prácticas 🌙✅.
 
 🧵 Material de Calidad  
 Fabricados en algodón con lycra, son suaves y flexibles, garantizando un ajuste cómodo 🤲 y excelente rango de movimiento. La combinación de materiales permite usarlos durante largos períodos sin molestias ⏳👌.
@@ -276,13 +274,50 @@ No dejes que la oscuridad te detenga. Adquirí tus Guantes con Linterna LED Luz 
           },
           {
             id: 10,
-            name: "Intercomunicador Audífonos para Casco de Motos Bluetooth Y20",
-            description: "Bluetooth Para Casco De Moto Elikidsto Y20: Hifi, Reducción.",
-            longDescription: "El intercomunicador Y20-2X de la marca TM ofrece una experiencia de comunicación única para motociclistas que buscan mantenerse conectados mientras disfrutan de la carretera. Con un alcance máximo de 800 metros, este dispositivo asegura una conexión clara y constante, permitiendo intercambiar información con facilidad, incluso a distancias considerables. Equipado con la avanzada tecnología Bluetooth 5, garantiza una conexión estable con dispositivos iOS y Android, optimizando así la interacción durante los viajes. Su autonomía de batería de 24 horas permite largos recorridos sin la preocupación de recargas frecuentes, ideal para aventuras prolongadas. Además, este intercomunicador cuenta con una clasificación de resistencia al agua IPX6, asegurando su funcionalidad en diversas condiciones climáticas. El sistema de reducción de ruido proporciona una calidad de audio superior, permitiendo escuchar música o recibir llamadas de manera clara y sin interrupciones, un imprescindible en cada salida.",
-            price: "$89.990",
-            image: intercomunicadorcasco,
-            detailImage: intercomunicadorcascodetalle,
-            tags: ["Inalámbrica", "18V", "Sin escobillas", "Luz LED", "Precisión"]
+            name: "Pulsera Muñequera Magnética Para Tornillos Y Herramientas",
+            description: "¡La aliada perfecta para tus proyectos de bricolaje, carpintería o mecánica! Esta muñequera magnética te permite tener tornillos, clavos, brocas y pequeñas herramientas siempre al alcance de la mano 🛠️👋.",
+            longDescription: `"🧲🔧 ¿Cansado de que se te caigan los tornillos mientras trabajás?  
+Imaginá esto: estás en plena reparación, con la herramienta en una mano y… ¡zas! el tornillo rueda y desaparece 😤🔩  
+¡Frustrante! Pero con esta pulsera magnética, eso ya es cosa del pasado ✅
+
+💪 Imanes potentes integrados  
+Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pegados firmemente a tu muñeca 🛠️👋  
+¡Nada se te escapa!
+
+👐 ¿Siempre te falta una mano cuando más la necesitás?  
+Trabajar solo puede ser complicado 😓  
+Pero esta pulsera actúa como una tercera mano invisible 🪄  
+Mientras usás el taladro o el destornillador, ella sostiene todo lo que necesitás.  
+¡Más práctico, imposible! 🙌
+
+🧗‍♂️ ¿Trabajás en espacios difíciles, escaleras o bajo el auto?  
+En esos lugares donde moverse es un desafío, esta pulsera marca la diferencia 🚗🔧  
+Liviana, ajustable y cómoda, se adapta perfectamente sin estorbar.  
+Cada pieza metálica que necesitás estará justo donde la querés: pegada a vos 🧲💥
+
+⏱️ ¿Querés ahorrar tiempo en cada trabajo?  
+Con esta pulsera no perdés más minutos buscando tornillos caídos ni yendo a la caja de herramientas 🧰  
+Cada detalle fue pensado para que seas más eficiente, rápido y organizado ⚡  
+Ideal para electricistas, carpinteros, mecánicos, técnicos… o cualquier amante del "hacelo vos mismo" 🧑‍🔧✨
+
+🎁 ¿Buscás un regalo original y útil?  
+¡La encontraste!  
+Esta pulsera magnética no solo es funcional, sino que se convierte en el regalo perfecto para quien ama reparar, construir o crear con sus manos 🎨🛠️
+
+📌 En resumen:  
+- Cómoda, liviana y resistente 💪  
+- Súper práctica: tus piezas pequeñas siempre a mano 🔩  
+- Ahorra tiempo y frustraciones ⏳  
+- Ideal para todo tipo de tareas y profesiones 👷‍♂️👨‍🔧
+
+🔄 Transformá la forma en que trabajás  
+Una vez que la usás, no vas a querer sacártela nunca más 😍
+
+🛒 ¡Llevate la tuya ahora y dale poder magnético a tus manos! 🧲🔥"`,
+            price: "$14.990",
+            image: pulceramagnetica,
+            detailImage: pulceramagneticadetalle,
+            tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera"]
           },
           {
                id: 11,
