@@ -3,7 +3,7 @@ import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import axios from 'axios';
 import { Button, CircularProgress, Box, Typography } from '@mui/material';
 
-initMercadoPago('APP_USR-ccb10d4f-ffb0-4a4c-8404-26e8de87dad6', { locale: 'es-AR' });
+initMercadoPago('TEST-ccb10d4f-ffb0-4a4c-8404-26e8de87dad6', { locale: 'es-CL' });
 
 const formatCartItems = (cartItems) =>
   cartItems.map(item => ({

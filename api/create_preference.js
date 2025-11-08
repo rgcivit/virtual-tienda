@@ -2,8 +2,8 @@ import mercadopago from 'mercadopago';
 
 // Configura tu access token de Mercado Pago
 mercadopago.configure({
-access_token: 'APP_USR-5595002757319588-050513-92015738b962c0e6b0a280a5c9b6ebdc-205863933',
-sandbox: false
+  access_token: 'TEST-5595002757319588-050513-92015738b962c0e6b0a280a5c9b6ebdc-205863933',
+  sandbox: true
 });
 
 // Función handler para Vercel Serverless API
@@ -25,12 +25,12 @@ const preference = {
     title: item.title || 'Producto sin nombre',
     unit_price: Number(item.unit_price) || 0,
     quantity: Number(item.quantity) || 1,
-    currency_id: 'ARS'
+    currency_id: 'CLP'
   })),
   back_urls: {
-    success: 'https://virtual-tienda.vercel.app/payment/success',
-    failure: 'https://virtual-tienda.vercel.app/payment/failure',
-    pending: 'https://virtual-tienda.vercel.app/payment/pending'
+    success: 'http://localhost:5173/payment/success',
+    failure: 'http://localhost:5173/payment/failure',
+    pending: 'http://localhost:5173/payment/pending'
   },
   auto_return: 'approved',
   binary_mode: true
