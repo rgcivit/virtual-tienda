@@ -111,7 +111,8 @@ const ProductDetailPage = () => {
     price: "$11.990",
     image: ensendedorusb,
     detailImage: ensendedordetalle,
-    tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente"]
+    tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente"],
+     stock: 1
   },
   {
     id: 2,
@@ -121,7 +122,8 @@ const ProductDetailPage = () => {
     price: "$12.990",
     image: filtrodeagua,
     detailImage: filtrodeaguadetalle,
-    tags: ["Grifo", "Filtro de agua", "Cocina", "Baño", "Ahorro"]
+    tags: ["Grifo", "Filtro de agua", "Cocina", "Baño", "Ahorro"],
+     stock: 6
   },
   {
     id: 3,
@@ -130,7 +132,8 @@ const ProductDetailPage = () => {
     price: "$55.000",
     image: portavaso,
     detailImage: portavasodetalle,
-    tags: ["98V", "Doble batería", "40 N.m", "Herramientas", "Tasbel"]
+    tags: ["98V", "Doble batería", "40 N.m", "Herramientas", "Tasbel"],
+     stock: 3
   },
   {
     id: 4,
@@ -153,7 +156,8 @@ const ProductDetailPage = () => {
     price: "$55.000",
     image: infladorportatil,
     detailImage: infladorportatildetalle,
-    tags: ["Inflador", "Portátil", "Batería de larga duración", "Variable", "Digital"]
+    tags: ["Inflador", "Portátil", "Batería de larga duración", "Variable", "Digital"],
+     stock: 3
   },
   {
     id: 5,
@@ -178,7 +182,8 @@ const ProductDetailPage = () => {
     price: "$14.990",
     image: restauradorfaros,
     detailImage: restauradorfarosdetalle,
-    tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo"]
+    tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo"],
+       stock: 1
   },
   {
     id: 6,
@@ -197,7 +202,8 @@ const ProductDetailPage = () => {
     price: "$29.900",
     image: gafasinteligentes,
     detailImage: gafasinteligentesdetalle,
-    tags: ["Bluetooth", "Audio", "Estilo", "Tecnología", "Accesorios"]
+    tags: ["Bluetooth", "Audio", "Estilo", "Tecnología", "Accesorios"],
+       stock: 3
   },
   {
     id: 7,
@@ -238,7 +244,8 @@ Sonido potente y envolvente para todos los pasajeros.`,
     price: "$89.990",
     image: multimedia,
     detailImage: multimediadetalle,
-    tags: ["Multimedia", "Bluetooth", "Audio", "Tecnología", "Auto"]
+    tags: ["Multimedia", "Bluetooth", "Audio", "Tecnología", "Auto"],
+       stock: 2
   },
   {
     id: 8,
@@ -272,7 +279,8 @@ Diseñada para resistir el uso intensivo sin perder rendimiento.`,
     price: "$59.990",
     image: motosierra,
     detailImage: motosierradetalle,
-    tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil"]
+    tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil"],
+       stock: 2
   },
   {
     id: 9,
@@ -288,7 +296,8 @@ Ya sea que estés trabajando en proyectos DIY, disfrutando de una caminata noctu
     price: "$14.990",
     image: guantesled,
     detailImage: guantesleddetalle,
-    tags: ["Guantes", "LED", "Iluminación", "DIY"]
+    tags: ["Guantes", "LED", "Iluminación", "DIY"],
+       stock: 3
   },
   {
     id: 10,
@@ -306,7 +315,8 @@ Liviana, ajustable y cómoda, se adapta perfectamente sin estorbar.`,
     price: "$14.990",
     image: pulceramagnetica,
     detailImage: pulceramagneticadetalle,
-    tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera"]
+    tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera"],
+       stock: 1
   },
   {
     id: 11,
