@@ -679,7 +679,7 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
       image: nerdminer1,
       detailImage: nerdminer3detalle,
       tags: ["Opera a 55-60 Kh/s", "Pantalla 2.8\"", "Eficiencia", "PCB", "Modo lotería"],
-      stock: 1
+      stock: 0
     },
     {
       id: 12,
@@ -690,7 +690,7 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
       image: compresor,
       detailImage: compresordetalle,
       tags: ["24L", "Silencioso", "Portátil", "8 bar", "Accesorios"],
-      stock: 2
+      stock: 0
     },
     {
       id: 13,
@@ -701,7 +701,7 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
       image: lamparadeemergencia,
       detailImage: lamparadeemergenciadetalle,
       tags: ["Recargable", "Luz LED", "360°", "Solar", "400 lúmenes"],
-      stock: 12
+      stock: 0
     },
     {
       id: 14,
@@ -712,7 +712,7 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
       image: powerbanksolar,
       detailImage: powerbanksolardetalle,
       tags: ["20000 mAh", "Solar", "4 cables", "Linterna", "USB"],
-      stock: 5
+      stock: 0
     },
     {
       id: 15,
@@ -723,7 +723,7 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
       image: linternamultifuncional,
       detailImage: linternamultifuncionaldetalle,
       tags: ["360°", "Recargable", "Solar", "Powerbank", "Trípode"],
-      stock: 8
+      stock: 0
     },
     {
       id: 16,
@@ -734,7 +734,7 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
       image: cocinacamping,
       detailImage: cocinacampingdetalle,
       tags: ["Portátil", "Gas butano", "Maleta", "Encendido automático", "Camping"],
-      stock: 3
+      stock: 0
     }
   ];
 
