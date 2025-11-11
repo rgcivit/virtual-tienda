@@ -110,7 +110,7 @@ const ProductDetailPage = () => {
               "El encendedor multipropósito es una innovación de vanguardia que hará que tus momentos sean más prácticos y emocionantes que nunca! Este versátil dispositivo es mucho más que un simple encendedor; es una herramienta multifuncional que combina elegancia y practicidad.",
             longDescription:
               "Este encendedor USB es recargable y tiene un diseño moderno y compacto. Perfecto para llevar contigo a todas partes. Con carga rápida USB-C y luz indicadora. Disponible en varios colores. Además, incluye una potente linterna LED que lo hace ideal para acampadas, emergencias o uso diario.",
-            price: "$1.000",
+            price: "$11.990",
             image: ensendedorusb,
             detailImage: ensendedordetalle,
             // 👇 NUEVO: galería opcional
