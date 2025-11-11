@@ -1,5 +1,5 @@
 // ...existing code...
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardMedia,
@@ -30,7 +30,7 @@ import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg";
 import restauradorfaros from './assets/restauradorfaros.jpg'
 import restauradorfarosdetalle from './assets/restauradorfarosdetalle.jpg'
 import portavaso from './assets/portavaso (1).jpg'
-import portavasodetalle from './assets/portavasodetalle.jpg';
+import portavasodetalle from "./assets/portavasodetalle.jpg";
 import infladorportatil from "./assets/infladorportatil.jpg";
 import infladorportatildetalle from "./assets/infladorportatildetalle.jpg";
 import gafasinteligentes from "./assets/gafasinteligentes.jpg";
@@ -156,8 +156,7 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
             sx={{ textTransform: 'none', fontWeight: 600 }}
             onClick={(e) => {
               e.preventDefault();
-              e.stopPropagation(); // evitar que otros handlers del card se ejecuten
-              // enviar el producto como state al navegar para que ProductDetail lo reciba
+              e.stopPropagation();
               navigate(`/products/${product.id}`, { state: { product } });
             }}
           >
@@ -182,8 +181,38 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
 
 const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
   const navigate = useNavigate();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Cuando cambia de producto, volvemos a la primera imagen
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [product?.id]);
 
   if (!product) return null;
+
+  // Lista de imágenes para el carrusel
+  const images =
+    product.gallery && product.gallery.length > 0
+      ? product.gallery
+      : [product.detailImage, product.image].filter(Boolean);
+
+  const hasMultipleImages = images.length > 1;
+
+  const handlePrevImage = (e) => {
+    e.stopPropagation();
+    if (!hasMultipleImages) return;
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
+  const handleNextImage = (e) => {
+    e.stopPropagation();
+    if (!hasMultipleImages) return;
+    setCurrentImageIndex((prev) =>
+      prev === images.length - 1 ? 0 : prev + 1
+    );
+  };
 
   // Maneja el clic en "Añadir al carrito" desde el modal:
   const handleAddFromModal = (e) => {
@@ -191,7 +220,6 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
     e.stopPropagation();
     console.log('QuickView: añadiendo producto al carrito ->', product?.id);
     onAddToCart(product);
-    // cierra el modal para feedback inmediato
     onClose();
   };
 
@@ -234,6 +262,7 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
 
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
+            {/* Caja principal con imagen y flechas */}
             <Box sx={{
               borderRadius: 2,
               overflow: 'hidden',
@@ -242,19 +271,94 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              bgcolor: '#f5f5f5'
+              bgcolor: '#f5f5f5',
+              position: 'relative'
             }}>
-              <img
-                src={product.detailImage || product.image}
-                alt={product.name + " detalle"}
-                style={{
-                  maxHeight: '100%',
-                  maxWidth: '100%',
-                  objectFit: 'contain'
-                }}
-              />
+              {images.length > 0 && (
+                <>
+                  <img
+                    src={images[currentImageIndex]}
+                    alt={product.name + " detalle"}
+                    style={{
+                      maxHeight: '100%',
+                      maxWidth: '100%',
+                      objectFit: 'contain'
+                    }}
+                  />
+
+                  {hasMultipleImages && (
+                    <>
+                      <IconButton
+                        onClick={handlePrevImage}
+                        sx={{
+                          position: 'absolute',
+                          left: 8,
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255,255,255,0.8)',
+                          '&:hover': { bgcolor: 'rgba(255,255,255,1)' }
+                        }}
+                      >
+                        {"<"}
+                      </IconButton>
+
+                      <IconButton
+                        onClick={handleNextImage}
+                        sx={{
+                          position: 'absolute',
+                          right: 8,
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255,255,255,0.8)',
+                          '&:hover': { bgcolor: 'rgba(255,255,255,1)' }
+                        }}
+                      >
+                        {">"}
+                      </IconButton>
+                    </>
+                  )}
+                </>
+              )}
             </Box>
 
+            {/* Miniaturas debajo de la imagen */}
+            {hasMultipleImages && (
+              <Box
+                sx={{
+                  mt: 2,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: 1,
+                  flexWrap: 'wrap'
+                }}
+              >
+                {images.map((img, idx) => (
+                  <Box
+                    key={idx}
+                    component="img"
+                    src={img}
+                    alt={`${product.name} ${idx + 1}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentImageIndex(idx);
+                    }}
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      objectFit: 'cover',
+                      borderRadius: 1,
+                      cursor: 'pointer',
+                      border: idx === currentImageIndex
+                        ? '2px solid #1976d2'
+                        : '1px solid #ddd',
+                      opacity: idx === currentImageIndex ? 1 : 0.7,
+                    }}
+                  />
+                ))}
+              </Box>
+            )}
+
+            {/* Botón añadir al carrito */}
             <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
               <Button
                 onClick={handleAddFromModal}
@@ -272,7 +376,9 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
                 }}
                 disabled={product.stock !== undefined && product.stock <= 0}
               >
-                {product.stock !== undefined && product.stock <= 0 ? 'Sin stock por el momento' : 'Añadir al carrito'}
+                {product.stock !== undefined && product.stock <= 0
+                  ? 'Sin stock por el momento'
+                  : 'Añadir al carrito'}
               </Button>
             </Box>
           </Grid>
@@ -291,7 +397,6 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
               {product.price}
             </Typography>
 
-            {/* Mostrar longDescription respetando saltos de línea */}
             <Typography variant="body1" paragraph sx={{ whiteSpace: 'pre-line' }}>
               {product.longDescription || product.description}
             </Typography>
@@ -303,7 +408,12 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
             </Box>
 
             <Typography variant="body1" color="text.secondary">
-              <strong>Disponibilidad:</strong> {product.stock !== undefined ? (product.stock > 0 ? `En stock (${product.stock})` : 'Sin stock por el momento') : 'Consultar stock'}
+              <strong>Disponibilidad:</strong>{" "}
+              {product.stock !== undefined
+                ? product.stock > 0
+                  ? `En stock (${product.stock})`
+                  : 'Sin stock por el momento'
+                : 'Consultar stock'}
             </Typography>
 
             <Box sx={{ mt: 2 }}>
@@ -314,7 +424,6 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  // pasar el producto al navegar para que la página de detalle lo reciba en location.state
                   navigate(`/products/${product.id}`, { state: { product } });
                 }}
               >
@@ -338,7 +447,7 @@ const ProductGrid = () => {
       name: "Encendedor Recargable USB con Linterna Negro",
       description: "El encendedor multipropósito es una innovación de vanguardia que hará que tus momentos sean más prácticos y emocionantes que nunca! Este versátil dispositivo es mucho más que un simple encendedor; es una herramienta multifuncional que combina elegancia y practicidad.",
       longDescription: "Este encendedor USB es recargable y tiene un diseño moderno y compacto. Perfecto para llevar contigo a todas partes. Con carga rápida USB-C y luz indicadora. Disponible en varios colores. Además, incluye una potente linterna LED que lo hace ideal para acampadas, emergencias o uso diario.",
-      price: "$11.990",
+      price: "$1.000",
       image: ensendedorusb,
       detailImage: ensendedordetalle,
       tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente"],
@@ -398,10 +507,10 @@ const ProductGrid = () => {
       stock: 3
     },
     {
-       id: 5,
-            name: "KIT RESTAURADOR DE FAROS ",
-            description: " ¡Volvé a ver con claridad! ¿Tus faros están opacos, amarillentos o rayados? Este kit es la solución rápida, económica y efectiva 💡",
-            longDescription: `🔧 Incluye todo lo necesario:  
+      id: 5,
+      name: "KIT RESTAURADOR DE FAROS ",
+      description: " ¡Volvé a ver con claridad! ¿Tus faros están opacos, amarillentos o rayados? Este kit es la solución rápida, económica y efectiva 💡",
+      longDescription: `🔧 Incluye todo lo necesario:  
 - Lijas de distintos granos 🪵  
 - Pasta pulidora profesional 🧴  
 - Aplicador de espuma 🧽  
@@ -419,17 +528,17 @@ const ProductGrid = () => {
 💥 Precio promocional: $14.990
 
 📸 Mirá el “ANTES y DESPUÉS”… ¡La diferencia es impresionante!`,
-            price: "$14.990",
-            image: restauradorfaros,
-            detailImage: restauradorfarosdetalle,
-             tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo"],
-            stock: 5
+      price: "$14.990",
+      image: restauradorfaros,
+      detailImage: restauradorfarosdetalle,
+      tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo"],
+      stock: 5
     },
     {
       id: 6,
-            name: "Lentes Inteligentes con Bluetooth  y Audio Integrado",
-            description: "¡Comodidad, estilo y tecnología en un solo accesorio!",
-            longDescription: `Disfruta de la música y las llamadas manos libres con estilo. Estos lentes cuentan con tecnología avanzada de audio y un diseño moderno, 🔊 Escuchá música o atendé llamadas sin auriculares  
+      name: "Lentes Inteligentes con Bluetooth  y Audio Integrado",
+      description: "¡Comodidad, estilo y tecnología en un solo accesorio!",
+      longDescription: `Disfruta de la música y las llamadas manos libres con estilo. Estos lentes cuentan con tecnología avanzada de audio y un diseño moderno, 🔊 Escuchá música o atendé llamadas sin auriculares  
 👆 Control táctil en las patillas  
 📱 Compatible con Android & iOS  
 🔋 Batería recargable – hasta 6 horas de uso  
@@ -439,11 +548,11 @@ const ProductGrid = () => {
 
 ✨ Diseño moderno, liviano y sin género  
 📏 Medidas estándar: cómodos para todos.`,
-            price: "$29.900",
-            image: gafasinteligentes,
-            detailImage: gafasinteligentesdetalle,
-            tags: ["Bluetooth", "Audio", "Estilo", "Tecnología", "Accesorios"],
-            stock: 3
+      price: "$29.900",
+      image: gafasinteligentes,
+      detailImage: gafasinteligentesdetalle,
+      tags: ["Bluetooth", "Audio", "Estilo", "Tecnología", "Accesorios"],
+      stock: 3
     },
     {
       id: 7,
@@ -488,10 +597,10 @@ Sonido potente y envolvente para todos los pasajeros."`,
       stock: 2
     },
     {
-       id: 8,
-            name: "🪚🔋 Mini Motosierra Eléctrica BEKR 24V ",
-            description: " ¡Potencia portátil para tus tareas de corte! 🌳💪",
-            longDescription: `⚡ Batería de 24V integrada  
+      id: 8,
+      name: "🪚🔋 Mini Motosierra Eléctrica BEKR 24V ",
+      description: " ¡Potencia portátil para tus tareas de corte! 🌳💪",
+      longDescription: `⚡ Batería de 24V integrada  
 No necesitás retirarla para cargarla 🔌. ¡Más práctico, más eficiente!
 
 🧤 Operación manual  
@@ -516,17 +625,17 @@ Cortes precisos y duraderos, incluso en madera dura.
 
 🛠️ Construcción robusta y confiable  
 Diseñada para resistir el uso intensivo sin perder rendimiento.`,
-            price: "$59.990",
-            image: motosierra,
-            detailImage: motosierradetalle,
-            tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil"],
-            stock: 2
+      price: "$59.990",
+      image: motosierra,
+      detailImage: motosierradetalle,
+      tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil"],
+      stock: 2
     },
     {
       id: 9,
-            name: "🧤🔦 Guantes con Linterna LED Luz Blanca",
-            description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda. Con un diseño innovador, son ideales para 🌌 actividades al aire libre, 🛠️ bricolaje o cualquier situación que requiera buena iluminación.",
-            longDescription: `
+      name: "🧤🔦 Guantes con Linterna LED Luz Blanca",
+      description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda. Con un diseño innovador, son ideales para 🌌 actividades al aire libre, 🛠️ bricolaje o cualquier situación que requiera buena iluminación.",
+      longDescription: `
 ✨ Iluminación Eficiente  
 Equipados con una linterna LED de luz blanca fría, estos guantes ofrecen una iluminación potente 💡 que te permite ver en la oscuridad sin complicaciones. Con un modo de luz simple, iluminás cualquier espacio fácilmente, haciendo tus tareas nocturnas más seguras y prácticas 🌙✅.
 
@@ -538,29 +647,27 @@ Ya sea que estés trabajando en proyectos DIY 🧰, disfrutando de una caminata 
 
 🚫🌑 Conclusión  
 No dejes que la oscuridad te detenga. Adquirí tus Guantes con Linterna LED Luz Blanca y experimentá la comodidad de tener luz al alcance de tu mano. ¡Perfectos para cualquier ocasión! 💪✨`,
-            price: "$14.990",
-            image: guantesled,
-            detailImage: guantesleddetalle,
-            tags: ["Guantes", "LED", "Iluminación", "DIY"],
-            stock: 4
+      price: "$14.990",
+      image: guantesled,
+      detailImage: guantesleddetalle,
+      tags: ["Guantes", "LED", "Iluminación", "DIY"],
+      stock: 4
     },
     {
-       id: 10,
-            name: "Pulsera Muñequera Magnética Para Tornillos Y Herramientas",
-            description: "¡La aliada perfecta para tus proyectos de bricolaje, carpintería o mecánica! Esta muñequera magnética te permite tener tornillos, clavos, brocas y pequeñas herramientas siempre al alcance de la mano 🛠️👋.",
-            longDescription: `"🧲🔧 ¿Cansado de que se te caigan los tornillos mientras trabajás?  
+      id: 10,
+      name: "Pulsera Muñequera Magnética Para Tornillos Y Herramientas",
+      description: "¡La aliada perfecta para tus proyectos de bricolaje, carpintería o mecánica! Esta muñequera magnética te permite tener tornillos, clavos, brocas y pequeñas herramientas siempre al alcance de la mano 🛠️👋.",
+      longDescription: `"🧲🔧 ¿Cansado de que se te caigan los tornillos mientras trabajás?  
 Imaginá esto: estás en plena reparación, con la herramienta en una mano y… ¡zas! el tornillo rueda y desaparece 😤🔩  
 ¡Frustrante! Pero con esta pulsera magnética, eso ya es cosa del pasado ✅
 
 💪 Imanes potentes integrados  
 Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pegados firmemente a tu muñeca 🛠️👋  
-¡Nada se te escapa!...
-
-`,
-            price: "$14.990",
-            image: pulceramagnetica,
-            detailImage: pulceramagneticadetalle,
-            tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera"],
+¡Nada se te escapa!...`,
+      price: "$14.990",
+      image: pulceramagnetica,
+      detailImage: pulceramagneticadetalle,
+      tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera"],
       stock: 3
     },
     {
