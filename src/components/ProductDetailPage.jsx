@@ -33,8 +33,10 @@ import guantesled from "./assets/guantesled.jpg";
 import guantesleddetalle from "./assets/guantesleddetalle.jpg";
 import pulceramagnetica from "./assets/pulceramagnetica.jpg";
 import pulceramagneticadetalle from "./assets/pulceramagneticadetalle.jpg";
-import nerdminer1 from "./assets/nerdminer1.webp";
-import nerdminer3detalle from "./assets/nerdminer3detalle.webp";
+import asientomascotas from "./assets/asientomascotas.jpg";
+import asientomascotasdetalle from "./assets/asientomascotasdetalle.jpg";
+import asientomascotasdetalle1 from "./assets/asientomascotasdetalle1.jpg";
+import asientomascotasdetalle2 from "./assets/asientomascotasdetalle2.jpg";
 import compresordetalle from "./assets/compresordetalle.png";
 import lamparadeemergencia from "./assets/lamparadeemergencia.webp";
 import lamparadeemergenciadetalle from "./assets/lamparadeemergenciadetalle.webp";
@@ -320,13 +322,28 @@ Liviana, ajustable y cómoda, se adapta perfectamente sin estorbar.`,
   },
   {
     id: 11,
-    name: "Nerdminer 2 Miner Btc Solo Lotter 55-60 Kh/s",
-    description: "Diseño exclusivo: la máquina de lotería BTC adopta la última tecnología y adopta un modo Solo único.",
-    longDescription: "Puedes disfrutarlo exclusivamente sin compartirlo con otros. Alta eficiencia y bajo consumo; puede haber variaciones estéticas entre lotes.",
+    name: "🐾 Asiento Elevado para Mascotas – Pet Booster Seat 🐾",
+    description:` "🚘 ¡Llevá a tu mascota segura, cómoda y cerca tuyo en cada viaje!
+Olvidate de las preocupaciones al conducir con tu perrito o gatito suelto. Este asiento especial se fija con correas ajustables al respaldo y base del asiento, manteniendo a tu mascota protegida y estable durante todo el trayecto. 💺✨",
+    longDescription: "Puedes disfrutarlo exclusivamente sin compartirlo con otros. Alta eficiencia y bajo consumo; puede haber variaciones estéticas entre lotes."`,
+     longDescription: `
+✅ Correas ajustables – se adapta a cualquier coche con apoyacabezas
+✅ Ideal para perros y gatos 🐶🐱
+✅ Soporta hasta 12 kg
+✅ Tela ligera, resistente y fácil de limpiar 🧼
+✅ Interior suave y cómodo con borde acolchado 🤍
+✅ Uso práctico y portátil – ¡listo para instalar en segundos! ⏱️
+✅ Evita que tu mascota salte o se ensucie el asiento del auto
+📦 Incluye:
+1️⃣ Asiento de coche para mascotas
+📏 Medidas aprox: 34 cm (ancho) × 25 cm (largo) × 18 cm (alto)
+💡 Ideal para viajes, paseos o visitas al veterinario.
+Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
     price: "$69.990",
-    image: nerdminer1,
-    detailImage: nerdminer3detalle,
-    tags: ["Minería BTC", "Solo Mining", "Bajo consumo", "Pantalla integrada", "Modo lotería"]
+    image: asientomascotas,
+    detailImage: [asientomascotasdetalle, asientomascotasdetalle1, asientomascotasdetalle2,asientomascotas],
+    tags: ["Asiento para mascotas", "Seguridad", "Comodidad", "Viajes"],
+     stock: 1
   },
   {
     id: 12,
@@ -412,11 +429,17 @@ Liviana, ajustable y cómoda, se adapta perfectamente sin estorbar.`,
   }
 
   // armamos el array de imágenes a mostrar en el carrusel
-  const images =
-    (product.gallery && product.gallery.length > 0
-      ? product.gallery
-      : [product.detailImage, product.image]
-    ).filter(Boolean);
+ // Detecta y une todas las imágenes disponibles
+const images = (
+  Array.isArray(product.detailImage)
+    ? product.detailImage
+    : product.detailImages && Array.isArray(product.detailImages)
+    ? product.detailImages
+    : product.gallery && product.gallery.length > 0
+    ? product.gallery
+    : [product.detailImage, product.image]
+).filter(Boolean);
+
 
   const hasMultipleImages = images.length > 1;
 

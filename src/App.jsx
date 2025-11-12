@@ -8,6 +8,7 @@ import ProductDetailPage from './components/ProductDetailPage';
 import { Box, Typography } from '@mui/material';
 import ShoppingCart from './ShoppingCart';
 import PaymentSuccess from './PaymentSuccess';
+import TopBar from "./components/TopBar";
 
 const App = () => {
   return (

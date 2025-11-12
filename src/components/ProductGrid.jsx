@@ -1,5 +1,5 @@
 // ...existing code...
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   Card,
   CardMedia,
@@ -18,7 +18,7 @@ import {
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import CloseIcon from '@mui/icons-material/Close';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCart } from "../context/cartContext";
 
 // Imágenes
@@ -27,9 +27,9 @@ import compresor from "./assets/compresor.png";
 import filtrodeagua from "./assets/filtrodeagua4.jpg";
 import ensendedordetalle from "./assets/ensendedordetalle.png";
 import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg";
-import restauradorfaros from './assets/restauradorfaros.jpg'
-import restauradorfarosdetalle from './assets/restauradorfarosdetalle.jpg'
-import portavaso from './assets/portavaso (1).jpg'
+import restauradorfaros from './assets/restauradorfaros.jpg';
+import restauradorfarosdetalle from './assets/restauradorfarosdetalle.jpg';
+import portavaso from './assets/portavaso (1).jpg';
 import portavasodetalle from "./assets/portavasodetalle.jpg";
 import infladorportatil from "./assets/infladorportatil.jpg";
 import infladorportatildetalle from "./assets/infladorportatildetalle.jpg";
@@ -43,8 +43,10 @@ import guantesled from "./assets/guantesled.jpg";
 import guantesleddetalle from "./assets/guantesleddetalle.jpg";
 import pulceramagnetica from "./assets/pulceramagnetica.jpg";
 import pulceramagneticadetalle from "./assets/pulceramagneticadetalle.jpg";
-import nerdminer1 from "./assets/nerdminer1.webp";
-import nerdminer3detalle from "./assets/nerdminer3detalle.webp";
+import asientomascotas from "./assets/asientomascotas.jpg";
+import asientomascotasdetalle from "./assets/asientomascotasdetalle.jpg";
+import asientomascotasdetalle1 from "./assets/asientomascotasdetalle1.jpg";
+import asientomascotasdetalle2 from "./assets/asientomascotasdetalle2.jpg";
 import compresordetalle from "./assets/compresordetalle.png";
 import lamparadeemergencia from "./assets/lamparadeemergencia.webp";
 import lamparadeemergenciadetalle from "./assets/lamparadeemergenciadetalle.webp";
@@ -55,6 +57,10 @@ import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetall
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 
+
+/* =======================
+   CARD DE PRODUCTO
+======================= */
 const ProductCard = ({ product, onQuickView, onAddToCart }) => {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -65,10 +71,7 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
       display: 'flex',
       flexDirection: 'column',
       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-      '&:hover': {
-        transform: 'translateY(-10px)',
-        boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
-      },
+      '&:hover': { transform: 'translateY(-10px)', boxShadow: '0 10px 20px rgba(0,0,0,0.1)' },
       position: 'relative',
       borderRadius: 2,
       overflow: 'hidden',
@@ -80,24 +83,12 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
         startIcon={<ZoomInIcon />}
         onClick={() => onQuickView(product)}
         sx={{
-          position: 'absolute',
-          top: 10,
-          right: 10,
-          zIndex: 1,
-          borderRadius: 20,
-          fontWeight: 'bold',
-          textTransform: 'none',
-          boxShadow: 3,
-          '&:hover': {
-            boxShadow: 6,
-            transform: 'scale(1.05)'
-          },
+          position: 'absolute', top: 10, right: 10, zIndex: 1,
+          borderRadius: 20, fontWeight: 'bold', textTransform: 'none',
+          boxShadow: 3, '&:hover': { boxShadow: 6, transform: 'scale(1.05)' },
           transition: 'all 0.3s ease',
-          bgcolor: theme.palette.primary.main,
-          color: 'white',
-          fontSize: '0.8rem',
-          px: 1.5,
-          py: 0.5
+          bgcolor: theme.palette.primary.main, color: 'white',
+          fontSize: '0.8rem', px: 1.5, py: 0.5
         }}
       >
         Vista Rápida
@@ -111,9 +102,7 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
         sx={{
           objectFit: 'cover',
           transition: 'transform 0.3s ease',
-          '&:hover': {
-            transform: 'scale(1.05)'
-          },
+          '&:hover': { transform: 'scale(1.05)' },
           p: 1,
           backgroundColor: '#f8f9fa',
           cursor: 'pointer'
@@ -179,46 +168,44 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
   );
 };
 
+/* =======================
+   MODAL VISTA RÁPIDA
+======================= */
 const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Cuando cambia de producto, volvemos a la primera imagen
-  useEffect(() => {
-    setCurrentImageIndex(0);
-  }, [product?.id]);
-
+  useEffect(() => { setCurrentImageIndex(0); }, [product?.id]);
   if (!product) return null;
 
-  // Lista de imágenes para el carrusel
-  const images =
-    product.gallery && product.gallery.length > 0
-      ? product.gallery
-      : [product.detailImage, product.image].filter(Boolean);
+ // Detecta y une todas las imágenes disponibles
+const images = (
+  Array.isArray(product.detailImage)
+    ? product.detailImage
+    : product.detailImages && Array.isArray(product.detailImages)
+    ? product.detailImages
+    : product.gallery && product.gallery.length > 0
+    ? product.gallery
+    : [product.detailImage, product.image]
+).filter(Boolean);
+
 
   const hasMultipleImages = images.length > 1;
 
   const handlePrevImage = (e) => {
     e.stopPropagation();
     if (!hasMultipleImages) return;
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
-
   const handleNextImage = (e) => {
     e.stopPropagation();
     if (!hasMultipleImages) return;
-    setCurrentImageIndex((prev) =>
-      prev === images.length - 1 ? 0 : prev + 1
-    );
+    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  // Maneja el clic en "Añadir al carrito" desde el modal:
   const handleAddFromModal = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('QuickView: añadiendo producto al carrito ->', product?.id);
     onAddToCart(product);
     onClose();
   };
@@ -229,88 +216,49 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
       onClose={onClose}
       aria-labelledby="quick-view-modal"
       aria-describedby="quick-view-modal-description"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backdropFilter: 'blur(3px)'
-      }}
+      sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(3px)' }}
     >
       <Box sx={{
-        width: '80%',
-        maxWidth: 900,
-        bgcolor: 'background.paper',
-        borderRadius: 2,
-        boxShadow: 24,
-        p: 4,
-        position: 'relative',
-        maxHeight: '90vh',
-        overflowY: 'auto'
+        width: '80%', maxWidth: 900, bgcolor: 'background.paper', borderRadius: 2, boxShadow: 24, p: 4,
+        position: 'relative', maxHeight: '90vh', overflowY: 'auto'
       }}>
         <IconButton
           aria-label="close"
           onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
+          sx={{ position: 'absolute', right: 8, top: 8, color: (theme) => theme.palette.grey[500] }}
         >
           <CloseIcon />
         </IconButton>
 
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
-            {/* Caja principal con imagen y flechas */}
             <Box sx={{
-              borderRadius: 2,
-              overflow: 'hidden',
-              boxShadow: 3,
-              height: 350,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              bgcolor: '#f5f5f5',
-              position: 'relative'
+              borderRadius: 2, overflow: 'hidden', boxShadow: 3, height: 350, display: 'flex',
+              alignItems: 'center', justifyContent: 'center', bgcolor: '#f5f5f5', position: 'relative'
             }}>
               {images.length > 0 && (
                 <>
                   <img
                     src={images[currentImageIndex]}
                     alt={product.name + " detalle"}
-                    style={{
-                      maxHeight: '100%',
-                      maxWidth: '100%',
-                      objectFit: 'contain'
-                    }}
+                    style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
                   />
-
                   {hasMultipleImages && (
                     <>
                       <IconButton
                         onClick={handlePrevImage}
                         sx={{
-                          position: 'absolute',
-                          left: 8,
-                          top: '50%',
-                          transform: 'translateY(-50%)',
-                          bgcolor: 'rgba(255,255,255,0.8)',
-                          '&:hover': { bgcolor: 'rgba(255,255,255,1)' }
+                          position: 'absolute', left: 8, top: '50%', transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255,255,255,0.8)', '&:hover': { bgcolor: 'rgba(255,255,255,1)' }
                         }}
                       >
                         {"<"}
                       </IconButton>
-
                       <IconButton
                         onClick={handleNextImage}
                         sx={{
-                          position: 'absolute',
-                          right: 8,
-                          top: '50%',
-                          transform: 'translateY(-50%)',
-                          bgcolor: 'rgba(255,255,255,0.8)',
-                          '&:hover': { bgcolor: 'rgba(255,255,255,1)' }
+                          position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)',
+                          bgcolor: 'rgba(255,255,255,0.8)', '&:hover': { bgcolor: 'rgba(255,255,255,1)' }
                         }}
                       >
                         {">"}
@@ -321,36 +269,18 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
               )}
             </Box>
 
-            {/* Miniaturas debajo de la imagen */}
             {hasMultipleImages && (
-              <Box
-                sx={{
-                  mt: 2,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  gap: 1,
-                  flexWrap: 'wrap'
-                }}
-              >
+              <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center', gap: 1, flexWrap: 'wrap' }}>
                 {images.map((img, idx) => (
                   <Box
                     key={idx}
                     component="img"
                     src={img}
                     alt={`${product.name} ${idx + 1}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentImageIndex(idx);
-                    }}
+                    onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
                     sx={{
-                      width: 60,
-                      height: 60,
-                      objectFit: 'cover',
-                      borderRadius: 1,
-                      cursor: 'pointer',
-                      border: idx === currentImageIndex
-                        ? '2px solid #1976d2'
-                        : '1px solid #ddd',
+                      width: 60, height: 60, objectFit: 'cover', borderRadius: 1, cursor: 'pointer',
+                      border: idx === currentImageIndex ? '2px solid #1976d2' : '1px solid #ddd',
                       opacity: idx === currentImageIndex ? 1 : 0.7,
                     }}
                   />
@@ -358,7 +288,6 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
               </Box>
             )}
 
-            {/* Botón añadir al carrito */}
             <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
               <Button
                 onClick={handleAddFromModal}
@@ -366,56 +295,33 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
                 color="primary"
                 size="large"
                 startIcon={<AddShoppingCartIcon />}
-                sx={{
-                  py: 1.5,
-                  px: 4,
-                  fontWeight: 'bold',
-                  letterSpacing: '1px',
-                  borderRadius: 1,
-                  width: '100%'
-                }}
+                sx={{ py: 1.5, px: 4, fontWeight: 'bold', letterSpacing: '1px', borderRadius: 1, width: '100%' }}
                 disabled={product.stock !== undefined && product.stock <= 0}
               >
-                {product.stock !== undefined && product.stock <= 0
-                  ? 'Sin stock por el momento'
-                  : 'Añadir al carrito'}
+                {product.stock !== undefined && product.stock <= 0 ? 'Sin stock por el momento' : 'Añadir al carrito'}
               </Button>
             </Box>
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <Typography variant="h4" component="h2" gutterBottom>
-              {product.name}
-            </Typography>
-
+            <Typography variant="h4" component="h2" gutterBottom>{product.name}</Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <Rating value={4.5} precision={0.5} readOnly sx={{ mr: 1 }} />
               <Typography variant="body2" color="text.secondary">(24 reseñas)</Typography>
             </Box>
-
-            <Typography variant="h5" color="primary" sx={{ mb: 3, fontWeight: 'bold' }}>
-              {product.price}
-            </Typography>
-
+            <Typography variant="h5" color="primary" sx={{ mb: 3, fontWeight: 'bold' }}>{product.price}</Typography>
             <Typography variant="body1" paragraph sx={{ whiteSpace: 'pre-line' }}>
               {product.longDescription || product.description}
             </Typography>
-
             <Box sx={{ display: 'flex', gap: 1, mb: 3, flexWrap: 'wrap' }}>
               {product.tags?.map((tag, index) => (
                 <Chip key={index} label={tag} color="primary" variant="outlined" />
               ))}
             </Box>
-
             <Typography variant="body1" color="text.secondary">
               <strong>Disponibilidad:</strong>{" "}
-              {product.stock !== undefined
-                ? product.stock > 0
-                  ? `En stock (${product.stock})`
-                  : 'Sin stock por el momento'
-                : 'Consultar stock'}
+              {product.stock !== undefined ? (product.stock > 0 ? `En stock (${product.stock})` : 'Sin stock por el momento') : 'Consultar stock'}
             </Typography>
-
             <Box sx={{ mt: 2 }}>
               <Button
                 variant="outlined"
@@ -437,8 +343,14 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
   );
 };
 
+/* =======================
+   GRID + FILTRO POR TAG (?tag=)
+======================= */
 const ProductGrid = () => {
   const { cart, addToCart } = useCart();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const activeTag = searchParams.get("tag");
 
   // Lista completa de productos con campo stock
   const initialProducts = [
@@ -450,7 +362,7 @@ const ProductGrid = () => {
       price: "$11.990",
       image: ensendedorusb,
       detailImage: ensendedordetalle,
-      tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente"],
+      tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente", "Accesorios"],
       stock: 1
     },
     {
@@ -479,7 +391,7 @@ const ProductGrid = () => {
       price: "$29.900",
       image: portavaso,
       detailImage: portavasodetalle,
-      tags: ["Soporte", "Universal", "Botella", "Celular", "Bici"],
+      tags: ["Soporte", "Universal", "Botella", "Celular", "Bici", "Accesorios"],
       stock: 3
     },
     {
@@ -503,7 +415,7 @@ const ProductGrid = () => {
       price: "$55.000",
       image: infladorportatil,
       detailImage: infladorportatildetalle,
-      tags: ["Inflador", "Portátil", "Batería de larga duración", "Variable", "Digital"],
+      tags: ["Inflador", "Portátil", "Batería de larga duración", "Variable", "Digital", "Camping"],
       stock: 3
     },
     {
@@ -531,7 +443,7 @@ const ProductGrid = () => {
       price: "$14.990",
       image: restauradorfaros,
       detailImage: restauradorfarosdetalle,
-      tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo"],
+      tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo", "Automotor"],
       stock: 5
     },
     {
@@ -628,58 +540,55 @@ Diseñada para resistir el uso intensivo sin perder rendimiento.`,
       price: "$59.990",
       image: motosierra,
       detailImage: motosierradetalle,
-      tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil"],
+      tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil", "Herramientas"],
       stock: 2
     },
     {
       id: 9,
       name: "🧤🔦 Guantes con Linterna LED Luz Blanca",
-      description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda. Con un diseño innovador, son ideales para 🌌 actividades al aire libre, 🛠️ bricolaje o cualquier situación que requiera buena iluminación.",
-      longDescription: `
-✨ Iluminación Eficiente  
-Equipados con una linterna LED de luz blanca fría, estos guantes ofrecen una iluminación potente 💡 que te permite ver en la oscuridad sin complicaciones. Con un modo de luz simple, iluminás cualquier espacio fácilmente, haciendo tus tareas nocturnas más seguras y prácticas 🌙✅.
-
-🧵 Material de Calidad  
-Fabricados en algodón con lycra, son suaves y flexibles, garantizando un ajuste cómodo 🤲 y excelente rango de movimiento. La combinación de materiales permite usarlos durante largos períodos sin molestias ⏳👌.
-
-🔧 Versatilidad y Prácticidad  
-Ya sea que estés trabajando en proyectos DIY 🧰, disfrutando de una caminata nocturna 🚶‍♂️🌃 o necesites iluminar un área específica, estos guantes se adaptan a todas tus necesidades. Su diseño práctico te permite usar ambas manos mientras mantenés la luz justo donde la necesitás 🙌🔦.
-
-🚫🌑 Conclusión  
-No dejes que la oscuridad te detenga. Adquirí tus Guantes con Linterna LED Luz Blanca y experimentá la comodidad de tener luz al alcance de tu mano. ¡Perfectos para cualquier ocasión! 💪✨`,
+      description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda.",
+      longDescription: `Versátiles para actividades al aire libre y bricolaje.`,
       price: "$14.990",
       image: guantesled,
       detailImage: guantesleddetalle,
-      tags: ["Guantes", "LED", "Iluminación", "DIY"],
+      tags: ["Guantes", "LED", "Iluminación", "DIY", "Herramientas"],
       stock: 4
     },
     {
       id: 10,
       name: "Pulsera Muñequera Magnética Para Tornillos Y Herramientas",
-      description: "¡La aliada perfecta para tus proyectos de bricolaje, carpintería o mecánica! Esta muñequera magnética te permite tener tornillos, clavos, brocas y pequeñas herramientas siempre al alcance de la mano 🛠️👋.",
-      longDescription: `"🧲🔧 ¿Cansado de que se te caigan los tornillos mientras trabajás?  
-Imaginá esto: estás en plena reparación, con la herramienta en una mano y… ¡zas! el tornillo rueda y desaparece 😤🔩  
-¡Frustrante! Pero con esta pulsera magnética, eso ya es cosa del pasado ✅
-
-💪 Imanes potentes integrados  
-Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pegados firmemente a tu muñeca 🛠️👋  
-¡Nada se te escapa!...`,
+      description: "¡La aliada perfecta para tus proyectos de bricolaje, carpintería o mecánica!",
+      longDescription: "Imanes potentes integrados para tornillos, brocas, tuercas y clavos.",
       price: "$14.990",
       image: pulceramagnetica,
       detailImage: pulceramagneticadetalle,
-      tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera"],
+      tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera", "Herramientas"],
       stock: 3
     },
     {
       id: 11,
-      name: "Nerdminer 2 Miner Btc Solo Lotter 55-60 Kh/s",
-      description: "Diseño exclusivo: la máquina de lotería BTC adopta la última tecnología.",
-      longDescription: "Alta eficiencia y bajo consumo, modo Solo. Color aleatorio.",
-      price: "$69.990",
-      image: nerdminer1,
-      detailImage: nerdminer3detalle,
-      tags: ["Opera a 55-60 Kh/s", "Pantalla 2.8\"", "Eficiencia", "PCB", "Modo lotería"],
-      stock: 0
+    name: "🐾 Asiento Elevado para Mascotas – Pet Booster Seat 🐾",
+    description:` "🚘 ¡Llevá a tu mascota segura, cómoda y cerca tuyo en cada viaje!
+Olvidate de las preocupaciones al conducir con tu perrito o gatito suelto. Este asiento especial se fija con correas ajustables al respaldo y base del asiento, manteniendo a tu mascota protegida y estable durante todo el trayecto. 💺✨",
+    longDescription: "Puedes disfrutarlo exclusivamente sin compartirlo con otros. Alta eficiencia y bajo consumo; puede haber variaciones estéticas entre lotes."`,
+     longDescription: `
+✅ Correas ajustables – se adapta a cualquier coche con apoyacabezas
+✅ Ideal para perros y gatos 🐶🐱
+✅ Soporta hasta 12 kg
+✅ Tela ligera, resistente y fácil de limpiar 🧼
+✅ Interior suave y cómodo con borde acolchado 🤍
+✅ Uso práctico y portátil – ¡listo para instalar en segundos! ⏱️
+✅ Evita que tu mascota salte o se ensucie el asiento del auto
+📦 Incluye:
+1️⃣ Asiento de coche para mascotas
+📏 Medidas aprox: 34 cm (ancho) × 25 cm (largo) × 18 cm (alto)
+💡 Ideal para viajes, paseos o visitas al veterinario.
+Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
+    price: "$69.990",
+    image: asientomascotas,
+    detailImage: [asientomascotasdetalle, asientomascotasdetalle1, asientomascotasdetalle2,asientomascotas],
+    tags: ["Asiento para mascotas", "Seguridad", "Comodidad", "Viajes"],
+      stock: 1
     },
     {
       id: 12,
@@ -689,47 +598,47 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
       price: "$40.000",
       image: compresor,
       detailImage: compresordetalle,
-      tags: ["24L", "Silencioso", "Portátil", "8 bar", "Accesorios"],
+      tags: ["24L", "Silencioso", "Portátil", "8 bar", "Accesorios", "Automotor"],
       stock: 0
     },
     {
       id: 13,
       name: "Luz De Emergencia Led Solar 5 Faros 2029",
-      description: "Ilumina tus espacios de una manera eficiente y ecológica con la Ampolleta Solar Led Recargable de 5 Caras.",
-      longDescription: "Foco recargable solar, forma bulbo de 5 caras, luz LED y recarga solar.",
+      description: "Ampolleta Solar Led Recargable de 5 Caras.",
+      longDescription: "Foco recargable solar, luz LED y recarga solar.",
       price: "$10.990",
       image: lamparadeemergencia,
       detailImage: lamparadeemergenciadetalle,
-      tags: ["Recargable", "Luz LED", "360°", "Solar", "400 lúmenes"],
+      tags: ["Recargable", "Luz LED", "360°", "Solar", "Iluminación"],
       stock: 0
     },
     {
       id: 14,
       name: "Power Bank Solar y Corriente con 4 Cables de 20.000Mah",
-      description: "La Batería Genérica Power Bank Solar de 20,000mAh.",
-      longDescription: "Power bank 20000mAh con carga solar, incluye 4 cables y linterna.",
+      description: "Power Bank Solar de 20,000mAh.",
+      longDescription: "Incluye 4 cables y linterna.",
       price: "$26.990",
       image: powerbanksolar,
       detailImage: powerbanksolardetalle,
-      tags: ["20000 mAh", "Solar", "4 cables", "Linterna", "USB"],
+      tags: ["20000 mAh", "Solar", "4 cables", "Linterna", "USB", "Powerbank"],
       stock: 0
     },
     {
       id: 15,
       name: "Linterna Foco Multifuncional Solar o Recargable USB",
       description: "Linterna foco solar o recargable multifuncional.",
-      longDescription: "Versátil, 3 modos de luz, autonomía y carga USB/solar. También sirve como powerbank en emergencia.",
+      longDescription: "3 modos de luz y función powerbank.",
       price: "$35.990",
       image: linternamultifuncional,
       detailImage: linternamultifuncionaldetalle,
-      tags: ["360°", "Recargable", "Solar", "Powerbank", "Trípode"],
+      tags: ["360°", "Recargable", "Solar", "Powerbank", "Trípode", "Iluminación"],
       stock: 0
     },
     {
       id: 16,
       name: "Cocina de Camping Portátil a Gas con Maleta Sobremesa",
       description: "Mini cocina de gas de un solo quemador con encendido automático.",
-      longDescription: "Maleta de transporte, encendido automático, económico en consumo y seguro para camping.",
+      longDescription: "Maleta de transporte, económico y seguro para camping.",
       price: "$35.990",
       image: cocinacamping,
       detailImage: cocinacampingdetalle,
@@ -742,23 +651,25 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
+  // Filtro por ?tag= (case-insensitive)
+  const visibleProducts = useMemo(() => {
+    if (!activeTag) return products;
+    const tag = activeTag.trim().toLowerCase();
+    return products.filter((p) =>
+      (p.tags || []).some(t => String(t).toLowerCase() === tag)
+    );
+  }, [products, activeTag]);
+
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
     setModalOpen(true);
   };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
+  const handleCloseModal = () => setModalOpen(false);
 
   // Comprueba stock antes de añadir y decrementa stock localmente
   const handleAddToCart = (product) => {
-    console.log('handleAddToCart llamado con:', product?.id);
     const idx = products.findIndex(p => p.id === product.id);
-    if (idx === -1) {
-      console.warn('Producto no encontrado en lista local', product);
-      return;
-    }
+    if (idx === -1) return;
 
     const currentStock = products[idx].stock ?? Infinity;
     if (currentStock <= 0) {
@@ -776,16 +687,26 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
   return (
     <Container maxWidth="xl" sx={{ py: 4, backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
       <Typography variant="h4" component="h1" sx={{
-        textAlign: 'center',
-        mb: 4,
-        fontWeight: 700,
-        color: 'primary.main',
-        textTransform: 'uppercase',
-        letterSpacing: 1
+        textAlign: 'center', mb: 2, fontWeight: 700, color: 'primary.main',
+        textTransform: 'uppercase', letterSpacing: 1
       }}>
         Productos Destacados
       </Typography>
 
+      {/* Chip de filtro activo */}
+      {activeTag && (
+        <Box sx={{ mb: 3, display: 'flex', justifyContent: 'center' }}>
+          <Chip
+            label={`Filtrando por: ${activeTag}`}
+            color="primary"
+            onDelete={() => navigate('/')}
+            variant="filled"
+            sx={{ fontWeight: 600 }}
+          />
+        </Box>
+      )}
+
+      {/* Carrito mini (opcional) */}
       {cart.length > 0 && (
         <Box sx={{ mb: 2 }}>
           <Typography variant="subtitle1" fontWeight="bold">Productos en el carrito:</Typography>
@@ -797,29 +718,34 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
         </Box>
       )}
 
-      <Grid container spacing={4} justifyContent="center">
-        {products.map(product => (
-          <Grid
-            item
-            key={product.id}
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            xl={2.4}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <ProductCard
-              product={product}
-              onQuickView={handleOpenModal}
-              onAddToCart={handleAddToCart}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      {/* Empty state si el filtro no devuelve nada */}
+      {visibleProducts.length === 0 ? (
+        <Box sx={{ textAlign: 'center', py: 8 }}>
+          <Typography variant="h6" gutterBottom>No encontramos productos para “{activeTag}”.</Typography>
+          <Button variant="outlined" onClick={() => navigate('/')}>Ver todos</Button>
+        </Box>
+      ) : (
+        <Grid container spacing={4} justifyContent="center">
+          {visibleProducts.map(product => (
+            <Grid
+              item
+              key={product.id}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              xl={2.4}
+              sx={{ display: 'flex', justifyContent: 'center' }}
+            >
+              <ProductCard
+                product={product}
+                onQuickView={handleOpenModal}
+                onAddToCart={handleAddToCart}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
 
       <QuickViewModal
         product={selectedProduct}
@@ -832,4 +758,3 @@ Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pe
 };
 
 export default ProductGrid;
-// ...existing code...
