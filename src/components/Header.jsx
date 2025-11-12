@@ -301,7 +301,7 @@ Olvidate de las preocupaciones al conducir con tu perrito o gatito suelto. Este 
 📏 Medidas aprox: 34 cm (ancho) × 25 cm (largo) × 18 cm (alto)
 💡 Ideal para viajes, paseos o visitas al veterinario.
 Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
-    price: "$69.990",
+    price: "$34.990",
     image: asientomascotas,
     detailImage: asientomascotasdetalle,
     tags: ["Asiento para mascotas", "Seguridad", "Comodidad", "Viajes"],
