@@ -42,8 +42,15 @@ import asientomascotas from "./assets/asientomascotas.jpg";
 import asientomascotasdetalle from "./assets/asientomascotasdetalle.jpg";
 import asientomascotasdetalle1 from "./assets/asientomascotasdetalle1.jpg";
 import asientomascotasdetalle2 from "./assets/asientomascotasdetalle2.jpg";
-import lamparadeemergencia from "./assets/lamparadeemergencia.webp";
-import lamparadeemergenciadetalle from "./assets/lamparadeemergenciadetalle.webp";
+import fitnesswatch from "./assets/fitnesswatch.jpg";
+import fitnesswatchdetalle1 from "./assets/fitnesswatchdetalle1.jpg";
+import fitnesswatchdetalle2 from "./assets/fitnesswatchdetalle2.jpg";
+import fitnesswatchdetalle3 from "./assets/fitnesswatchdetalle3.jpg";
+import fitnesswatchdetalle4 from "./assets/fitnesswatchdetalle4.jpg";
+import fitnesswatchdetalle5 from "./assets/fitnesswatchdetalle5.jpg";
+import fitnesswatchdetalle6 from "./assets/fitnesswatchdetalle6.jpg";
+import fitnesswatchdetalle7 from "./assets/fitnesswatchdetalle7.jpg";
+import fitnesswatchdetalle8 from "./assets/fitnesswatchdetalle8.jpg";
 import powerbanksolar from "./assets/powerbanksolar.png";
 import powerbanksolardetalle from "./assets/powerbanksolardetalle.jpg";
 import linternamultifuncional from "./assets/linternamultifuncional.jpg";
@@ -386,13 +393,57 @@ Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
   },
   {
     id: 13,
-    name: "Luz De Emergencia Led Solar 5 Faros 2029",
-    description: "Ilumina tus espacios de una manera eficiente y ecológica con la Ampolleta Solar Led Recargable de 5 Caras.",
-    longDescription: "Este modelo proporciona una iluminación cálida y acogedora. Funciona con recarga solar y es fácil de instalar; ideal para patios y lugares sin acceso continuo a la red eléctrica.",
-    price: "$10.990",
-    image: lamparadeemergencia,
-    detailImage: lamparadeemergenciadetalle,
-    tags: ["Recargable", "Material: plástico ABS", "Luz LED", "Ángulo de luz: 360 grados", "Lúmenes: 400"]
+    name: "Rastreador De Actividad Con Monitor De Ritmo Cardíaco Ip68",
+    description: `Rastreador de actividad física con monitor de ritmo cardíaco, contador de pasos/calorías, reloj inteligente monitor de sueño, IP68, rastreador de salud, podómetro para hombre y mujer`,
+    longDescription: `Tu compañero ideal para una vida activa y saludable 🏃‍♀️✨
+🌈 Multifunción para disfrutar al máximo:
+
+🕐 Recordatorio de horario
+🎨 Reloj personalizado con carátulas ajustables
+🌤️ Ajuste de brillo automático
+💧 Recordatorio de bebida y sedentarismo
+💖 Seguimiento de salud femenina
+⚡ Medición de un solo toque
+🤖 Asistente MAI inteligente
+
+🔎 ¡Buscá más colores de correa escribiendo: “bandas de seguimiento de fitness BrilliantHouse S5” – compatible con Google Fit! 💚
+
+🏃 Seguimiento deportivo y de actividad:
+
+📊 Registra con precisión tus pasos, distancia, calorías quemadas y minutos activos durante todo el día.
+🎯 Incluye 17 modos deportivos para actividades específicas: running, ciclismo, yoga, caminata, y más.
+😍 Ligero, cómodo y con un diseño moderno que te encantará llevar.
+
+❤️ Monitoreo completo de salud:
+
+💓 Controla tu frecuencia cardíaca y presión arterial en tiempo real.
+🌙 Analiza tu calidad del sueño y mejora tus hábitos de descanso.
+📱 Sincroniza todos los datos con la app y obtené un resumen detallado de tu bienestar diario.
+
+📲 Notificaciones inteligentes en tu muñeca:
+
+📞 Recibí alertas de llamadas, mensajes, calendario y redes sociales (Facebook, WhatsApp, Instagram, Twitter, LinkedIn y más).
+🚫 Función de rechazo de llamadas y recordatorio de programación para que nunca te pierdas nada.
+
+💦 Resistente al agua + carga práctica USB:
+
+🔋 Conector USB integrado, sin cables extra.
+💧 Resistente al agua, ideal para el día a día.
+📦 Incluye:
+
+1 Reloj inteligente BrilliantHouse S5
+
+1 Manual de uso
+
+💡 Consejos de solución de problemas
+
+✨ Viví conectado, saludable y con estilo.
+Tu tiempo vale oro…`,
+    price: "$14.990",
+    image: fitnesswatch,
+    detailImage: [fitnesswatchdetalle1, fitnesswatchdetalle2, fitnesswatchdetalle3, fitnesswatchdetalle4, fitnesswatchdetalle5, fitnesswatchdetalle6, fitnesswatchdetalle7, fitnesswatchdetalle8],
+    tags: ["smartwatch", "Monitor de ritmo cardíaco", "Contador de pasos", "Rastreador de sueño", "IP68"],
+    stock: 1
   },
   {
     id: 14,
