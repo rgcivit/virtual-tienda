@@ -13,7 +13,12 @@ import { Wallet } from '@mercadopago/sdk-react';
 
 // IMPORTS DE IMÁGENES (los dejo como ya los tenías)
 import ensendedorusb from "./assets/ensendedorusb.png";
-import compresor from "./assets/compresor.png";
+import cubreasiento from "./assets/cubreasiento.jpg";
+import cubreasientodetalle1 from "./assets/cubreasientodetalle1.jpg";
+import cubreasientodetalle2 from "./assets/cubreasientodetalle2.jpg";
+import cubreasientodetalle3 from "./assets/cubreasientodetalle3.jpg";
+import cubreasientodetalle4 from "./assets/cubreasientodetalle4.jpg";
+import cubreasientodetalle5 from "./assets/cubreasientodetalle5.jpg";
 import filtrodeagua from "./assets/filtrodeagua4.jpg";
 import ensendedordetalle from "./assets/ensendedordetalle.png";
 import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg";
@@ -37,7 +42,6 @@ import asientomascotas from "./assets/asientomascotas.jpg";
 import asientomascotasdetalle from "./assets/asientomascotasdetalle.jpg";
 import asientomascotasdetalle1 from "./assets/asientomascotasdetalle1.jpg";
 import asientomascotasdetalle2 from "./assets/asientomascotasdetalle2.jpg";
-import compresordetalle from "./assets/compresordetalle.png";
 import lamparadeemergencia from "./assets/lamparadeemergencia.webp";
 import lamparadeemergenciadetalle from "./assets/lamparadeemergenciadetalle.webp";
 import powerbanksolar from "./assets/powerbanksolar.png";
@@ -346,14 +350,39 @@ Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
      stock: 1
   },
   {
-    id: 12,
-    name: "Compresor de Aire Portátil 12v",
-    description: "El Compresor De Aire Calgary 150 Psi Para Vehículos 12v.",
-    longDescription: "Potencia de 2HP con presión máxima de 8 bar. Nivel de ruido reducido (72 dB). Ruedas y asa para fácil transporte. Ideal para inflar neumáticos, uso con herramientas neumáticas y trabajos de pintura. Incluye kit de accesorios básicos.",
-    price: "$40.000",
-    image: compresor,
-    detailImage: compresordetalle,
-    tags: ["24L", "Silencioso", "Portátil", "8 bar", "Accesorios"]
+   id: 12,
+      name: "FUNDA PROTECTORA DE AUTO PARA MASCOTA",
+      description: "IMPERMIABLE DE FACIL INTALACION Y GUARDADO Lleva a tu mejor amigo a todos lados sin llenar de pelos tu vehículo!",
+      longDescription: `🐶🚗 FUNDA PROTECTORA IMPERMEABLE PARA ASIENTO DE AUTO 🐾
+
+💙 ¡Llevá a tu mejor amigo a todos lados sin llenar de pelos tu vehículo!
+
+🔹 BENEFICIOS
+
+✨ Protege el tapizado del auto contra pelos, suciedad y humedad.
+✨ Evita rayones, manchas o daños en los asientos.
+✨ ¡Ideal para viajes, paseos o visitas al veterinario!
+
+📏 ESPECIFICACIONES
+
+🧺 Funda protectora para mascotas – evita que ensucien o dañen el tapizado.
+💧 Tela impermeable y resistente.
+📐 Medidas: 130 cm x 130 cm
+📦 Incluye 1 unidad.
+
+🐕 BENEFICIOS DEL PRODUCTO
+
+✅ Evita la acumulación de pelos en el auto.
+✅ Universal: se adapta a cualquier modelo y tamaño de vehículo.
+✅ Fácil de colocar en segundos.
+✅ Puede usarse también para cubrir el baúl.
+✅ Material impermeable y lavable en lavarropas.
+✅ Ligera, plegable y fácil de transportar.`,
+      price: "$24.990",
+      image: cubreasiento,
+      detailImage: [cubreasientodetalle1, cubreasientodetalle2,cubreasientodetalle3,cubreasientodetalle4,cubreasientodetalle5],
+      tags: ["Impermeable", "Funda", "Protección", "Mascotas", "Auto"],
+      stock: 1
   },
   {
     id: 13,
