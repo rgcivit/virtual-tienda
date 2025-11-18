@@ -1,9 +1,9 @@
-// src/ShoppingCart.jsx  (o src/components/ShoppingCart.jsx si lo tenés ahí)
+// ...existing code...
+// src/components/ShoppingCart.jsx
 import React, { useMemo, useState } from 'react';
 import {
   Box,
   Typography,
-  Button,
   Paper,
   Grid,
   Divider,
@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PaymentButton from './PaymentButton';
-import { useCart } from './context/cartContext'; // ✅ ruta correcta, sin "x" y con "./"
+import { useCart } from '../context/cartContext'; // misma ruta que en Header
 
 // Función para convertir cadenas como "$129.990" a número (ej: 129990)
 const parsePrice = (priceStr) => {
@@ -119,22 +119,33 @@ const ShoppingCart = () => {
                     {formatPrice(parsePrice(item.price) * (item.quantity ?? 1))}
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                    <Button
-                      variant="outlined"
-                      size="small"
+                    <button
+                      style={{
+                        border: '1px solid rgba(0,0,0,0.23)',
+                        borderRadius: 4,
+                        padding: '2px 10px',
+                        background: 'transparent',
+                        cursor: (item.quantity ?? 1) <= 1 ? 'not-allowed' : 'pointer',
+                        opacity: (item.quantity ?? 1) <= 1 ? 0.5 : 1
+                      }}
                       onClick={() => handleDecrease(item)}
                       disabled={(item.quantity ?? 1) <= 1}
                     >
                       -
-                    </Button>
+                    </button>
                     <Typography sx={{ mx: 2 }}>{item.quantity ?? 1}</Typography>
-                    <Button
-                      variant="outlined"
-                      size="small"
+                    <button
+                      style={{
+                        border: '1px solid rgba(0,0,0,0.23)',
+                        borderRadius: 4,
+                        padding: '2px 10px',
+                        background: 'transparent',
+                        cursor: 'pointer'
+                      }}
                       onClick={() => handleIncrease(item)}
                     >
                       +
-                    </Button>
+                    </button>
                   </Box>
                 </Box>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
@@ -221,4 +232,3 @@ const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
-
