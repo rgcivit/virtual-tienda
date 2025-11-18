@@ -1,10 +1,10 @@
+// src/components/PaymentButton.jsx
 import React, { useState } from 'react';
 import { Button, Typography, Box } from '@mui/material';
 
-// 👇 PONÉ ACÁ LA URL DE TU BACKEND
-// Si lo corrés local: por ejemplo "http://localhost:3001"
-// Si está desplegado: por ejemplo "https://mi-backend.vercel.app"
-const BACKEND_URL = "http://localhost:3001";  // 🔧 CAMBIÁ ESTO SI ES OTRO PUERTO/DOMINIO
+// Si tenés un backend aparte, podés definir VITE_BACKEND_URL en el .env
+// Si no, queda vacío y usa la misma URL del front con /create_preference
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || '';
 
 const PaymentButton = ({ cartItems = [], disabled }) => {
   const [loading, setLoading] = useState(false);
@@ -17,12 +17,7 @@ const PaymentButton = ({ cartItems = [], disabled }) => {
       setLoading(true);
       setError('');
 
-      const base = BACKEND_URL.replace(/\/$/, ''); // sin barra final
-      const url = `${base}/create_preference`;
-
-      console.log("Llamando a:", url, "con items:", cartItems);
-
-      const response = await fetch(url, {
+      const response = await fetch(`${BACKEND_URL}/create_preference`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: cartItems }),
@@ -33,18 +28,16 @@ const PaymentButton = ({ cartItems = [], disabled }) => {
       }
 
       const data = await response.json();
-      console.log("Respuesta backend MP:", data);
 
-      // 1) Backend devuelve init_point
+      // 1) Si el backend devuelve init_point (forma moderna)
       if (data.init_point) {
         window.location.href = data.init_point;
         return;
       }
 
-      // 2) Backend devuelve solo id de preferencia
+      // 2) Si devuelve solo el id de la preferencia (forma clásica)
       if (data.id) {
-        window.location.href =
-          `https://www.mercadopago.cl/checkout/v1/redirect?pref_id=${data.id}`;
+        window.location.href = `https://www.mercadopago.cl/checkout/v1/redirect?pref_id=${data.id}`;
         return;
       }
 
