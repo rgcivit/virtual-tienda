@@ -1,47 +1,68 @@
+// src/components/ProductsPage.jsx
 import React from 'react';
-import { Box, Grid, Card, CardMedia, CardContent, Typography, Button } from '@mui/material';
-import { mockProducts } from '../components/Header';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useLocation } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
+import ProductGrid from './ProductGrid';
+import { mockProducts } from '../data/mockProducts';
+
+const CATEGORIES_LABELS = {
+  todos: 'Todos los productos',
+  tecnologia: 'Tecnología & Gadgets',
+  auto: 'Accesorios para Auto',
+  camping: 'Camping & Outdoor',
+  mascotas: 'Mascotas & Viaje',
+  hogar: 'Hogar y Cocina',
+};
 
 const ProductsPage = () => {
-  const navigate = useNavigate(); // Crea la instancia de navigate
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const category = params.get('category') || 'todos';
+
+  // 🧠 Filtrado por categoría:
+  // - si category === 'todos' → devuelve todos
+  // - si no, filtra por:
+  //      product.category === category
+  //      o el tag incluye el slug de categoría
+  const filteredProducts =
+    category === 'todos'
+      ? mockProducts
+      : mockProducts.filter((product) => {
+          const matchesCategory =
+            product.category && product.category === category;
+
+          const matchesTag =
+            Array.isArray(product.tags) &&
+            product.tags.some((tag) =>
+              String(tag).toLowerCase() === category.toLowerCase()
+            );
+
+          return matchesCategory || matchesTag;
+        });
+
+  const title = CATEGORIES_LABELS[category] || 'Productos';
 
   return (
-    <Box sx={{ maxWidth: 1200, mx: 'auto', mt: 4, px: 2 }}>
-      <Grid container spacing={3}>
-        {mockProducts.map(product => (
-          <Grid item xs={12} sm={6} md={4} key={product.id}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-              <CardMedia
-                component="img"
-                height="180"
-                image={product.image}
-                alt={product.name}
-                sx={{ objectFit: 'contain', bgcolor: '#fafafa' }}
-              />
-              <CardContent>
-                <Typography variant="h6" fontWeight="bold" gutterBottom>
-                  {product.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" gutterBottom>
-                  {product.description}
-                </Typography>
-                <Typography variant="h6" color="primary" sx={{ mt: 1 }}>
-                  {product.price}
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  sx={{ mt: 2, width: '100%' }}
-                  onClick={() => navigate(`/products/${product.id}`)} // Usa navigate aquí
-                >
-                  Ver detalle
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+    <Box
+      sx={{
+        maxWidth: 1200,
+        mx: 'auto',
+        px: { xs: 1.5, sm: 2, md: 3 },
+        py: { xs: 3, sm: 4 },
+      }}
+    >
+      <Typography
+        variant="h5"
+        sx={{
+          mb: 3,
+          fontWeight: 700,
+          textAlign: 'left',
+        }}
+      >
+        {title}
+      </Typography>
+
+      <ProductGrid products={filteredProducts} />
     </Box>
   );
 };

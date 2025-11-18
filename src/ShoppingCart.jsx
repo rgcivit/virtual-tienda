@@ -1,4 +1,4 @@
-// ...existing code...
+// src/ShoppingCart.jsx  (o src/components/ShoppingCart.jsx si lo tenés ahí)
 import React, { useMemo, useState } from 'react';
 import {
   Box,
@@ -15,10 +15,8 @@ import {
   FormLabel
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import PaymentButton from './PaymentButton';
-import { useCart } from './context/cartContext'; // Ajusta la ruta según tu estructura
+import { useCart } from './context/cartContext'; // ✅ ruta correcta, sin "x" y con "./"
 
 // Función para convertir cadenas como "$129.990" a número (ej: 129990)
 const parsePrice = (priceStr) => {
@@ -33,7 +31,11 @@ const parsePrice = (priceStr) => {
 };
 
 const formatPrice = (value) =>
-  new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(value);
+  new Intl.NumberFormat('es-CL', {
+    style: 'currency',
+    currency: 'CLP',
+    maximumFractionDigits: 0
+  }).format(value);
 
 const SHIPPING_FEE = 4500; // Ajusta si necesitas otro monto
 
@@ -96,7 +98,10 @@ const ShoppingCart = () => {
             </Typography>
           ) : (
             (cart || []).map((item) => (
-              <Paper key={item.id} sx={{ mb: 2, p: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Paper
+                key={item.id}
+                sx={{ mb: 2, p: 2, display: 'flex', alignItems: 'center', gap: 2 }}
+              >
                 <Box sx={{ width: 100, height: 100, mr: 2 }}>
                   <img
                     src={item.image}
@@ -106,7 +111,11 @@ const ShoppingCart = () => {
                 </Box>
                 <Box sx={{ flexGrow: 1 }}>
                   <Typography variant="h6">{item.name}</Typography>
-                  <Typography variant="body1" color="primary" sx={{ fontWeight: 'bold', mt: 1 }}>
+                  <Typography
+                    variant="body1"
+                    color="primary"
+                    sx={{ fontWeight: 'bold', mt: 1 }}
+                  >
                     {formatPrice(parsePrice(item.price) * (item.quantity ?? 1))}
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
@@ -158,8 +167,16 @@ const ShoppingCart = () => {
             <FormControl component="fieldset" sx={{ mb: 2 }}>
               <FormLabel component="legend">Opciones de envío</FormLabel>
               <RadioGroup value={shippingOption} onChange={handleChangeShipping}>
-                <FormControlLabel value="pickup" control={<Radio />} label="Retirar en tienda (Gratis)" />
-                <FormControlLabel value="delivery" control={<Radio />} label={`Envío a domicilio (${formatPrice(SHIPPING_FEE)})`} />
+                <FormControlLabel
+                  value="pickup"
+                  control={<Radio />}
+                  label="Retirar en tienda (Gratis)"
+                />
+                <FormControlLabel
+                  value="delivery"
+                  control={<Radio />}
+                  label={`Envío a domicilio (${formatPrice(SHIPPING_FEE)})`}
+                />
               </RadioGroup>
             </FormControl>
 
@@ -179,18 +196,21 @@ const ShoppingCart = () => {
               </Typography>
             </Box>
 
-            <Button
-              variant="contained"
-              color="primary"
-              fullWidth
-              disabled={!(cart && cart.length > 0)}
-              sx={{ mb: 1 }}
-            >
-              { /* PaymentButton maneja la creación de preferencia; le pasamos los items preparados */ }
-              <PaymentButton cartItems={itemsForPayment} disabled={!(cart && cart.length > 0)} />
-            </Button>
+            {/* Botón de pago con Mercado Pago */}
+            <Box sx={{ mb: 1 }}>
+              <PaymentButton
+                cartItems={itemsForPayment}
+                disabled={!(cart && cart.length > 0)}
+              />
+            </Box>
 
-            <Button variant="text" color="inherit" fullWidth sx={{ mt: 1 }} onClick={() => clearCart?.()}>
+            <Button
+              variant="text"
+              color="inherit"
+              fullWidth
+              sx={{ mt: 1 }}
+              onClick={() => clearCart?.()}
+            >
               Vaciar carrito
             </Button>
           </Paper>
@@ -201,3 +221,4 @@ const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
+

@@ -10,6 +10,7 @@ import ShoppingCart from './ShoppingCart';
 import PaymentSuccess from './PaymentSuccess';
 import TopBar from "./components/TopBar";
 
+
 // Helper: sube al tope al cambiar de ruta
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,7 +37,7 @@ const App = () => {
           <Routes>
             {/* Inicio */}
             <Route path="/" element={<Home />} />
-
+             <Route path="/products" element={<ProductsPage />} />
             {/* Listado general de productos (si lo usás aparte del home) */}
             <Route path="/products" element={<ProductsPage />} />
 
@@ -69,6 +70,7 @@ const App = () => {
 };
 
 export default App;
+
 
 
 
