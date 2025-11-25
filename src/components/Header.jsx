@@ -206,7 +206,6 @@ const Header = () => {
 
   // 👉 navegación por categoría
   const handleCategoryClick = (slug) => {
-    // Navegación optimizada para usar siempre el query parameter
     navigate(`/products?category=${slug}`); 
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -327,7 +326,7 @@ const Header = () => {
 
               {searchResults.length > 0 && (
                 <Fade in={searchResults.length > 0}>
-                  <Paper // <-- Apertura de Paper
+                  <Paper 
                     sx={{
                       position: 'absolute',
                       top: '100%',
@@ -417,10 +416,47 @@ const Header = () => {
               >
                 <Box
                   sx={{
-                    display: 'flex',
+                        // Ocultamos esta Box completamente en dispositivos móviles (xs)
+                    display: { xs: 'none', sm: 'flex' }, 
                     gap: { xs: 1, sm: 2 },
                     justifyContent: { xs: 'center', sm: 'flex-start' },
                     flexWrap: 'wrap',
+                  }}
+                >
+                  <IconButton
+                    onClick={openWhatsApp}
+                    aria-label="WhatsApp"
+                    sx={{ color: 'text.secondary' }}
+                  >
+                    <WhatsApp
+                      sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
+                    />
+                  </IconButton>
+                  <IconButton
+                    aria-label="Instagram"
+                    sx={{ color: 'text.secondary' }}
+                  >
+                    <Instagram
+                      sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
+                    />
+                  </IconButton>
+                  <IconButton
+                    aria-label="Facebook"
+                    sx={{ color: 'text.secondary' }}
+                  >
+                    <Facebook
+                      sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
+                    />
+                  </IconButton>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: { xs: 1, sm: 2 },
+                    justifyContent: { xs: 'center', sm: 'flex-start' },
+                    alignItems: 'center',
                   }}
                 >
                   <Link to="/cart">
@@ -443,6 +479,7 @@ const Header = () => {
                       sx={{
                         color: 'text.secondary',
                         p: 0.5,
+                        ml: 1,
                       }}
                     >
                       <Person
@@ -460,6 +497,7 @@ const Header = () => {
                           width: 32,
                           height: 32,
                           border: '2px solid #1976d2',
+                          ml: 1,
                         }}
                       />
                       {!isMobile && (
@@ -477,6 +515,7 @@ const Header = () => {
                           sx={{
                             color: 'text.secondary',
                             p: 0.5,
+                            ml: 1,
                           }}
                         >
                           <Person
@@ -603,13 +642,58 @@ const Header = () => {
           </Box>
         )}
 
-        {/* Menú lateral (hamburguesa) con categorías */}
+        {/* Menú lateral (hamburguesa) */}
         <Drawer
           anchor="left"
           open={mobileMenuOpen}
           onClose={() => setMobileMenuOpen(false)}
         >
           <Box sx={{ width: 260 }} role="presentation">
+            
+                {/* 🤩 NUEVA SECCIÓN: REDES SOCIALES y Perfil en el Drawer */}
+                <Box sx={{ p: 2 }}>
+                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: 'primary.main' }}>
+                        ¡Bienvenido!
+                    </Typography>
+                    
+                    {/* Botones de Redes Sociales */}
+                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start', mb: 2 }}>
+                        <IconButton onClick={openWhatsApp} aria-label="WhatsApp" color="success">
+                            <WhatsApp />
+                        </IconButton>
+                        <IconButton aria-label="Instagram" sx={{ color: '#E4405F' }}>
+                            <Instagram />
+                        </IconButton>
+                        <IconButton aria-label="Facebook" color="primary">
+                            <Facebook />
+                        </IconButton>
+                    </Box>
+
+                    {/* Lógica de Login/Logout (Se puede replicar aquí si es necesario, pero ya está arriba) */}
+                    {user && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
+                            <Avatar src={user.photoURL || ''} alt={user.displayName || 'User'} sx={{ width: 32, height: 32 }} />
+                            <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                                {user.displayName}
+                            </Typography>
+                            <Button
+                                variant="text"
+                                color="secondary"
+                                onClick={async () => {
+                                    await signOut(auth);
+                                    setUser(null);
+                                    setMobileMenuOpen(false); // Cerrar menú al cerrar sesión
+                                }}
+                                sx={{ fontSize: '0.8rem', minWidth: 0, px: 1 }}
+                            >
+                                (Logout)
+                            </Button>
+                        </Box>
+                    )}
+                </Box>
+                <Divider />
+
+
             <Box sx={{ p: 2 }}>
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
                 Categorías
