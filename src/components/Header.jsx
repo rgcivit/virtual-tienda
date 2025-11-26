@@ -1,3 +1,5 @@
+// src/components/Header.jsx (CORRECCIÓN FINAL DE ALINEACIÓN MÓVIL)
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useCart } from '../context/cartContext';
@@ -59,7 +61,7 @@ const Logo = ({ onClick }) => (
       display: 'flex',
       alignItems: 'center',
       cursor: 'pointer',
-      mr: { xs: 1, md: 4 },
+      mr: { xs: 0, sm: 4 }, // 💡 Cero margen a la derecha en móvil
       transition: 'all 0.3s ease',
       '&:hover': {
         transform: 'scale(1.05)',
@@ -243,7 +245,7 @@ const Header = () => {
               flexDirection: isMobile && searchOpen ? 'column' : 'row',
             }}
           >
-            {/* Logo + menú hamburguesa + icono buscar (mobile) */}
+            {/* GRUPO IZQUIERDO: Menu + Logo */}
             <Box
               sx={{
                 display: 'flex',
@@ -260,27 +262,10 @@ const Header = () => {
                   <MenuIcon />
                 </IconButton>
               )}
-
               <Logo onClick={scrollToTop} />
-
-              {isMobile && !searchOpen && (
-                <IconButton
-                  onClick={toggleSearch}
-                  sx={{
-                    ml: 1,
-                    color: 'text.secondary',
-                    '&:hover': {
-                      color: 'primary.main',
-                      backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                    },
-                  }}
-                >
-                  <Search />
-                </IconButton>
-              )}
             </Box>
 
-            {/* Buscador */}
+            {/* GRUPO CENTRAL: Buscador (Desktop/Expandido) */}
             <Box
               sx={{
                 position: 'relative',
@@ -382,167 +367,123 @@ const Header = () => {
               )}
             </Box>
 
-            {/* Iconos derecha (redes, carrito, login) */}
+            {/* GRUPO DERECHO: Search (Mobile) + Cart + Login/Perfil */}
             <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: { xs: 0.5, sm: 1 },
-                ml: isMobile ? 0 : 1,
               }}
             >
-              {!isMobile && (
+                {/* Ícono de Búsqueda (Solo visible en Mobile) */}
+                {isMobile && !searchOpen && (
+                    <IconButton
+                        onClick={toggleSearch}
+                        sx={{
+                            ml: 1,
+                            color: 'text.secondary',
+                            '&:hover': {
+                                color: 'primary.main',
+                                backgroundColor: 'rgba(63, 81, 181, 0.1)',
+                            },
+                        }}
+                    >
+                        <Search />
+                    </IconButton>
+                )}
+
+                {/* Íconos de Redes Sociales y Búsqueda (Solo visible en Desktop) */}
+                {!isMobile && (
+                    <>
+                        <IconButton
+                            onClick={toggleSearch}
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <Search />
+                        </IconButton>
+                        <IconButton
+                            onClick={openWhatsApp}
+                            aria-label="WhatsApp"
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <WhatsApp sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                        <IconButton
+                            aria-label="Instagram"
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <Instagram sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                        <IconButton
+                            aria-label="Facebook"
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <Facebook sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                    </>
+                )}
+                
+              {/* Ícono de Carrito (Visible en Mobile y Desktop) */}
+              <Link to="/cart">
                 <IconButton
-                  onClick={toggleSearch}
+                  aria-label="Carrito"
+                  sx={{ color: 'text.secondary' }}
+                >
+                  <Badge badgeContent={totalItems} color="error">
+                    <ShoppingCart
+                      sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
+                    />
+                  </Badge>
+                </IconButton>
+              </Link>
+
+              {/* Ícono de Login/Perfil (Visible en Mobile y Desktop) */}
+              {!user ? (
+                <IconButton
+                  onClick={handleGoogleRegister}
+                  aria-label="Registro"
                   sx={{
                     color: 'text.secondary',
-                    '&:hover': {
-                      color: 'primary.main',
-                      backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                    },
+                    p: 0.5,
+                    ml: 1,
                   }}
                 >
-                  <Search />
+                  <Person
+                    sx={{ fontSize: { xs: '1.7rem', sm: '1.8rem' } }}
+                  />
                 </IconButton>
+              ) : (
+                <Box
+                  sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+                >
+                  <Avatar
+                    src={user.photoURL || ''}
+                    alt={user.displayName || ''}
+                    sx={{
+                      width: 32,
+                      height: 32,
+                      border: '2px solid #1976d2',
+                      ml: 1,
+                    }}
+                  />
+                  <Button
+                    variant="text"
+                    color="secondary"
+                    onClick={async () => {
+                      await signOut(auth);
+                      setUser(null);
+                    }}
+                    sx={{
+                      ml: 1,
+                      fontSize: { xs: '0.8rem', sm: '0.875rem' },
+                      minWidth: 0,
+                      px: 1,
+                    }}
+                  >
+                    Logout
+                  </Button>
+                </Box>
               )}
-
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: { xs: 'center', sm: 'flex-start' },
-                  gap: 1,
-                }}
-              >
-                <Box
-                  sx={{
-                        // Ocultamos esta Box completamente en dispositivos móviles (xs)
-                    display: { xs: 'none', sm: 'flex' }, 
-                    gap: { xs: 1, sm: 2 },
-                    justifyContent: { xs: 'center', sm: 'flex-start' },
-                    flexWrap: 'wrap',
-                  }}
-                >
-                  <IconButton
-                    onClick={openWhatsApp}
-                    aria-label="WhatsApp"
-                    sx={{ color: 'text.secondary' }}
-                  >
-                    <WhatsApp
-                      sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
-                    />
-                  </IconButton>
-                  <IconButton
-                    aria-label="Instagram"
-                    sx={{ color: 'text.secondary' }}
-                  >
-                    <Instagram
-                      sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
-                    />
-                  </IconButton>
-                  <IconButton
-                    aria-label="Facebook"
-                    sx={{ color: 'text.secondary' }}
-                  >
-                    <Facebook
-                      sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
-                    />
-                  </IconButton>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: { xs: 1, sm: 2 },
-                    justifyContent: { xs: 'center', sm: 'flex-start' },
-                    alignItems: 'center',
-                  }}
-                >
-                  <Link to="/cart">
-                    <IconButton
-                      aria-label="Carrito"
-                      sx={{ color: 'text.secondary' }}
-                    >
-                      <Badge badgeContent={totalItems} color="error">
-                        <ShoppingCart
-                          sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
-                        />
-                      </Badge>
-                    </IconButton>
-                  </Link>
-
-                  {!user ? (
-                    <IconButton
-                      onClick={handleGoogleRegister}
-                      aria-label="Registro"
-                      sx={{
-                        color: 'text.secondary',
-                        p: 0.5,
-                        ml: 1,
-                      }}
-                    >
-                      <Person
-                        sx={{ fontSize: { xs: '1.7rem', sm: '1.8rem' } }}
-                      />
-                    </IconButton>
-                  ) : (
-                    <Box
-                      sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-                    >
-                      <Avatar
-                        src={user.photoURL || ''}
-                        alt={user.displayName || ''}
-                        sx={{
-                          width: 32,
-                          height: 32,
-                          border: '2px solid #1976d2',
-                          ml: 1,
-                        }}
-                      />
-                      {!isMobile && (
-                        <Typography
-                          variant="body2"
-                          sx={{ fontWeight: 600 }}
-                        >
-                          {user.displayName}
-                        </Typography>
-                      )}
-                      {isMobile && (
-                        <IconButton
-                          onClick={handleGoogleRegister}
-                          aria-label="Perfil"
-                          sx={{
-                            color: 'text.secondary',
-                            p: 0.5,
-                            ml: 1,
-                          }}
-                        >
-                          <Person
-                            sx={{ fontSize: { xs: '1.5rem', sm: '1.75rem' } }}
-                          />
-                        </IconButton>
-                      )}
-                      <Button
-                        variant="text"
-                        color="secondary"
-                        onClick={async () => {
-                          await signOut(auth);
-                          setUser(null);
-                        }}
-                        sx={{
-                          ml: 1,
-                          fontSize: { xs: '0.8rem', sm: '0.875rem' },
-                          minWidth: 0,
-                          px: 1,
-                        }}
-                      >
-                        Logout
-                      </Button>
-                    </Box>
-                  )}
-                </Box>
-              </Box>
             </Box>
           </Toolbar>
 
@@ -650,10 +591,10 @@ const Header = () => {
         >
           <Box sx={{ width: 260 }} role="presentation">
             
-                {/* 🤩 NUEVA SECCIÓN: REDES SOCIALES y Perfil en el Drawer */}
+                {/* SECCIÓN: REDES SOCIALES y Perfil en el Drawer */}
                 <Box sx={{ p: 2 }}>
                     <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: 'primary.main' }}>
-                        ¡Bienvenido!
+                        {user ? `Hola, ${user.displayName || 'Usuario'}` : '¡Bienvenido!'}
                     </Typography>
                     
                     {/* Botones de Redes Sociales */}
@@ -669,13 +610,10 @@ const Header = () => {
                         </IconButton>
                     </Box>
 
-                    {/* Lógica de Login/Logout (Se puede replicar aquí si es necesario, pero ya está arriba) */}
+                    {/* Lógica de Logout (solo si está logueado) */}
                     {user && (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
                             <Avatar src={user.photoURL || ''} alt={user.displayName || 'User'} sx={{ width: 32, height: 32 }} />
-                            <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                                {user.displayName}
-                            </Typography>
                             <Button
                                 variant="text"
                                 color="secondary"
@@ -686,7 +624,7 @@ const Header = () => {
                                 }}
                                 sx={{ fontSize: '0.8rem', minWidth: 0, px: 1 }}
                             >
-                                (Logout)
+                                Cerrar sesión
                             </Button>
                         </Box>
                     )}
