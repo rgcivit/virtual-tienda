@@ -1,5 +1,3 @@
-// src/components/Header.jsx (CORRECCIÓN FINAL DE ALINEACIÓN MÓVIL)
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useCart } from '../context/cartContext';
@@ -43,8 +41,6 @@ import { useTheme } from '@mui/material/styles';
 import logotiendavirtual from './assets/logotiendavirtual.png';
 import { mockProducts } from '../data/mockProducts';
 
-const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
 const CATEGORIES = [
   { slug: 'todos',     label: 'Todos los productos' },
   { slug: 'tecnologia', label: 'Tecnología & Gadgets' },
@@ -61,7 +57,7 @@ const Logo = ({ onClick }) => (
       display: 'flex',
       alignItems: 'center',
       cursor: 'pointer',
-      mr: { xs: 0, sm: 4 }, // 💡 Cero margen a la derecha en móvil
+      mr: { xs: 0, sm: 4 },
       transition: 'all 0.3s ease',
       '&:hover': {
         transform: 'scale(1.05)',
@@ -101,15 +97,14 @@ const Header = () => {
   const params = new URLSearchParams(location.search);
   const activeCategory = params.get('category') || 'todos';
 
+  // ✅ FUNCIÓN DE LOGIN CORREGIDA: USAMOS SOLO POPUP
   const handleGoogleRegister = async () => {
     try {
-      if (isMobileDevice) {
-        await signInWithRedirect(auth, provider);
-      } else {
-        await signInWithPopup(auth, provider);
-      }
+      await signInWithPopup(auth, provider);
     } catch (error) {
-      console.error("Error en el registro:", error);
+      if (error.code !== 'auth/popup-closed-by-user') {
+        console.error("Error en el registro:", error);
+      }
     }
   };
 
@@ -361,7 +356,7 @@ const Header = () => {
                           />
                         </ListItem>
                       ))}
-                    </List>
+                    </List> {/* <--- Aquí estaba la etiqueta de cierre faltante */}
                   </Paper> 
                 </Fade>
               )}
@@ -375,54 +370,54 @@ const Header = () => {
                 gap: { xs: 0.5, sm: 1 },
               }}
             >
-                {/* Ícono de Búsqueda (Solo visible en Mobile) */}
-                {isMobile && !searchOpen && (
-                    <IconButton
-                        onClick={toggleSearch}
-                        sx={{
-                            ml: 1,
-                            color: 'text.secondary',
-                            '&:hover': {
-                                color: 'primary.main',
-                                backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                            },
-                        }}
-                    >
-                        <Search />
-                    </IconButton>
-                )}
+                {/* Ícono de Búsqueda (Solo visible en Mobile) */}
+                {isMobile && !searchOpen && (
+                    <IconButton
+                        onClick={toggleSearch}
+                        sx={{
+                            ml: 1,
+                            color: 'text.secondary',
+                            '&:hover': {
+                                color: 'primary.main',
+                                backgroundColor: 'rgba(63, 81, 181, 0.1)',
+                            },
+                        }}
+                    >
+                        <Search />
+                    </IconButton>
+                )}
 
-                {/* Íconos de Redes Sociales y Búsqueda (Solo visible en Desktop) */}
-                {!isMobile && (
-                    <>
-                        <IconButton
-                            onClick={toggleSearch}
-                            sx={{ color: 'text.secondary' }}
-                        >
-                            <Search />
-                        </IconButton>
-                        <IconButton
-                            onClick={openWhatsApp}
-                            aria-label="WhatsApp"
-                            sx={{ color: 'text.secondary' }}
-                        >
-                            <WhatsApp sx={{ fontSize: '1.75rem' }} />
-                        </IconButton>
-                        <IconButton
-                            aria-label="Instagram"
-                            sx={{ color: 'text.secondary' }}
-                        >
-                            <Instagram sx={{ fontSize: '1.75rem' }} />
-                        </IconButton>
-                        <IconButton
-                            aria-label="Facebook"
-                            sx={{ color: 'text.secondary' }}
-                        >
-                            <Facebook sx={{ fontSize: '1.75rem' }} />
-                        </IconButton>
-                    </>
-                )}
-                
+                {/* Íconos de Redes Sociales y Búsqueda (Solo visible en Desktop) */}
+                {!isMobile && (
+                    <>
+                        <IconButton
+                            onClick={toggleSearch}
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <Search />
+                        </IconButton>
+                        <IconButton
+                            onClick={openWhatsApp}
+                            aria-label="WhatsApp"
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <WhatsApp sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                        <IconButton
+                            aria-label="Instagram"
+                            sx={{ color: '#E4405F' }}
+                        >
+                            <Instagram sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                        <IconButton
+                            aria-label="Facebook"
+                            sx={{ color: 'primary.main' }}
+                        >
+                            <Facebook sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                    </>
+                )}
+                
               {/* Ícono de Carrito (Visible en Mobile y Desktop) */}
               <Link to="/cart">
                 <IconButton
@@ -591,45 +586,45 @@ const Header = () => {
         >
           <Box sx={{ width: 260 }} role="presentation">
             
-                {/* SECCIÓN: REDES SOCIALES y Perfil en el Drawer */}
-                <Box sx={{ p: 2 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: 'primary.main' }}>
-                        {user ? `Hola, ${user.displayName || 'Usuario'}` : '¡Bienvenido!'}
-                    </Typography>
-                    
-                    {/* Botones de Redes Sociales */}
-                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start', mb: 2 }}>
-                        <IconButton onClick={openWhatsApp} aria-label="WhatsApp" color="success">
-                            <WhatsApp />
-                        </IconButton>
-                        <IconButton aria-label="Instagram" sx={{ color: '#E4405F' }}>
-                            <Instagram />
-                        </IconButton>
-                        <IconButton aria-label="Facebook" color="primary">
-                            <Facebook />
-                        </IconButton>
-                    </Box>
+                {/* SECCIÓN: REDES SOCIALES y Perfil en el Drawer */}
+                <Box sx={{ p: 2 }}>
+                    <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: 'primary.main' }}>
+                        {user ? `Hola, ${user.displayName || 'Usuario'}` : '¡Bienvenido!'}
+                    </Typography>
+                    
+                    {/* Botones de Redes Sociales */}
+                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start', mb: 2 }}>
+                        <IconButton onClick={openWhatsApp} aria-label="WhatsApp" color="success">
+                            <WhatsApp />
+                        </IconButton>
+                        <IconButton aria-label="Instagram" sx={{ color: '#E4405F' }}>
+                            <Instagram />
+                        </IconButton>
+                        <IconButton aria-label="Facebook" color="primary">
+                            <Facebook />
+                        </IconButton>
+                    </Box>
 
-                    {/* Lógica de Logout (solo si está logueado) */}
-                    {user && (
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
-                            <Avatar src={user.photoURL || ''} alt={user.displayName || 'User'} sx={{ width: 32, height: 32 }} />
-                            <Button
-                                variant="text"
-                                color="secondary"
-                                onClick={async () => {
-                                    await signOut(auth);
-                                    setUser(null);
-                                    setMobileMenuOpen(false); // Cerrar menú al cerrar sesión
-                                }}
-                                sx={{ fontSize: '0.8rem', minWidth: 0, px: 1 }}
-                            >
-                                Cerrar sesión
-                            </Button>
-                        </Box>
-                    )}
-                </Box>
-                <Divider />
+                    {/* Lógica de Logout (solo si está logueado) */}
+                    {user && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
+                            <Avatar src={user.photoURL || ''} alt={user.displayName || 'User'} sx={{ width: 32, height: 32 }} />
+                            <Button
+                                variant="text"
+                                color="secondary"
+                                onClick={async () => {
+                                    await signOut(auth);
+                                    setUser(null);
+                                    setMobileMenuOpen(false); // Cerrar menú al cerrar sesión
+                                }}
+                                sx={{ fontSize: '0.8rem', minWidth: 0, px: 1 }}
+                            >
+                                Cerrar sesión
+                            </Button>
+                        </Box>
+                    )}
+                </Box>
+                <Divider />
 
 
             <Box sx={{ p: 2 }}>
