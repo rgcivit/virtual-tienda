@@ -537,6 +537,7 @@ Descubrí el accesorio definitivo para el cuidado de tus mascotas. Este peine er
     tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
     stock: 5,
     category: ["mascotas"],
+
      id: 17,
     name: "Removedor de pelo reutilizable para gatos y perros y muebles",
     description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
@@ -569,7 +570,321 @@ RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
     tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
     stock: 5,
     category: ["mascotas"],
-  }
+    
+  },
+
+  {
+   id: 18,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 19,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 20,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 21,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 22,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 23,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 24,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 25,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+   
+   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+   
+   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+   
+   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+   
+   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+   
+   ⚙️ CARACTERÍSTICAS TÉCNICAS
+   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+   
+   📏 Capacidad: 16oz (Aprox. 473ml).
+   
+   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+   
+   💡 Efecto de iluminación: Luces LED integradas.
+   
+   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+  
         ];
 
         const foundProduct = mockProducts.find(

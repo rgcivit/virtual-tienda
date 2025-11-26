@@ -48,6 +48,8 @@ const CATEGORIES = [
   { slug: 'camping',    label: 'Camping & Outdoor' },
   { slug: 'mascotas',   label: 'Mascotas & Viaje' },
   { slug: 'hogar',      label: 'Hogar y Cocina' },
+  { slug: 'herramientas',    label: 'Herramientas y Equipamiento' },
+  {slug:   'salud',     label: 'Salud & Bienestar' }
 ];
 
 const Logo = ({ onClick }) => (
