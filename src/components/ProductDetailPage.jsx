@@ -484,7 +484,7 @@ Tu tiempo vale oro…`,
        ],
        tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
        stock: 1,
-       category: "camping",
+       category: ["camping","auto"],
   },
   {
     id: 15,

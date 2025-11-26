@@ -124,7 +124,7 @@ export const mockProducts = [
     detailImage: infladorportatildetalle,
     tags: ["Inflador", "Portátil", "Batería", "Digital"],
     stock: 3,
-    category: "auto",
+    category: "auto,camping",
   },
 
   {
@@ -325,7 +325,7 @@ export const mockProducts = [
     detailImage: linternamultifuncionaldetalle,
     tags: ["Linterna", "Solar", "USB"],
     stock: 0,
-    category: "camping",
+    category: ["camping","auto"],
   },
 
   {

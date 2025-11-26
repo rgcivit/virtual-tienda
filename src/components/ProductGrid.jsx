@@ -395,7 +395,7 @@ const ProductGrid = () => {
       image: ensendedorusb,
       detailImage: ensendedordetalle,
       tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente", "Accesorios"],
-      category: "tecnologia", 
+      category: [ "tecnologia", "camping" ], 
       stock: 1
     },
     {
@@ -760,7 +760,7 @@ Tu tiempo vale oro…`,
     ],
     tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
     stock: 1,
-    category: "tecnologia",
+    category: ["camping","tecnologia"],
     },
     {
       id: 15,
@@ -771,7 +771,7 @@ Tu tiempo vale oro…`,
       image: linternamultifuncional,
       detailImage: linternamultifuncionaldetalle,
       tags: ["360°", "Recargable", "Solar", "Powerbank", "Trípode", "Iluminación"],
-      category: "camping",
+      category: ["camping","hogar"],
       stock: 0
     },
     {
