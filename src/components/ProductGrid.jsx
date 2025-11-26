@@ -78,8 +78,16 @@ import placadental3 from "./assets/placadental3.jpeg";
 import placadental4 from "./assets/placadental4.jpeg";
 import placadental5 from "./assets/placadental5.jpeg";
 import placadental6 from "./assets/placadental6.jpeg";
-import cocinacamping from "./assets/cocinacamping.png";
-import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
+import cepillomascota from "../components/assets/cepillomascota.jpeg";
+import cepillomascota1 from "../components/assets/cepillomascota1.jpeg";
+import cepillomascota2 from "../components/assets/cepillomascota2.jpeg";
+import cepillomascota3 from "../components/assets/cepillomascota3.jpeg";
+import cepillomascota4 from "../components/assets/cepillomascota4.jpeg";
+import cepillopelosmascotas from "../components/assets/cepillopelosmascotas.jpeg";
+import cepillopelosmascotas1 from "../components/assets/cepillopelosmascotas1.jpeg";
+import cepillopelosmascotas2 from "../components/assets/cepillopelosmascotas2.jpeg";
+import cepillopelosmascotas3 from "../components/assets/cepillopelosmascotas3.jpeg";
+
 
 
 /* =======================
@@ -789,28 +797,63 @@ Tu tiempo vale oro…`,
       stock: 10
     },
     {
-      id: 16,
-      name: "Cocina de Camping Portátil a Gas con Maleta Sobremesa",
-      description: "Mini cocina de gas de un solo quemador con encendido automático.",
-      longDescription: "Maleta de transporte, económico y seguro para camping.",
-      price: "$35.990",
-      image: cocinacamping,
-      detailImage: cocinacampingdetalle,
-      tags: ["Portátil", "Gas butano", "Maleta", "Encendido automático", "Camping"],
-      category: "camping",
-      stock: 0
+       id: 16,
+    name: "Peine Profesional Para Gatos Y Perros De Pelo Largo Amarillo",
+    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
+     ,
+    longDescription:
+       `🐾✨ ¡El Secreto para un Pelaje Impecable y Sin Nudos! ✨🐾
+Descubrí el accesorio definitivo para el cuidado de tus mascotas. Este peine ergonómico está diseñado específicamente para mimar a perros y gatos de pelo largo, haciendo del cepillado una experiencia placentera.
+
+🔹 Diseño Ergonómico y Especializado 🐶🐱 Creado pensando en la comodidad, es perfecto para razas de pelo largo y denso (como Ragdoll). ¡Adaptado a sus necesidades!
+
+🔹 Cuidado Suave, Resultados Efectivos 🧶✨ Fabricado con materiales de alta calidad. Sus agujas se deslizan suavemente para: ✅ Eliminar el pelo suelto. ✅ Desenredar los nudos difíciles. ✅ Reducir la caída de pelo sin dañar la piel sensible de tu mascota.
+
+🔹 Salud y Bienestar en Cada Pasada ❤️💆‍♀️ Más que un simple cepillo: fomenta una mejor circulación sanguínea y ayuda a aliviar el estrés, convirtiendo el aseo en un masaje relajante.
+
+🔹 Fácil de Usar para Vos 👌🚿 Cuenta con un mango antideslizante que asegura un agarre cómodo y firme, facilitando la rutina de cuidado diario.
+
+🌟 ¡Transforma el momento del aseo en una experiencia relajante y feliz para tu compañero peludo! 🥰`,
+    price: "$10.990",
+    image: cepillomascota,
+    detailImage: [cepillomascota1, cepillomascota2, cepillomascota3, cepillomascota4],
+    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
+    stock: 5,
+    category: ["mascotas"],
     },
  {
-      id: 16,
-      name: "Cocina de Camping Portátil a Gas con Maleta Sobremesa",
-      description: "Mini cocina de gas de un solo quemador con encendido automático.",
-      longDescription: "Maleta de transporte, económico y seguro para camping.",
-      price: "$35.990",
-      image: cocinacamping,
-      detailImage: cocinacampingdetalle,
-      tags: ["Portátil", "Gas butano", "Maleta", "Encendido automático", "Camping"],
-      category: "camping",
-      stock: 0
+     id: 17,
+    name: "Removedor de pelo reutilizable para gatos y perros y muebles",
+    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
+     ,
+    longDescription:
+       `🛑🐶 ¡FIN A LOS PELOS EN TU HOGAR! 🐱🛑
+RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
+(Aquí iría la imagen principal del producto en uso)
+
+✨ DESCRIPCIÓN DEL PRODUCTO ✨
+¡Recuperá tus muebles y olvidate de los pelos sueltos!
+
+🛋️✨ 1. No Más Pelos por Todas Partes ¡Saca el pelo de los muebles de una vez por todas! Nuestra herramienta funciona de maravilla en sofás, ropa, sillas tapizadas, ropa de cama, alfombras y asientos del auto. ¡Tu casa impecable en segundos!
+
+♻️🌎 2. 100% Reutilizable y Ecológico Si te preocupa el medio ambiente y tu bolsillo, esta es la solución. No requiere cintas adhesivas ni repuestos. Comprás uno y lo usás una y otra vez. ¡Ahorrá dinero y cuidá el planeta!
+
+🔋❌ 3. Simple y Sin Baterías Olvidate de cables, enchufes o pilas. Este rodillo está siempre listo. Simplemente movelo hacia adelante y hacia atrás sobre la superficie y la estática atrapará todo el pelo en su depósito interno.
+
+🧹🗑️ 4. Limpieza Ultra Fácil ¿Terminaste de limpiar? Solo presioná el botón de liberación, abrí el compartimento y vaciá los pelos en la basura. ¡Rápido, higiénico y sin tocar la suciedad!
+
+🧬 5. Tecnología de Nylon Material importado de alta calidad que genera la carga estática perfecta para atrapar hasta el pelo más fino.
+
+(Imagen secundaria mostrando los detalles y el mecanismo)
+
+🛒 ¡LA SOLUCIÓN DEFINITIVA PARA DUEÑOS DE MASCOTAS!
+¡Pedí el tuyo hoy y disfrutá de una casa libre de pelos! 🏠✨`,
+    price: "$14.990",
+    image: cepillopelosmascotas,
+    detailImage: [cepillopelosmascotas1, cepillopelosmascotas2, cepillopelosmascotas3,],
+    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
+    stock: 5,
+    category: ["mascotas"],
     }
   ];
 
