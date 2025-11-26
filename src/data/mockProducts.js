@@ -59,8 +59,14 @@ import vasomusical2 from "../components/assets/vasomusical2.jpeg";
 import vasomusical3 from "../components/assets/vasomusical3.jpeg";
 import vasomusical4 from "../components/assets/vasomusical4.jpeg";
 
-import linternamultifuncional from "../components/assets/linternamultifuncional.jpg";
-import linternamultifuncionaldetalle from "../components/assets/linternamultifuncionaldetalle.webp";
+import placadental from "../components/assets/placadental.jpeg";
+import placadental1 from "../components/assets/placadental1.jpeg";
+import placadental2 from "../components/assets/placadental2.jpeg";
+import placadental3 from "../components/assets/placadental3.jpeg";
+import placadental4 from "../components/assets/placadental4.jpeg";
+import placadental5 from "../components/assets/placadental5.jpeg";
+import placadental6 from "../components/assets/placadental6.jpeg";  
+
 
 import cocinacamping from "../components/assets/cocinacamping.png";
 import cocinacampingdetalle from "../components/assets/cocinacampingdetalle.png";
@@ -315,17 +321,17 @@ export const mockProducts = [
   },
 
   {
-    id: 15,
-    name: "Linterna Multifuncional Solar / USB",
-    description: "Linterna versátil con carga solar y USB.",
-    longDescription:
-      "Varios modos de iluminación y función powerbank.",
-    price: "$35.990",
-    image: linternamultifuncional,
-    detailImage: linternamultifuncionaldetalle,
-    tags: ["Linterna", "Solar", "USB"],
-    stock: 0,
-    category: ["camping","auto"],
+   id: 15,
+      name: "Placa Dental Para Bruxismo Deroyal",
+      description: `Placa dental para bruxismo, diseñada para proteger tus dientes durante la noche. `,
+      longDescription: `🦷 Placa Dental DeRoyal: Tu Escudo para un Descanso Placentero 🌙
+👨‍⚕️🦷 Diseño Profesional: Desarrollada por dentistas para brindarte seguridad y comodidad durante la noche. 🎚️👄 Adaptación Perfecta: Gracias a su diseño moldeable, se ajusta fácilmente a la forma única de tu boca. 🛡️💤 Protección Nocturna: Crea una barrera que limita el contacto involuntario entre los dientes mientras duermes. ✅👍 Fácil de Usar: Simple y práctica para incorporar a tu rutina de sueño. 🦷🛡️ Previene el Desgaste: Ayuda a evitar el daño dental causado por la fricción leve ocasional. 😌🧠 Alivio del Bruxismo: Contribuye a reducir síntomas como el dolor de cabeza y molestias dentales. 🛌✨ Descanso Placentero: Favorece una experiencia de sueño más estable y relajada. 💰👌 Económica: Una solución accesible para cuidar tu salud dental. 🌿✨ Hipoalergénica: Material seguro y amigable con tu boca.`,
+      price: "$14.990",
+      image: placadental,
+      detailImage: "placadental,placadental1, placadental2, placadental3, placadental4, placadental5, placadental6",
+      tags:   ["Placa dental", "Bruxismo", "Protección", "Salud dental", "Descanso"] ,
+      category: [ "salud", "hogar" ],
+      stock: 10
   },
 
   {

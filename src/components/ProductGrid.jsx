@@ -12,13 +12,19 @@ import {
   Rating,
   Chip,
   useTheme,
-  Container
+  Container,
+  Pagination, // 👈 Importado
+  CircularProgress // Para la simulación de carga
 } from "@mui/material";
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import CloseIcon from '@mui/icons-material/Close';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCart } from "../context/cartContext";
+
+// === CONSTANTE DE PAGINACIÓN ===
+const PRODUCTS_PER_PAGE = 16;
+// ===============================
 
 // Imágenes (MANTENEMOS ESTOS IMPORTS)
 import ensendedorusb from "./assets/ensendedorusb.png";
@@ -65,8 +71,13 @@ import vasomusical1 from "../components/assets/vasomusical1.jpeg";
 import vasomusical2 from "../components/assets/vasomusical2.jpeg";
 import vasomusical3 from "../components/assets/vasomusical3.jpeg";
 import vasomusical4 from "../components/assets/vasomusical4.jpeg";
-import linternamultifuncional from "./assets/linternamultifuncional.jpg";
-import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
+import placadental from "./assets/placadental.jpeg";
+import placadental1 from "./assets/placadental1.jpeg";
+import placadental2 from "./assets/placadental2.jpeg";
+import placadental3 from "./assets/placadental3.jpeg";
+import placadental4 from "./assets/placadental4.jpeg";
+import placadental5 from "./assets/placadental5.jpeg";
+import placadental6 from "./assets/placadental6.jpeg";
 import cocinacamping from "./assets/cocinacamping.png";
 import cocinacampingdetalle from "./assets/cocinacampingdetalle.png";
 
@@ -191,8 +202,7 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
   useEffect(() => { setCurrentImageIndex(0); }, [product?.id]);
   if (!product) return null;
 
-// ✅ CORRECCIÓN DE SINTAXIS EN EL ARRAY DE IMÁGENES (Línea 199-205)
-// Esto soluciona el error "Se esperaba: ts(1005)"
+// CORRECCIÓN DE SINTAXIS EN EL ARRAY DE IMÁGENES
 const images = (
   Array.isArray(product.detailImage) && product.detailImage.length > 0
     ? product.detailImage
@@ -299,7 +309,7 @@ const images = (
                     }}
                   />
                 ))}
-              </Box>
+            </Box>
             )}
 
             <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
@@ -361,20 +371,20 @@ const images = (
 // FUNCIÓN AUXILIAR: Obtiene las categorías a filtrar
 // -----------------------------------------------------------
 const getCategoriesToFilter = (categoryParam) => {
-    // Si el parámetro está vacío o es 'todos', retorna un array vacío.
-    if (!categoryParam || categoryParam === 'todos') {
-        return [];
-    }
-    // Convierte el string (ej: "tecnologia,camping") en un array de strings limpios y minúsculas
-    return categoryParam
-        .split(',')
-        .map(c => c.trim().toLowerCase())
-        .filter(c => c.length > 0);
+    // Si el parámetro está vacío o es 'todos', retorna un array vacío.
+    if (!categoryParam || categoryParam === 'todos') {
+        return [];
+    }
+    // Convierte el string (ej: "tecnologia,camping") en un array de strings limpios y minúsculas
+    return categoryParam
+        .split(',')
+        .map(c => c.trim().toLowerCase())
+        .filter(c => c.length > 0);
 };
 
 
 /* =======================
-   GRID DE PRODUCTOS (LÓGICA DE FILTRADO UNIFICADA)
+   GRID DE PRODUCTOS (LÓGICA DE FILTRADO Y PAGINACIÓN)
 ======================= */
 const ProductGrid = () => {
   const { cart, addToCart } = useCart();
@@ -383,6 +393,9 @@ const ProductGrid = () => {
   // Leer parámetro de la URL
   const [searchParams] = useSearchParams();
   const activeCategory = searchParams.get("category") || 'todos'; 
+
+  // ✅ ESTADO DE PAGINACIÓN (ÚNICA DECLARACIÓN)
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Lista completa de productos (mantienes tus datos originales)
   const initialProducts = [
@@ -395,7 +408,7 @@ const ProductGrid = () => {
       image: ensendedorusb,
       detailImage: ensendedordetalle,
       tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente", "Accesorios"],
-      category: [ "tecnologia", "camping" ], 
+      category: "tecnologia", 
       stock: 1
     },
     {
@@ -760,21 +773,34 @@ Tu tiempo vale oro…`,
     ],
     tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
     stock: 1,
-    category: ["camping","tecnologia"],
+    category: "tecnologia",
     },
     {
       id: 15,
-      name: "Linterna Foco Multifuncional Solar o Recargable USB",
-      description: "Linterna foco solar o recargable multifuncional.",
-      longDescription: "3 modos de luz y función powerbank.",
-      price: "$35.990",
-      image: linternamultifuncional,
-      detailImage: linternamultifuncionaldetalle,
-      tags: ["360°", "Recargable", "Solar", "Powerbank", "Trípode", "Iluminación"],
-      category: ["camping","hogar"],
-      stock: 0
+      name: "Placa Dental Para Bruxismo Deroyal",
+      description: `Placa dental para bruxismo, diseñada para proteger tus dientes durante la noche. `,
+      longDescription: `🦷 Placa Dental DeRoyal: Tu Escudo para un Descanso Placentero 🌙
+👨‍⚕️🦷 Diseño Profesional: Desarrollada por dentistas para brindarte seguridad y comodidad durante la noche. 🎚️👄 Adaptación Perfecta: Gracias a su diseño moldeable, se ajusta fácilmente a la forma única de tu boca. 🛡️💤 Protección Nocturna: Crea una barrera que limita el contacto involuntario entre los dientes mientras duermes. ✅👍 Fácil de Usar: Simple y práctica para incorporar a tu rutina de sueño. 🦷🛡️ Previene el Desgaste: Ayuda a evitar el daño dental causado por la fricción leve ocasional. 😌🧠 Alivio del Bruxismo: Contribuye a reducir síntomas como el dolor de cabeza y molestias dentales. 🛌✨ Descanso Placentero: Favorece una experiencia de sueño más estable y relajada. 💰👌 Económica: Una solución accesible para cuidar tu salud dental. 🌿✨ Hipoalergénica: Material seguro y amigable con tu boca.`,
+      price: "$14.990",
+      image: placadental,
+      detailImage: [placadental1, placadental2, placadental3, placadental4, placadental5, placadental6],
+      tags: ["Placa dental", "Bruxismo", "Protección", "Salud dental", "Descanso"],
+      category: [ "salud", "hogar" ],
+      stock: 10
     },
     {
+      id: 16,
+      name: "Cocina de Camping Portátil a Gas con Maleta Sobremesa",
+      description: "Mini cocina de gas de un solo quemador con encendido automático.",
+      longDescription: "Maleta de transporte, económico y seguro para camping.",
+      price: "$35.990",
+      image: cocinacamping,
+      detailImage: cocinacampingdetalle,
+      tags: ["Portátil", "Gas butano", "Maleta", "Encendido automático", "Camping"],
+      category: "camping",
+      stock: 0
+    },
+ {
       id: 16,
       name: "Cocina de Camping Portátil a Gas con Maleta Sobremesa",
       description: "Mini cocina de gas de un solo quemador con encendido automático.",
@@ -793,26 +819,49 @@ Tu tiempo vale oro…`,
   const [modalOpen, setModalOpen] = useState(false);
 
 
-  // ✅ LÓGICA DE FILTRADO MODIFICADA PARA ARRAYS DE CATEGORÍAS
-  const visibleProducts = useMemo(() => {
-    // 1. Obtiene el array de categorías a filtrar (o un array vacío si es 'todos')
+// 🛑 INICIO LÓGICA DE FILTRADO
+const filteredProductsByCategory = useMemo(() => {
     const categoriesToFilter = getCategoriesToFilter(activeCategory);
 
-    // 2. Caso 1: Si no hay categorías en el array (es 'todos' o vacío), mostramos todos
     if (categoriesToFilter.length === 0) {
         return products;
     }
 
-    // 3. Caso 2: Filtramos productos.
     return products.filter((product) => {
-        // Aseguramos que product.category es un array (incluso si es solo un string)
+        // Esta lógica maneja si product.category es un string o un array de categorías
         const productCategories = Array.isArray(product.category) ? product.category : [product.category];
 
-        // Comprobamos si AL MENOS UNA de las categorías del producto
-        // está incluida en la lista de categorías a filtrar (categoriesToFilter).
+        // Verifica si AL MENOS UNA categoría del producto está en el filtro de la URL
         return productCategories.some(prodCat => categoriesToFilter.includes(prodCat));
     });
-  }, [products, activeCategory]); // Depende del estado local de products y la categoría de la URL
+}, [products, activeCategory]);
+// 🛑 FIN LÓGICA DE FILTRADO
+
+// ✅ Calcular el número total de páginas basado en los productos filtrados
+const pageCount = useMemo(() => {
+    return Math.ceil(filteredProductsByCategory.length / PRODUCTS_PER_PAGE);
+}, [filteredProductsByCategory]);
+
+// Función para manejar el cambio de página
+const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+    // Opcional: Desplazar la vista al inicio del grid al cambiar de página
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// Recortar la lista para mostrar solo los productos de la página actual
+const visibleProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const endIndex = startIndex + PRODUCTS_PER_PAGE;
+    return filteredProductsByCategory.slice(startIndex, endIndex);
+}, [filteredProductsByCategory, currentPage]);
+
+// Si el cambio de filtro resulta en una página vacía, volvemos a la página 1.
+useEffect(() => {
+    if (currentPage > pageCount && pageCount > 0) {
+        setCurrentPage(1);
+    }
+}, [pageCount, currentPage]);
 
 
   const handleOpenModal = (product) => {
@@ -841,10 +890,10 @@ Tu tiempo vale oro…`,
   
   // 💡 Lógica para mostrar las categorías activas en el título
   const activeLabel = activeCategory === 'todos' 
-        ? 'Todos los Productos' 
-        : getCategoriesToFilter(activeCategory)
-            .map(c => c.charAt(0).toUpperCase() + c.slice(1))
-            .join(' & ');
+        ? 'Todos los Productos' 
+        : getCategoriesToFilter(activeCategory)
+            .map(c => c.charAt(0).toUpperCase() + c.slice(1))
+            .join(' & ');
   
   return (
     <Container maxWidth="xl" sx={{ py: 4, backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
@@ -868,20 +917,23 @@ Tu tiempo vale oro…`,
         </Box>
       )}
 
-      {/* Carrito mini (opcional) */}
-      {cart.length > 0 && (
-        <Box sx={{ mb: 2 }}>
-          <Typography variant="subtitle1" fontWeight="bold">Productos en el carrito:</Typography>
-          <ul>
-            {cart.map((item, idx) => (
-              <li key={idx}>{item.name} - {item.price} {item.quantity ? `x${item.quantity}` : ''}</li>
-            ))}
-          </ul>
-        </Box>
-      )}
+      {/* ============== PAGINACIÓN SUPERIOR ============== */}
+      {pageCount > 1 && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 3 }}>
+          <Pagination
+            count={pageCount}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            showFirstButton
+            showLastButton
+          />
+        </Box>
+      )}
+      {/* ================================================= */}
 
       {/* Empty state si el filtro no devuelve nada */}
-      {visibleProducts.length === 0 ? (
+      {filteredProductsByCategory.length === 0 ? (
         <Box sx={{ textAlign: 'center', py: 8 }}>
           <Typography variant="h6" gutterBottom>No encontramos productos para la categoría “{activeCategory}”.</Typography>
           <Button variant="outlined" onClick={() => navigate('/products')}>Ver todos</Button>
@@ -908,6 +960,21 @@ Tu tiempo vale oro…`,
           ))}
         </Grid>
       )}
+      
+      {/* ============== PAGINACIÓN INFERIOR ============== */}
+      {pageCount > 1 && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+          <Pagination
+            count={pageCount}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            showFirstButton
+            showLastButton
+          />
+        </Box>
+      )}
+      {/* ================================================= */}
 
       <QuickViewModal
         product={selectedProduct}
