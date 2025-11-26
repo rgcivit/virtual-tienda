@@ -53,8 +53,11 @@ import fitnesswatchdetalle6 from "../components/assets/fitnesswatchdetalle6.jpg"
 import fitnesswatchdetalle7 from "../components/assets/fitnesswatchdetalle7.jpg";
 import fitnesswatchdetalle8 from "../components/assets/fitnesswatchdetalle8.jpg";
 
-import powerbanksolar from "../components/assets/powerbanksolar.png";
-import powerbanksolardetalle from "../components/assets/powerbanksolardetalle.jpg";
+import vasomusical from "../components/assets/vasomusical.jpeg";
+import vasomusical1 from "../components/assets/vasomusical1.jpeg";
+import vasomusical2 from "../components/assets/vasomusical2.jpeg";
+import vasomusical3 from "../components/assets/vasomusical3.jpeg";
+import vasomusical4 from "../components/assets/vasomusical4.jpeg";
 
 import linternamultifuncional from "../components/assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "../components/assets/linternamultifuncionaldetalle.webp";
@@ -274,16 +277,41 @@ export const mockProducts = [
 
   {
     id: 14,
-    name: "Power Bank Solar 20.000mAh con 4 Cables",
-    description: "Batería externa de alta capacidad con carga solar.",
+    name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+    description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
     longDescription:
-      "20000mAh, puertos USB múltiples, linterna integrada y carga solar.",
-    price: "$26.990",
-    image: powerbanksolar,
-    detailImage: powerbanksolardetalle,
-    tags: ["Powerbank", "Solar", "20000mAh"],
-    stock: 0,
-    category: "tecnologia",
+      `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+    price: "$34.990",
+    image: vasomusical,
+    detailImage: vasomusical1,
+       gallery: [
+    vasomusical1,
+    vasomusical2,
+    vasomusical3,
+    vasomusical4,
+    ],
+    tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+    stock: 1,
+    category: "camping",
   },
 
   {

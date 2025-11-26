@@ -1,5 +1,3 @@
-// src/components/ProductGrid.jsx (Copia y reemplaza este código completo)
-
 import React, { useState, useEffect, useMemo } from "react";
 import {
   Card,
@@ -62,8 +60,11 @@ import fitnesswatchdetalle5 from "./assets/fitnesswatchdetalle5.jpg";
 import fitnesswatchdetalle6 from "./assets/fitnesswatchdetalle6.jpg";
 import fitnesswatchdetalle7 from "./assets/fitnesswatchdetalle7.jpg";
 import fitnesswatchdetalle8 from "./assets/fitnesswatchdetalle8.jpg";
-import powerbanksolar from "./assets/powerbanksolar.png";
-import powerbanksolardetalle from "./assets/powerbanksolardetalle.jpg";
+import vasomusical from "../components/assets/vasomusical.jpeg";
+import vasomusical1 from "../components/assets/vasomusical1.jpeg";
+import vasomusical2 from "../components/assets/vasomusical2.jpeg";
+import vasomusical3 from "../components/assets/vasomusical3.jpeg";
+import vasomusical4 from "../components/assets/vasomusical4.jpeg";
 import linternamultifuncional from "./assets/linternamultifuncional.jpg";
 import linternamultifuncionaldetalle from "./assets/linternamultifuncionaldetalle.webp";
 import cocinacamping from "./assets/cocinacamping.png";
@@ -181,7 +182,7 @@ const ProductCard = ({ product, onQuickView, onAddToCart }) => {
 };
 
 /* =======================
-   MODAL VISTA RÁPIDA (SIN CAMBIOS)
+   MODAL VISTA RÁPIDA (CON CORRECCIÓN DE SINTAXIS)
 ======================= */
 const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
   const navigate = useNavigate();
@@ -190,16 +191,17 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
   useEffect(() => { setCurrentImageIndex(0); }, [product?.id]);
   if (!product) return null;
 
- // Detecta y une todas las imágenes disponibles
+// ✅ CORRECCIÓN DE SINTAXIS EN EL ARRAY DE IMÁGENES (Línea 199-205)
+// Esto soluciona el error "Se esperaba: ts(1005)"
 const images = (
-  Array.isArray(product.detailImage)
-    ? product.detailImage
-    : product.detailImages && Array.isArray(product.detailImages)
-    ? product.detailImages
-    : product.gallery && product.gallery.length > 0
-    ? product.gallery
-    : [product.detailImage, product.image]
-).filter(Boolean);
+  Array.isArray(product.detailImage) && product.detailImage.length > 0
+    ? product.detailImage
+    : product.detailImages && Array.isArray(product.detailImages) && product.detailImages.length > 0
+    ? product.detailImages
+    : product.gallery && product.gallery.length > 0
+    ? product.gallery
+    : (product.detailImage ? [product.detailImage, product.image] : [product.image])
+).filter(Boolean).flat();
 
 
   const hasMultipleImages = images.length > 1;
@@ -355,6 +357,22 @@ const images = (
   );
 };
 
+// -----------------------------------------------------------
+// FUNCIÓN AUXILIAR: Obtiene las categorías a filtrar
+// -----------------------------------------------------------
+const getCategoriesToFilter = (categoryParam) => {
+    // Si el parámetro está vacío o es 'todos', retorna un array vacío.
+    if (!categoryParam || categoryParam === 'todos') {
+        return [];
+    }
+    // Convierte el string (ej: "tecnologia,camping") en un array de strings limpios y minúsculas
+    return categoryParam
+        .split(',')
+        .map(c => c.trim().toLowerCase())
+        .filter(c => c.length > 0);
+};
+
+
 /* =======================
    GRID DE PRODUCTOS (LÓGICA DE FILTRADO UNIFICADA)
 ======================= */
@@ -362,11 +380,11 @@ const ProductGrid = () => {
   const { cart, addToCart } = useCart();
   const navigate = useNavigate();
   
-  // 🛑 CAMBIO CLAVE: LEEMOS EL PARÁMETRO 'category' QUE ENVÍA EL HEADER
+  // Leer parámetro de la URL
   const [searchParams] = useSearchParams();
-  const activeCategory = searchParams.get("category") || 'todos'; // Ahora es 'category'
+  const activeCategory = searchParams.get("category") || 'todos'; 
 
-  // Lista completa de productos con campo stock (MANTENEMOS TUS DATOS)
+  // Lista completa de productos (mantienes tus datos originales)
   const initialProducts = [
     {
       id: 1,
@@ -377,8 +395,7 @@ const ProductGrid = () => {
       image: ensendedorusb,
       detailImage: ensendedordetalle,
       tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente", "Accesorios"],
-      // 💡 Asegúrate de que tus productos tengan esta propiedad para filtrar
-      category: "tecnologia", 
+      category: "tecnologia", 
       stock: 1
     },
     {
@@ -709,15 +726,41 @@ Tu tiempo vale oro…`,
     },
     {
       id: 14,
-      name: "Power Bank Solar y Corriente con 4 Cables de 20.000Mah",
-      description: "Power Bank Solar de 20,000mAh.",
-      longDescription: "Incluye 4 cables y linterna.",
-      price: "$26.990",
-      image: powerbanksolar,
-      detailImage: powerbanksolardetalle,
-      tags: ["20000 mAh", "Solar", "4 cables", "Linterna", "USB", "Powerbank"],
-      category: "tecnologia",
-      stock: 0
+    name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+    description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+    longDescription:
+      `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+    price: "$34.990",
+    image: vasomusical,
+    detailImage: vasomusical1,
+       gallery: [
+    vasomusical1,
+    vasomusical2,
+    vasomusical3,
+    vasomusical4,
+    ],
+    tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+    stock: 1,
+    category: "tecnologia",
     },
     {
       id: 15,
@@ -749,12 +792,28 @@ Tu tiempo vale oro…`,
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  // 🛑 CAMBIO CLAVE: LÓGICA DE FILTRADO POR 'category' (EL SLUG DEL HEADER)
-  const visibleProducts = useMemo(() => {
-    if (activeCategory === 'todos') return products;
 
-    return products.filter((p) => p.category === activeCategory);
+  // ✅ LÓGICA DE FILTRADO MODIFICADA PARA ARRAYS DE CATEGORÍAS
+  const visibleProducts = useMemo(() => {
+    // 1. Obtiene el array de categorías a filtrar (o un array vacío si es 'todos')
+    const categoriesToFilter = getCategoriesToFilter(activeCategory);
+
+    // 2. Caso 1: Si no hay categorías en el array (es 'todos' o vacío), mostramos todos
+    if (categoriesToFilter.length === 0) {
+        return products;
+    }
+
+    // 3. Caso 2: Filtramos productos.
+    return products.filter((product) => {
+        // Aseguramos que product.category es un array (incluso si es solo un string)
+        const productCategories = Array.isArray(product.category) ? product.category : [product.category];
+
+        // Comprobamos si AL MENOS UNA de las categorías del producto
+        // está incluida en la lista de categorías a filtrar (categoriesToFilter).
+        return productCategories.some(prodCat => categoriesToFilter.includes(prodCat));
+    });
   }, [products, activeCategory]); // Depende del estado local de products y la categoría de la URL
+
 
   const handleOpenModal = (product) => {
     setSelectedProduct(product);
@@ -779,10 +838,14 @@ Tu tiempo vale oro…`,
     updated[idx] = { ...updated[idx], stock: currentStock - 1 };
     setProducts(updated);
   };
-  
-  // 💡 Determinamos el título del filtro activo para el Chip
-  const activeLabel = activeCategory === 'todos' ? '' : activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
-  
+  
+  // 💡 Lógica para mostrar las categorías activas en el título
+  const activeLabel = activeCategory === 'todos' 
+        ? 'Todos los Productos' 
+        : getCategoriesToFilter(activeCategory)
+            .map(c => c.charAt(0).toUpperCase() + c.slice(1))
+            .join(' & ');
+  
   return (
     <Container maxWidth="xl" sx={{ py: 4, backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
       <Typography variant="h4" component="h1" sx={{
@@ -798,7 +861,7 @@ Tu tiempo vale oro…`,
           <Chip
             label={`Filtrando por: ${activeLabel}`}
             color="primary"
-            onDelete={() => navigate('/')}
+            onDelete={() => navigate('/products')} // Redirigir a /products (que por defecto es 'todos')
             variant="filled"
             sx={{ fontWeight: 600 }}
           />
@@ -821,7 +884,7 @@ Tu tiempo vale oro…`,
       {visibleProducts.length === 0 ? (
         <Box sx={{ textAlign: 'center', py: 8 }}>
           <Typography variant="h6" gutterBottom>No encontramos productos para la categoría “{activeCategory}”.</Typography>
-          <Button variant="outlined" onClick={() => navigate('/')}>Ver todos</Button>
+          <Button variant="outlined" onClick={() => navigate('/products')}>Ver todos</Button>
         </Box>
       ) : (
         <Grid container spacing={4} justifyContent="center">
