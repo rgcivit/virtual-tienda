@@ -87,6 +87,19 @@ import cepillopelosmascotas from "../components/assets/cepillopelosmascotas.jpeg
 import cepillopelosmascotas1 from "../components/assets/cepillopelosmascotas1.jpeg";
 import cepillopelosmascotas2 from "../components/assets/cepillopelosmascotas2.jpeg";
 import cepillopelosmascotas3 from "../components/assets/cepillopelosmascotas3.jpeg";
+import bolsodeviaje from "../components/assets/bolsodeviaje.jpeg";
+import bolsodeviaje1 from "../components/assets/bolsodeviaje1.jpeg";
+import bolsodeviaje2 from "../components/assets/bolsodeviaje2.jpeg";
+import bolsodeviaje3 from "../components/assets/bolsodeviaje3.jpeg";
+import bolsodeviaje4 from "../components/assets/bolsodeviaje4.jpeg";
+import bolsodeviaje5 from "../components/assets/bolsodeviaje5.jpeg";
+import puzzleinteractivo from "../components/assets/puzzleinteractivo.jpeg";
+import puzzleinteractivo1 from "../components/assets/puzzleinteractivo1.jpeg";
+import puzzleinteractivo2 from "../components/assets/puzzleinteractivo2.jpeg";
+import puzzleinteractivo3 from "../components/assets/puzzleinteractivo3.jpeg";
+import puzzleinteractivo4 from "../components/assets/puzzleinteractivo4.jpeg";
+import puzzleinteractivo5 from "../components/assets/puzzleinteractivo5.jpeg";
+import puzzleinteractivo6 from "../components/assets/puzzleinteractivo6.jpeg";
 
 
 
@@ -857,41 +870,49 @@ RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
     },
 {
    id: 18,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       name: "BOLSO DE VIAJE QUE CABE EN TU BOLSILLO",
+       description: `LIGERO, RESISTENTE Y SÚPER ESPACIOSO`,
        longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
+         `Olvidate del equipaje pesado y voluminoso. ¡Llevá todo lo que necesitás sin ocupar espacio!
+
+📏 1. Diseño Inteligente y Plegable 🤏 ¡De gigante a diminuto en segundos! Pasa de un bolso de 45 x 30 cm a un estuche compacto de solo 21 x 18 cm. Cuando no lo usás, se pliega fácilmente ocupando un 90% menos de espacio que una valija vacía.
+
+🎒 2. Gran Capacidad de 32 Litros 🚀 Perfecto para escapadas de fin de semana, gimnasio o como equipaje de mano adicional. Diseñado para caber perfectamente debajo del asiento del avión.
+
+☔ 3. Material Resistente y Ligero 💪 Confeccionado en Poliéster + PVC, ofrece durabilidad sin añadir peso extra. Es ideal para proteger tus pertenencias.
+
+🎨 4. Variedad de Estilos 🌈 Disponible en colores modernos para combinar con tu look: Azul, Rosa, Vino y Verde Agua.
+
+🛠️ 5. Práctico y Funcional ⚡ Cuenta con cierre de cremallera seguro y asas reforzadas. Fácil de plegar: simplemente colócalo en una superficie plana, doblá los lados y ¡listo! Se guarda en su propia funda.
+
+📋 ESPECIFICACIONES TÉCNICAS
+Tamaño Desplegado: 45 x 17 x 30 cm.
+
+Tamaño Plegado: 21 x 18 cm.
+
+Capacidad: 32 Litros.
+
+Material: Poliéster + PVC (semi-transparente).
+
+Incluye: 2 x Bolsa de Viaje (según paquete).
+
+(Aquí iría la imagen del bolso plegado en su bolsa)
+
+🛒 ¡PREPARATE PARA TU PRÓXIMA AVENTURA!
+¡Viajá liviano y con estilo! Pedí tu set hoy mismo. ✈️🌟`,
+       price: "$16.990",
+       image: bolsodeviaje,
+       detailImage: bolsodeviaje1,
           gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
+       bolsodeviaje1,
+       bolsodeviaje2,
+       bolsodeviaje3,
+       bolsodeviaje4,
+       bolsodeviaje5,
        ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       tags: ["Bolso", "Viaje", "Plegable", "Ligero", "Resistente"],
        stock: 1,
-       category: ["camping","auto"],
+       category: ["camping"],
   },
 
   {
@@ -934,81 +955,53 @@ RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
   },
 
   {
-   id: 20,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
-
-  {
-   id: 21,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
+  id: 20,
+         name: "Máquina recargable USB parlante de aprendizaje con tarjetas bilingüe (Español - Inglés)",
+         description: `Convierte el aprendizaje en una experiencia divertida y enriquecedora para tus hijos con nuestras flash cards bilingües`,
+         longDescription:
+           `🎓🗣️ ¡Lector Interactivo Bilingüe Inglés/Español! Aprende 224 Palabras Jugando 🇬🇧🇪🇸
+  ¡Convierte el aprendizaje de idiomas en la experiencia más divertida para tus hijos! 🚀
+  
+  🚚💨 ¡Disponibilidad inmediata para envío! 📦 Realizamos envíos a nivel nacional.
+  
+  🎁 CON TU COMPRA RECIBES EL KIT COMPLETO:
+  Este paquete incluye todo lo necesario para empezar a aprender: 🔹 1 Lector de tarjetas Flash Card 🔊 (¡Del color que seleccionaste! 🎨) 🔹 112 Tarjetas interactivas de doble cara 🃏 (¡Un total de 224 PALABRAS para aprender! 🔤) 🔹 1 Cable de carga tipo USB 🔋. 🔹 Caja e instrucciones de uso 📖.
+  
+  ✨ DETALLES Y BENEFICIOS DEL PRODUCTO ✨
+  Este lector es mucho más que un juguete, ¡es una herramienta de desarrollo!
+  
+  🧠 Estimulación Cognitiva: Convierte el aprendizaje en una experiencia enriquecedora, estimulando el cerebro y fomentando la creatividad desde temprana edad 💡.
+  
+  🗣️ Poder Bilingüe: Tus hijos podrán aprender nuevas palabras, ampliar drásticamente su vocabulario y mejorar sus habilidades de comunicación tanto en inglés como en español.
+  
+  🛡️ Seguridad Primero: Nuestros juguetes son 100% seguros, duraderos y están diseñados específicamente pensando en el aprendizaje temprano 👶.
+  
+  🌈 Diseño Atractivo: Las tarjetas tienen un diseño colorido que capta la atención de los niños al instante, facilitando su participación y manteniéndolos motivados mientras juegan y aprenden.
+  
+  ⚙️ ESPECIFICACIONES TÉCNICAS:
+  🛠️ Material: Plástico resistente ABS y componentes electrónicos de calidad.
+  
+  📏 Tamaño portátil: Compacto y fácil de sostener (11 x 9 x 3 cms).
+  
+  📦 Empaque: Se entrega en caja sellada.
+  
+  ¡Dale a tus hijos el regalo del bilingüismo y la diversión! 🥳📚`,
+         price: "$25.990",
+         image: puzzleinteractivo,
+         detailImage: puzzleinteractivo1,
+            gallery: [
+         
+          puzzleinteractivo2,
+          puzzleinteractivo3,
+          puzzleinteractivo4,
+          puzzleinteractivo5,
+          puzzleinteractivo6,
+          
+  
+         ],
+         tags: ["juego", "bilingüe", "educativo", "niños", "aprendizaje"],
+         stock: 5,
+         category: ["juegos","regalos"],
   },
 
   {

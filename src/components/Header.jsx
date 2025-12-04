@@ -49,7 +49,8 @@ const CATEGORIES = [
   { slug: 'mascotas',   label: 'Mascotas & Viaje' },
   { slug: 'hogar',      label: 'Hogar y Cocina' },
   { slug: 'herramientas',    label: 'Herramientas y Equipamiento' },
-  {slug:   'salud',     label: 'Salud & Bienestar' }
+  {slug:   'salud',     label: 'Salud & Bienestar' },
+  { slug: 'juegos',     label: 'Juguetes & Juegos' },
 ];
 
 const Logo = ({ onClick }) => (
