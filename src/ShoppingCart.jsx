@@ -160,6 +160,9 @@ const ShoppingCart = () => {
               <RadioGroup value={shippingOption} onChange={handleChangeShipping}>
                 <FormControlLabel value="pickup" control={<Radio />} label="Retirar en tienda (Gratis)" />
                 <FormControlLabel value="delivery" control={<Radio />} label={`Envío a domicilio (${formatPrice(SHIPPING_FEE)})`} />
+                   <Typography variant="h7" color={"red"} sx={{ textAlign: 'center', py: 4 }}>
+              Querés pagar por transferencia? Alias: rgcivit(BNA) Rodrigo Guevara
+            </Typography>
               </RadioGroup>
             </FormControl>
 

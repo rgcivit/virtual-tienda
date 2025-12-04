@@ -137,7 +137,7 @@ const PaymentSuccess = () => {
             fullWidth
             value={customerEmail}
             onChange={(e) => setCustomerEmail(e.target.value)}
-            placeholder="tucorreo@ejemplo.com"
+            placeholder="rgcivitt@gmail.com"
           />
 
           <Button
