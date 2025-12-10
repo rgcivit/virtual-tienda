@@ -97,7 +97,7 @@ const ChristmasDecorations = () => {
                 // Ajustamos el tiempo de animación para que se vean diferentes
                 animationDuration: `${5 + Math.random() * 8}s`,
                 animationDelay: `-${Math.random() * 10}s`,
-                fontSize: `${12 + Math.random() * 12}px`,
+                fontSize: `${20 + Math.random() * 15}px`,
                 animationName: `fall, sway`, /* Usamos los keyframes CSS definidos */
                 // La duración del balanceo es más corta y aleatoria
                 animationDuration: `${8 + Math.random() * 10}s, ${2 + Math.random() * 4}s`,
@@ -130,7 +130,7 @@ const ChristmasDecorations = () => {
                 height: '100vh',
                 overflow: 'hidden',
                 pointerEvents: 'none', // Permite hacer clic a través de la decoración
-                zIndex: 999, // Detrás del AppBar principal pero encima del contenido
+                zIndex: 9999, // Detrás del AppBar principal pero encima del contenido
             }}
         >
             {adornos}

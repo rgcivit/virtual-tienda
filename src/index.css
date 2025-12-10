@@ -35,7 +35,7 @@ body {
   position: fixed; /* Crucial para que se muevan por toda la pantalla */
   top: 0;
   color: #cccccc; 
-  font-size: 18px;
+  font-size: 24px;
   
   /* Aplicar ambas animaciones */
   animation-name: fall, sway;
