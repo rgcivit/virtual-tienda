@@ -766,8 +766,8 @@ Para él. Un aroma poderoso y especiado.
        setperfumes5,
        ],
        tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
-       stock: 1,
-       category: ["regalos" ,"salud & bienestar"],
+       stock: 3,
+       category: ["salud"],
   },
 
   {

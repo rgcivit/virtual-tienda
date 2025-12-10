@@ -596,7 +596,7 @@ Llevate los perfumes más virales de las redes en su versión Body Spray de 200m
        ],
        tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
        stock: 1,
-       category: ["regalos" ,"salud & bienestar"],
+       category: ["regalos","salud"],
     },
   
     {
