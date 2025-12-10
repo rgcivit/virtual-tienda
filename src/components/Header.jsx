@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react'; // <<<< ✅ AGREGADO: useMemo
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useCart } from '../context/cartContext';
 import { signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "firebase/auth";
@@ -71,7 +71,8 @@ const Logo = ({ onClick }) => (
       src={logotiendavirtual}
       alt="Logo Virtual Tienda"
       style={{
-        height: '100px',
+        // ✅ CAMBIO RESPONSIVE: Reducción del tamaño del logo en móvil
+        height: '60px', 
         width: 'auto',
         maxWidth: '200px',
         objectFit: 'contain',
@@ -82,60 +83,63 @@ const Logo = ({ onClick }) => (
 );
 
 // ====================================================
-// ✅ COMPONENTE: DECORACIÓN NAVIDEÑA
+// ✅ COMPONENTE: DECORACIÓN NAVIDEÑA (Tamaño y Z-Index Ajustados)
 // ====================================================
 const ChristmasDecorations = () => {
-    // Usamos useMemo para generar los adornos una sola vez
-    const adornos = useMemo(() => {
-        // Caracteres Unicode para darle el toque navideño
-        const symbols = ['🎄', '🌟', '❄️', '🎁', '🎅'];
-        const numAdornos = 25; // Número de adornos que caerán
+    // Usamos useMemo para generar los adornos una sola vez
+    const adornos = useMemo(() => {
+        // Caracteres Unicode para darle el toque navideño
+        const symbols = ['🎄', '🌟', '❄️', '🎁', '🎅'];
+        const numAdornos = 25; // Número de adornos que caerán
 
-        const getFlakeStyle = (index) => {
-            return {
-                left: `${Math.random() * 100}vw`,
-                // Ajustamos el tiempo de animación para que se vean diferentes
-                animationDuration: `${5 + Math.random() * 8}s`,
-                animationDelay: `-${Math.random() * 10}s`,
-                fontSize: `${20 + Math.random() * 15}px`,
-                animationName: `fall, sway`, /* Usamos los keyframes CSS definidos */
-                // La duración del balanceo es más corta y aleatoria
-                animationDuration: `${8 + Math.random() * 10}s, ${2 + Math.random() * 4}s`,
-                // Retraso inicial
-                animationDelay: `-${Math.random() * 10}s`,
-                // Opacidad y tamaño
-                opacity: 0.5 + Math.random() * 0.5,
-                zIndex: 1000 + Math.floor(Math.random() * 10),
-            };
-        };
+        const getFlakeStyle = (index) => {
+            return {
+                left: `${Math.random() * 100}vw`,
+                // Ajustamos el tiempo de animación para que se vean diferentes
+                animationDuration: `${5 + Math.random() * 8}s`,
+                animationDelay: `-${Math.random() * 10}s`,
+                // ✅ CAMBIO DE TAMAÑO: Rango de 20px a 35px
+                fontSize: `${20 + Math.random() * 15}px`, 
+                animationName: `fall, sway`, /* Usamos los keyframes CSS definidos */
+                // La duración del balanceo es más corta y aleatoria
+                animationDuration: `${8 + Math.random() * 10}s, ${2 + Math.random() * 4}s`,
+                // Retraso inicial
+                animationDelay: `-${Math.random() * 10}s`,
+                // Opacidad y tamaño
+                opacity: 0.5 + Math.random() * 0.5,
+                // Z-index muy alto para los elementos individuales
+                zIndex: 9999, 
+            };
+        };
 
-        return Array.from({ length: numAdornos }).map((_, index) => (
-            <span
-                key={index}
-                className="christmas-flake"
-                style={getFlakeStyle(index)}
-            >
-                {symbols[index % symbols.length]}
-            </span>
-        ));
-    }, []);
+        return Array.from({ length: numAdornos }).map((_, index) => (
+            <span
+                key={index}
+                className="christmas-flake"
+                style={getFlakeStyle(index)}
+            >
+                {symbols[index % symbols.length]}
+            </span>
+        ));
+    }, []);
 
-    return (
-        <Box
-            sx={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100vh',
-                overflow: 'hidden',
-                pointerEvents: 'none', // Permite hacer clic a través de la decoración
-                zIndex: 9999, // Detrás del AppBar principal pero encima del contenido
-            }}
-        >
-            {adornos}
-        </Box>
-    );
+    return (
+        <Box
+            sx={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100vh',
+                overflow: 'hidden',
+                pointerEvents: 'none', // Permite hacer clic a través de la decoración
+                // Z-index del contenedor ligeramente menor que los elementos
+                zIndex: 9998, 
+            }}
+        >
+            {adornos}
+        </Box>
+    );
 };
 // ====================================================
 
@@ -436,7 +440,7 @@ const Header = () => {
                 gap: { xs: 0.5, sm: 1 },
               }}
             >
-                {/* Ícono de Búsqueda (Solo visible en Mobile) */}
+                {/* Ícono de Búsqueda (Solo visible en Mobile si NO está abierto) */}
                 {isMobile && !searchOpen && (
                     <IconButton
                         onClick={toggleSearch}
@@ -453,36 +457,34 @@ const Header = () => {
                     </IconButton>
                 )}
 
-                {/* Íconos de Redes Sociales y Búsqueda (Solo visible en Desktop) */}
-                {!isMobile && (
-                    <>
-                        <IconButton
-                            onClick={toggleSearch}
-                            sx={{ color: 'text.secondary' }}
-                        >
-                            <Search />
-                        </IconButton>
-                        <IconButton
-                            onClick={openWhatsApp}
-                            aria-label="WhatsApp"
-                            sx={{ color: 'text.secondary' }}
-                        >
-                            <WhatsApp sx={{ fontSize: '1.75rem' }} />
-                        </IconButton>
-                        <IconButton
-                            aria-label="Instagram"
-                            sx={{ color: '#E4405F' }}
-                        >
-                            <Instagram sx={{ fontSize: '1.75rem' }} />
-                        </IconButton>
-                        <IconButton
-                            aria-label="Facebook"
-                            sx={{ color: 'primary.main' }}
-                        >
-                            <Facebook sx={{ fontSize: '1.75rem' }} />
-                        </IconButton>
-                    </>
-                )}
+                {/* Íconos de Redes Sociales y Búsqueda (Control de Visibilidad: Ocultos en Móvil) */}
+                <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}> 
+                    <IconButton
+                        onClick={toggleSearch}
+                        sx={{ color: 'text.secondary' }}
+                    >
+                        <Search />
+                    </IconButton>
+                    <IconButton
+                        onClick={openWhatsApp}
+                        aria-label="WhatsApp"
+                        sx={{ color: 'text.secondary' }}
+                    >
+                        <WhatsApp sx={{ fontSize: '1.75rem' }} />
+                    </IconButton>
+                    <IconButton
+                        aria-label="Instagram"
+                        sx={{ color: '#E4405F' }}
+                    >
+                        <Instagram sx={{ fontSize: '1.75rem' }} />
+                    </IconButton>
+                    <IconButton
+                        aria-label="Facebook"
+                        sx={{ color: 'primary.main' }}
+                    >
+                        <Facebook sx={{ fontSize: '1.75rem' }} />
+                    </IconButton>
+                </Box>
                 
               {/* Ícono de Carrito (Visible en Mobile y Desktop) */}
               <Link to="/cart">
@@ -658,7 +660,7 @@ const Header = () => {
                         {user ? `Hola, ${user.displayName || 'Usuario'}` : '¡Bienvenido!'}
                     </Typography>
                     
-                    {/* Botones de Redes Sociales */}
+                    {/* Botones de Redes Sociales (visibles en el Drawer) */}
                     <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start', mb: 2 }}>
                         <IconButton onClick={openWhatsApp} aria-label="WhatsApp" color="success">
                             <WhatsApp />
