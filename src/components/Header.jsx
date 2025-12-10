@@ -51,6 +51,7 @@ const CATEGORIES = [
   { slug: 'herramientas',    label: 'Herramientas y Equipamiento' },
   { slug: 'salud',      label: 'Salud & Bienestar' },
   { slug: 'regalos',    label: 'Juguetes & regalos' },
+   { slug: 'Estética',    label: 'Estética & Bellesa' },
 ];
 
 const Logo = ({ onClick }) => (
