@@ -100,6 +100,11 @@ import puzzleinteractivo3 from "../components/assets/puzzleinteractivo3.jpeg";
 import puzzleinteractivo4 from "../components/assets/puzzleinteractivo4.jpeg";
 import puzzleinteractivo5 from "../components/assets/puzzleinteractivo5.jpeg";
 import puzzleinteractivo6 from "../components/assets/puzzleinteractivo6.jpeg";
+import setperfumes1 from "../components/assets/setperfumes1.jpeg";
+import setperfumes2 from "../components/assets/setperfumes2.jpeg";
+import setperfumes3 from "../components/assets/setperfumes3.jpeg";
+import setperfumes4 from "../components/assets/setperfumes4.jpeg";
+import setperfumes5 from "../components/assets/setperfumes5.jpeg";
 
 
 
@@ -1003,7 +1008,46 @@ Incluye: 2 x Bolsa de Viaje (según paquete).
          stock: 5,
          category: ["juegos","regalos"],
   },
-
+  
+   {
+      id: 21,
+       name: "Set X 3 Perfumes Arabes Originales",
+       description: `Set x 3 perfumes árabes originales en versión Body Spray de 200ml.`,
+       longDescription:
+         `:
+​✨ ¡LLEGÓ LA TENDENCIA DE DUBAI A ARGENTINA! ✨
+Llevate los perfumes más virales de las redes en su versión Body Spray de 200ml. Lujo, duración y estela increíble a un precio accesible.
+​👇 ELEGÍ TU AROMA IDEAL:
+​🖤 ASAD (Negro) - EL REY DE LA NOCHE
+​Para él. Un aroma poderoso y especiado.
+​Huele a: Pimienta, tabaco y vainilla.
+​Ideal para: Salidas nocturnas, citas o para dejar huella donde vayas.
+​🌸 YARA (Rosa) - LA FAVORITA DE TODAS
+​Para ella. Dulce, cremoso y super femenino.
+​Huele a: Orquídeas, frutas tropicales y notas atalcadas.
+​Ideal para: Usar todos los días y sentirte una reina.
+​🤍 ANA ABIYEDH (Blanco) - FRESCURA PURA
+​Unisex. Limpio, sofisticado y elegante.
+​Huele a: Almizcle blanco (White Musk) y frescura suave.
+​Ideal para: Después de la ducha o el gym. ¡Huele a limpio de lujo!
+​✅ ¿POR QUÉ ELEGIRNOS?
+​Productos 100% Originales Lattafa 🇦🇪.
+​Envases grandes de 200ml (Duran muchísimo).
+​Envíos rápidos y seguros a todo el país 🚛.
+​👉 ¡SELECCIONÁ TU VARIANTE ARRIBA Y COMPRÁ AHORA!`,
+       price: "$51.990",
+       image: setperfumes1,
+       detailImage: setperfumes2,
+          gallery: [
+       setperfumes2,
+       setperfumes3,
+       setperfumes4,
+       setperfumes5,
+       ],
+       tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
+       stock: 1,
+       category: ["regalos" ,"salud & bienestar"],
+   },
   {
    id: 22,
        name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",

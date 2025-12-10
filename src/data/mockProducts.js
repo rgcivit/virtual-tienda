@@ -94,6 +94,12 @@ import puzzleinteractivo4 from "../components/assets/puzzleinteractivo4.jpeg";
 import puzzleinteractivo5 from "../components/assets/puzzleinteractivo5.jpeg";
 import puzzleinteractivo6 from "../components/assets/puzzleinteractivo6.jpeg";
 
+import setperfumes1 from "../components/assets/setperfumes1.jpeg";
+import setperfumes2 from "../components/assets/setperfumes2.jpeg";
+import setperfumes3 from "../components/assets/setperfumes3.jpeg";
+import setperfumes4 from "../components/assets/setperfumes4.jpeg";
+import setperfumes5 from "../components/assets/setperfumes5.jpeg";
+
 // --------------------------------------------
 // LISTA COMPLETA DE PRODUCTOS
 // --------------------------------------------
@@ -554,42 +560,43 @@ Este lector es mucho más que un juguete, ¡es una herramienta de desarrollo!
     },
   
     {
-     id: 21,
-         name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-         description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-         longDescription:
-           `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-     
-     ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-     
-     🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-     
-     🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-     
-     🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-     
-     ⚙️ CARACTERÍSTICAS TÉCNICAS
-     ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-     
-     📏 Capacidad: 16oz (Aprox. 473ml).
-     
-     🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-     
-     💡 Efecto de iluminación: Luces LED integradas.
-     
-     📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-         price: "$34.990",
-         image: vasomusical,
-         detailImage: vasomusical1,
-            gallery: [
-         vasomusical1,
-         vasomusical2,
-         vasomusical3,
-         vasomusical4,
-         ],
-         tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-         stock: 1,
-         category: ["camping","auto"],
+      id: 21,
+       name: "Set X 3 Perfumes Arabes Originales",
+       description: `Set x 3 perfumes árabes originales en versión Body Spray de 200ml.`,
+       longDescription:
+         `:
+​✨ ¡LLEGÓ LA TENDENCIA DE DUBAI A ARGENTINA! ✨
+Llevate los perfumes más virales de las redes en su versión Body Spray de 200ml. Lujo, duración y estela increíble a un precio accesible.
+​👇 ELEGÍ TU AROMA IDEAL:
+​🖤 ASAD (Negro) - EL REY DE LA NOCHE
+​Para él. Un aroma poderoso y especiado.
+​Huele a: Pimienta, tabaco y vainilla.
+​Ideal para: Salidas nocturnas, citas o para dejar huella donde vayas.
+​🌸 YARA (Rosa) - LA FAVORITA DE TODAS
+​Para ella. Dulce, cremoso y super femenino.
+​Huele a: Orquídeas, frutas tropicales y notas atalcadas.
+​Ideal para: Usar todos los días y sentirte una reina.
+​🤍 ANA ABIYEDH (Blanco) - FRESCURA PURA
+​Unisex. Limpio, sofisticado y elegante.
+​Huele a: Almizcle blanco (White Musk) y frescura suave.
+​Ideal para: Después de la ducha o el gym. ¡Huele a limpio de lujo!
+​✅ ¿POR QUÉ ELEGIRNOS?
+​Productos 100% Originales Lattafa 🇦🇪.
+​Envases grandes de 200ml (Duran muchísimo).
+​Envíos rápidos y seguros a todo el país 🚛.
+​👉 ¡SELECCIONÁ TU VARIANTE ARRIBA Y COMPRÁ AHORA!`,
+       price: "$51.990",
+       image: setperfumes1,
+       detailImage: setperfumes2,
+          gallery: [
+       setperfumes2,
+       setperfumes3,
+       setperfumes4,
+       setperfumes5,
+       ],
+       tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
+       stock: 1,
+       category: ["regalos" ,"salud & bienestar"],
     },
   
     {
