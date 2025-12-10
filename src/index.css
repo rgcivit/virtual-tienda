@@ -4,53 +4,6 @@ body {
   background-color: #f8f9fa;
 }
 
-/* ========================
-   KEYFRAMES DE ANIMACIÓN (AÑADIR A index.css)
-   ======================== */
-@keyframes fall {
-  0% {
-    transform: translateY(-100vh) translateX(0);
-  }
-  100% {
-    transform: translateY(100vh) translateX(0);
-  }
-}
-
-@keyframes sway {
-  0% {
-    transform: translateX(0) rotate(0deg);
-  }
-  50% {
-    transform: translateX(20px) rotate(5deg);
-  }
-  100% {
-    transform: translateX(0) rotate(0deg);
-  }
-}
-
-/* ========================
-   ESTILO DEL ADORNO (AÑADIR A index.css)
-   ======================== */
-.christmas-flake {
-  position: fixed; /* Crucial para que se muevan por toda la pantalla */
-  top: 0;
-  color: #cccccc; 
-  font-size: 24px;
-  
-  /* Aplicar ambas animaciones */
-  animation-name: fall, sway;
-  
-  /* Duración y repetición */
-  animation-duration: 12s, 4s; /* La caída dura 12s, el balanceo dura 4s */
-  animation-iteration-count: infinite;
-  
-  /* El tipo de movimiento */
-  animation-timing-function: linear, ease-in-out;
-  
-  opacity: 0.8;
-  pointer-events: none; /* Permite hacer clic a través de la decoración */
-  z-index: 999;
-}
 /* Estilos para el carrusel */
 .slide-enter {
   transform: translateX(100%);

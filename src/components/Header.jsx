@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useCart } from '../context/cartContext';
 import { signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "firebase/auth";
@@ -48,12 +48,12 @@ const CATEGORIES = [
   { slug: 'camping',    label: 'Camping & Outdoor' },
   { slug: 'mascotas',   label: 'Mascotas & Viaje' },
   { slug: 'hogar',      label: 'Hogar y Cocina' },
-  { slug: 'herramientas',    label: 'Herramientas y Equipamiento' },
-  { slug: 'salud',      label: 'Salud & Bienestar' },
-  { slug: 'regalos',    label: 'Juguetes & regalos' },
+  { slug: 'herramientas',    label: 'Herramientas y Equipamiento' },
+  { slug: 'salud',      label: 'Salud & Bienestar' },
+  { slug: 'regalos',    label: 'Juguetes & regalos' },
 ];
 
-const Logo = ({ onClick, isMobile }) => (
+const Logo = ({ onClick }) => (
   <Box
     onClick={onClick}
     sx={{
@@ -71,20 +71,15 @@ const Logo = ({ onClick, isMobile }) => (
       src={logotiendavirtual}
       alt="Logo Virtual Tienda"
       style={{
-        // Logo más pequeño en móvil para liberar espacio
-        height: isMobile ? '50px' : '70px', 
+        height: '100px',
         width: 'auto',
-        maxWidth: isMobile ? '120px' : '200px',
+        maxWidth: '200px',
         objectFit: 'contain',
         transition: 'all 0.3s ease',
       }}
     />
   </Box>
 );
-
-// ====================================================
-// COMPONENTE ChristmasDecorations ELIMINADO de aquí (MOVIDO A App.jsx)
-// ====================================================
 
 const Header = () => {
   const theme = useTheme();
@@ -105,7 +100,7 @@ const Header = () => {
   const params = new URLSearchParams(location.search);
   const activeCategory = params.get('category') || 'todos';
 
-  // FUNCIÓN DE LOGIN CORREGIDA: USAMOS SOLO POPUP
+  // ✅ FUNCIÓN DE LOGIN CORREGIDA: USAMOS SOLO POPUP
   const handleGoogleRegister = async () => {
     try {
       await signInWithPopup(auth, provider);
@@ -180,7 +175,7 @@ const Header = () => {
         (product.tags &&
           product.tags.some((tag) => tag.toLowerCase().includes(term)))
     );
-    setSearchResults(results.slice(0, 5)); // Limitar a 5 resultados para la búsqueda rápida
+    setSearchResults(results.slice());
   }, [searchTerm]);
 
   // sombra en scroll
@@ -265,17 +260,17 @@ const Header = () => {
                   <MenuIcon />
                 </IconButton>
               )}
-              <Logo onClick={scrollToTop} isMobile={isMobile} /> 
+              <Logo onClick={scrollToTop} />
             </Box>
 
-            {/* GRUPO CENTRAL: Buscador (Desktop/Expandido en Móvil) */}
+            {/* GRUPO CENTRAL: Buscador (Desktop/Expandido) */}
             <Box
               sx={{
                 position: 'relative',
                 width: isMobile ? '100%' : '40%',
                 maxWidth: 600,
                 mb: isMobile && searchOpen ? 2 : 0,
-                display: searchOpen || !isMobile ? 'block' : 'none', 
+                display: searchOpen || !isMobile ? 'block' : 'none',
               }}
             >
               <TextField
@@ -364,13 +359,13 @@ const Header = () => {
                           />
                         </ListItem>
                       ))}
-                    </List> 
+                    </List> {/* <--- Aquí estaba la etiqueta de cierre faltante */}
                   </Paper> 
                 </Fade>
               )}
             </Box>
 
-            {/* GRUPO DERECHO: Carrito + Login/Perfil */}
+            {/* GRUPO DERECHO: Search (Mobile) + Cart + Login/Perfil */}
             <Box
               sx={{
                 display: 'flex',
@@ -378,36 +373,53 @@ const Header = () => {
                 gap: { xs: 0.5, sm: 1 },
               }}
             >
-                
-                {/* Íconos de Redes Sociales y Búsqueda (Solo visible en Desktop) */}
-                <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}> 
+                {/* Ícono de Búsqueda (Solo visible en Mobile) */}
+                {isMobile && !searchOpen && (
                     <IconButton
                         onClick={toggleSearch}
-                        aria-label="Buscar"
-                        sx={{ color: 'text.secondary' }}
+                        sx={{
+                            ml: 1,
+                            color: 'text.secondary',
+                            '&:hover': {
+                                color: 'primary.main',
+                                backgroundColor: 'rgba(63, 81, 181, 0.1)',
+                            },
+                        }}
                     >
                         <Search />
                     </IconButton>
-                    <IconButton
-                        onClick={openWhatsApp}
-                        aria-label="WhatsApp"
-                        sx={{ color: 'text.secondary' }}
-                    >
-                        <WhatsApp sx={{ fontSize: '1.75rem' }} />
-                    </IconButton>
-                    <IconButton
-                        aria-label="Instagram"
-                        sx={{ color: '#E4405F' }}
-                    >
-                        <Instagram sx={{ fontSize: '1.75rem' }} />
-                    </IconButton>
-                    <IconButton
-                        aria-label="Facebook"
-                        sx={{ color: 'primary.main' }}
-                    >
-                        <Facebook sx={{ fontSize: '1.75rem' }} />
-                    </IconButton>
-                </Box>
+                )}
+
+                {/* Íconos de Redes Sociales y Búsqueda (Solo visible en Desktop) */}
+                {!isMobile && (
+                    <>
+                        <IconButton
+                            onClick={toggleSearch}
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <Search />
+                        </IconButton>
+                        <IconButton
+                            onClick={openWhatsApp}
+                            aria-label="WhatsApp"
+                            sx={{ color: 'text.secondary' }}
+                        >
+                            <WhatsApp sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                        <IconButton
+                            aria-label="Instagram"
+                            sx={{ color: '#E4405F' }}
+                        >
+                            <Instagram sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                        <IconButton
+                            aria-label="Facebook"
+                            sx={{ color: 'primary.main' }}
+                        >
+                            <Facebook sx={{ fontSize: '1.75rem' }} />
+                        </IconButton>
+                    </>
+                )}
                 
               {/* Ícono de Carrito (Visible en Mobile y Desktop) */}
               <Link to="/cart">
@@ -583,7 +595,7 @@ const Header = () => {
                         {user ? `Hola, ${user.displayName || 'Usuario'}` : '¡Bienvenido!'}
                     </Typography>
                     
-                    {/* Botones de Redes Sociales (visibles en el Drawer) */}
+                    {/* Botones de Redes Sociales */}
                     <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start', mb: 2 }}>
                         <IconButton onClick={openWhatsApp} aria-label="WhatsApp" color="success">
                             <WhatsApp />
