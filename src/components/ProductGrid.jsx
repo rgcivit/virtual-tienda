@@ -13,7 +13,7 @@ import {
   Chip,
   useTheme,
   Container,
-  Pagination, // 👈 Importado
+  Pagination,
   CircularProgress // Para la simulación de carga
 } from "@mui/material";
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
@@ -105,7 +105,6 @@ import setperfumes2 from "../components/assets/setperfumes2.jpeg";
 import setperfumes3 from "../components/assets/setperfumes3.jpeg";
 import setperfumes4 from "../components/assets/setperfumes4.jpeg";
 import setperfumes5 from "../components/assets/setperfumes5.jpeg";
-
 
 
 /* =======================
@@ -230,13 +229,13 @@ const QuickViewModal = ({ product, open, onClose, onAddToCart }) => {
 
 // CORRECCIÓN DE SINTAXIS EN EL ARRAY DE IMÁGENES
 const images = (
-  Array.isArray(product.detailImage) && product.detailImage.length > 0
-    ? product.detailImage
-    : product.detailImages && Array.isArray(product.detailImages) && product.detailImages.length > 0
-    ? product.detailImages
-    : product.gallery && product.gallery.length > 0
-    ? product.gallery
-    : (product.detailImage ? [product.detailImage, product.image] : [product.image])
+  Array.isArray(product.detailImage) && product.detailImage.length > 0
+    ? product.detailImage
+    : product.detailImages && Array.isArray(product.detailImages) && product.detailImages.length > 0
+    ? product.detailImages
+    : product.gallery && product.gallery.length > 0
+    ? product.gallery
+    : (product.detailImage ? [product.detailImage, product.image] : [product.image])
 ).filter(Boolean).flat();
 
 
@@ -709,7 +708,7 @@ Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
       stock: 1
     },
     {
-       id: 13,
+      id: 13,
     name: "Rastreador De Actividad Con Monitor De Ritmo Cardíaco Ip68",
     description: `Rastreador de actividad física con monitor de ritmo cardíaco, contador de pasos/calorías, reloj inteligente monitor de sueño, IP68, rastreador de salud, podómetro para hombre y mujer`,
     longDescription: `Tu compañero ideal para una vida activa y saludable 🏃‍♀️✨
@@ -815,12 +814,12 @@ Tu tiempo vale oro…`,
       stock: 10
     },
     {
-       id: 16,
-    name: "Peine Profesional Para Gatos Y Perros De Pelo Largo Amarillo",
-    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
-     ,
-    longDescription:
-       `🐾✨ ¡El Secreto para un Pelaje Impecable y Sin Nudos! ✨🐾
+       id: 16,
+    name: "Peine Profesional Para Gatos Y Perros De Pelo Largo Amarillo",
+    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
+     ,
+    longDescription:
+       `🐾✨ ¡El Secreto para un Pelaje Impecable y Sin Nudos! ✨🐾
 Descubrí el accesorio definitivo para el cuidado de tus mascotas. Este peine ergonómico está diseñado específicamente para mimar a perros y gatos de pelo largo, haciendo del cepillado una experiencia placentera.
 
 🔹 Diseño Ergonómico y Especializado 🐶🐱 Creado pensando en la comodidad, es perfecto para razas de pelo largo y denso (como Ragdoll). ¡Adaptado a sus necesidades!
@@ -832,20 +831,20 @@ Descubrí el accesorio definitivo para el cuidado de tus mascotas. Este peine er
 🔹 Fácil de Usar para Vos 👌🚿 Cuenta con un mango antideslizante que asegura un agarre cómodo y firme, facilitando la rutina de cuidado diario.
 
 🌟 ¡Transforma el momento del aseo en una experiencia relajante y feliz para tu compañero peludo! 🥰`,
-    price: "$10.990",
-    image: cepillomascota,
-    detailImage: [cepillomascota1, cepillomascota2, cepillomascota3, cepillomascota4],
-    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
-    stock: 5,
-    category: ["mascotas"],
+    price: "$10.990",
+    image: cepillomascota,
+    detailImage: [cepillomascota1, cepillomascota2, cepillomascota3, cepillomascota4],
+    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
+    stock: 5,
+    category: ["mascotas"],
     },
- {
+ {
      id: 17,
-    name: "Removedor de pelo reutilizable para gatos y perros y muebles",
-    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
-     ,
-    longDescription:
-       `🛑🐶 ¡FIN A LOS PELOS EN TU HOGAR! 🐱🛑
+    name: "Removedor de pelo reutilizable para gatos y perros y muebles",
+    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
+     ,
+    longDescription:
+       `🛑🐶 ¡FIN A LOS PELOS EN TU HOGAR! 🐱🛑
 RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
 (Aquí iría la imagen principal del producto en uso)
 
@@ -866,19 +865,19 @@ RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
 
 🛒 ¡LA SOLUCIÓN DEFINITIVA PARA DUEÑOS DE MASCOTAS!
 ¡Pedí el tuyo hoy y disfrutá de una casa libre de pelos! 🏠✨`,
-    price: "$14.990",
-    image: cepillopelosmascotas,
-    detailImage: [cepillopelosmascotas1, cepillopelosmascotas2, cepillopelosmascotas3,],
-    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
-    stock: 5,
-    category: ["mascotas"],
+    price: "$14.990",
+    image: cepillopelosmascotas,
+    detailImage: [cepillopelosmascotas1, cepillopelosmascotas2, cepillopelosmascotas3,],
+    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
+    stock: 5,
+    category: ["mascotas"],
     },
 {
-   id: 18,
-       name: "BOLSO DE VIAJE QUE CABE EN TU BOLSILLO",
-       description: `LIGERO, RESISTENTE Y SÚPER ESPACIOSO`,
-       longDescription:
-         `Olvidate del equipaje pesado y voluminoso. ¡Llevá todo lo que necesitás sin ocupar espacio!
+   id: 18,
+       name: "BOLSO DE VIAJE QUE CABE EN TU BOLSILLO",
+       description: `LIGERO, RESISTENTE Y SÚPER ESPACIOSO`,
+       longDescription:
+         `Olvidate del equipaje pesado y voluminoso. ¡Llevá todo lo que necesitás sin ocupar espacio!
 
 📏 1. Diseño Inteligente y Plegable 🤏 ¡De gigante a diminuto en segundos! Pasa de un bolso de 45 x 30 cm a un estuche compacto de solo 21 x 18 cm. Cuando no lo usás, se pliega fácilmente ocupando un 90% menos de espacio que una valija vacía.
 
@@ -905,116 +904,116 @@ Incluye: 2 x Bolsa de Viaje (según paquete).
 
 🛒 ¡PREPARATE PARA TU PRÓXIMA AVENTURA!
 ¡Viajá liviano y con estilo! Pedí tu set hoy mismo. ✈️🌟`,
-       price: "$16.990",
-       image: bolsodeviaje,
-       detailImage: bolsodeviaje1,
-          gallery: [
-       bolsodeviaje1,
-       bolsodeviaje2,
-       bolsodeviaje3,
-       bolsodeviaje4,
-       bolsodeviaje5,
-       ],
-       tags: ["Bolso", "Viaje", "Plegable", "Ligero", "Resistente"],
-       stock: 1,
-       category: ["camping"],
-  },
+       price: "$16.990",
+       image: bolsodeviaje,
+       detailImage: bolsodeviaje1,
+          gallery: [
+       bolsodeviaje1,
+       bolsodeviaje2,
+       bolsodeviaje3,
+       bolsodeviaje4,
+       bolsodeviaje5,
+       ],
+       tags: ["Bolso", "Viaje", "Plegable", "Ligero", "Resistente"],
+       stock: 1,
+       category: ["camping"],
+  },
 
-  {
-   id: 19,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
+  {
+   id: 19,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
 
-  {
-  id: 20,
-         name: "Máquina recargable USB parlante de aprendizaje con tarjetas bilingüe (Español - Inglés)",
-         description: `Convierte el aprendizaje en una experiencia divertida y enriquecedora para tus hijos con nuestras flash cards bilingües`,
-         longDescription:
-           `🎓🗣️ ¡Lector Interactivo Bilingüe Inglés/Español! Aprende 224 Palabras Jugando 🇬🇧🇪🇸
-  ¡Convierte el aprendizaje de idiomas en la experiencia más divertida para tus hijos! 🚀
-  
-  🚚💨 ¡Disponibilidad inmediata para envío! 📦 Realizamos envíos a nivel nacional.
-  
-  🎁 CON TU COMPRA RECIBES EL KIT COMPLETO:
-  Este paquete incluye todo lo necesario para empezar a aprender: 🔹 1 Lector de tarjetas Flash Card 🔊 (¡Del color que seleccionaste! 🎨) 🔹 112 Tarjetas interactivas de doble cara 🃏 (¡Un total de 224 PALABRAS para aprender! 🔤) 🔹 1 Cable de carga tipo USB 🔋. 🔹 Caja e instrucciones de uso 📖.
-  
-  ✨ DETALLES Y BENEFICIOS DEL PRODUCTO ✨
-  Este lector es mucho más que un juguete, ¡es una herramienta de desarrollo!
-  
-  🧠 Estimulación Cognitiva: Convierte el aprendizaje en una experiencia enriquecedora, estimulando el cerebro y fomentando la creatividad desde temprana edad 💡.
-  
-  🗣️ Poder Bilingüe: Tus hijos podrán aprender nuevas palabras, ampliar drásticamente su vocabulario y mejorar sus habilidades de comunicación tanto en inglés como en español.
-  
-  🛡️ Seguridad Primero: Nuestros juguetes son 100% seguros, duraderos y están diseñados específicamente pensando en el aprendizaje temprano 👶.
-  
-  🌈 Diseño Atractivo: Las tarjetas tienen un diseño colorido que capta la atención de los niños al instante, facilitando su participación y manteniéndolos motivados mientras juegan y aprenden.
-  
-  ⚙️ ESPECIFICACIONES TÉCNICAS:
-  🛠️ Material: Plástico resistente ABS y componentes electrónicos de calidad.
-  
-  📏 Tamaño portátil: Compacto y fácil de sostener (11 x 9 x 3 cms).
-  
-  📦 Empaque: Se entrega en caja sellada.
-  
-  ¡Dale a tus hijos el regalo del bilingüismo y la diversión! 🥳📚`,
-         price: "$25.990",
-         image: puzzleinteractivo,
-         detailImage: puzzleinteractivo1,
-            gallery: [
-         
-          puzzleinteractivo2,
-          puzzleinteractivo3,
-          puzzleinteractivo4,
-          puzzleinteractivo5,
-          puzzleinteractivo6,
-          
-  
-         ],
-         tags: ["juego", "bilingüe", "educativo", "niños", "aprendizaje"],
-         stock: 5,
-         category: ["juegos","regalos"],
-  },
-  
-   {
-      id: 21,
-       name: "Set X 3 Perfumes Arabes Originales",
-       description: `Set x 3 perfumes árabes originales en versión Body Spray de 200ml.`,
-       longDescription:
-         `:
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+  id: 20,
+         name: "Máquina recargable USB parlante de aprendizaje con tarjetas bilingüe (Español - Inglés)",
+         description: `Convierte el aprendizaje en una experiencia divertida y enriquecedora para tus hijos con nuestras flash cards bilingües`,
+         longDescription:
+           `🎓🗣️ ¡Lector Interactivo Bilingüe Inglés/Español! Aprende 224 Palabras Jugando 🇬🇧🇪🇸
+  ¡Convierte el aprendizaje de idiomas en la experiencia más divertida para tus hijos! 🚀
+  
+  🚚💨 ¡Disponibilidad inmediata para envío! 📦 Realizamos envíos a nivel nacional.
+  
+  🎁 CON TU COMPRA RECIBES EL KIT COMPLETO:
+  Este paquete incluye todo lo necesario para empezar a aprender: 🔹 1 Lector de tarjetas Flash Card 🔊 (¡Del color que seleccionaste! 🎨) 🔹 112 Tarjetas interactivas de doble cara 🃏 (¡Un total de 224 PALABRAS para aprender! 🔤) 🔹 1 Cable de carga tipo USB 🔋. 🔹 Caja e instrucciones de uso 📖.
+  
+  ✨ DETALLES Y BENEFICIOS DEL PRODUCTO ✨
+  Este lector es mucho más que un juguete, ¡es una herramienta de desarrollo!
+  
+  🧠 Estimulación Cognitiva: Convierte el aprendizaje en una experiencia enriquecedora, estimulando el cerebro y fomentando la creatividad desde temprana edad 💡.
+  
+  🗣️ Poder Bilingüe: Tus hijos podrán aprender nuevas palabras, ampliar drásticamente su vocabulario y mejorar sus habilidades de comunicación tanto en inglés como en español.
+  
+  🛡️ Seguridad Primero: Nuestros juguetes son 100% seguros, duraderos y están diseñados específicamente pensando en el aprendizaje temprano 👶.
+  
+  🌈 Diseño Atractivo: Las tarjetas tienen un diseño colorido que capta la atención de los niños al instante, facilitando su participación y manteniéndolos motivados mientras juegan y aprenden.
+  
+  ⚙️ ESPECIFICACIONES TÉCNICAS:
+  🛠️ Material: Plástico resistente ABS y componentes electrónicos de calidad.
+  
+  📏 Tamaño portátil: Compacto y fácil de sostener (11 x 9 x 3 cms).
+  
+  📦 Empaque: Se entrega en caja sellada.
+  
+  ¡Dale a tus hijos el regalo del bilingüismo y la diversión! 🥳📚`,
+         price: "$25.990",
+         image: puzzleinteractivo,
+         detailImage: puzzleinteractivo1,
+            gallery: [
+         
+          puzzleinteractivo2,
+          puzzleinteractivo3,
+          puzzleinteractivo4,
+          puzzleinteractivo5,
+          puzzleinteractivo6,
+          
+  
+         ],
+         tags: ["juego", "bilingüe", "educativo", "niños", "aprendizaje"],
+         stock: 5,
+         category: ["regalos"],
+  },
+  
+   {
+      id: 21,
+       name: "Set X 3 Perfumes Arabes Originales",
+       description: `Set x 3 perfumes árabes originales en versión Body Spray de 200ml.`,
+       longDescription:
+         `:
 ​✨ ¡LLEGÓ LA TENDENCIA DE DUBAI A ARGENTINA! ✨
 Llevate los perfumes más virales de las redes en su versión Body Spray de 200ml. Lujo, duración y estela increíble a un precio accesible.
 ​👇 ELEGÍ TU AROMA IDEAL:
@@ -1035,175 +1034,175 @@ Llevate los perfumes más virales de las redes en su versión Body Spray de 200m
 ​Envases grandes de 200ml (Duran muchísimo).
 ​Envíos rápidos y seguros a todo el país 🚛.
 ​👉 ¡SELECCIONÁ TU VARIANTE ARRIBA Y COMPRÁ AHORA!`,
-       price: "$51.990",
-       image: setperfumes1,
-       detailImage: setperfumes2,
-          gallery: [
-       setperfumes2,
-       setperfumes3,
-       setperfumes4,
-       setperfumes5,
-       ],
-       tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
-       stock: 1,
-       category: ["regalos" ,"salud"],
-   },
-  {
-   id: 22,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
+       price: "$51.990",
+       image: setperfumes1,
+       detailImage: setperfumes2,
+          gallery: [
+       setperfumes2,
+       setperfumes3,
+       setperfumes4,
+       setperfumes5,
+       ],
+       tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
+       stock: 1,
+       category: ["regalos" ,"salud"],
+   },
+  {
+   id: 22,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
 
-  {
-   id: 23,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
 
-  {
-   id: 24,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
 
-  {
-   id: 25,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
-  ];
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+   },
+
+  {
+   id: 23,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 24,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
+   id: 25,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  }
+  ]; // <-- Cierre final del array de productos
 
   const [products, setProducts] = useState(initialProducts);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -1212,46 +1211,46 @@ Llevate los perfumes más virales de las redes en su versión Body Spray de 200m
 
 // 🛑 INICIO LÓGICA DE FILTRADO
 const filteredProductsByCategory = useMemo(() => {
-    const categoriesToFilter = getCategoriesToFilter(activeCategory);
+    const categoriesToFilter = getCategoriesToFilter(activeCategory);
 
-    if (categoriesToFilter.length === 0) {
-        return products;
-    }
+    if (categoriesToFilter.length === 0) {
+        return products;
+    }
 
-    return products.filter((product) => {
-        // Esta lógica maneja si product.category es un string o un array de categorías
-        const productCategories = Array.isArray(product.category) ? product.category : [product.category];
+    return products.filter((product) => {
+        // Esta lógica maneja si product.category es un string o un array de categorías
+        const productCategories = Array.isArray(product.category) ? product.category : [product.category];
 
-        // Verifica si AL MENOS UNA categoría del producto está en el filtro de la URL
-        return productCategories.some(prodCat => categoriesToFilter.includes(prodCat));
-    });
+        // Verifica si AL MENOS UNA categoría del producto está en el filtro de la URL
+        return productCategories.some(prodCat => categoriesToFilter.includes(prodCat));
+    });
 }, [products, activeCategory]);
 // 🛑 FIN LÓGICA DE FILTRADO
 
 // ✅ Calcular el número total de páginas basado en los productos filtrados
 const pageCount = useMemo(() => {
-    return Math.ceil(filteredProductsByCategory.length / PRODUCTS_PER_PAGE);
+    return Math.ceil(filteredProductsByCategory.length / PRODUCTS_PER_PAGE);
 }, [filteredProductsByCategory]);
 
 // Función para manejar el cambio de página
 const handlePageChange = (event, value) => {
-    setCurrentPage(value);
-    // Opcional: Desplazar la vista al inicio del grid al cambiar de página
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setCurrentPage(value);
+    // Opcional: Desplazar la vista al inicio del grid al cambiar de página
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 // Recortar la lista para mostrar solo los productos de la página actual
 const visibleProducts = useMemo(() => {
-    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
-    const endIndex = startIndex + PRODUCTS_PER_PAGE;
-    return filteredProductsByCategory.slice(startIndex, endIndex);
+    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const endIndex = startIndex + PRODUCTS_PER_PAGE;
+    return filteredProductsByCategory.slice(startIndex, endIndex);
 }, [filteredProductsByCategory, currentPage]);
 
 // Si el cambio de filtro resulta en una página vacía, volvemos a la página 1.
 useEffect(() => {
-    if (currentPage > pageCount && pageCount > 0) {
-        setCurrentPage(1);
-    }
+    if (currentPage > pageCount && pageCount > 0) {
+        setCurrentPage(1);
+    }
 }, [pageCount, currentPage]);
 
 
@@ -1308,20 +1307,20 @@ useEffect(() => {
         </Box>
       )}
 
-      {/* ============== PAGINACIÓN SUPERIOR ============== */}
-      {pageCount > 1 && (
-        <Box sx={{ display: 'flex', justifyContent: 'center', my: 3 }}>
-          <Pagination
-            count={pageCount}
-            page={currentPage}
-            onChange={handlePageChange}
-            color="primary"
-            showFirstButton
-            showLastButton
-          />
-        </Box>
-      )}
-      {/* ================================================= */}
+      {/* ============== PAGINACIÓN SUPERIOR ============== */}
+      {pageCount > 1 && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 3 }}>
+          <Pagination
+            count={pageCount}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            showFirstButton
+            showLastButton
+          />
+        </Box>
+      )}
+      {/* ================================================= */}
 
       {/* Empty state si el filtro no devuelve nada */}
       {filteredProductsByCategory.length === 0 ? (
@@ -1351,21 +1350,21 @@ useEffect(() => {
           ))}
         </Grid>
       )}
-      
-      {/* ============== PAGINACIÓN INFERIOR ============== */}
-      {pageCount > 1 && (
-        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
-          <Pagination
-            count={pageCount}
-            page={currentPage}
-            onChange={handlePageChange}
-            color="primary"
-            showFirstButton
-            showLastButton
-          />
-        </Box>
-      )}
-      {/* ================================================= */}
+      
+      {/* ============== PAGINACIÓN INFERIOR ============== */}
+      {pageCount > 1 && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+          <Pagination
+            count={pageCount}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            showFirstButton
+            showLastButton
+          />
+        </Box>
+      )}
+      {/* ================================================= */}
 
       <QuickViewModal
         product={selectedProduct}

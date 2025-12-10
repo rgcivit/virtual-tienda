@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react'; // <<<< ✅ AGREGADO: useMemo
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useCart } from '../context/cartContext';
 import { signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "firebase/auth";
@@ -48,9 +48,9 @@ const CATEGORIES = [
   { slug: 'camping',    label: 'Camping & Outdoor' },
   { slug: 'mascotas',   label: 'Mascotas & Viaje' },
   { slug: 'hogar',      label: 'Hogar y Cocina' },
-  { slug: 'herramientas',    label: 'Herramientas y Equipamiento' },
-  { slug: 'salud',      label: 'Salud & Bienestar' },
-  { slug: 'regalos',    label: 'Juguetes & regalos' },
+  { slug: 'herramientas',    label: 'Herramientas y Equipamiento' },
+  { slug: 'salud',      label: 'Salud & Bienestar' },
+  { slug: 'regalos',    label: 'Juguetes & regalos' },
 ];
 
 const Logo = ({ onClick }) => (
@@ -81,6 +81,64 @@ const Logo = ({ onClick }) => (
   </Box>
 );
 
+// ====================================================
+// ✅ COMPONENTE: DECORACIÓN NAVIDEÑA
+// ====================================================
+const ChristmasDecorations = () => {
+    // Usamos useMemo para generar los adornos una sola vez
+    const adornos = useMemo(() => {
+        // Caracteres Unicode para darle el toque navideño
+        const symbols = ['🎄', '🌟', '❄️', '🎁', '🎅'];
+        const numAdornos = 25; // Número de adornos que caerán
+
+        const getFlakeStyle = (index) => {
+            return {
+                left: `${Math.random() * 100}vw`,
+                // Ajustamos el tiempo de animación para que se vean diferentes
+                animationDuration: `${5 + Math.random() * 8}s`,
+                animationDelay: `-${Math.random() * 10}s`,
+                fontSize: `${12 + Math.random() * 12}px`,
+                animationName: `fall, sway`, /* Usamos los keyframes CSS definidos */
+                // La duración del balanceo es más corta y aleatoria
+                animationDuration: `${8 + Math.random() * 10}s, ${2 + Math.random() * 4}s`,
+                // Retraso inicial
+                animationDelay: `-${Math.random() * 10}s`,
+                // Opacidad y tamaño
+                opacity: 0.5 + Math.random() * 0.5,
+                zIndex: 1000 + Math.floor(Math.random() * 10),
+            };
+        };
+
+        return Array.from({ length: numAdornos }).map((_, index) => (
+            <span
+                key={index}
+                className="christmas-flake"
+                style={getFlakeStyle(index)}
+            >
+                {symbols[index % symbols.length]}
+            </span>
+        ));
+    }, []);
+
+    return (
+        <Box
+            sx={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100vh',
+                overflow: 'hidden',
+                pointerEvents: 'none', // Permite hacer clic a través de la decoración
+                zIndex: 999, // Detrás del AppBar principal pero encima del contenido
+            }}
+        >
+            {adornos}
+        </Box>
+    );
+};
+// ====================================================
+
 const Header = () => {
   const theme = useTheme();
   const location = useLocation();
@@ -100,7 +158,7 @@ const Header = () => {
   const params = new URLSearchParams(location.search);
   const activeCategory = params.get('category') || 'todos';
 
-  // ✅ FUNCIÓN DE LOGIN CORREGIDA: USAMOS SOLO POPUP
+  // FUNCIÓN DE LOGIN CORREGIDA: USAMOS SOLO POPUP
   const handleGoogleRegister = async () => {
     try {
       await signInWithPopup(auth, provider);
@@ -175,7 +233,7 @@ const Header = () => {
         (product.tags &&
           product.tags.some((tag) => tag.toLowerCase().includes(term)))
     );
-    setSearchResults(results.slice());
+    setSearchResults(results.slice(0, 5)); // Limitar a 5 resultados para la búsqueda rápida
   }, [searchTerm]);
 
   // sombra en scroll
@@ -218,6 +276,11 @@ const Header = () => {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <>
+            {/* INICIO: DECORACIÓN NAVIDEÑA */}
+            {/* Solo mostramos la decoración si no es el menú lateral */}
+            {!mobileMenuOpen && <ChristmasDecorations />}
+            {/* FIN: DECORACIÓN NAVIDEÑA */}
+            
         <AppBar
           position="sticky"
           sx={{
@@ -359,7 +422,7 @@ const Header = () => {
                           />
                         </ListItem>
                       ))}
-                    </List> {/* <--- Aquí estaba la etiqueta de cierre faltante */}
+                    </List> 
                   </Paper> 
                 </Fade>
               )}
