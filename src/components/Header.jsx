@@ -53,7 +53,7 @@ const CATEGORIES = [
   { slug: 'regalos',    label: 'Juguetes & regalos' },
 ];
 
-const Logo = ({ onClick }) => (
+const Logo = ({ onClick, isMobile }) => (
   <Box
     onClick={onClick}
     sx={{
@@ -71,10 +71,10 @@ const Logo = ({ onClick }) => (
       src={logotiendavirtual}
       alt="Logo Virtual Tienda"
       style={{
-        // ✅ CAMBIO RESPONSIVE: Reducción del tamaño del logo en móvil
-        height: '60px', 
+        // Logo más pequeño en móvil para liberar espacio
+        height: isMobile ? '50px' : '70px', 
         width: 'auto',
-        maxWidth: '200px',
+        maxWidth: isMobile ? '120px' : '200px',
         objectFit: 'contain',
         transition: 'all 0.3s ease',
       }}
@@ -83,64 +83,7 @@ const Logo = ({ onClick }) => (
 );
 
 // ====================================================
-// ✅ COMPONENTE: DECORACIÓN NAVIDEÑA (Tamaño y Z-Index Ajustados)
-// ====================================================
-const ChristmasDecorations = () => {
-    // Usamos useMemo para generar los adornos una sola vez
-    const adornos = useMemo(() => {
-        // Caracteres Unicode para darle el toque navideño
-        const symbols = ['🎄', '🌟', '❄️', '🎁', '🎅'];
-        const numAdornos = 25; // Número de adornos que caerán
-
-        const getFlakeStyle = (index) => {
-            return {
-                left: `${Math.random() * 100}vw`,
-                // Ajustamos el tiempo de animación para que se vean diferentes
-                animationDuration: `${5 + Math.random() * 8}s`,
-                animationDelay: `-${Math.random() * 10}s`,
-                // ✅ CAMBIO DE TAMAÑO: Rango de 20px a 35px
-                fontSize: `${20 + Math.random() * 15}px`, 
-                animationName: `fall, sway`, /* Usamos los keyframes CSS definidos */
-                // La duración del balanceo es más corta y aleatoria
-                animationDuration: `${8 + Math.random() * 10}s, ${2 + Math.random() * 4}s`,
-                // Retraso inicial
-                animationDelay: `-${Math.random() * 10}s`,
-                // Opacidad y tamaño
-                opacity: 0.5 + Math.random() * 0.5,
-                // Z-index muy alto para los elementos individuales
-                zIndex: 9999, 
-            };
-        };
-
-        return Array.from({ length: numAdornos }).map((_, index) => (
-            <span
-                key={index}
-                className="christmas-flake"
-                style={getFlakeStyle(index)}
-            >
-                {symbols[index % symbols.length]}
-            </span>
-        ));
-    }, []);
-
-    return (
-        <Box
-            sx={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100vh',
-                overflow: 'hidden',
-                pointerEvents: 'none', // Permite hacer clic a través de la decoración
-                // Z-index del contenedor ligeramente menor que los elementos
-                zIndex: 9998, 
-            }}
-        >
-            {adornos}
-        </Box>
-    );
-};
+// COMPONENTE ChristmasDecorations ELIMINADO de aquí (MOVIDO A App.jsx)
 // ====================================================
 
 const Header = () => {
@@ -280,11 +223,6 @@ const Header = () => {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <>
-            {/* INICIO: DECORACIÓN NAVIDEÑA */}
-            {/* Solo mostramos la decoración si no es el menú lateral */}
-            {!mobileMenuOpen && <ChristmasDecorations />}
-            {/* FIN: DECORACIÓN NAVIDEÑA */}
-            
         <AppBar
           position="sticky"
           sx={{
@@ -327,17 +265,17 @@ const Header = () => {
                   <MenuIcon />
                 </IconButton>
               )}
-              <Logo onClick={scrollToTop} />
+              <Logo onClick={scrollToTop} isMobile={isMobile} /> 
             </Box>
 
-            {/* GRUPO CENTRAL: Buscador (Desktop/Expandido) */}
+            {/* GRUPO CENTRAL: Buscador (Desktop/Expandido en Móvil) */}
             <Box
               sx={{
                 position: 'relative',
                 width: isMobile ? '100%' : '40%',
                 maxWidth: 600,
                 mb: isMobile && searchOpen ? 2 : 0,
-                display: searchOpen || !isMobile ? 'block' : 'none',
+                display: searchOpen || !isMobile ? 'block' : 'none', 
               }}
             >
               <TextField
@@ -432,7 +370,7 @@ const Header = () => {
               )}
             </Box>
 
-            {/* GRUPO DERECHO: Search (Mobile) + Cart + Login/Perfil */}
+            {/* GRUPO DERECHO: Carrito + Login/Perfil */}
             <Box
               sx={{
                 display: 'flex',
@@ -440,27 +378,12 @@ const Header = () => {
                 gap: { xs: 0.5, sm: 1 },
               }}
             >
-                {/* Ícono de Búsqueda (Solo visible en Mobile si NO está abierto) */}
-                {isMobile && !searchOpen && (
-                    <IconButton
-                        onClick={toggleSearch}
-                        sx={{
-                            ml: 1,
-                            color: 'text.secondary',
-                            '&:hover': {
-                                color: 'primary.main',
-                                backgroundColor: 'rgba(63, 81, 181, 0.1)',
-                            },
-                        }}
-                    >
-                        <Search />
-                    </IconButton>
-                )}
-
-                {/* Íconos de Redes Sociales y Búsqueda (Control de Visibilidad: Ocultos en Móvil) */}
+                
+                {/* Íconos de Redes Sociales y Búsqueda (Solo visible en Desktop) */}
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}> 
                     <IconButton
                         onClick={toggleSearch}
+                        aria-label="Buscar"
                         sx={{ color: 'text.secondary' }}
                     >
                         <Search />
