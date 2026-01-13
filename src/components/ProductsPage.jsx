@@ -12,6 +12,12 @@ const CATEGORIES_LABELS = {
   camping: 'Camping & Outdoor',
   mascotas: 'Mascotas & Viaje',
   hogar: 'Hogar y Cocina',
+  deportes: 'Deportes & Fitness',
+  herramientas: 'Herramientas y Equipamiento',
+  salud: 'Salud & Bienestar',
+  regalos: 'Juguetes & regalos',
+  estética: 'Estética & Belleza',
+
 };
 
 const ProductsPage = () => {

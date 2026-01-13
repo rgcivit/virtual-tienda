@@ -105,6 +105,13 @@ import setperfumes2 from "../components/assets/setperfumes2.jpeg";
 import setperfumes3 from "../components/assets/setperfumes3.jpeg";
 import setperfumes4 from "../components/assets/setperfumes4.jpeg";
 import setperfumes5 from "../components/assets/setperfumes5.jpeg";
+import ozono from "../components/assets/ozono.jpeg";
+import ozono1 from "../components/assets/ozono1.jpeg"; 
+import ozono2 from "../components/assets/ozono2.jpeg";
+import ozono3 from "../components/assets/ozono3.jpeg";
+import ozono4 from "../components/assets/ozono4.jpeg";
+
+
 
 
 /* =======================
@@ -1088,41 +1095,48 @@ Llevate los perfumes más virales de las redes en su versión Body Spray de 200m
 
   {
    id: 23,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       name: "Vaporizador Facial Profesional Ozono E Iones Frío y Calor 2 En 1",
+       description: `Vaporizador facial profesional con ozono e iones frío y calor.`,
        longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+         ` Potencia tus limpiezas faciales con tecnología de vanguardia. Este Vaporozono Profesional es la herramienta ideal para gabinetes de estética y uso personal avanzado. Gracias a su sistema dual de ozono e ionización, garantiza un tratamiento profundo, seguro y totalmente higiénico.
 
-❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+Beneficios principales:
 
-🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+Doble Función: Vapor frío y caliente que pueden utilizarse de forma simultánea.
 
-🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+Ozono e Ionización: Esteriliza el vapor para un tratamiento libre de bacterias y ayuda a suavizar la piel.
 
-🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+Limpieza Profunda: El vapor a alta presión abre los poros, facilitando la extracción de impurezas y puntos negros.
 
-⚙️ CARACTERÍSTICAS TÉCNICAS
-⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+Diseño Profesional: Equipado con tubería de acero inoxidable para mayor durabilidad y máxima higiene.
 
-📏 Capacidad: 16oz (Aprox. 473ml).
+Características Técnicas:
 
-🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+Cabezales Giratorios: Doble brazo ajustable que gira sobre su eje para dirigir el spray con precisión.
 
-💡 Efecto de iluminación: Luces LED integradas.
+Seguridad Inteligente: Sensor de nivel de agua con apagado automático para proteger el equipo.
 
-📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
+Independencia Total: Tanques y canales de pulverización separados para frío y calor.
+
+Densidad de Spray Regulable: Adaptable según la sensibilidad de cada tratamiento.
+
+Medidas: 75 x 18 x 43 cm.
+
+Peso: 5.8 kg.
+
+Color: Blanco con detalles en lila.`,
+       price: "$320.000",
+       image: ozono,
+       detailImage: ozono1,
           gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
+       ozono1,
+       ozono2,
+       ozono3,
+       ozono4,
        ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
+       tags: [ "Vaporizador", "Facial", "Ozono", "Iones", "Calor", "Frío"],
+       stock: 4,
+       category: ["estética"],
   },
 
   {
