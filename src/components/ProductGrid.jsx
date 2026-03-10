@@ -1095,7 +1095,7 @@ Llevate los perfumes más virales de las redes en su versión Body Spray de 200m
 
   {
    id: 23,
-       name: "Vaporizador Facial Profesional Ozono E Iones Frío y Calor 2 En 1",
+       name: "Vaporizador Facial Profesional Ozono y Iones Frío y Calor 2 En 1",
        description: `Vaporizador facial profesional con ozono e iones frío y calor.`,
        longDescription:
          ` Potencia tus limpiezas faciales con tecnología de vanguardia. Este Vaporozono Profesional es la herramienta ideal para gabinetes de estética y uso personal avanzado. Gracias a su sistema dual de ozono e ionización, garantiza un tratamiento profundo, seguro y totalmente higiénico.
