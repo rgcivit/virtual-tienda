@@ -899,42 +899,139 @@ Color: Blanco con detalles en lila.`,
   },
 
   {
-   id: 25,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
+    id: 25,
+    name: "PERFUME 919 VIP FEMME - JOIN THE CLUB!",
+    description: "Fragancia femenina sofisticada y urbana de 100ml. Un tributo a la creatividad y confianza.",
+    longDescription: `✨ 1. Aroma Magnético 💄 Una mezcla fascinante de ron y fruta de la pasión. Dulce, fresca y extremadamente femenina.
+      
+      🌸 2. Corazón Floral 🛡️ Con notas de almizcle y gardenia que aportan una suavidad lujosa y duradera en la piel.
+      
+      🏙️ 3. Espíritu Urbano 🏙️ Diseñado para la mujer activa que ama la ciudad y se mueve con total seguridad.
+      
+      ✨ 4. Toque de Vainilla 🍦 El fondo de haba tonka y vainilla le da ese cierre dulce y adictivo que todos notarán.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      📏 Capacidad: 100ml.
+      🎨 Familia: Oriental Vainilla.
+      💡 Ocasión: Diario y eventos especiales.
+      📡 Calidad: Premium con gran proyección.`,
+    price: "$15.000",
+    image: vipFemme,
+    detailImage: vipFemme1,
+    gallery: [vipFemme1, vipFemme2],
+    tags: ["Perfume", "Mujer", "Femenino", "VIP", "Dulce"],
+    stock: 2,
+    category: ["perfumeria", "mujeres"],
+  },
+  {
+    id: 26,
+    name: "PERFUME OK ROCK! MEN - REBEL STYLE",
+    description: "Fragancia masculina audaz de 100ml. El aroma de la rebeldía y el rock & roll.",
+    longDescription: `🎸 1. Actitud Rockera 🤘 Un perfume con carácter fuerte. Notas de cuero y especias para quienes viven al límite.
+      
+      🔥 2. Energía Pura ⚡ Ideal para recargar energías después de un largo día o para empezar la noche con todo.
+      
+      🌲 3. Fondo Terroso 🪵 Una base de maderas profundas que garantizan una estela duradera y masculina.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      📏 Capacidad: 100ml.
+      🎨 Estilo: Especiado / Cuero.
+      ⏱️ Duración: 6 a 10 horas.`,
+    price: "$15.000",
+    image: okRock,
+    detailImage: okRock1,
+    gallery: [okRock1, okRock2],
+    tags: ["Perfume", "Rock", "Hombre", "Audaz"],
+    stock: 2,
+    category: ["perfumeria", "hombres"],
+  },
+  {
+    id: 27,
+    name: "PERFUME DREAM - CAJA ROJA / ZAPATO",
+    description: "Diseño icónico de zapato con una fragancia audaz, sensual y dulce para mujeres poderosas.",
+    longDescription: `👠 1. Diseño de Colección 🛡️ El famoso frasco en forma de estilete rojo. Un objeto de deseo para tu tocador.
+      
+      🍫 2. Aroma Gourmand 🔥 Notas de cacao y café que se mezclan con el jazmín para crear un aroma dulce y envolvente.
+      
+      🌹 3. Dualidad Femenina 🌗 Representa el lado bueno y el lado malo de la mujer. Es sensual, misterioso y cautivador.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      📏 Capacidad: 80ml / 100ml.
+      🎨 Familia: Oriental Floral.
+      🎁 Ideal para: Regalo de lujo.`,
+    price: "$15.000",
+    image: dreamRed,
+    detailImage: dreamRed1,
+    gallery: [dreamRed1, dreamRed2],
+    tags: ["Perfume", "Mujer", "Dream", "Zapato", "Dulce"],
+    stock: 2,
+    category: ["perfumeria", "mujeres"],
+  },
+  {
+    id: 28,
+    name: "PERFUME INVINCIBLE TRIUMPH - CAJA NEGRA",
+    description: "Fragancia intensa para el hombre que no conoce la derrota. Frescura y potencia en 100ml.",
+    longDescription: `🏆 1. El Aroma de la Victoria 🛡️ Una fragancia que evoca la adrenalina del triunfo. Notas marinas cruzadas con maderas oscuras.
+      
+      🔥 2. Fuerza Magnética 💪 Potente y varonil. Diseñado para proyectar confianza absoluta en cualquier situación.
+      
+      🛡️ 3. Presentación Luxury 😎 Frasco robusto y elegante en color negro profundo, símbolo de poder y misterio.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      📏 Capacidad: 100ml.
+      🌿 Notas: Pomelo, Hojas de Laurel, Ámbar gris.
+      ⏱️ Fijación: Extrema.`,
+    price: "$15.000",
+    image: invincibleTriumph,
+    detailImage: invincibleTriumph1,
+    gallery: [invincibleTriumph1, invincibleTriumph2],
+    tags: ["Perfume", "Hombre", "Invincible", "Victorioso"],
+    stock: 2,
+    category: ["perfumeria", "hombres"],
+  },
+  {
+    id: 29,
+    name: "PERFUME LADY LUXURY - SOFISTICACIÓN PURA",
+    description: "Aroma exclusivo y opulento para mujeres elegantes. El lujo hecho fragancia.",
+    longDescription: `💎 1. Exclusividad Total 🛡️ Lady Luxury es para la mujer que busca lo extraordinario. Un aroma que destila riqueza y clase.
+      
+      ✨ 2. Notas Doradas 🔥 Mezcla de flores blancas con un toque de miel y pachulí que crea un aura dorada a tu alrededor.
+      
+      🌟 3. Elegancia sin Límites 👑 Ideal para eventos de gala, bodas o cenas importantes donde querés ser la protagonista.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      📏 Capacidad: 100ml.
+      🎨 Familia: Floral Blanca / Dulce.
+      💡 Efecto: Estela de larga duración.`,
+    price: "$15.000",
+    image: ladyLuxury,
+    detailImage: ladyLuxury1,
+    gallery: [ladyLuxury1, ladyLuxury2],
+    tags: ["Perfume", "Mujer", "Lujo", "Elegante"],
+    stock: 2,
+    category: ["perfumeria", "mujeres"],
+  },
+  {
+    id: 30,
+    name: "PERFUME NEW YORK - CAJA BLANCA",
+    description: "Fragancia clásica, limpia y refrescante de 100ml. La esencia de la gran ciudad.",
+    longDescription: `🏙️ 1. Frescura Urbana 🛡️ Inspirado en las mañanas de Manhattan. Un aroma limpio, jabonoso y extremadamente pulcro.
+      
+      ❄️ 2. Minimalismo Puro ⚪ Notas suaves y equilibradas que no cansan el olfato. Perfecto para quienes prefieren la sutileza.
+      
+      👔 3. Uso Diario 🚗 El compañero ideal para ir al trabajo, al gimnasio o para estar en casa sintiéndote fresco todo el día.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      📏 Capacidad: 100ml.
+      🎨 Estilo: Cítrico / Fresco.
+      📡 Recomendación: Aplicar en puntos de pulso.`,
+    price: "$15.000",
+    image: newYork,
+    detailImage: newYork1,
+    gallery: [newYork1, newYork2],
+    tags: ["Perfume", "Clásico", "Fresco", "New York", "Unisex"],
+    stock: 2,
+    category: ["perfumeria", "unisex"],
   },
   
         ];
