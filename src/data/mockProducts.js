@@ -106,6 +106,12 @@ import ozono2 from "../components/assets/ozono2.jpeg";
 import ozono3 from "../components/assets/ozono3.jpeg";
 import ozono4 from "../components/assets/ozono4.jpeg";
 
+import miniperf1   from "../components/assets/miniperf1.jpeg";
+import miniperf2 from "../components/assets/miniperf2.jpeg"; 
+import miniperf3 from "../components/assets/miniperf3.jpeg";
+import miniperf4 from "../components/assets/miniperf4.jpeg";
+
+
 // --------------------------------------------
 // LISTA COMPLETA DE PRODUCTOS
 // --------------------------------------------
@@ -736,7 +742,7 @@ Color: Blanco con detalles en lila.`,
     price: "$15.000",
     image: vipMen,
     detailImage: vipMen1,
-    gallery: [vipMen1, vipMen2],
+    gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "VIP", "Hombre", "Noche", "Elegante"],
     stock: 2,
     category: ["perfumeria", "hombres"],
