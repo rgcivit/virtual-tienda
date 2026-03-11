@@ -25,7 +25,7 @@ import filtrodeaguadetalle from "./assets/filtrodeaguadetalle.jpg";
 import restauradorfaros from './assets/restauradorfaros.jpg';
 import restauradorfarosdetalle from './assets/restauradorfarosdetalle.jpg';
 import portavaso from './assets/portavaso (1).jpg';
-import portavasodetalle from './assets/portavasodetalle.jpg';
+import portavasodetalle from "./assets/portavasodetalle.jpg";
 import infladorportatil from "./assets/infladorportatil.jpg";
 import infladorportatildetalle from "./assets/infladorportatildetalle.jpg";
 import gafasinteligentes from "./assets/gafasinteligentes.jpg";
@@ -95,12 +95,16 @@ import ozono1 from "../components/assets/ozono1.jpeg";
 import ozono2 from "../components/assets/ozono2.jpeg";
 import ozono3 from "../components/assets/ozono3.jpeg";
 import ozono4 from "../components/assets/ozono4.jpeg";
-
 import miniperf1   from "../components/assets/miniperf1.jpeg";
 import miniperf2 from "../components/assets/miniperf2.jpeg"; 
 import miniperf3 from "../components/assets/miniperf3.jpeg";
 import miniperf4 from "../components/assets/miniperf4.jpeg";
-
+import hero from "../components/assets/hero.jpeg";
+import oknewyork from "../components/assets/oknewyork.jpeg";
+import ladyluxury from "../components/assets/ladyluxury.jpeg";
+import invincible from "../components/assets/invincible.jpeg";
+import dream from "../components/assets/dream.jpeg";
+import okrock from "../components/assets/okrock.jpeg";
 
 
 // Función para parsear precio desde cadenas tipo "$129.990" a número 129990
@@ -162,227 +166,233 @@ const ProductDetailPage = () => {
       try {
         const mockProducts = [
            {
-    id: 1,
-    name: "Encendedor Recargable USB con Linterna Negro",
-    description: "El encendedor multipropósito es una innovación de vanguardia que hará que tus momentos sean más prácticos y emocionantes que nunca! Este versátil dispositivo es mucho más que un simple encendedor; es una herramienta multifuncional que combina elegancia y practicidad.",
-    longDescription: "Este encendedor USB es recargable y tiene un diseño moderno y compacto. Perfecto para llevar contigo a todas partes. Con carga rápida USB-C y luz indicadora. Disponible en varios colores. Además, incluye una potente linterna LED que lo hace ideal para acampadas, emergencias o uso diario.",
-    price: "$11.990",
-    image: ensendedorusb,
-    detailImage: ensendedordetalle,
-    tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente"],
-     stock: 1
-  },
-  {
-    id: 2,
-    name: "Grifo con Filtro de Agua",
-    description: "Grifo con Filtro de Agua – Ahorro, limpieza y flexibilidad en tu cocina o baño.",
-    longDescription: "Este grifo cuenta con un filtro de agua integrado que garantiza agua limpia y purificada para tu hogar. Su diseño moderno se adapta a cualquier estilo de cocina o baño, y su instalación es rápida y sencilla.",
-    price: "$12.990",
-    image: filtrodeagua,
-    detailImage: filtrodeaguadetalle,
-    tags: ["Grifo", "Filtro de agua", "Cocina", "Baño", "Ahorro"],
-     stock: 6
-  },
-  {
-    id: 3,
-    name: "Soporte Universal para Botella y Celular",
-    description: "¡La solución práctica y resistente para tus salidas en bici, moto o cochecito!.",
-    price: "$55.000",
-    image: portavaso,
-    detailImage: portavasodetalle,
-    tags: ["98V", "Doble batería", "40 N.m", "Herramientas", "Tasbel"],
-     stock: 3
-  },
-  {
-    id: 4,
-    name: "Inflador Digital Portátil",
-    description: "Tu compañero ideal para la aventura ¡Compacto, potente y listo para cualquier terreno!.",
-    longDescription: `🏕️ Perfecto para salidas de camping, travesías en bici o senderismo
-🔋 Batería de larga duración (4000mAh) para inflar sin depender de enchufes
-📈 Presión máxima de 150 PSI – ideal para bicicletas, motos, pelotas y más
-🎯 Pantalla digital con lectura precisa y apagado automático
-🔇 Funcionamiento silencioso (menos de 78dB)
+      id: 1,
+      name: "Encendedor Recargable USB con Linterna Negro",
+      description: "El encendedor multipropósito es una innovación de vanguardia que hará que tus momentos sean más prácticos y emocionantes que nunca! Este versátil dispositivo es mucho más que un simple encendedor; es una herramienta multifuncional que combina elegancia y practicidad.",
+      longDescription: "Este encendedor USB es recargable y tiene un diseño moderno y compacto. Perfecto para llevar contigo a todas partes. Con carga rápida USB-C y luz indicadora. Disponible en varios colores. Además, incluye una potente linterna LED que lo hace ideal para acampadas, emergencias o uso diario.",
+      price: "$11.990",
+      image: ensendedorusb,
+      detailImage: ensendedordetalle,
+      tags: ["Recargable", "Portátil", "Linterna LED", "USB-C", "Resistente", "Accesorios"],
+      category: "tecnologia", 
+      stock: 1
+    },
+    {
+      id: 2,
+      name: "Grifo con Filtro de Agua ",
+      description: "Grifo con Filtro de Agua – Ahorro, limpieza y flexibilidad en tu cocina o baño.",
+      longDescription: "Este grifo cuenta con un filtro de agua integrado que garantiza agua limpia y purificada para tu hogar. Su diseño moderno se adapta a cualquier estilo de cocina o baño, y su instalación es rápida y sencilla.",
+      price: "$12.990",
+      image: filtrodeagua,
+      detailImage: filtrodeaguadetalle,
+      tags: ["Grifo", "Filtro de agua", "Cocina", "Baño", "Ahorro"],
+      category: "hogar",
+      stock: 6
+    },
+    {
+      id: 3,
+      name: "Soporte Universal para Botella y Celular ",
+      description: "¡La solución práctica y resistente para tus salidas en bici, moto o cochecito!.",
+      longDescription: `"🚲 Ideal para bici, moto, cochecito o scooter  
+🔒 Fijación giratoria con sistema de bloqueo 360°  
+📱 Compartimento seguro para tu celular  
+🧴 Espacio firme para botella térmica o de plástico  
+🧱 Material plástico resistente y liviano (180g)  
+📐 Medidas: 20 x 10 x 11 cm  
+🎨 Colores disponibles: Azul, Verde y Negro  
+🔧 Fácil de instalar y ajustar."`,
+      price: "$29.900",
+      image: portavaso,
+      detailImage: portavasodetalle,
+      tags: ["Soporte", "Universal", "Botella", "Celular", "Bici", "Accesorios"],
+      category: "camping",
+      stock: 3
+    },
+    {
+      id: 4,
+      name: "Inflador Digital Portátil .",
+      description: "Tu compañero ideal para la aventura ¡Compacto, potente y listo para cualquier terreno!.",
+      longDescription: `"🏕️ Perfecto para salidas de camping, travesías en bici o senderismo  
+🔋 Batería de larga duración (4000mAh) para inflar sin depender de enchufes  
+📈 Presión máxima de 150 PSI – ideal para bicicletas, motos, pelotas y más  
+🎯 Pantalla digital con lectura precisa y apagado automático  
+🔇 Funcionamiento silencioso (menos de 78dB)  
 👜 Diseño compacto, fácil de guardar en mochila o alforja
 
-✅ Preset de presión para distintos tipos de ruedas
-✅ Compatible con válvulas comunes (Presta, Schrader, etc.)
+✅ Preset de presión para distintos tipos de ruedas  
+✅ Compatible con válvulas comunes (Presta, Schrader, etc.)  
 ✅ Carga por USB – ¡siempre listo!
 
 💥 Precio especial: $55.000
 
-🌄 ¡No te quedes varado en medio del camino! Este inflador es tu seguro de movilidad en cualquier aventura 🚵‍♀️`,
-    price: "$55.000",
-    image: infladorportatil,
-    detailImage: infladorportatildetalle,
-    tags: ["Inflador", "Portátil", "Batería de larga duración", "Variable", "Digital"],
-     stock: 3
-  },
-  {
-    id: 5,
-    name: "KIT RESTAURADOR DE FAROS",
-    description: "¡Volvé a ver con claridad! ¿Tus faros están opacos, amarillentos o rayados? Este kit es la solución rápida, económica y efectiva 💡",
-    longDescription: `🔧 Incluye todo lo necesario:
-- Lijas de distintos granos 🪵
-- Pasta pulidora profesional 🧴
-- Aplicador de espuma 🧽
-- Cinta de enmascarar para proteger la carrocería 🚗
+🌄 ¡No te quedes varado en medio del camino! Este inflador es tu seguro de movilidad en cualquier aventura 🚵‍♀️"`,
+      price: "$55.000",
+      image: infladorportatil,
+      detailImage: infladorportatildetalle,
+      tags: ["Inflador", "Portátil", "Batería de larga duración", "Variable", "Digital", "Camping"],
+      category: "camping",
+      stock: 3
+    },
+    {
+      id: 5,
+      name: "KIT RESTAURADOR DE FAROS ",
+      description: " ¡Volvé a ver con claridad! ¿Tus faros están opacos, amarillentos o rayados? Este kit es la solución rápida, económica y efectiva 💡",
+      longDescription: `🔧 Incluye todo lo necesario:  
+- Lijas de distintos granos 🪵  
+- Pasta pulidora profesional 🧴  
+- Aplicador de espuma 🧽  
+- Cinta de enmascarar para proteger la carrocería 🚗  
 - Protector UV para acabado duradero ☀️
 
-✅ Beneficios clave:
-- Mejora la estética del vehículo ✨
-- Aumenta la visibilidad y seguridad al manejar 🌙
-- Fácil de usar, ¡sin necesidad de herramientas especiales! 🛠️
-- Compatible con cualquier tipo de faro 🚘
+✅ Beneficios clave:  
+- Mejora la estética del vehículo ✨  
+- Aumenta la visibilidad y seguridad al manejar 🌙  
+- Fácil de usar, ¡sin necesidad de herramientas especiales! 🛠️  
+- Compatible con cualquier tipo de faro 🚘  
 - Resultados visibles desde la primera aplicación 👀
 
-📦 Rinde para restaurar 2 faros o más
-💥 Precio promocional: $14.990`,
-    price: "$14.990",
-    image: restauradorfaros,
-    detailImage: restauradorfarosdetalle,
-    tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo"],
-       stock: 1
-  },
-  {
-    id: 6,
-    name: "Lentes Inteligentes con Bluetooth y Audio Integrado",
-    description: "¡Comodidad, estilo y tecnología en un solo accesorio!",
-    longDescription: `Disfruta de la música y las llamadas manos libres con estilo. Estos lentes cuentan con tecnología avanzada de audio y un diseño moderno, 🔊 Escuchá música o atendé llamadas sin auriculares
-👆 Control táctil en las patillas
-📱 Compatible con Android & iOS
-🔋 Batería recargable – hasta 6 horas de uso
-🌞 Lentes HD polarizados con protección UV400
-🎧 Audio estéreo abierto, sin tapar tus oídos
+📦 Rinde para restaurar 2 faros o más  
+💥 Precio promocional: $14.990
+
+📸 Mirá el “ANTES y DESPUÉS”… ¡La diferencia es impresionante!`,
+      price: "$14.990",
+      image: restauradorfaros,
+      detailImage: restauradorfarosdetalle,
+      tags: ["Restaurador de faros", "Kit de restauración", "Cuidado del automóvil", "Limpieza", "Brillo", "Automotor"],
+      category: "auto",
+      stock: 5
+    },
+    {
+      id: 6,
+      name: "Lentes Inteligentes con Bluetooth  y Audio Integrado",
+      description: "¡Comodidad, estilo y tecnología en un solo accesorio!",
+      longDescription: `Disfruta de la música y las llamadas manos libres con estilo. Estos lentes cuentan con tecnología avanzada de audio y un diseño moderno, 🔊 Escuchá música o atendé llamadas sin auriculares  
+👆 Control táctil en las patillas  
+📱 Compatible con Android & iOS  
+🔋 Batería recargable – hasta 6 horas de uso  
+🌞 Lentes HD polarizados con protección UV400  
+🎧 Audio estéreo abierto, sin tapar tus oídos  
 📡 Bluetooth 5.3 / 5.4 de conexión estable
 
-✨ Diseño moderno, liviano y sin género
+✨ Diseño moderno, liviano y sin género  
 📏 Medidas estándar: cómodos para todos.`,
-    price: "$29.900",
-    image: gafasinteligentes,
-    detailImage: gafasinteligentesdetalle,
-    tags: ["Bluetooth", "Audio", "Estilo", "Tecnología", "Accesorios"],
-       stock: 3
-  },
-  {
-    id: 7,
-    name: "Reproductor Universal para Autos",
-    description: "¡Transformá tu viaje en una experiencia multimedia! 🚗✨",
-    longDescription: `📺 Pantalla táctil TFT de 7" (formato 16:9)
+      price: "$29.900",
+      image: gafasinteligentes,
+      detailImage: gafasinteligentesdetalle,
+      tags: ["Bluetooth", "Audio", "Estilo", "Tecnología", "Accesorios"],
+      category: "tecnologia",
+      stock: 3
+    },
+    {
+      id: 7,
+      name: "Reproductor Universal para Autos ",
+      description: "¡Transformá tu viaje en una experiencia multimedia! 🚗✨",
+      longDescription: `"📺 Pantalla táctil TFT de 7" (formato 16:9)  
 Disfrutá de una interfaz moderna y fácil de usar, perfecta para visualizar tus contenidos con claridad.
 
-🎶 Reproduce múltiples formatos: MP5 / MP4 / MP3 / WMA
+🎶 Reproduce múltiples formatos: MP5 / MP4 / MP3 / WMA  
 ¡Llevá tu música y videos favoritos a donde vayas!
 
-🔌 Entradas versátiles: USB / SD / MMC / AUX
+🔌 Entradas versátiles: USB / SD / MMC / AUX  
 Conectá tus dispositivos sin complicaciones y accedé a tus archivos al instante.
 
-📱 Bluetooth integrado
+📱 Bluetooth integrado  
 Manos libres para llamadas 📞 + transmisión de música 🎧 sin cables.
 
-📻 Radio FM con sintonizador digital
+📻 Radio FM con sintonizador digital  
 Hasta 18 estaciones presintonizadas para que nunca te falte ritmo.
 
-🕹️ Control remoto infrarrojo
+🕹️ Control remoto infrarrojo  
 Manejá todas las funciones cómodamente desde cualquier lugar del vehículo.
 
-⏰ Reloj en tiempo real
+⏰ Reloj en tiempo real  
 Siempre puntual, siempre elegante.
 
-🎚️ Ecualizador electrónico
+🎚️ Ecualizador electrónico  
 Ajustá el sonido a tu estilo: Pop 🎤, Rock 🎸 o Clásico 🎼.
 
-🛡️ ESP (antishock electrónico)
+🛡️ ESP (antishock electrónico)  
 Reproducción estable incluso en caminos irregulares.
 
-🔊 Salidas RCA de línea (baja impedancia)
+🔊 Salidas RCA de línea (baja impedancia)  
 Ideal para conectar amplificadores y mejorar la calidad de audio.
 
-⚡ Potencia de salida: 45W × 4
-Sonido potente y envolvente para todos los pasajeros.`,
-    price: "$89.990",
-    image: multimedia,
-    detailImage: multimediadetalle,
-    tags: ["Multimedia", "Bluetooth", "Audio", "Tecnología", "Auto"],
-       stock: 2
-  },
-  {
-    id: 8,
-    name: "🪚🔋 Mini Motosierra Eléctrica BEKR 24V",
-    description: "¡Potencia portátil para tus tareas de corte! 🌳💪",
-    longDescription: `⚡ Batería de 24V integrada
+⚡ Potencia de salida: 45W × 4  
+Sonido potente y envolvente para todos los pasajeros."`,
+      price: "$89.990",
+      image: multimedia,
+      detailImage: multimediadetalle,
+      tags: ["Multimedia", "Bluetooth", "Audio", "Tecnología", "Auto"],
+      category: "auto",
+      stock: 2
+    },
+    {
+      id: 8,
+      name: "🪚🔋 Mini Motosierra Eléctrica BEKR 24V ",
+      description: " ¡Potencia portátil para tus tareas de corte! 🌳💪",
+      longDescription: `⚡ Batería de 24V integrada  
 No necesitás retirarla para cargarla 🔌. ¡Más práctico, más eficiente!
 
-🧤 Operación manual
+🧤 Operación manual  
 Diseñada para un uso cómodo y seguro, ideal para usuarios de todos los niveles.
 
-🎒 Ligera y portátil
+🎒 Ligera y portátil  
 Llevála a cualquier parte sin esfuerzo. Perfecta para trabajos en el jardín o en el campo.
 
-🔧 Instalación rápida y sencilla
+🔧 Instalación rápida y sencilla  
 En solo 3 pasos estás listo para cortar:
-1️⃣ Colocá la guía y la cadena en la rueda dentada
-2️⃣ Cerrá la tapa y ajustá la tuerca
+1️⃣ Colocá la guía y la cadena en la rueda dentada  
+2️⃣ Cerrá la tapa y ajustá la tuerca  
 3️⃣ Ajustá el tornillo con la llave incluida
 
-🌲 Ideal para múltiples tareas
-- Corte de troncos 🪵
-- Jardinería 🌿
+🌲 Ideal para múltiples tareas  
+- Corte de troncos 🪵  
+- Jardinería 🌿  
 - Poda de árboles 🌳
 
-⛓️ Cadena de alta calidad
+⛓️ Cadena de alta calidad  
 Cortes precisos y duraderos, incluso en madera dura.
 
-🛠️ Construcción robusta y confiable
+🛠️ Construcción robusta y confiable  
 Diseñada para resistir el uso intensivo sin perder rendimiento.`,
-    price: "$59.990",
-    image: motosierra,
-    detailImage: motosierradetalle,
-    tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil"],
-       stock: 2
-  },
-  {
-    id: 9,
-    name: "🧤🔦 Guantes con Linterna LED Luz Blanca",
-    description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda. Con un diseño innovador, son ideales para actividades al aire libre, bricolaje o cualquier situación que requiera buena iluminación.",
-    longDescription: `✨ Iluminación Eficiente: Equipados con una linterna LED de luz blanca fría, estos guantes ofrecen una iluminación potente que te permite ver en la oscuridad sin complicaciones. Con un modo de luz simple, iluminás cualquier espacio fácilmente, haciendo tus tareas nocturnas más seguras y prácticas.
-
-🧵 Material de Calidad:
-Fabricados en algodón con lycra, son suaves y flexibles, garantizando un ajuste cómodo y excelente rango de movimiento.
-
-🔧 Versatilidad y Prácticidad:
-Ya sea que estés trabajando en proyectos DIY, disfrutando de una caminata nocturna o necesites iluminar un área específica, estos guantes se adaptan a todas tus necesidades.`,
-    price: "$14.990",
-    image: guantesled,
-    detailImage: guantesleddetalle,
-    tags: ["Guantes", "LED", "Iluminación", "DIY"],
-       stock: 3
-  },
-  {
-    id: 10,
-    name: "Pulsera Muñequera Magnética Para Tornillos Y Herramientas",
-    description: "¡La aliada perfecta para tus proyectos de bricolaje, carpintería o mecánica! Esta muñequera magnética te permite tener tornillos, clavos, brocas y pequeñas herramientas siempre al alcance de la mano.",
-    longDescription: `🧲🔧 ¿Cansado de que se te caigan los tornillos mientras trabajás?
-Imaginá esto: estás en plena reparación, con la herramienta en una mano y… ¡zas! el tornillo rueda y desaparece.
-¡Frustrante! Pero con esta pulsera magnética, eso ya es cosa del pasado.
-
-💪 Imanes potentes integrados
-Ahora podés mantener tornillos, brocas, tuercas y clavos siempre al alcance, pegados firmemente a tu muñeca.
-
-🧗‍♂️ Ideal para espacios difíciles, escaleras o trabajos bajo el auto.
-Liviana, ajustable y cómoda, se adapta perfectamente sin estorbar.`,
-    price: "$14.990",
-    image: pulceramagnetica,
-    detailImage: pulceramagneticadetalle,
-    tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera"],
-       stock: 1
-  },
-  {
-    id: 11,
-    name: "🐾 Asiento Elevado para Mascotas – Pet Booster Seat 🐾",
-    description:` "🚘 ¡Llevá a tu mascota segura, cómoda y cerca tuyo en cada viaje!
+      price: "$59.990",
+      image: motosierra,
+      detailImage: motosierradetalle,
+      tags: ["Motosierra", "Eléctrica", "Jardinería", "Portátil", "Herramientas"],
+      category: "herramientas",
+      stock: 2
+    },
+    {
+      id: 9,
+      name: "🧤🔦 Guantes con Linterna LED Luz Blanca",
+      description: "Descubrí los Guantes con Linterna LED Luz Blanca, la solución perfecta para quienes buscan comodidad y funcionalidad en una sola prenda.",
+      longDescription: `Versátiles para actividades al aire libre y bricolaje.`,
+      price: "$14.990",
+      image: guantesled,
+      detailImage: guantesleddetalle,
+      tags: ["Guantes", "LED", "Iluminación", "DIY", "Herramientas"],
+      category: "tecnologia",
+      stock: 4
+    },
+    {
+      id: 10,
+      name: "Pulsera Muñequera Magnética Para Tornillos Y Herramientas",
+      description: "¡La aliada perfecta para tus proyectos de bricolaje, carpintería o mecánica!",
+      longDescription: "Imanes potentes integrados para tornillos, brocas, tuercas y clavos.",
+      price: "$14.990",
+      image: pulceramagnetica,
+      detailImage: pulceramagneticadetalle,
+      tags: ["Magnética", "Ajustable", "Ergonómica", "Portátil", "Duradera", "Herramientas"],
+      category: "herramientas",
+      stock: 3
+    },
+    {
+      id: 11,
+    name: "🐾 Asiento Elevado para Mascotas – Pet Booster Seat 🐾",
+    description:` "🚘 ¡Llevá a tu mascota segura, cómoda y cerca tuyo en cada viaje!
 Olvidate de las preocupaciones al conducir con tu perrito o gatito suelto. Este asiento especial se fija con correas ajustables al respaldo y base del asiento, manteniendo a tu mascota protegida y estable durante todo el trayecto. 💺✨",
-    longDescription: "Puedes disfrutarlo exclusivamente sin compartirlo con otros. Alta eficiencia y bajo consumo; puede haber variaciones estéticas entre lotes."`,
-     longDescription: `
+    longDescription: "Puedes disfrutarlo exclusivamente sin compartirlo con otros. Alta eficiencia y bajo consumo; puede haber variaciones estéticas entre lotes."`,
+     longDescription: `
 ✅ Correas ajustables – se adapta a cualquier coche con apoyacabezas
 ✅ Ideal para perros y gatos 🐶🐱
 ✅ Soporta hasta 12 kg
@@ -395,17 +405,18 @@ Olvidate de las preocupaciones al conducir con tu perrito o gatito suelto. Este 
 📏 Medidas aprox: 34 cm (ancho) × 25 cm (largo) × 18 cm (alto)
 💡 Ideal para viajes, paseos o visitas al veterinario.
 Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
-    price: "$34.990",
-    image: asientomascotas,
-    detailImage: [asientomascotasdetalle, asientomascotasdetalle1, asientomascotasdetalle2,asientomascotas],
-    tags: ["Asiento para mascotas", "Seguridad", "Comodidad", "Viajes"],
-     stock: 1
-  },
-  {
-   id: 12,
-      name: "FUNDA PROTECTORA DE AUTO PARA MASCOTA",
-      description: "IMPERMIABLE DE FACIL INTALACION Y GUARDADO Lleva a tu mejor amigo a todos lados sin llenar de pelos tu vehículo!",
-      longDescription: `🐶🚗 FUNDA PROTECTORA IMPERMEABLE PARA ASIENTO DE AUTO 🐾
+    price: "$34.990",
+    image: asientomascotas,
+    detailImage: [asientomascotasdetalle, asientomascotasdetalle1, asientomascotasdetalle2,asientomascotas],
+    tags: ["Asiento para mascotas", "Seguridad", "Comodidad", "Viajes"],
+    category: "mascotas",
+      stock: 1
+    },
+    {
+      id: 12,
+      name: "FUNDA PROTECTORA DE AUTO PARA MASCOTA",
+      description: "IMPERMIABLE DE FACIL INTALACION Y GUARDADO Lleva a tu mejor amigo a todos lados sin llenar de pelos tu vehículo!",
+      longDescription: `🐶🚗 FUNDA PROTECTORA IMPERMEABLE PARA ASIENTO DE AUTO 🐾
 
 💙 ¡Llevá a tu mejor amigo a todos lados sin llenar de pelos tu vehículo!
 
@@ -430,17 +441,18 @@ Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
 ✅ Puede usarse también para cubrir el baúl.
 ✅ Material impermeable y lavable en lavarropas.
 ✅ Ligera, plegable y fácil de transportar.`,
-      price: "$24.990",
-      image: cubreasiento,
-      detailImage: [cubreasientodetalle1, cubreasientodetalle2,cubreasientodetalle3,cubreasientodetalle4,cubreasientodetalle5],
-      tags: ["Impermeable", "Funda", "Protección", "Mascotas", "Auto"],
-      stock: 1
-  },
-  {
-    id: 13,
-    name: "Rastreador De Actividad Con Monitor De Ritmo Cardíaco Ip68",
-    description: `Rastreador de actividad física con monitor de ritmo cardíaco, contador de pasos/calorías, reloj inteligente monitor de sueño, IP68, rastreador de salud, podómetro para hombre y mujer`,
-    longDescription: `Tu compañero ideal para una vida activa y saludable 🏃‍♀️✨
+      price: "$24.990",
+      image: cubreasiento,
+      detailImage: [cubreasientodetalle1, cubreasientodetalle2,cubreasientodetalle3,cubreasientodetalle4,cubreasientodetalle5],
+      tags: ["Impermeable", "Funda", "Protección", "Mascotas", "Auto"],
+      category: "mascotas",
+      stock: 1
+    },
+    {
+      id: 13,
+    name: "Rastreador De Actividad Con Monitor De Ritmo Cardíaco Ip68",
+    description: `Rastreador de actividad física con monitor de ritmo cardíaco, contador de pasos/calorías, reloj inteligente monitor de sueño, IP68, rastreador de salud, podómetro para hombre y mujer`,
+    longDescription: `Tu compañero ideal para una vida activa y saludable 🏃‍♀️✨
 🌈 Multifunción para disfrutar al máximo:
 
 🕐 Recordatorio de horario
@@ -484,52 +496,53 @@ Cómodo, seguro y con estilo — ¡tu mejor copiloto lo merece! ❤️🐾`,
 
 ✨ Viví conectado, saludable y con estilo.
 Tu tiempo vale oro…`,
-    price: "$14.990",
-    image: fitnesswatch,
-    detailImage: [fitnesswatchdetalle1, fitnesswatchdetalle2, fitnesswatchdetalle3, fitnesswatchdetalle4, fitnesswatchdetalle5, fitnesswatchdetalle6, fitnesswatchdetalle7, fitnesswatchdetalle8],
-    tags: ["smartwatch", "Monitor de ritmo cardíaco", "Contador de pasos", "Rastreador de sueño", "IP68"],
-    stock: 1
-  },
-  {
-   id: 14,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
-  {
-   id: 15,
+    price: "$14.990",
+    image: fitnesswatch,
+    detailImage: [fitnesswatchdetalle1, fitnesswatchdetalle2, fitnesswatchdetalle3, fitnesswatchdetalle4, fitnesswatchdetalle5, fitnesswatchdetalle6, fitnesswatchdetalle7, fitnesswatchdetalle8],
+    tags: ["smartwatch", "Monitor de ritmo cardíaco", "Contador de pasos", "Rastreador de sueño", "IP68"],
+    category: "tecnologia",
+    stock: 1
+    },
+    {
+      id: 14,
+    name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+    description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+    longDescription:
+      `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
+
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+    price: "$34.990",
+    image: vasomusical,
+    detailImage: vasomusical1,
+       gallery: [
+    vasomusical1,
+    vasomusical2,
+    vasomusical3,
+    vasomusical4,
+    ],
+    tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+    stock: 1,
+    category: "tecnologia",
+    },
+    {
+      id: 15,
       name: "Placa Dental Para Bruxismo Deroyal",
       description: `Placa dental para bruxismo, diseñada para proteger tus dientes durante la noche. `,
       longDescription: `🦷 Placa Dental DeRoyal: Tu Escudo para un Descanso Placentero 🌙
@@ -538,16 +551,16 @@ Tu tiempo vale oro…`,
       image: placadental,
       detailImage: [placadental1, placadental2, placadental3, placadental4, placadental5, placadental6],
       tags: ["Placa dental", "Bruxismo", "Protección", "Salud dental", "Descanso"],
-      category: [ "salud", "hogar" ],
+      category: [ "salud"],
       stock: 10
-  },
-  {
-    id: 16,
-    name: "Peine Profesional Para Gatos Y Perros De Pelo Largo Amarillo",
-    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
-     ,
-    longDescription:
-       `🐾✨ ¡El Secreto para un Pelaje Impecable y Sin Nudos! ✨🐾
+    },
+    {
+       id: 16,
+    name: "Peine Profesional Para Gatos Y Perros De Pelo Largo Amarillo",
+    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
+     ,
+    longDescription:
+       `🐾✨ ¡El Secreto para un Pelaje Impecable y Sin Nudos! ✨🐾
 Descubrí el accesorio definitivo para el cuidado de tus mascotas. Este peine ergonómico está diseñado específicamente para mimar a perros y gatos de pelo largo, haciendo del cepillado una experiencia placentera.
 
 🔹 Diseño Ergonómico y Especializado 🐶🐱 Creado pensando en la comodidad, es perfecto para razas de pelo largo y denso (como Ragdoll). ¡Adaptado a sus necesidades!
@@ -559,21 +572,20 @@ Descubrí el accesorio definitivo para el cuidado de tus mascotas. Este peine er
 🔹 Fácil de Usar para Vos 👌🚿 Cuenta con un mango antideslizante que asegura un agarre cómodo y firme, facilitando la rutina de cuidado diario.
 
 🌟 ¡Transforma el momento del aseo en una experiencia relajante y feliz para tu compañero peludo! 🥰`,
-    price: "$10.990",
-    image: cepillomascota,
-    detailImage: [cepillomascota1, cepillomascota2, cepillomascota3],
-    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
-    stock: 5,
-    category: ["mascotas"],
-
-  },
-  {
-    id: 17,
-    name: "Removedor de pelo reutilizable para gatos y perros y muebles",
-    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
-     ,
-    longDescription:
-       `🛑🐶 ¡FIN A LOS PELOS EN TU HOGAR! 🐱🛑
+    price: "$10.990",
+    image: cepillomascota,
+    detailImage: [cepillomascota1, cepillomascota2, cepillomascota3, cepillomascota4],
+    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
+    stock: 5,
+    category: ["mascotas"],
+    },
+ {
+     id: 17,
+    name: "Removedor de pelo reutilizable para gatos y perros y muebles",
+    description:`Ideal para razas como ragdoll y otras de pelaje denso, este peine no solo ayuda a mantener a tu mascota impecable, sino que también fomenta la circulación sanguínea mientras alivia el estrés. Con un mango antideslizante, su uso es fácil y cómodo, haciéndolo una herramienta esencial para el cuidado diario de tus compañeros peludos`
+     ,
+    longDescription:
+       `🛑🐶 ¡FIN A LOS PELOS EN TU HOGAR! 🐱🛑
 RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
 (Aquí iría la imagen principal del producto en uso)
 
@@ -594,21 +606,19 @@ RODILLO QUITAPELOS REUTILIZABLE MULTISUPERFICIE
 
 🛒 ¡LA SOLUCIÓN DEFINITIVA PARA DUEÑOS DE MASCOTAS!
 ¡Pedí el tuyo hoy y disfrutá de una casa libre de pelos! 🏠✨`,
-    price: "$14.990",
-    image: cepillopelosmascotas,
-    detailImage: [cepillopelosmascotas1, cepillopelosmascotas2, cepillopelosmascotas3,],
-    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
-    stock: 5,
-    category: ["mascotas"],
-    
-  },
-
-  {
-   id: 18,
-       name: "BOLSO DE VIAJE QUE CABE EN TU BOLSILLO",
-       description: `LIGERO, RESISTENTE Y SÚPER ESPACIOSO`,
-       longDescription:
-         `Olvidate del equipaje pesado y voluminoso. ¡Llevá todo lo que necesitás sin ocupar espacio!
+    price: "$14.990",
+    image: cepillopelosmascotas,
+    detailImage: [cepillopelosmascotas1, cepillopelosmascotas2, cepillopelosmascotas3,],
+    tags: ["Peine", "Mascotas", "Cuidado", "Pelo largo", "Desenredar"],
+    stock: 5,
+    category: ["mascotas"],
+    },
+{
+   id: 18,
+       name: "BOLSO DE VIAJE QUE CABE EN TU BOLSILLO",
+       description: `LIGERO, RESISTENTE Y SÚPER ESPACIOSO`,
+       longDescription:
+         `Olvidate del equipaje pesado y voluminoso. ¡Llevá todo lo que necesitás sin ocupar espacio!
 
 📏 1. Diseño Inteligente y Plegable 🤏 ¡De gigante a diminuto en segundos! Pasa de un bolso de 45 x 30 cm a un estuche compacto de solo 21 x 18 cm. Cuando no lo usás, se pliega fácilmente ocupando un 90% menos de espacio que una valija vacía.
 
@@ -635,121 +645,107 @@ Incluye: 2 x Bolsa de Viaje (según paquete).
 
 🛒 ¡PREPARATE PARA TU PRÓXIMA AVENTURA!
 ¡Viajá liviano y con estilo! Pedí tu set hoy mismo. ✈️🌟`,
-       price: "$16.990",
-       image: bolsodeviaje,
-       detailImage: bolsodeviaje1,
-          gallery: [
-       bolsodeviaje1,
-       bolsodeviaje2,
-       bolsodeviaje3,
-       bolsodeviaje4,
-       bolsodeviaje5,
-       ],
-       tags: ["Bolso", "Viaje", "Plegable", "Ligero", "Resistente"],
-       stock: 1,
-       category: ["camping"],
+       price: "$16.990",
+       image: bolsodeviaje,
+       detailImage: bolsodeviaje1,
+          gallery: [
+       bolsodeviaje1,
+       bolsodeviaje2,
+       bolsodeviaje3,
+       bolsodeviaje4,
+       bolsodeviaje5,
+       ],
+       tags: ["Bolso", "Viaje", "Plegable", "Ligero", "Resistente"],
+       stock: 1,
+       category: ["camping"],
+  },
+
+  {
+    id: 19,
+    name: "PERFUME HERO FOR MEN - FRAGANCIA MASCULINA PREMIUM",
+    description: "Fragancia masculina de 100ml con notas amaderadas y frescas. Ideal para el hombre moderno.",
+    longDescription: `✨ 1. Esencia Masculina 🛡️ Una fragancia que combina fuerza y frescura. Notas de salida cítricas con un corazón amaderado que impone presencia.
+      
+      ⏳ 2. Alta Duración 🔥 Formulación premium diseñada para acompañarte durante todo el día. Excelente fijación en piel y ropa.
+      
+      💼 3. Versatilidad 😎 Perfecto tanto para una reunión de oficina como para una salida casual. Es el equilibrio justo entre elegancia y energía.
+      
+      🎁 4. Presentación Impecable 📦 Envase de vidrio reforzado con atomizador de alta precisión. Un diseño sobrio que destaca en cualquier estante.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      ⏱️ Duración estimada: 6 a 8 horas (según pH).
+      📏 Capacidad: 100ml.
+      🌿 Familia Olfativa: Amaderado Aromático.
+      📡 Tipo: Eau de Parfum.`,
+    price: "$15.000",
+    image: hero,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf3, miniperf4],
+    tags: ["Perfume", "Hombre", "Fragancia", "Masculino", "Hero"],
+    stock: 2,
+    category: ["perfumeria", "hombres"],
   },
-
-  {
-   id: 19,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
-
-  {
-   id: 20,
-       name: "Máquina recargable USB parlante de aprendizaje con tarjetas bilingüe (Español - Inglés)",
-       description: `Convierte el aprendizaje en una experiencia divertida y enriquecedora para tus hijos con nuestras flash cards bilingües`,
-       longDescription:
-         `🎓🗣️ ¡Lector Interactivo Bilingüe Inglés/Español! Aprende 224 Palabras Jugando 🇬🇧🇪🇸
-¡Convierte el aprendizaje de idiomas en la experiencia más divertida para tus hijos! 🚀
-
-🚚💨 ¡Disponibilidad inmediata para envío! 📦 Realizamos envíos a nivel nacional.
-
-🎁 CON TU COMPRA RECIBES EL KIT COMPLETO:
-Este paquete incluye todo lo necesario para empezar a aprender: 🔹 1 Lector de tarjetas Flash Card 🔊 (¡Del color que seleccionaste! 🎨) 🔹 112 Tarjetas interactivas de doble cara 🃏 (¡Un total de 224 PALABRAS para aprender! 🔤) 🔹 1 Cable de carga tipo USB 🔋. 🔹 Caja e instrucciones de uso 📖.
-
-✨ DETALLES Y BENEFICIOS DEL PRODUCTO ✨
-Este lector es mucho más que un juguete, ¡es una herramienta de desarrollo!
-
-🧠 Estimulación Cognitiva: Convierte el aprendizaje en una experiencia enriquecedora, estimulando el cerebro y fomentando la creatividad desde temprana edad 💡.
-
-🗣️ Poder Bilingüe: Tus hijos podrán aprender nuevas palabras, ampliar drásticamente su vocabulario y mejorar sus habilidades de comunicación tanto en inglés como en español.
-
-🛡️ Seguridad Primero: Nuestros juguetes son 100% seguros, duraderos y están diseñados específicamente pensando en el aprendizaje temprano 👶.
-
-🌈 Diseño Atractivo: Las tarjetas tienen un diseño colorido que capta la atención de los niños al instante, facilitando su participación y manteniéndolos motivados mientras juegan y aprenden.
-
-⚙️ ESPECIFICACIONES TÉCNICAS:
-🛠️ Material: Plástico resistente ABS y componentes electrónicos de calidad.
-
-📏 Tamaño portátil: Compacto y fácil de sostener (11 x 9 x 3 cms).
-
-📦 Empaque: Se entrega en caja sellada.
-
-¡Dale a tus hijos el regalo del bilingüismo y la diversión! 🥳📚`,
-       price: "$25.990",
-       image: puzzleinteractivo,
-       detailImage: puzzleinteractivo1,
-          gallery: [
-       
-        puzzleinteractivo2,
-        puzzleinteractivo3,
-        puzzleinteractivo4,
-        puzzleinteractivo5,
-        puzzleinteractivo6,
-        
-
-       ],
-       tags: ["juego", "bilingüe", "educativo", "niños", "aprendizaje"],
-       stock: 5,
-       category: ["juegos","regalos"],
-  },
-
-  {
-   id: 21,
-       name: "Set X 3 Perfumes Arabes Originales",
-       description: `Set x 3 perfumes árabes originales en versión Body Spray de 200ml.`,
-       longDescription:
-         `:
+  {
+  id: 20,
+         name: "Máquina recargable USB parlante de aprendizaje con tarjetas bilingüe (Español - Inglés)",
+         description: `Convierte el aprendizaje en una experiencia divertida y enriquecedora para tus hijos con nuestras flash cards bilingües`,
+         longDescription:
+           `🎓🗣️ ¡Lector Interactivo Bilingüe Inglés/Español! Aprende 224 Palabras Jugando 🇬🇧🇪🇸
+  ¡Convierte el aprendizaje de idiomas en la experiencia más divertida para tus hijos! 🚀
+  
+  🚚💨 ¡Disponibilidad inmediata para envío! 📦 Realizamos envíos a nivel nacional.
+  
+  🎁 CON TU COMPRA RECIBES EL KIT COMPLETO:
+  Este paquete incluye todo lo necesario para empezar a aprender: 🔹 1 Lector de tarjetas Flash Card 🔊 (¡Del color que seleccionaste! 🎨) 🔹 112 Tarjetas interactivas de doble cara 🃏 (¡Un total de 224 PALABRAS para aprender! 🔤) 🔹 1 Cable de carga tipo USB 🔋. 🔹 Caja e instrucciones de uso 📖.
+  
+  ✨ DETALLES Y BENEFICIOS DEL PRODUCTO ✨
+  Este lector es mucho más que un juguete, ¡es una herramienta de desarrollo!
+  
+  🧠 Estimulación Cognitiva: Convierte el aprendizaje en una experiencia enriquecedora, estimulando el cerebro y fomentando la creatividad desde temprana edad 💡.
+  
+  🗣️ Poder Bilingüe: Tus hijos podrán aprender nuevas palabras, ampliar drásticamente su vocabulario y mejorar sus habilidades de comunicación tanto en inglés como en español.
+  
+  🛡️ Seguridad Primero: Nuestros juguetes son 100% seguros, duraderos y están diseñados específicamente pensando en el aprendizaje temprano 👶.
+  
+  🌈 Diseño Atractivo: Las tarjetas tienen un diseño colorido que capta la atención de los niños al instante, facilitando su participación y manteniéndolos motivados mientras juegan y aprenden.
+  
+  ⚙️ ESPECIFICACIONES TÉCNICAS:
+  🛠️ Material: Plástico resistente ABS y componentes electrónicos de calidad.
+  
+  📏 Tamaño portátil: Compacto y fácil de sostener (11 x 9 x 3 cms).
+  
+  📦 Empaque: Se entrega en caja sellada.
+  
+  ¡Dale a tus hijos el regalo del bilingüismo y la diversión! 🥳📚`,
+         price: "$25.990",
+         image: puzzleinteractivo,
+         detailImage: puzzleinteractivo1,
+            gallery: [
+         
+          puzzleinteractivo2,
+          puzzleinteractivo3,
+          puzzleinteractivo4,
+          puzzleinteractivo5,
+          puzzleinteractivo6,
+          
+  
+         ],
+         tags: ["juego", "bilingüe", "educativo", "niños", "aprendizaje"],
+         stock: 5,
+         category: ["regalos"],
+  },
+  
+   {
+      id: 21,
+       name: "Set X 3 Perfumes Arabes Originales",
+       description: `Set x 3 perfumes árabes originales en versión Body Spray de 200ml.`,
+       longDescription:
+         `:
 ​✨ ¡LLEGÓ LA TENDENCIA DE DUBAI A ARGENTINA! ✨
 Llevate los perfumes más virales de las redes en su versión Body Spray de 200ml. Lujo, duración y estela increíble a un precio accesible.
 ​👇 ELEGÍ TU AROMA IDEAL:
 ​🖤 ASAD (Negro) - EL REY DE LA NOCHE
-Para él. Un aroma poderoso y especiado.
+​Para él. Un aroma poderoso y especiado.
 ​Huele a: Pimienta, tabaco y vainilla.
 ​Ideal para: Salidas nocturnas, citas o para dejar huella donde vayas.
 ​🌸 YARA (Rosa) - LA FAVORITA DE TODAS
@@ -765,61 +761,46 @@ Para él. Un aroma poderoso y especiado.
 ​Envases grandes de 200ml (Duran muchísimo).
 ​Envíos rápidos y seguros a todo el país 🚛.
 ​👉 ¡SELECCIONÁ TU VARIANTE ARRIBA Y COMPRÁ AHORA!`,
-       price: "$51.990",
-       image: setperfumes1,
-       detailImage: setperfumes2,
-          gallery: [
-       setperfumes2,
-       setperfumes3,
-       setperfumes4,
-       setperfumes5,
-       ],
-       tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
-       stock: 3,
-       category: ["salud"],
+       price: "$51.990",
+       image: setperfumes1,
+       detailImage: setperfumes2,
+          gallery: [
+       setperfumes2,
+       setperfumes3,
+       setperfumes4,
+       setperfumes5,
+       ],
+       tags: ["Perfumes", "Árabes", "Originales", "Body Spray", "Set x3"],
+       stock: 1,
+       category: ["regalos" ,"salud"],
+   },
+ {
+    id: 22,
+    name: "PERFUME 2i2 VIP MEN JOIN THE CLUB",
+    description: "Aroma carismático y elegante de 100ml. Inspirado en la exclusividad nocturna de Nueva York.",
+    longDescription: `✨ 1. Estilo Exclusivo 🍸 Inspirado en la élite neoyorquina. Una fragancia para el hombre que no sigue reglas, las crea.
+      
+      ❄️ 2. Notas Vibrantes 🔥 Contiene toques de lima, caviar de cítricos y pimienta negra. Un aroma picante pero sofisticado.
+      
+      🌃 3. Ideal para la Noche 🌙 Su estela magnética es perfecta para eventos nocturnos, fiestas y ocasiones especiales donde querés destacar.
+      
+      🔊 4. Envase Icónico 🔝 Diseño moderno y minimalista que refleja el espíritu joven y audaz de la línea VIP.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      ⏱️ Rendimiento: Alta intensidad y fijación.
+      📏 Capacidad: 100ml.
+      🎨 Estilo: Oriental Amaderado.
+      📡 Conexión: Aroma que conecta con tu personalidad.`,
+    price: "$15.000",
+    image: miniperf3,
+    detailImage: miniperf3,
+    gallery: [miniperf1, miniperf3, miniperf4],
+    tags: ["Perfume", "VIP", "Hombre", "Noche", "Elegante"],
+    stock: 2,
+    category: ["perfumeria", "hombres"],
   },
-
-  {
-   id: 22,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
-
-  {
-   id: 23,
+  {
+   id: 23,
        name: "Vaporizador Facial Profesional Ozono y Iones Frío y Calor 2 En 1",
        description: `Vaporizador facial profesional con ozono e iones frío y calor.`,
        longDescription:
@@ -862,48 +843,48 @@ Color: Blanco con detalles en lila.`,
        tags: [ "Vaporizador", "Facial", "Ozono", "Iones", "Calor", "Frío"],
        stock: 4,
        category: ["estética"],
-  },
+  },
 
-  {
-   id: 24,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-   
-   ❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-   
-   🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-   
-   🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-   
-   🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-   
-   ⚙️ CARACTERÍSTICAS TÉCNICAS
-   ⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-   
-   📏 Capacidad: 16oz (Aprox. 473ml).
-   
-   🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-   
-   💡 Efecto de iluminación: Luces LED integradas.
-   
-   📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
+  {
+   id: 24,
+       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
+       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
+       longDescription:
+         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
 
-  {
+❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
+
+🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
+
+🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
+
+🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
+
+⚙️ CARACTERÍSTICAS TÉCNICAS
+⏱️ Rendimiento de aislamiento: 6 a 12 horas.
+
+📏 Capacidad: 16oz (Aprox. 473ml).
+
+🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
+
+💡 Efecto de iluminación: Luces LED integradas.
+
+📡 Conexión: Bluetooth compatible con todos los dispositivos`,
+       price: "$34.990",
+       image: vasomusical,
+       detailImage: vasomusical1,
+          gallery: [
+       vasomusical1,
+       vasomusical2,
+       vasomusical3,
+       vasomusical4,
+       ],
+       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
+       stock: 1,
+       category: ["camping","auto"],
+  },
+
+  {
     id: 25,
     name: "PERFUME 919 VIP FEMME - JOIN THE CLUB!",
     description: "Fragancia femenina sofisticada y urbana de 100ml. Un tributo a la creatividad y confianza.",
@@ -921,9 +902,9 @@ Color: Blanco con detalles en lila.`,
       💡 Ocasión: Diario y eventos especiales.
       📡 Calidad: Premium con gran proyección.`,
     price: "$15.000",
-    image: vipFemme,
-    detailImage: vipFemme1,
-    gallery: [vipFemme1, vipFemme2],
+    image: miniperf4,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Mujer", "Femenino", "VIP", "Dulce"],
     stock: 2,
     category: ["perfumeria", "mujeres"],
@@ -943,9 +924,9 @@ Color: Blanco con detalles en lila.`,
       🎨 Estilo: Especiado / Cuero.
       ⏱️ Duración: 6 a 10 horas.`,
     price: "$15.000",
-    image: okRock,
-    detailImage: okRock1,
-    gallery: [okRock1, okRock2],
+    image: okrock,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Rock", "Hombre", "Audaz"],
     stock: 2,
     category: ["perfumeria", "hombres"],
@@ -965,9 +946,9 @@ Color: Blanco con detalles en lila.`,
       🎨 Familia: Oriental Floral.
       🎁 Ideal para: Regalo de lujo.`,
     price: "$15.000",
-    image: dreamRed,
-    detailImage: dreamRed1,
-    gallery: [dreamRed1, dreamRed2],
+    image: dream,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Mujer", "Dream", "Zapato", "Dulce"],
     stock: 2,
     category: ["perfumeria", "mujeres"],
@@ -987,9 +968,9 @@ Color: Blanco con detalles en lila.`,
       🌿 Notas: Pomelo, Hojas de Laurel, Ámbar gris.
       ⏱️ Fijación: Extrema.`,
     price: "$15.000",
-    image: invincibleTriumph,
-    detailImage: invincibleTriumph1,
-    gallery: [invincibleTriumph1, invincibleTriumph2],
+    image: invincible,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Hombre", "Invincible", "Victorioso"],
     stock: 2,
     category: ["perfumeria", "hombres"],
@@ -1009,9 +990,9 @@ Color: Blanco con detalles en lila.`,
       🎨 Familia: Floral Blanca / Dulce.
       💡 Efecto: Estela de larga duración.`,
     price: "$15.000",
-    image: ladyLuxury,
-    detailImage: ladyLuxury1,
-    gallery: [ladyLuxury1, ladyLuxury2],
+    image: ladyluxury,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Mujer", "Lujo", "Elegante"],
     stock: 2,
     category: ["perfumeria", "mujeres"],
@@ -1031,9 +1012,9 @@ Color: Blanco con detalles en lila.`,
       🎨 Estilo: Cítrico / Fresco.
       📡 Recomendación: Aplicar en puntos de pulso.`,
     price: "$15.000",
-    image: newYork,
-    detailImage: newYork1,
-     gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
+    image: oknewyork,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Clásico", "Fresco", "New York", "Unisex"],
     stock: 2,
     category: ["perfumeria", "unisex"],

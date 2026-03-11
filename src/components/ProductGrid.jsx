@@ -114,8 +114,12 @@ import miniperf1   from "../components/assets/miniperf1.jpeg";
 import miniperf2 from "../components/assets/miniperf2.jpeg"; 
 import miniperf3 from "../components/assets/miniperf3.jpeg";
 import miniperf4 from "../components/assets/miniperf4.jpeg";
-
-
+import hero from "../components/assets/hero.jpeg";
+import oknewyork from "../components/assets/oknewyork.jpeg";
+import ladyluxury from "../components/assets/ladyluxury.jpeg";
+import invincible from "../components/assets/invincible.jpeg";
+import dream from "../components/assets/dream.jpeg";
+import okrock from "../components/assets/okrock.jpeg";
 
 
 /* =======================
@@ -931,44 +935,30 @@ Incluye: 2 x Bolsa de Viaje (según paquete).
   },
 
   {
-   id: 19,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-
-❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-
-🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-
-🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-
-🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-
-⚙️ CARACTERÍSTICAS TÉCNICAS
-⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-
-📏 Capacidad: 16oz (Aprox. 473ml).
-
-🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-
-💡 Efecto de iluminación: Luces LED integradas.
-
-📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-  },
-
+    id: 19,
+    name: "PERFUME HERO FOR MEN - FRAGANCIA MASCULINA PREMIUM",
+    description: "Fragancia masculina de 100ml con notas amaderadas y frescas. Ideal para el hombre moderno.",
+    longDescription: `✨ 1. Esencia Masculina 🛡️ Una fragancia que combina fuerza y frescura. Notas de salida cítricas con un corazón amaderado que impone presencia.
+      
+      ⏳ 2. Alta Duración 🔥 Formulación premium diseñada para acompañarte durante todo el día. Excelente fijación en piel y ropa.
+      
+      💼 3. Versatilidad 😎 Perfecto tanto para una reunión de oficina como para una salida casual. Es el equilibrio justo entre elegancia y energía.
+      
+      🎁 4. Presentación Impecable 📦 Envase de vidrio reforzado con atomizador de alta precisión. Un diseño sobrio que destaca en cualquier estante.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      ⏱️ Duración estimada: 6 a 8 horas (según pH).
+      📏 Capacidad: 100ml.
+      🌿 Familia Olfativa: Amaderado Aromático.
+      📡 Tipo: Eau de Parfum.`,
+    price: "$15.000",
+    image: hero,
+    detailImage: miniperf1,
+    gallery: [miniperf1, miniperf3, miniperf4],
+    tags: ["Perfume", "Hombre", "Fragancia", "Masculino", "Hero"],
+    stock: 2,
+    category: ["perfumeria", "hombres"],
+  },
   {
   id: 20,
          name: "Máquina recargable USB parlante de aprendizaje con tarjetas bilingüe (Español - Inglés)",
@@ -1058,45 +1048,31 @@ Llevate los perfumes más virales de las redes en su versión Body Spray de 200m
        stock: 1,
        category: ["regalos" ,"salud"],
    },
-  {
-   id: 22,
-       name: "VASO TÉRMICO DE ACERO INOXIDABLE CON PARLANTE Y ABREBOTELLA INCLUIDO",
-       description: `Vaso térmico 500ml con parlante Bluetooth, abrebotellas y diseño resistente.`,
-       longDescription:
-         `✨ 1. Material Premium 🛡️ Revestimiento interior de acero inoxidable respetuoso con el medio ambiente. Calidad de grado alimenticio con vacío de doble capa para máxima resistencia.
-
-❄️ 2. Aislamiento Superior 🔥 ¡Disfrutá tus bebidas como te gustan! Mantiene frío y calor por horas. Cuenta con sellado seguro a prueba de fugas y una cómoda boca de copa redonda.
-
-🍺 3. Diseño Inteligente 😎 ¿Olvidaste el destapador? ¡No hay problema! La tapa incluye un abrebotellas incorporado, super conveniente y rápido para tus reuniones.
-
-🔊 4. Sonido Inalámbrico Bluetooth 📲 Sistema de sonido integrado en la base. Conectá tu celular por Bluetooth y reproducí tu música favorita en cualquier momento y lugar. ¡El parlante es removible para lavar el vaso!
-
-🏕️ 5. Para Todo Momento 🚗 Ideal para uso en exteriores, hogar, oficina, reuniones o en el auto. ¡Llevalo a donde vayas!
-
-⚙️ CARACTERÍSTICAS TÉCNICAS
-⏱️ Rendimiento de aislamiento: 6 a 12 horas.
-
-📏 Capacidad: 16oz (Aprox. 473ml).
-
-🎨 Colores disponibles: ⚫ Negro / ⚪ Blanco / 🔵 Azul / 🟣 Púrpura.
-
-💡 Efecto de iluminación: Luces LED integradas.
-
-📡 Conexión: Bluetooth compatible con todos los dispositivos`,
-       price: "$34.990",
-       image: vasomusical,
-       detailImage: vasomusical1,
-          gallery: [
-       vasomusical1,
-       vasomusical2,
-       vasomusical3,
-       vasomusical4,
-       ],
-       tags: ["Vaso", "Térmico", "Bluetooth", "Parlante", "Abrebotellas"],
-       stock: 1,
-       category: ["camping","auto"],
-   },
-
+ {
+    id: 22,
+    name: "PERFUME 2i2 VIP MEN JOIN THE CLUB",
+    description: "Aroma carismático y elegante de 100ml. Inspirado en la exclusividad nocturna de Nueva York.",
+    longDescription: `✨ 1. Estilo Exclusivo 🍸 Inspirado en la élite neoyorquina. Una fragancia para el hombre que no sigue reglas, las crea.
+      
+      ❄️ 2. Notas Vibrantes 🔥 Contiene toques de lima, caviar de cítricos y pimienta negra. Un aroma picante pero sofisticado.
+      
+      🌃 3. Ideal para la Noche 🌙 Su estela magnética es perfecta para eventos nocturnos, fiestas y ocasiones especiales donde querés destacar.
+      
+      🔊 4. Envase Icónico 🔝 Diseño moderno y minimalista que refleja el espíritu joven y audaz de la línea VIP.
+      
+      ⚙️ CARACTERÍSTICAS TÉCNICAS
+      ⏱️ Rendimiento: Alta intensidad y fijación.
+      📏 Capacidad: 100ml.
+      🎨 Estilo: Oriental Amaderado.
+      📡 Conexión: Aroma que conecta con tu personalidad.`,
+    price: "$15.000",
+    image: miniperf3,
+    detailImage: miniperf3,
+    gallery: [miniperf1, miniperf3, miniperf4],
+    tags: ["Perfume", "VIP", "Hombre", "Noche", "Elegante"],
+    stock: 2,
+    category: ["perfumeria", "hombres"],
+  },
   {
    id: 23,
        name: "Vaporizador Facial Profesional Ozono y Iones Frío y Calor 2 En 1",
@@ -1200,7 +1176,7 @@ Color: Blanco con detalles en lila.`,
       💡 Ocasión: Diario y eventos especiales.
       📡 Calidad: Premium con gran proyección.`,
     price: "$15.000",
-    image: miniperf1,
+    image: miniperf4,
     detailImage: miniperf1,
     gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Mujer", "Femenino", "VIP", "Dulce"],
@@ -1222,7 +1198,7 @@ Color: Blanco con detalles en lila.`,
       🎨 Estilo: Especiado / Cuero.
       ⏱️ Duración: 6 a 10 horas.`,
     price: "$15.000",
-    image: miniperf1,
+    image: okrock,
     detailImage: miniperf1,
     gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Rock", "Hombre", "Audaz"],
@@ -1244,7 +1220,7 @@ Color: Blanco con detalles en lila.`,
       🎨 Familia: Oriental Floral.
       🎁 Ideal para: Regalo de lujo.`,
     price: "$15.000",
-    image: miniperf1,
+    image: dream,
     detailImage: miniperf1,
     gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Mujer", "Dream", "Zapato", "Dulce"],
@@ -1266,7 +1242,7 @@ Color: Blanco con detalles en lila.`,
       🌿 Notas: Pomelo, Hojas de Laurel, Ámbar gris.
       ⏱️ Fijación: Extrema.`,
     price: "$15.000",
-    image: miniperf1,
+    image: invincible,
     detailImage: miniperf1,
     gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Hombre", "Invincible", "Victorioso"],
@@ -1288,7 +1264,7 @@ Color: Blanco con detalles en lila.`,
       🎨 Familia: Floral Blanca / Dulce.
       💡 Efecto: Estela de larga duración.`,
     price: "$15.000",
-    image: miniperf1,
+    image: ladyluxury,
     detailImage: miniperf1,
     gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Mujer", "Lujo", "Elegante"],
@@ -1310,7 +1286,7 @@ Color: Blanco con detalles en lila.`,
       🎨 Estilo: Cítrico / Fresco.
       📡 Recomendación: Aplicar en puntos de pulso.`,
     price: "$15.000",
-    image: miniperf1,
+    image: oknewyork,
     detailImage: miniperf1,
     gallery: [miniperf1, miniperf2, miniperf3, miniperf4],
     tags: ["Perfume", "Clásico", "Fresco", "New York", "Unisex"],
